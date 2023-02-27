@@ -1,9 +1,9 @@
 ---
 layout: default
-title: UI Components
 nav_order: 3
 has_children: true
 permalink: /ui-components
+nav_exclude: true
 ---
 
 # UI Components

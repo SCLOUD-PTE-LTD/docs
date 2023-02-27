@@ -11,9 +11,7 @@ permalink: /public-cloud/compute/uk8s/
 
 SCloud Container Service for Kubernetes (UK8S) is a Kubernetes-based container management service. You can deploy, manage, and expand your containerized applications on UK8S without worrying about the operation and maintenance of the Kubernetes cluster itself. UK8S is fully compatible with native Kubernetes API, based on SCloud private network, and integrates cloud products such as ULB, UDisk, EIP, VPC, etc.
 
-## 1.2.1
-
-### About Kubernetes
+## 1.2.1 About Kubernetes
 
 Kubernetes (k8s) is an operating system for automated deployment, expansion, and management of containerized applications. It has reached a production-level container orchestration and management platform. Using K8S, you will get the following benefits:
 
@@ -33,21 +31,17 @@ According to CPU or other indicators, automatically adjust the number of copies 
 
 Supports multiple deployment scenarios, and can quickly roll back to the previous version when an error occurs.
 
-## 1.2.2
-
-### Basic Concept
+## 1.2.2 Basic Concept
 
 The above picture is a summary Kubernetes architecture, including ApiServer, Master, Node, Hub (Image Warehouse) and other concepts, let us give a brief introduction in turn.
-|  |  |
+| Component | Description |
 | --- | --- |
 | ApiServer | ApiServer is the only entry point for operating the cluster, and provides mechanisms for authentication, authorization, access control, API registration, and discovery. ApiServer runs as a component on the Master. |
 | Node | Node is the working node of Kubernetes, which contains the services required to run Pod. Node can be a virtual machine or a physical machine. In UK8S, currently only the virtual machine that is UHost is supported. |
-| Master | Master is also a working node of Kubernetes. Unlike Node, Master usually does not run business Pods, but installs components such as ApiServer, Scheduler, Controller Manager, Cloud Controller Manager, ETCD, etc. for controlling and managing the cluster. |
+| Master (Controlplane) | Master is also a working node of Kubernetes. Unlike Node, Master usually does not run business Pods, but installs components such as ApiServer, Scheduler, Controller Manager, Cloud Controller Manager, ETCD, etc. for controlling and managing the cluster. |
 | Hub Image Warehouse | Hub provides Docker image management, storage, and distribution capabilities. |
 
-## 1.2.3
-
-### Product Advantages
+## 1.2.3 Product Advantages
 
 |   | UK8S | Self-built |
 | --- | --- | --- |
@@ -58,9 +52,7 @@ The above picture is a summary Kubernetes architecture, including ApiServer, Mas
 | Using K8S | Provide web terminal; provide a graphical management interface consistent with cloud products; | Install kubectl by yourself; install dashboard by yourself; |
 | Technical Support | The K8S expert team provides 7\*24 hours technical support all year round; provides guidance for business migration from VM to K8S, and uses specifications; | Learn and explore on your own; |
 
-## 1.2.4
-
-### Product Features
+## 1.2.4 Product Features
 
 - Automated cluster deployment and operation and maintenance
 
