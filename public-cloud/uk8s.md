@@ -5,9 +5,7 @@ parent: Compute
 grand_parent: Public Cloud
 permalink: /public-cloud/compute/uk8s/
 ---
-# 1.2
-
-## UK8S Container Cloud
+# 1.2 UK8S Container Cloud
 
 SCloud Container Service for Kubernetes (UK8S) is a Kubernetes-based container management service. You can deploy, manage, and expand your containerized applications on UK8S without worrying about the operation and maintenance of the Kubernetes cluster itself. UK8S is fully compatible with native Kubernetes API, based on SCloud private network, and integrates cloud products such as ULB, UDisk, EIP, VPC, etc.
 
@@ -38,7 +36,7 @@ The above picture is a summary Kubernetes architecture, including ApiServer, Mas
 | --- | --- |
 | ApiServer | ApiServer is the only entry point for operating the cluster, and provides mechanisms for authentication, authorization, access control, API registration, and discovery. ApiServer runs as a component on the Master. |
 | Node | Node is the working node of Kubernetes, which contains the services required to run Pod. Node can be a virtual machine or a physical machine. In UK8S, currently only the virtual machine that is UHost is supported. |
-| Master (Controlplane) | Master is also a working node of Kubernetes. Unlike Node, Master usually does not run business Pods, but installs components such as ApiServer, Scheduler, Controller Manager, Cloud Controller Manager, ETCD, etc. for controlling and managing the cluster. |
+| Master (ControlPlane) | Master is also a working node of Kubernetes. Unlike Node, Master usually does not run business Pods, but installs components such as ApiServer, Scheduler, Controller Manager, Cloud Controller Manager, ETCD, etc. for controlling and managing the cluster. |
 | Hub Image Warehouse | Hub provides Docker image management, storage, and distribution capabilities. |
 
 ## 1.2.3 Product Advantages
