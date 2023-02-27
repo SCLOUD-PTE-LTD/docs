@@ -6,3 +6,5 @@ parent: Public Cloud
 ---
 
 # Compute
+
+Scloud offers reliable, scalable, and inexpensive cloud computing services.
