@@ -2,6 +2,7 @@
 layout: default
 title: 1.1 UHost Cloud Compute Instance
 has_children: true
+parent: 1. Compute
 ---
 
 # 1.1 UHost Cloud Compute Instance
