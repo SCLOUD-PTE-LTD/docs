@@ -37,13 +37,13 @@ Network	| Network enhancement 1.0/Network enhancement 2.0 (only Skylake and abov
 
 | CPU | RAM |
 | --- | --- |
-| 1-core | 1G, 2G, 4G, 8G |
-| 2-core | 2G, 4G, 6G, 8G, 12G, 16G |
-| 4-core | 4G, 6G, 8G, 12G, 16G, 32G |
-| 8-core | 8G, 12G, 16G, 24G, 32G, 48G, 64G |
-| 16-core | 16G, 24G, 32G, 48G, 64G, 128G |
-| 24-core | 24G, 32G, 64G, 96G, 192G |
-| 32-core | 32G, 64G, 96G, 128G |
+| 1 core | 1G, 2G, 4G, 8G |
+| 2 core | 2G, 4G, 6G, 8G, 12G, 16G |
+| 4 core | 4G, 6G, 8G, 12G, 16G, 32G |
+| 8 core | 8G, 12G, 16G, 24G, 32G, 48G, 64G |
+| 16 core | 16G, 24G, 32G, 48G, 64G, 128G |
+| 24 core | 24G, 32G, 64G, 96G, 192G |
+| 32 core | 32G, 64G, 96G, 128G |
 
 - Disk type support: support cloud disk, Standard local disk, SSD local disk
 
@@ -66,9 +66,9 @@ Specific selection range:
 | CPU | RAM |
 | --- | --- |
 | 1 core | 1G, 2G, 4G, 8G |
-| 2 cores | 2G, 4G, 8G, 16G |
-| 4 Nuclear | 4G, 8G, 16G, 32G |
-| 8-core | 8G, 16G, 32G, 64G |
+| 2 core | 2G, 4G, 8G, 16G |
+| 4 core | 4G, 8G, 16G, 32G |
+| 8 core | 8G, 16G, 32G, 64G |
 | 16 core | 16G, 32G, 64G, 128G |
 | 32 core | 32G, 64G, 128G |
 
@@ -92,8 +92,8 @@ The latest generation of cloud hosts with excellent computing, storage and netwo
 
 | CPU | RAM |
 | --- | --- |
-| 4 Nuclear | 4G, 8G, 16G, 32G |
-| 8-core | 8G, 16G, 32G, 64G |
+| 4 core | 4G, 8G, 16G, 32G |
+| 8 core | 8G, 16G, 32G, 64G |
 | 16 core | 16G, 32G, 64G, 128G |
 | 32 core | 32G, 64G, 128G, 256G |
 | 64 core | 64G, 128G, 256G |
