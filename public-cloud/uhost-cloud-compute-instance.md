@@ -2,6 +2,7 @@
 layout: default
 title: UHost Cloud Compute Instance
 parent: Compute
+grand_parent: Public Cloud
 permalink: /public-cloud/compute/uhost/
 ---
 
