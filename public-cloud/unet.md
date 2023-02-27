@@ -10,12 +10,12 @@ nav_order: 1
 # Elastic IP addresses on the Internet
 ## Product introduction
 
-SCloud ExternalElastic IP (EIP)is an Internet standard static IP Address. Serve the external elastic IP address with the cloud host UHost, load balancing ULB, NATgateway, etc.
+SCloud ExternalElastic IP (EIP) is an Internet standard static IP Address. Serve the external elastic IP address with the cloud host UHost, load balancing ULB, NATgateway, etc.
 The service can provide the services with the ability to access the external network.
 
 ## Billing method introduction
 
-In the SCloud cloud platform,users can select different bandwidth usage patterns for each EIP in the account. At present, all regions in the cloud platform can provide **standard** bandwidth, **traffic** billing **,** shared **bandwidth** , and **Bandwidth** postpaid **billing** methods such as billing. For details on the rules for the recovery of overdue resources, see Recovery of expired resources.
+In the SCloud cloud platform,users can select different bandwidth usage patterns for each EIP in the account. At present, all regions in the cloud platform can provide **standard** bandwidth, **traffic** billing, shared **bandwidth**, and **Bandwidth** postpaid **billing** methods such as billing. For details on the rules for the recovery of overdue resources, see Recovery of expired resources.
 
 ### Bandwidth billing
 
@@ -25,7 +25,7 @@ When you purchase an elastic IP address for bandwidth billing, you should purcha
 
 When purchasing elasticIP addresses, you can choose to set the "egress" bandwidth cap, according to the unit price of different regions IP production "outbound traffic" is billed after midnight every day, and the specific billing is carried out Information can be seen below the monitoring icon on the EIP Details page. If you select this billing method, the public IP address (naked-IP) is charged, excluding bandwidth fees with.
 
-**Traffic billing restrictions**
+### Traffic billing restrictions
 
 The restrictions will take effect at 00:00 on December 1, 2021
 
@@ -43,9 +43,9 @@ If you select this billing method, the public IP address (nakedIP) is free of ch
 
 The fee is charged in two parts: minimum bandwidth fee + postpaid fee.
 
-(1) The guaranteed bandwidth fee is charged when purchasing the postpaid bandwidth, and the price is consistent with the price list of ordinary bandwidth.
+- The guaranteed bandwidth fee is charged when purchasing the postpaid bandwidth, and the price is consistent with the price list of ordinary bandwidth.
 
-(2) The postpaid fee will be settled at 0:00 the next day, and the fee will be charged according to the average value of the bandwidth exceeding the minimum guarantee, that is, below The average value of the shaded points in the graph (one point every five minutes, the band value of the point is calculated as 0 below the guarantee.), higher than the guarantee, according to the bandwidth value-the guarantee).
+- The postpaid fee will be settled at 0:00 the next day, and the fee will be charged according to the average value of the bandwidth exceeding the minimum guarantee, that is, below The average value of the shaded points in the graph (one point every five minutes, the band value of the point is calculated as 0 below the guarantee.), higher than the guarantee, according to the bandwidth value-the guarantee).
 
 #### Postpaid billing cases
 
@@ -55,11 +55,11 @@ The minimum bandwidth fee has been paid at the time of purchase, and the bandwid
 
 #### Pay attention to the bandwidth post-payment fee
 
-1. When the bandwidth is adjusted after the bandwidth payment, the minimum bandwidth value is adjusted, and the guaranteed bandwidth value is adjusted After consolidation, the corresponding peak value bandwidth will be automatically adjusted.
+- When the bandwidth is adjusted after the bandwidth payment, the minimum bandwidth value is adjusted, and the guaranteed bandwidth value is adjusted After consolidation, the corresponding peak value bandwidth will be automatically adjusted.
 
-2. The monitoring and control data of EIP - bandwidth utilization is calculated according to the peak bandwidth.
+- The monitoring and control data of EIP - bandwidth utilization is calculated according to the peak bandwidth.
 
-3. The optional range of guaranteed bandwidth is 5-200 Mbps.
+- The optional range of guaranteed bandwidth is 5-200 Mbps.
 
 ## Introduction to the line
 
