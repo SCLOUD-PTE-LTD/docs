@@ -87,7 +87,7 @@ How to manage firewalls
 ## RAID
 
 ### RAID
-Redundant Arrays of Independent Drives. It refers to the combination of multiple disks through disk array cards to improve disk IO capabilities or provide redundancy. UCloud Physical Cloud offers RAID 1, 0, 10, 5 and NoRaid 5 different RAID options that can be selected when creating/reinstalling a physical cloud host.
+Redundant Arrays of Independent Drives. It refers to the combination of multiple disks through disk array cards to improve disk IO capabilities or provide redundancy. SCloud Physical Cloud offers RAID 1, 0, 10, 5 and NoRaid 5 different RAID options that can be selected when creating/reinstalling a physical cloud host.
 ### RAID 1
 RAID 1 ensures data security through data mirroring, the read and write performance is equivalent to that of a single disk, data is backed up in mirrors, and the utilization rate of storage space is 50%, which is suitable for occasions with high requirements for data security.
 ### RAID 0
