@@ -6,3 +6,4 @@ grand_parent: Public Cloud
 permalink: /public-cloud/vpc/route-table/
 nav_order: 3
 ---
+# Route Table
