@@ -2,6 +2,7 @@
 layout: default
 title: UHost Cloud Compute Instance
 parent: Compute
+permalink: /public-cloud/compute/uhost/
 ---
 
 # 1.1 UHost Cloud Compute Instance
