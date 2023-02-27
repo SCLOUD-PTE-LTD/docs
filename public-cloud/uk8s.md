@@ -4,6 +4,7 @@ title: UK8S
 parent: Compute
 grand_parent: Public Cloud
 permalink: /public-cloud/compute/uk8s/
+nav_order: 3
 ---
 # 1.2 UK8S Container Cloud
 
@@ -32,6 +33,7 @@ Supports multiple deployment scenarios, and can quickly roll back to the previou
 ## 1.2.2 Basic Concept
 
 The above picture is a summary Kubernetes architecture, including ApiServer, Master, Node, Hub (Image Warehouse) and other concepts, let us give a brief introduction in turn.
+
 | Component | Description |
 | --- | --- |
 | ApiServer | ApiServer is the only entry point for operating the cluster, and provides mechanisms for authentication, authorization, access control, API registration, and discovery. ApiServer runs as a component on the Master. |
