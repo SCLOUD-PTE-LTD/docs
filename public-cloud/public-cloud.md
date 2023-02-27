@@ -6,4 +6,4 @@ nav_order: 2
 permalink: /public-cloud
 ---
 
-# Pulic cloud
+# Public cloud
