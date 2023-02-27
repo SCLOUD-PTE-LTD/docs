@@ -83,3 +83,21 @@ Provides firewall functions for physical cloud hosts, and by binding firewall ru
 
 We have created several sets of default firewalls for you, TCP ports 22 and 3389 and PING are enabled by default, and you can adjust or create more firewall policies according to your business conditions.
 How to manage firewalls
+
+## RAID
+
+### RAID
+Redundant Arrays of Independent Drives. It refers to the combination of multiple disks through disk array cards to improve disk IO capabilities or provide redundancy. UCloud Physical Cloud offers RAID 1, 0, 10, 5 and NoRaid 5 different RAID options that can be selected when creating/reinstalling a physical cloud host.
+### RAID 1
+RAID 1 ensures data security through data mirroring, the read and write performance is equivalent to that of a single disk, data is backed up in mirrors, and the utilization rate of storage space is 50%, which is suitable for occasions with high requirements for data security.
+### RAID 0
+Risk warning: RAID 0 has no redundancy and data repair capabilities, and no data security guarantee. In the event of a single disk failure, the entire RAID group is unavailable.
+RAID 0 adopts data stripe distribution, has the highest read and write performance, and has 100% disk utilization, but there is no redundancy guarantee, and cannot be used in situations with high data security requirements.
+### RAID 5
+RAID 5 provides parity redundancy for data, data stripe distribution, high read and write performance, storage space utilization greater than 50%, but slightly less secure than RAID 10 and RAID 1. It is suitable for more reads and less writes, and is the best compromise between performance, data redundancy and cost.
+### RAID 10
+Combining the characteristics of RAID 0 data stripe distribution and RAID 1 mirror redundancy, it can not only provide high read and write speed, but also make data be mirrored and protected, and the storage space utilization rate is 50%, which is more commonly used in practical applications.
+### NoRAID
+Risk warning: NoRAID has no redundancy and data repair capabilities, and no data security guarantee.
+Do not make RAID. N disks with exclusive IO are visible in the system. In the event of a single disk failure, the other disks remain available.
+Some models do not have a disk array card, so only NoRAID is selected.
