@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Compute
+title: Networking
 has_children: true
 parent: Public Cloud
 ---
 
-# Compute
+# Networking
