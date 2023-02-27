@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 1. Compute
+title: Compute
 has_children: true
 parent: Public Cloud
 ---
