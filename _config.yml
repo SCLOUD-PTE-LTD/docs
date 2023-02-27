@@ -5,8 +5,7 @@ theme: just-the-docs
 url: https://scloud-pte-ltd.github.io
 
 aux_links:
-  Template Repository: https://scloud-pte-ltd.github.io/docs
-  SCloud: https://www.scloud.sg/
+  SCloud Homepage: https://www.scloud.sg/
 
 # Set a path/url to a logo that will be displayed instead of the title
 logo: "/assets/images/scloud-logo.png"
