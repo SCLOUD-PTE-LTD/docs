@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Content Delivery
+title: Media Services
 has_children: true
 parent: Public Cloud
-nav_order: 5
+nav_order: 6
 ---
 
-# Content Delivery
+# Media Services
