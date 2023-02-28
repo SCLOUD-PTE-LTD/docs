@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Networking
+title: Storage
 has_children: true
 parent: Public Cloud
-nav_order: 2
+nav_order: 4
 ---
 
-# Networking
+# Storage
