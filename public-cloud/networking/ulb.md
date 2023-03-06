@@ -36,10 +36,10 @@ ULB services are mainly composed of the following three parts:
 | Domain name forwarding | ✓ | ✓ | Supports forwarding traffic to different backend nodes by access domain name andURL |
 | Certificate management | ✓ | ✓ | Supports HTTPS certificate management |
 | SSL Offloading | ✓ | ✓ | Supports HTTPS SSL Offloading |
-| WebSocket | √ | √ | Supported only when monitoring the TCPprotocol |
+| WebSocket | ✓ | ✓ | Supported only when monitoring the TCPprotocol |
 | IPv6 address support | ✓ | — | Supports forwardingIPv6traffic |
 | Mount the hybrid cloud node | ✓ | ✓ | Proxy type support is requested only |
-| ULB logs | √ | √ | Proxy type support is requested only |
+| ULB logs | ✓ | ✓ | Proxy type support is requested only |
 | HTTP/2 | Ticket support | Ticket support | HTTP/2 is supported |
 | Redirect | — | — | Currently, HTTP access redirects toHTTPSare not supported |
 | Two-way authentication | — | — | Currently, HTTPS mutual authentication is not supported |
