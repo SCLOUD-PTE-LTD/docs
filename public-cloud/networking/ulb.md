@@ -119,6 +119,7 @@ Note: The following performance indicators are theoretically maximum performance
 | Extranet ULB | Please ask for an agent | 40,000（4,000 ssl） | 300,000 | 800M | 400,000 |
 | Intranet ULB | Packet forwarding | 600,000 | 100,000,000 | 30G | 21,000,000 |
 | Intranet ULB | Please ask for an agent | 40,000（4,000 ssl） | 300,000 | 800M | 400,000 |
+
 ## Routing configuration
 
 * To be able to correctly forward data to the backend service node, you need to ensure ULB
