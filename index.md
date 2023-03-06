@@ -7,8 +7,8 @@ permalink: /
 
 # SCloud Pte. Ltd.
 
-SCloud is the Neutral cloud computing company provider in Asia, headquartered in Singapore. Since 2016, the company has grown rapidly organically with over 18 data centers across key business markets including Singapore,Taiwan, Japan, India, Thailand, United State and the United Kingdom. SCloud places the needs of our customer first, and uphold to the concept of rapid customization and on-demand service, and launches products and services suitable for specific industry.
+SCloud offers neutral cloud computing solutions for many of the world’s fastest growing organizations since 2016. Headquartered in Singapore, SCloud has grown rapidly year-on-year, with presently over 18 tier-3 data centers across 25 regions in the world.
 
-Led by a team , SCloud has covered a wide range of industries including Internet, finance, education, retail, healthcare, and government.
+We have strong focus and in-depth understanding of Southeast Asia- Offering localized data centers at cost-efficient rates, and building specialized local teams to support our customers' cloud adoption journey.
 
-Expanding our global platform and providing cloud solutions with flexible commercial terms are our strategic priority, in enabling our customers greater access worldwide and ease of deployment for their cloud needs.
+Our experiences span across sectors including the internet, finance, education, retail, healthcare and government. So whichever stage it is in your enterprise cloud adoption, we understand the challenge. Our team at SCloud is passionate, knowledgeable and committed to support throughout. Let us be your partner in harnessing true business value from cloudification and thrive in this digital economy.
