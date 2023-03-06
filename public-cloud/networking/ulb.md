@@ -73,7 +73,7 @@ In the external network ULB4, the cluster health check module will periodically 
 ### Intranet ULB7
 ULB7 is based on Haproxy, and a single example can support more than 40w pps and 2Gbps , and at least 400,000 parallel connections. The architecture is as follows:
 
-![ulb7](https://user-images.githubusercontent.com/124770063/223074383-ae15608f-b2c9-4c00-9efc-a6b7a7cc6d2f.jpg)
+![1](https://user-images.githubusercontent.com/124770063/223077834-4f007ccb-2adb-4594-9680-802fc1d4f8f7.png)
 
 The intranet ULB7 adopts cluster deployment, with at least four servers in a single cluster. The tenants share the server on the bottom layer, but use Docker for resource isolation and CPU of isolation. Unlike the DR mode used by ULB4, ULB7 uses Proxy mode (i.e. Full NAT mode). 
 
