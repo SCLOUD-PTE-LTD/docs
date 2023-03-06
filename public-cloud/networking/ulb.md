@@ -113,10 +113,9 @@ Note: The following performance indicators are theoretically maximum performance
 5. Please request the maximum number of concurrent connections of the agent ULB refers to the number of connections and ULB from the customer end to ULB To the sum of the connections to RServer, the monitoring shows only the customer end to ULB The number of connections on this side.
 ```
 
-| Products | Mode | New Connections (`CPS`) per second | Maximum parallel connection(`pcs`) | Maximum throughput (`bps`) | Packets per second (`PPS`) |
+| Products | Mode | New Connections per second (cps) | Maximum parallel connection (pcs) | Maximum throughput (bps) | Packets per second (pps) |
 | --- | --- | --- | --- | --- | --- |
 | Extranet ULB | Packet forwarding | 600,000 | 100,000,000 | 30G | 18,000,000 |
-| --- | --- | --- | --- | --- | --- |
 | Extranet ULB | Please ask for an agent | 40,000（4,000 ssl） | 300,000 | 800M | 400,000 |
 | Intranet ULB | Packet forwarding | 600,000 | 100,000,000 | 30G | 21,000,000 |
 | Intranet ULB | Please ask for an agent | 40,000（4,000 ssl） | 300,000 | 800M | 400,000 |
