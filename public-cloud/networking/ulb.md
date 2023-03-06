@@ -116,9 +116,9 @@ Note: The following performance indicators are theoretically maximum performance
 | Products | Mode | New Connections per second (cps) | Maximum parallel connection (pcs) | Maximum throughput (bps) | Packets per second (pps) |
 | --- | --- | --- | --- | --- | --- |
 | Extranet ULB | Packet forwarding | 600,000 | 100,000,000 | 30G | 18,000,000 |
-| Extranet ULB | Please ask for an agent | 40,000（4,000 ssl） | 300,000 | 800M | 400,000 |
+| Extranet ULB | Proxy request | 40,000 (4,000 ssl) | 300,000 | 800M | 400,000 |
 | Intranet ULB | Packet forwarding | 600,000 | 100,000,000 | 30G | 21,000,000 |
-| Intranet ULB | Please ask for an agent | 40,000（4,000 ssl） | 300,000 | 800M | 400,000 |
+| Intranet ULB | Proxy request | 40,000（4,000 ssl） | 300,000 | 800M | 400,000 |
 
 ## Routing configuration
 
