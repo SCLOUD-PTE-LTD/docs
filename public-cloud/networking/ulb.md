@@ -19,17 +19,16 @@ ULB services are mainly composed of the following three parts:
 * ULB Service Instance (SCloud LoadBalancer): Used to receive traffic and distribute traffic.
 * Virtual Server/Listener (VServer): A listener, each VServer is a set of load-balanced front-end port configurations.
 * Service node (RealServer/Backend): The cloud resource where the backend actually processes the request.
+
+![4f99935ea27846559c12661ac55d34f1](https://user-images.githubusercontent.com/124770063/223073275-501c65f3-7ae3-435e-865f-147ce1a65c62.png)
+
 ## Overview of features
 
-| **Product function** | **Extranet ULB** | **Intranet ULB** | **Description** |
+| Product function | Extranet ULB | Intranet ULB | Description |
 | --- | --- | --- | --- |
 | Layer 4 forwarding(TCP/UDP). | ✓ | ✓ |
- |
-| --- | --- | --- | --- |
 | Layer 7 forwarding(HTTP/HTTPS). | ✓ | ✓ |
- |
 | Load balancing algorithm | Polling, source address hash,weighted polling, minimal connection, primary/standby | Polling, source address hash, consistent hash, minimal connection, primary/standby |
- |
 | Health checks | ✓ | ✓ | According to the rules, the back-end service node health-check is carried out, and the abnormal service node is automatically isolated, once the problem is found, Quickly switch issues to ensure service availability. |
 | Will keep talking | ✓ | ✓ | Support will beheld, and users can forward their requests to the same backend service node. |
 | Cross-zone disaster recovery | ✓ | ✓ | You can tie backend service nodes in different zones to achieve cross-zone disaster recovery |
@@ -61,7 +60,7 @@ In addition, the servers of the same ULB4 cluster are distributed across zones, 
 
 After the ULB4 forwarding server receives the service packet of the client, it will be in the state from the state Select one of the normal back-end nodes, modify the destination MAC and then tunnel to the back-end nodes, pass The source IP address and destination IP address remain unchanged. 
 
-In ULB4 mode, the back-end node must be tied to ULB4 at the LO port The VIP (fictitious IP) address, and monitor the service, in order to be correct Process the packet and send the return packet directly to the client. This is a typical DR process, so the intranet ULB4 can directly see the source IP of the client 。 
+In ULB4 mode, the back-end node must be tied to ULB4 at the LO port The VIP (fictitious IP) address, and monitor the service, in order to be correct Process the packet and send the return packet directly to the client. This is a typical DR process, so the intranet ULB4 can directly see the source IP of the client.
 ### Extranet ULB4
 
 The external network ULB4 is similar to the internal network ULB4, and it is also self-developed based on `DPDK` technology. A single server can provide more than 30 million parallel connections and 10 million pps , 10G line-speed forwarding capability. Cluster deployment allows at least four servers in a single cluster. `ECMP+ BGP` is used for high availability. Similarly, it uses a forwarding pattern similar to DR. The schematic diagram of load balancing forwarding on the Internet is as follows:
@@ -73,7 +72,9 @@ Unlike the intranet ULB4, external network traffic comes in from the public netw
 In the external network ULB4, the cluster health check module will periodically detect the survival status of the server, if If a problem is found with the server, `UVER` will be notified to remove the abnormal server, so as to ensure it Certificate high availability. Similarly, ULB4 clusters on the Internet are highly available across zones. 
 ### Intranet ULB7
 ULB7 is based on Haproxy, and a single example can support more than 40w pps and 2Gbps , and at least 400,000 parallel connections. The architecture is as follows:
- 
+
+![ulb7](https://user-images.githubusercontent.com/124770063/223074383-ae15608f-b2c9-4c00-9efc-a6b7a7cc6d2f.jpg)
+
 The intranet ULB7 adopts cluster deployment, with at least four servers in a single cluster. The tenants share the server on the bottom layer, but use Docker for resource isolation and CPU of isolation. Unlike the DR mode used by ULB4, ULB7 uses Proxy mode (i.e. Full NAT mode). 
 
 After receiving the request from the client, the intranet ULB7 connects the client to the ULB7 IP Transfer, converted into ULB7 proxy IP to Backend Connection of the actual IP address. Therefore, the Backend (service node) cannot directly see the client ip, only through `X-Forwarded-For` (HTTP). pattern to get. 
@@ -112,7 +113,7 @@ Note: The following performance indicators are theoretically maximum performance
 5. Please request the maximum number of concurrent connections of the agent ULB refers to the number of connections and ULB from the customer end to ULB To the sum of the connections to RServer, the monitoring shows only the customer end to ULB The number of connections on this side.
 ```
 
-| **Products** | **Mode** | **New Connections (CPS) per second** |**Maximum parallel connection(pcs).** | **Maximum throughput (bps).** | **Packets per** second **(PPS).** |
+| Products | Mode | New Connections (`CPS`) per second | Maximum parallel connection(`pcs`) | Maximum throughput (`bps`) | Packets per second (`PPS`) |
 | --- | --- | --- | --- | --- | --- |
 | Extranet ULB | Packet forwarding | 600,000 | 100,000,000 | 30G | 18,000,000 |
 | --- | --- | --- | --- | --- | --- |
