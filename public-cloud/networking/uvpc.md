@@ -31,9 +31,9 @@ A VPC (Virtual Private Cloud) is a logically isolated network environment that b
 
 Currently, VPC supports the following CIDR blocks:
 
-- 10.0.0.0/8 (10.0.0.0-10.255.255.255) mask range: maximum /8 mask, minimum /29 mask.
-- 172.16.0.0/12 (172.16.0.0-172.31.255.255) mask range: maximum /12 mask, minimum /29 mask.
-- 192.168.0.0/16 (192.168.0.0-192.168.255.255) mask range: maximum /16 mask, minimum /29 mask.
+- `10.0.0.0/8` (`10.0.0.0-10.255.255.255`) mask range: maximum /8 mask, minimum /29 mask.
+- `172.16.0.0/12` (`172.16.0.0-172.31.255.255`) mask range: maximum /12 mask, minimum /29 mask.
+- `192.168.0.0/16` (`192.168.0.0-192.168.255.255`) mask range: maximum /16 mask, minimum /29 mask.
 
 You can no longer provide default VPC details.
 
@@ -43,7 +43,7 @@ To scientifically and effectively divide the address space in a VPC, divide it i
 
 Cloud resources in the subnet support cross-zone deployment, providing strong guarantees for cross-zone disaster recovery.
 
-The minimum mask of the subnet CIDR block is a /29 mask. When there are cloud resources in a subnet, the subnet is not allowed to be deleted.
+The minimum mask of the subnet CIDR block is a `/29` mask. When there are cloud resources in a subnet, the subnet is not allowed to be deleted.
 
 ### The VPC network is interoperable
 
@@ -77,7 +77,8 @@ You can set a cloud resource in a subnet to access the Internet through a specif
 
 Provide default egress rules to support resources in the subnet to access the Internet through the responsible balancing mode or designated EIP. 
 
-### Quota limits
+### Quota limits'
+
 | Name | Quotas |
 | --- | --- |
 | The number of EIPs that can be tied to NAT | 64 |
@@ -86,6 +87,7 @@ Provide default egress rules to support resources in the subnet to access the In
 
 ### Products supported by NAT
 Currently, the following types of sources are supported for whitelisting, egress rules, and port forwarding: 
+
 | Name | Whitelist | Export rules | Port forwarding |
 | --- | --- | --- | --- |
 | UHOST cloud host | ✓ | ✓ | ✓ |
@@ -99,6 +101,7 @@ Currently, the following types of sources are supported for whitelisting, egress
 Intranet virtual IP (VIP) is a driftable intranet portal for user-defined high-availability services provided by SCloud cloud platform for cloud hosts and physical cloud hosts. When using VIP, users need to combine VIP with highly available services to drift the service entrance when the service fails, so as to achieve high availability of the service.
 ### Product quotas
 We recommend a maximum of 1,000 VIPs in the same VPC. If drift is required (i.e. high availability), a maximum of 100 is recommended.
+
 | Name | Quota |
 | -- | -- |
 | Number of VIPs supported in a single region | 100 |
@@ -137,6 +140,7 @@ Note: After you create a network ACL, the system automatically adds a default ou
 
 ### Product quotas
 The ACL quota for each network is as follows (without default rules)
+
 | Name | Quota |
 | -- | -- |
 | Number of outbound rules | 100 |
