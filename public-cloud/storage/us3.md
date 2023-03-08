@@ -170,8 +170,8 @@ The unit price is the lowest among the three storage types, archive storage has 
 If the file size is less than 64KB, the storage space will be calculated as 64KB, and data acquisition will incur charges. Currently, the archive type is limited to Chinese mainland zones (China North 1, China North 2, Shanghai, and Guangzhou).
 
 Key features:
-- Data durability: 99.9999999999%
-- Availability: 99.9%
+- Data durability: `99.9999999999%`
+- Availability: `99.9%`
 - Access: Thawing is required before access, and the waiting time required to return from frozen to readable state varies depending on the file size and type of thawing, please refer to the product price supplement
 - Applicable scenarios: long-term storage of archival data and other compliance documents, medical images, scientific materials, film and television materials
 ### Storage type conversion
