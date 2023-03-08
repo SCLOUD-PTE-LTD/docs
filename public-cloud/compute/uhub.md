@@ -12,14 +12,14 @@ UHub is a free public image library service launched by SCloud.
 UHub allows users to create and manage image libraries freely. The UHub image library is a cross-region architecture, and images that are pushed in one region can be accessed by other regions.
 
 # How-to guide
-## 1. Creation and Deletion
-### 1.1 Create an image repository
+## Creation and Deletion
+### Create an image repository
 On the Image Repository UHub page, click Create Image Repository, enter the image repository name and remarks, and create an image repository. If the current project already has an image repository, select Create Image Repository from the Repository Name drop-down list.
 
 The image repository name must be globally unique (cannot coincide with other users or project image repository names), and each project supports up to 8 image repositories.
-### 1.2 Delete the image repository
+### Delete the image repository
 Click the Delete Image Database button in the upper-right corner of the Image Repository console to delete the image repository, and only empty image repositories can be deleted. If there are still images in the image repository, delete them first.
-## 2. Accounts and Permissions
+## Accounts and Permissions
 Log in via docker login on a machine with docker (version 1.10 or later) installed.
 Log in to the image repository and access the service by domain name:
 ```
@@ -31,12 +31,12 @@ By default, an image repository is non-public and can only be pulled by the mast
 
 You can also use the Internet access switch to disable pushing and pulling repository images over the Internet. However, if your repository permission is to share the image database, you can only disable public network push, and you still have the permission to pull from the public network.
 
-### 2.1 Instructions for using the standalone password
+### Instructions for using the standalone password
 The independent password is bound according to the login user name, and the user name of logging in to the image repository after setting is still the email address registered on the SCloud platform, and the password is the set independent password.
 
 Changing the standalone password applies to all image repositories and supports login on SCloud's intranet and extranet.
 The standalone password is bound to the login username, not to the image repository.
-## 3. Push and pull images
+## Push and pull images
 ### Push images
 Step 1: Tag the image locally:
 ```
@@ -50,14 +50,14 @@ docker push uhub.service.scloud.sg/{image repository created}/{image}:tag
 ```
 docker pull uhub.service.scloud.sg/{image repository created}/{image}:tag
 ```
-## 4. Cross-region experience
+## Cross-region experience
 The SCloud public image database is a cross-region architecture, and images pushed by nodes in one region can be pulled from nodes in other regions through the intranet.
 For example, in Zone C in North China, push the image:
 
 In Shanghai 2, you can also pull to:
 
 As long as the image push is completed, all regions covered by the internal network in the SCloud platform can be pulled to the pushed image through the internal network.
-## 5. Restrictions on use
+## Restrictions on use
 
 A maximum of 800 tags are retained for a single image, and after more than 800, tags and related images that have not been pulled within one month will be deleted, and images uploaded earlier will be deleted first.
 

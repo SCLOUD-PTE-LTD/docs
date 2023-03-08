@@ -7,11 +7,11 @@ permalink: /public-cloud/compute/uhost/
 nav_order: 1
 ---
 
-# 1.1 UHost Cloud Compute Instance
+# UHost Cloud Compute Instance
 
 SCloud UHost is based on mature cloud computing technology, high-performance infrastructure, high-quality network bandwidth, high-quality data center and other resources. It provides safe and stable, fast deployment, flexible expansion, and convenient management computing unit.
 
-## 1.1.1 Cloud Instance Type
+## Cloud Instance Type
 
 UHost are divided into four types according to the application scenarios: Outstanding (O), Standard (N), High Frequency (C).
 
@@ -30,7 +30,7 @@ Summary of basic parameters of cloud instance:
 | Hard Disk type	| Cloud disk, Standard local disk, SSD local disk	| Cloud disk, SSD local disk	| RSSD cloud disk, SSD cloud disk
 Network	| Network enhancement 1.0/Network enhancement 2.0 (only Skylake and above support) and Hot Scale-Up	| Network enhancement 1.0 and Hot Scale-Up	| Network enhancement 2.0 and Hot Scale-Up
 
-### 1.1.1.1 Standard Instance N
+### Standard Instance N
 
 - Scenario: Provide the most flexible and free combination of CPU, memory, and disk. Suitable for balanced scenarios such as computing, storage, and networking.
 - CPU platform support: IvyBridge/Haswell/Broadwell/Skylake
@@ -58,7 +58,7 @@ Specific selection range:
 
 - Feature support: network enhancement 1.0/network enhancement 2.0 (only Skylake and above support) and Hot Scale-Up
 
-### 1.1.1.2 High Frequency Instance C
+### High Frequency Instance C
 
 - Scenario: Models with CPU frequency ≥3.0GHz, suitable for computing services, such as high-frequency trading, rendering, artificial intelligence, etc.
 - CPU platform support: Skylake
@@ -84,7 +84,7 @@ Specific selection range:
 
 - Feature support: network enhancement 1.0 and Hot Scale-Up.
 
-#### 1.1.1.2.1 Outstanding Instance O
+#### Outstanding Instance O
 
 The latest generation of cloud hosts with excellent computing, storage and network performance. Suitable for all type of demanding scenarios.
 
@@ -110,7 +110,7 @@ The latest generation of cloud hosts with excellent computing, storage and netwo
 - Feature support: network enhancement 2.0 and Hot Scale-Up.
 
 
-## 1.1.2 Product Advantages
+## Product Advantages
 
 - Elastic and Flexible
 
