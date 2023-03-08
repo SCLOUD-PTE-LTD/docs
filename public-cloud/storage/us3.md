@@ -66,4 +66,126 @@ US3 also provides rich API interfaces and SDK packages in various languages to f
 ### US3 pricing
 Traditional storage service providers require you to purchase a predetermined amount of storage and network transmission capacity, and if this capacity is exceeded, the corresponding service will be shut down or charged a high overcapacity fee. If this capacity is not exceeded, you will be charged for the full capacity. US3 only charges for what you use, you don't need to buy storage and data capacity upfront, and you will enjoy more infrastructure cost advantages as your business grows.
 
+## Product advantages
+### Stable and reliable storage capabilities
+Based on the high-availability architecture design, multiple copies of user-stored files are distributed in different storage clusters, and even if a cluster-scale failure occurs, the availability of stored files will not be affected, providing 11 `9s` of data durability. The storage service supports high concurrent access, breaks through the limitations of traditional disk I/O, and meets the online storage requirements of users with high access and high download volume.
+### Low-cost elastic storage
+There is no upper limit on cloud storage space, no need to consider storage space expansion, and support single files of less than or equal to `5TB`. It is suitable for mass file storage in UGC applications such as audio and video, and image sharing. Billing is based on actual usage, with no minimum fees, no idle waste of storage and bandwidth resources.
+### Flexible and convenient service access
+Provides multiple access methods such as APIs/SDKs, command-line tools, and consoles, and is compatible with AWS S3 APIs for multiple languages. It helps users seamlessly access their original services, greatly shorten the development cycle, and help them quickly go online. In close collaboration with UCloud's various products, UHost users can access the intranet through the cloud host, providing stable and high-speed intranet upload and download speed.
+### Easy-to-use management tools
+Provides a variety of management tools such as the visual page US3Browser and the command line US3CLI to manage storage space and files, making the operation simple and easy to use. The US3FS tool is available to mount storage spaces locally and manipulate object storage as if it were a local file system. Provide big data adaptation tools to solve the problem of Hadoop accessing object storage, and support big data computing frameworks such as `Hive`, `Spark`, and `Flink` to read and write data on object storage just like accessing the `HDFS` file system. US3SYNC is provided as a migration tool to easily migrate data from on-premises or other cloud environments to US3 storage.
+### Secure and reliable distributed system
+Provide functions such as anti-hotlink, client-side encryption, server-side encryption, and token whitelisting; Support SSL encrypted transmission; The UCloud attack defense system is supported to defend against DDos attacks.
+### Diverse cloud application scenarios
+Adapts to various UCloud public cloud services to provide stable and reliable back-end storage support for various services. Combined with CDN, it solves the storage and distribution of massive data, effectively reduces access latency, and improves the access experience of end users across the network. It supports docking image processing and video stream processing services, and provides users with various multimedia online processing capabilities. It can also be used as a data source to provide massive dataset support for scenarios such as big data analysis and AI training inference.
+## Usage Restrictions
+### Supported regions
+
+| Region | Single-region space management | Cross-region replication |
+| --- | --- | --- |
+| North China One |  Supported |  Supported |
+| North China II |  Supported | Not supported |
+| Shanghai II |  Supported |  Supported |
+| Guangzhou |  Supported |  Supported |
+| Hong Kong |  Supported | Not supported |
+| Los Angeles |  Supported | Not supported |
+| Singapore |  Supported | Not supported |
+| Jakarta |  Supported | Not supported |
+| Taipei |  Supported | Not supported |
+| Lagos |  Supported | Not supported |
+| St. Paulo |  Supported | Not supported |
+| Dubai |  Supported | Not supported |
+| Frankfurt |  Supported | Not supported |
+| Ho Chi Minh City |  Supported | Not supported |
+| Washington |  Supported | Not supported |
+| Mumbai |  Supported | Not supported |
+| Seoul |  Supported | Not supported |
+| Tokyo |  Supported | Not supported |
+| Bangkok |  Supported | Not supported |
+
+### HTTPS access restrictions
+
+Supports HTTPS access to ensure transmission security.
+
+Note: Currently, HTTPS is not supported for mirror back-to-origin and custom domain names.
+
+### Upload file size limit
+
+Upload through the console, upload file PutFile, upload table upload PostFile, and second upload. The file size of the file UploadHit cannot exceed `512MB`, and the file size of the file exceeding `512MB` must be uploaded The shard upload method must be used.
+
+### Image handling restrictions
+
+| Region | Size limit | Concurrency limit |
+| --- | --- | --- |
+| Beijing | 20M | 50 |
+| Shanghai II | 20M | 10 |
+| Guangzhou | 20M | 10 |
+| Hong Kong | 20M | 10 |
+| Taipei | 20M | 10 |
+| Other regions | 20M | 5 |
+
+*Remarks: If you have greater needs,please contact the customer manager or technical support.*
+
+### Other restrictions
+
+| Restrictions | Illustrate |
+| --- | --- |
+| Archived storage type | It needs to be thawed before access, and the stored data is restored from the frozen state to the readable state Depending on the file size and type of thawing, the waiting time is different; <br/> At present, the Hong Kong, Taipei and overseas availability zones of US3 storage and storage types include: Hong Kong, Los Angeles, Singapore, Taipei, Ho Chi Minh City, Washington, Tokyo, and Seoul. |
+| Bucket | The total number of storage spaces created in the same region with the same account number cannot exceed 20. |
+| ::: | Once the storage space is successfully created, its name, region, and storage type cannot be modified. |
+| ::: | The capacity of a single storage room is unlimited. |
+| Upload/download files | The default threshold for the bandwidth of the same account number in the same region is as follows: <br/>Upload and download on the intranet speed: `10Gbit/s` in mainland China, `1Gbit/s` in other regions; <br/> Upload speed on the Internet: `1Gbit/s`. <br/>If your business (such as offline data processing) requires greater bandwidth, contact technical support. |
+| QPS (write). | Ordinary users `1000` requests per second (not the upper limit), overseas `100`, if your business has greater needs, please contact the technology  Supported. |
+| QPS (read). | `2000` requests per second for ordinary users (not the upper limit), `100` overseas, if your business has greater needs, please contact the technology  Supported. |
+| Delete files | Files cannot be recovered after deletion. The maximum number of files deleted in batches in the console is `1000` and `100` overseas  Supported. |
+| Domain name binding | Domain names tied to the mainland region of China must be filed with the Ministry of Industry and Information Technology, and domain names tied in other regions do not need to be filed with the Ministry of Industry and Information Technology. Up to `100` domains can be tied to each storage room. |
+
+## Storage type
+US3 provides three storage types: standard, in-frequency, and archive, which are used for frequently accessed hot data, low-frequency access backup data, and archived data suitable for long-term storage, covering various data storage scenarios from hot to cold.
+
+### Standard storage
+Standard Storage provides highly reliable, highly available, and high-performance object storage services with high throughput and low latency service response performance, and can support frequent hotspot data access.
+
+Key features:
+- Data durability: `99.9999999999%` 
+- Availability: `99.95%`
+- Access: Real-time access
+- Applicable scenarios: various social and sharing pictures, audio and video applications, large websites, big data analysis, mobile applications, and game programs.
+
+### IA storage
+IA storage provides object storage services with high reliability, low storage cost, and low access latency, which is suitable for long-term storage of infrequently accessed data. The unit price of storage is lower than that of the standard type, IA storage has a minimum storage time and minimum object size, and a storage time of less than 30 days will incur certain fees for early deletion. If the individual file size is less than 64KB, the storage space is calculated at 64KB, and data ingestion incurs charges.
+
+Key features:
+- Data durability: `99.9999999999%`
+- Availability: `99.9%`
+- Access: Real-time access
+- Applicable scenarios: Long-term backup of various mobile applications, smart devices, government and enterprise affairs data, and enterprise data, and real-time data access.
+
+### Archive storage
+The archive storage type provides offline cold data storage with high reliability, extremely low storage cost and long-term storage, suitable for archived data that needs long-term storage (recommended for more than half a year), and is rarely accessed during the storage cycle. 
+
+The unit price is the lowest among the three storage types, archive storage has the shortest storage time and minimum object size, and early deletion of files with a storage time of less than 60 days will incur a certain fee. 
+
+If the file size is less than 64KB, the storage space will be calculated as 64KB, and data acquisition will incur charges. Currently, the archive type is limited to Chinese mainland zones (China North 1, China North 2, Shanghai, and Guangzhou).
+
+Key features:
+- Data durability: 99.9999999999%
+- Availability: 99.9%
+- Access: Thawing is required before access, and the waiting time required to return from frozen to readable state varies depending on the file size and type of thawing, please refer to the product price supplement
+- Applicable scenarios: long-term storage of archival data and other compliance documents, medical images, scientific materials, film and television materials
+### Storage type conversion
+Automatic conversion of the following storage types is supported:
+
+- Standard storage is converted to IA storage
+- Standard storage is converted to archive storage
+- IA storage is converted to archival storage
+
+Remark:
+
+- For files that need to be converted to standard or IA files, and IA files are converted to standard files, you can convert the storage type to file by uploading the file again and specifying the corresponding storage type. <br/>
+For example, if you need to convert a file that has been stored as an IA type back to a standard type, you can upload the file again, specify the standard storage type when uploading, and the newly written file is the standard storage type.
+
+- For files that have been dumped into an archive type, you need to perform a RESTORE operation and thaw them to a readable state before they can be read.
+
 

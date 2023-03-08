@@ -79,23 +79,23 @@ When the usage of the file system exceeds the purchased capacity, we allow the f
 
 | Region | Supported or not | Protocol type | Remarks |
 | --- | --- | --- | --- |
-| North China One | In the tank | NFSv4 |
-| Shanghai II | In the tank | NFSv4 |
-| Guangzhou | In the tank | NFSv4 |
-| Fujian | In the tank | NFSv4 | Linkage technology supports the activation of permissions |
-| Hong Kong | In the tank | NFSv4 |
-| Taipei | In the tank | NFSv4 | Linkage technology supports the activation of permissions |
+| North China One | Supported | NFSv4 |
+| Shanghai II | Supported | NFSv4 |
+| Guangzhou | Supported | NFSv4 |
+| Fujian | Supported | NFSv4 | Linkage technology supports the activation of permissions |
+| Hong Kong | Supported | NFSv4 |
+| Taipei | Supported | NFSv4 | Linkage technology supports the activation of permissions |
 
 ### Performance-oriented file storage
 
 | Region | Supported or not | Protocol type | Remarks |
 | --- | --- | --- | --- |
-| North China One | In the tank | NFSv4 |
-| North China II | In the tank | NFSv4 | Linkage technology supports the activation of permissions |
-| Shanghai II | In the tank | NFSv4 |
-| Guangzhou | In the tank | NFSv4 |
-| Fujian | In the tank | NFSv4 | Linkage technology supports the activation of permissions |
-| Lagos | In the tank | NFSv4 | Linkage technology supports the activation of permissions |
+| North China One | Supported | NFSv4 |
+| North China II | Supported | NFSv4 | Linkage technology supports the activation of permissions |
+| Shanghai II | Supported | NFSv4 |
+| Guangzhou | Supported | NFSv4 |
+| Fujian | Supported | NFSv4 | Linkage technology supports the activation of permissions |
+| Lagos | Supported | NFSv4 | Linkage technology supports the activation of permissions |
 
 *Note : Regions not listed in the table indicate that this type of file storage is not supported.*
 
