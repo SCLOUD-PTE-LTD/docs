@@ -20,7 +20,7 @@ DNS (Domain Name System) is a service that the Internet relies on, as a system t
 
 UCloud intranet DNS cluster uses `BGP+ECMP` to achieve high availability and scalability. The architecture is as follows:
 
-![1](../../assets/images/DNS1.png)
+![1](https://scloud-pte-ltd.github.io/docs/assets/images/DNS1.png)
 
 As shown in the figure above, the UDNS service provided by UCloud is a region-level product. A DNS cluster can be thought of as a stateless service, and each server can provide services independently. 
 
@@ -44,6 +44,7 @@ As shown in the figure above, customers can use preemptive host records to achie
 
 ### Usage Restrictions
 #### Quota limits
+
 | Name | Restriction | Description |
 | -- | -- | -- |
 | Domain Name Instances | 5 | You can add up to five domain name instances per account and region |
