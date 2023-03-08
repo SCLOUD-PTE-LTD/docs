@@ -8,7 +8,7 @@ nav_order: 1
 ---
 # MySQL UDB
 ## What is a cloud database
-ApsaraDB for UDB MYSQL is a highly available and high-performance database service based on mature cloud computing technology, allowing you to deploy, set, operate, and scale in tens of seconds. Provides a complete set of solutions such as dual-primary hot standby architecture, backup, data rollback, read/write splitting, monitoring, and database auditing, which greatly simplifies database O&M and helps you focus on application R&D and business development.
+Cloud database for UDB MYSQL is a highly available and high-performance database service based on mature cloud computing technology, allowing you to deploy, set, operate, and scale in tens of seconds. Provides a complete set of solutions such as dual-primary hot standby architecture, backup, data rollback, read/write splitting, monitoring, and database auditing, which greatly simplifies database O&M and helps you focus on application R&D and business development.
 
 UDB MySQL is fully compatible with the MySQL 5.5, MySQL 5.6, MySQL 5.7, Percona 5.5, Percona 5.6 and Percona 5.7 protocols.
 ## Key concepts
@@ -33,7 +33,7 @@ NVMe models are suitable for service scenarios with large-capacity and high-perf
 ### Memory
 The memory size of the cloud database. Users can choose based on their hardware requirements for the cloud database.
 ### Hard disk
-The size of the hard disk of the ApsaraDB for the ECB. Users can choose based on their hardware requirements for the cloud database.
+The size of the hard disk of the cloud database for the ECB. Users can choose based on their hardware requirements for the cloud database.
 ### Payment method
 Payment methods are divided into three methods: annual, monthly, and on-demand, and the payment methods are prepaid, that is, the corresponding service cycle is paid in advance.
 For detailed billing instructions, please refer to the "Purchase and Billing" document.
@@ -43,23 +43,23 @@ By default, the number of CVDBS that you need to apply for is 1, and you can sel
 The main library supports read and write operations.
 On the one hand, the slave database can be used as a disaster recovery node of the main database, and at the same time, it can also support read operations, reduce the pressure of the main database, and realize read/write separation.
 ### Configuration file
-Configuration files include various configuration parameters for the operation of ApsaraDB for ECSD, which can be customized and modified as needed, and default profiles are provided for different ApsaraDB versions.
+Configuration files include various configuration parameters for the operation of cloud database for ECSD, which can be customized and modified as needed, and default profiles are provided for different cloud database versions.
 Profiles include default profiles and custom profiles, which are created and imported by users.
 ### Administrator
 By default, the super administrator (`root`) privilege is provided, allowing users to customize the administrator password.
 ### Instance name
-You can customize the name of the ApsaraDB instance.
+You can customize the name of the cloud database instance.
 ### Resource ID
-After you create an ApsaraDB instance, the system automatically generates a resource ID, which is globally unique.
+After you create an cloud database instance, the system automatically generates a resource ID, which is globally unique.
 ### IP and port
 The IP address is the private network address of the user accessing the CVD, which is automatically generated after the CVD is created, and the external IP address is not currently provided.
 The default port for MySQL and Percona is 3306.
 ### Backup
-The backup stores all the data of the cloud database at a certain point in time. ApsaraDB provides automatic backup and manual backup to prevent data loss and avoid risks caused by mis-operation. You can select either the master or slave database as the backup source, but you cannot back up from a slave database across zones.
+The backup stores all the data of the cloud database at a certain point in time. cloud database provides automatic backup and manual backup to prevent data loss and avoid risks caused by mis-operation. You can select either the master or slave database as the backup source, but you cannot back up from a slave database across zones.
 ### Log
 A log is a log file used to record the operation events of a cloud database. Includes binary logs, slow query logs, error logs, operation logs
 
-### ApsaraDB for UDB Service Level Agreement (SLA)
+### cloud database for UDB Service Level Agreement (SLA)
 The SCloud UDB Service Level Agreement specifies the general service level indicators and service considerations that SCloud provides to customers with SCloud UDB cloud database services.
 ## Product advantages
 ### Highly available architecture
@@ -82,13 +82,13 @@ You can monitor, alarm, and audit the database through the console. Open API int
 It can immediately provision the required resources according to business needs, eliminating the need to purchase high-cost hardware in the early stage of business, effectively reducing initial asset investment and avoiding idle waste of resources.
 ## Model version
 ### MySQL product models
-ApsaraDB for UDB MySQL is available in SSD models and NVMe models, and the reliability, durability, and read and write performance of UDB-MySQL will meet the product SLA commitments.
+cloud database for UDB MySQL is available in SSD models and NVMe models, and the reliability, durability, and read and write performance of UDB-MySQL will meet the product SLA commitments.
 
 For SSD instances, SSD disks stored on the same node as the database engine can reduce I/O latency and are suitable for business scenarios with high IO performance.
 
 The database instance of the NVMe model adopts the industry's mainstream computing and storage separation architecture: the computing layer uses high-performance SCloud cloud hosts, and the storage layer adopts ultra-high-performance RDMA NVMe SSD cloud disks. RSSD cloud disks are based on a new generation of distributed block storage architecture, NVMe SSD is used as the storage medium at the bottom layer, and RDMA is used for network transmission, providing users with up to `1.2` million random read and write capabilities and lower single latency capabilities per disk. IOPS and capacity correspondence: IOPS optimization is a fixed value of `50,000` when the disk size is less than 1T, and IOPS is calculated according to the fixed allocation algorithm above 1T, and the calculation formula is: `1800 + 50 * size (GB)`, and the maximum IOPS is 1.2 million. The disk step size is 10GB, supports large-capacity storage, and the maximum capacity can reach 32T.
 
-ApsaraDB for MySQL provides a high-availability dual-primary hot standby architecture, supports cross-zone architecture for high availability, and supports cross-zone slave database construction to achieve zone-level disaster recovery and ensure high service availability.
+cloud database for MySQL provides a high-availability dual-primary hot standby architecture, supports cross-zone architecture for high availability, and supports cross-zone slave database construction to achieve zone-level disaster recovery and ensure high service availability.
 
 ### MySQL capacity specifications
 
