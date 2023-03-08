@@ -16,15 +16,15 @@ NAT gateway is an enterprise-level VPC public network gateway that allows cloud 
 
 NAT gateways can be selected from normal mode or whitelist mode.
 
-In normal mode, all cloud resources in the specified subnet that are not bound to elasticIP addresses can pass through the NATThe gateway accesses the Internet.
+In normal mode, all cloud resources in the specified subnet that are not bound to elasticIP addresses can pass through the NAT the gateway accesses the Internet.
 
 In the whitelist mode, only cloud resources in the subnet specified by the NAT gateway and defined in the whitelist can pass through the NAT gateway to go out of the external network 。
 
-Before you change the NATnetwork to the white list mode, you can configure the white list in advance to ensure that you switch to the whitelist mode Does not affect normal business. In normal mode, the whitelist is configurable but does not take effect.
+Before you change the NAT network to the white list mode, you can configure the whitelist in advance to ensure that you switch to the whitelist mode does not affect normal business. In normal mode, the whitelist is configurable but does not take effect.
 
 ## Port forwarding
 
-Users can configure port forwarding to map the internal network ports of cloud resources in a VPC to a NATgateway to make cloud resources matchable Outside to provide services.
+Users can configure port forwarding to map the internal network ports of cloud resources in a VPC to a NAT gateway to make cloud resources matchable Outside to provide services.
 
 Cloud resources in the specified subnet of the NAT gateway that have elastic IPaddresses bound will not appear in the port forwarding configuration list.
 
