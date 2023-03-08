@@ -8,7 +8,7 @@ nav_order: 5
 ---
 # What is UDNS
 
-UDNS service is a highly available and scalable domain name resolution service system provided by UCloud. Currently, you can configure internal domain name resolution and external domain name recursion resolution, and more functions will be available soon.
+UDNS service is a highly available and scalable domain name resolution service system provided by SCloud. Currently, you can configure internal domain name resolution and external domain name recursion resolution, and more functions will be available soon.
 ## Intranet parsing
 
 The intranet resolution service provided by UDNS can be used to implement scenarios such as intranet service discovery, load balancing, and high service availability. By setting up intranet domain name resolution, you can use domain name records to manage cloud resources in your VPC, including cloud hosts and load balancers.
@@ -18,11 +18,11 @@ The intranet resolution service provided by UDNS can be used to implement scenar
 DNS (Domain Name System) is a service that the Internet relies on, as a system that maps domain names and IP addresses to each other, so that people and businesses can access Internet resources more conveniently. DNS uses TCP and UDP port 53 by default. In fact, DNS queries generally use the UDP protocol, and the use of TCP is very rare. The UDNS system provides UDP services.
 ### Introduction to the schema
 
-UCloud intranet DNS cluster uses `BGP+ECMP` to achieve high availability and scalability. The architecture is as follows:
+SCloud intranet DNS cluster uses `BGP+ECMP` to achieve high availability and scalability. The architecture is as follows:
 
 ![1](https://scloud-pte-ltd.github.io/docs/assets/images/DNS1.png)
 
-As shown in the figure above, the UDNS service provided by UCloud is a region-level product. A DNS cluster can be thought of as a stateless service, and each server can provide services independently. 
+As shown in the figure above, the UDNS service provided by SCloud is a region-level product. A DNS cluster can be thought of as a stateless service, and each server can provide services independently. 
 
 The DNS server declares the same VIP to the upstream switch via BGP. When an exception occurs in the DNS service, BGP is interrupted, so that traffic is switched to other servers to achieve high availability.
 

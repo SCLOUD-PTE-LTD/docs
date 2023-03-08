@@ -8,7 +8,7 @@ nav_order: 3
 ---
 # UDataArk
 ## Overview
-UDataArk provides continuous data protection (CDP) services for UCloud local disks/EVS disks, and is an automatic data backup system that is completely heterogeneous with local disks/EVS disk storage, which can prevent data deletion or loss caused by mis-operation and hacker attacks to the greatest extent.
+UDataArk provides continuous data protection (CDP) services for SCloud local disks/EVS disks, and is an automatic data backup system that is completely heterogeneous with local disks/EVS disk storage, which can prevent data deletion or loss caused by mis-operation and hacker attacks to the greatest extent.
 
 There are two important metrics for evaluating the capability of a data backup product: a recovery point objective (RPO), which refers to the point in time to which the data can be recovered, and a recovery time objective that refers to how long it takes for the business to go from stop to recovery at the time of recovery. 
 

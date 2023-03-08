@@ -8,7 +8,7 @@ nav_order: 1
 ---
 # File Storage (UFS)
 ## Product overview
-File Storage (UFS) is a distributed file system product that provides highly available, reliable, and easily scalable file storage functions for various hosts running on UCloud public, physical, and managed clouds. The shared storage function provided by UFS products can easily provide strong support for various application scenarios such as data backup, serverless, AI data analysis, and high-performance web sites.
+File Storage (UFS) is a distributed file system product that provides highly available, reliable, and easily scalable file storage functions for various hosts running on SCloud public, physical, and managed clouds. The shared storage function provided by UFS products can easily provide strong support for various application scenarios such as data backup, serverless, AI data analysis, and high-performance web sites.
 
 File storage products are divided into two types: capacity and performance. Capacity file storage uses common `SATA` media and is characterized by low price, high capacity. Performance file storage uses SSD media to provide low-latency IO access.
 
