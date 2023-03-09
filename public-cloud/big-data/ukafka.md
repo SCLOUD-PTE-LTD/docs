@@ -41,6 +41,8 @@ The UKafka service master mainly contains the following components:
 
 Its structure is shown in the figure:
 
+![image](https://user-images.githubusercontent.com/124770063/224012467-d35317bf-41e1-4b57-bdc3-9d76b5fb97a8.png)
+
 | Term | Meaning | Illustrate |
 | --- | --- | --- |
 | Topic | Message subject | That is, a specific message flow or class message fleet. Where the message is a valid abridge, and the subject is the genus of the message or the source of the message |
