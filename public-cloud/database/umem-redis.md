@@ -110,3 +110,27 @@ Performance enhancement supports version 6.0 and is compatible with Redis protoc
 #### Notes:
 Performance-enhanced instances do not support creating slave libraries.
 It is only supported by outstanding computer room.
+
+### Comparison
+Comparison between the primary and standby editions and the distributed editions
+capacity
+
+The main and standby Redis supports `1, 2, 4, 6, 8, 12, 16, 24, 32` capacity specifications (for requirements above `32G`, non-standard requirements can be submitted for the time being).
+
+Distributed Redis supports capacity requirements from `16-2000G`
+
+#### Performance
+Single request latency: The delay of a single command is relatively low for the primary and standby Redis versions.
+
+Batch request efficiency: large batch `mget`, `mset`, del batch command operations, larger pipeline operations, and high efficiency of the main and standby Redis versions;
+Set operation efficiency: similar to `SDIFF`, `SINTER`, `SUNION`, etc., set intersection, difference set, union operation commands, main and backup Redis efficiency is higher;
+
+Large packet command efficiency: When a single KV requests a large amount of data, the efficiency of the primary and standby Redis versions is high.
+
+Concurrency performance: QPS exceeds close to or more than `10W`, distributed Redis can meet the requirements;
+#### Function
+- The main and standby Redis supports all data operation commands, and distributed Redis restricts some commands (see FAQ for details);
+- The main and standby Redis supports backup and download;
+- Custom configuration of the primary and standby Redis versions;
+- The primary and standby Redis versions support multiple dbs;
+- The primary and standby Redis supports multiple versions, and the distributed Redis version 2.8 supports related commands.
