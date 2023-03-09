@@ -6,37 +6,58 @@ grand_parent: Public Cloud
 permalink: /public-cloud/big-data/uhadoop/
 nav_order: 2
 ---
-# UHadoop 
+# UHadoop - Managed Hadoop cluster
 ## Product Introduction
 UHadoop is a hosting service for a big data processing system running on the SCloud platform. By running Hadoop and Spark on a cloud platform, users can easily analyze and process their own data using other peripheral systems in the Hadoop and Spark ecosystems (such as Apache Hive, Apache Pig, HBase, etc.).
 ## Product architecture diagram
+
+![image](https://user-images.githubusercontent.com/124770063/224007640-550f58e3-f823-4d0a-bf94-98c426041658.png)
+
 ### HDFS
 HDFS is deployed in HA mode by default, with two Name nodes deployed on master1 and master2 respectively, Data nodes distributed on all Core nodes, and Task not deploying Data nodes.
 
+![image](https://user-images.githubusercontent.com/124770063/224007726-a843a6f7-4112-45c7-9c00-eb69a06d04be.png)
+
 ### Yarn
 Yarn also adopts HA deployment by default, with 2 ResourceManagers deployed on master1 and master2 respectively, and Node managers distributed on all Core and Task nodes.
+
+![image](https://user-images.githubusercontent.com/124770063/224007770-beaa9398-cc36-4543-8f60-2a8ff3ef421d.png)
+
 ### Hive
 Hive currently only supports on yarn mode, and two Hive-MetaStores are deployed in master1 and master2, and connected to local mySQL, avoiding Hive service failures caused by the downtime of a single master node.
 
 You can connect to Hive services through HiveCli or Beeline.
+
+![image](https://user-images.githubusercontent.com/124770063/224007835-bd56e88d-f856-4987-8c1a-cf3a176384e4.png)
+
 ### HBase
 HBase is deployed by HA by default, with two HMasters deployed on master1 and master2 respectively, and HRegionServer distributed on all Core nodes.
+
+![image](https://user-images.githubusercontent.com/124770063/224007872-69bd46db-cf3d-4c5f-852b-143c7dad2224.png)
+
 ### Spark
 Spark adopts the On Yarn pattern, please refer to the Spark Development Guide for details.
+
 ## Product features and advantages
 ### Convenient
 Create clusters in minutes, without worrying about node allocation, deployment, and optimization; With rich examples and scenario tutorials, you can quickly get started and achieve your business goals.
+
 ### Use
 - Automated deployment according to the selected hardware model (CPU, memory, disk), selected software combination and version;
 - Users can request where their cluster is deployed based on the geographic location of themselves or the data source. Currently, UHADOOP supports regions such as North China, Guangzhou, and Hong Kong. It will be released to all regions supported by SCloud in the future.
+
 ### Elasticity
 The cluster can be large or small, and supports dynamic scaling to effectively avoid waste of resources. Supports separation of compute and storage.
+
 ### Opening
 Fully compatible with the open source community version of Hadoop/Spark, customers can use open source standard APIs to write jobs and migrate to the cloud without any modifications.
+
 ### Safe
 User clusters are located in a dedicated virtual private network to achieve complete isolation of resources.
+
 ### Stable
 Key components such as Hadoop, Spark, and HBase in the cluster support high availability features to ensure service availability.
+
 ## Port configuration
 
 | Configuration name| UHadoop default configuration |
