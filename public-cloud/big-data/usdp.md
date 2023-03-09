@@ -8,12 +8,12 @@ nav_order: 1
 ---
 # USDP Intelligent Big Data Platform
 ## Product overview
-UCloud Smart Data Platform (USDP) Professional Edition is an intelligent and lightweight big data basic service platform launched by UCloud, which can help you quickly build big data analysis and processing capabilities.
+SCloud Smart Data Platform (USDP) Professional Edition is an intelligent and lightweight big data basic service platform launched by SCloud, which can help you quickly build big data analysis and processing capabilities.
 
-Based on years of experience in the development of big data platforms, UCloud released USDP Professional Edition, a one-stop intelligent big data platform for privatization deployment scenarios. It has the ability to build on IDC physical servers and cloud IaaS virtual servers, and supports the management of multiple sets of big data clusters through self-developed USDP Manager management tools, allowing you to create big data clusters with exclusive resources. Supports HDFS, Kudu, and ES ecosystems, and manages open source big data components such as Hive, HBase, Spark, Flink, and Presto in the cluster, such as cluster nodes, service configuration, monitoring alarms, and fault diagnosis, so as to help you easily build and manage the analysis and processing capabilities of big data services.
+Based on years of experience in the development of big data platforms, SCloud released USDP Professional Edition, a one-stop intelligent big data platform for privatization deployment scenarios. It has the ability to build on IDC physical servers and cloud IaaS virtual servers, and supports the management of multiple sets of big data clusters through self-developed USDP Manager management tools, allowing you to create big data clusters with exclusive resources. Supports HDFS, Kudu, and ES ecosystems, and manages open source big data components such as Hive, HBase, Spark, Flink, and Presto in the cluster, such as cluster nodes, service configuration, monitoring alarms, and fault diagnosis, so as to help you easily build and manage the analysis and processing capabilities of big data services.
 
 Self-developed management components, higher security and reliability
-As a one-stop intelligent big data platform independently developed by UCloud big data team, USDP has the overall architecture as shown in the following figure:
+As a one-stop intelligent big data platform independently developed by SCloud big data team, USDP has the overall architecture as shown in the following figure:
 
 Manager Server is a USDP management service that requires a MySQL instance to store metadata related to the cluster. The agent is a USDP slave node control service, which is used to manage and operate the node and the big data service on the node. Among them, "big data ecosystem services and component services" are various big data services (such as HDFS, YARN, etc.).
 
@@ -22,7 +22,7 @@ USDP supports a cluster size of at least 3 nodes and a maximum of thousands of n
 ### The core advantages of USDP's one-stop intelligent big data platform
 
 1. No need to worry about business binding
-The big data services and components included in USDP all meet the Apache 2.0 open source license, and the UCloud big data team actively gives back to the community after doing a lot of compatibility tests, and fully releases the compiled compatibility package. <br/>Since it closely follows the pace of the open source community, users can perform independent replacement, independent construction, independent data migration, and cluster migration at any time, so there is no need to worry about the binding of big data services to closed-source services.<br/>
+The big data services and components included in USDP all meet the Apache 2.0 open source license, and the SCloud big data team actively gives back to the community after doing a lot of compatibility tests, and fully releases the compiled compatibility package. <br/>Since it closely follows the pace of the open source community, users can perform independent replacement, independent construction, independent data migration, and cluster migration at any time, so there is no need to worry about the binding of big data services to closed-source services.<br/>
 Based on the open management architecture, USDP integrates and adapts more than 30 open source big data ecosystem development components, covering all aspects of big data processing such as data integration, data storage, computing engine, task scheduling, and permission management. You can choose the corresponding components to build your own big data processing platform according to your business characteristics and needs.
 
 2. Easy deployment
@@ -45,11 +45,11 @@ The underlying resources of USDP are exclusive to you, and big data clusters can
 Based on years of experience in big data O&M, USDP presets perfect monitoring and alarm templates for each component, rich monitoring indicators and flexible alarm methods to help you grasp the operation status of each component in a timely manner and perform necessary maintenance and optimization. At the same time, intelligent fault diagnosis tools and professional technical support team escort the stable operation of your cluster.
 
 6. Controllable cost
-UCloud provides friendly and easy-to-deploy management services, users can operate with one click, no additional learning costs, greatly reduce the threshold of use, and assist users to easily use and maintain big data business systems. <br/>
+SCloud provides friendly and easy-to-deploy management services, users can operate with one click, no additional learning costs, greatly reduce the threshold of use, and assist users to easily use and maintain big data business systems. <br/>
 For the privatization deployment scenario of big data applications, it supports the big data appliance solution to achieve one-stop delivery and out-of-the-box use. It supports a separate architecture of storage and computing, which is easy to achieve cost optimization.
 
 7. Professional technical support
-UCloud big data team has accumulated many years of experience in public cloud big data operation and maintenance and business optimization, providing users with big data expert technical support and customized solution capabilities, and continuously updating and integrating experience into products to provide users with automated services to solve users' worries about building big data services.
+SCloud big data team has accumulated many years of experience in public cloud big data operation and maintenance and business optimization, providing users with big data expert technical support and customized solution capabilities, and continuously updating and integrating experience into products to provide users with automated services to solve users' worries about building big data services.
 
 ### USDP product version released
 
