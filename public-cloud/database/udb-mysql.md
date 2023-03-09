@@ -6,8 +6,9 @@ grand_parent: Public Cloud
 permalink: /public-cloud/database/mysql/
 nav_order: 1
 ---
-# MySQL UDB
-## What is a cloud database
+# UDB MySQL
+## Introduction
+### What is a cloud database
 Cloud database for UDB MYSQL is a highly available and high-performance database service based on mature cloud computing technology, allowing you to deploy, set, operate, and scale in tens of seconds. Provides a complete set of solutions such as dual-primary hot standby architecture, backup, data rollback, read/write splitting, monitoring, and database auditing, which greatly simplifies database O&M and helps you focus on application R&D and business development.
 
 UDB MySQL is fully compatible with the MySQL 5.5, MySQL 5.6, MySQL 5.7, Percona 5.5, Percona 5.6 and Percona 5.7 protocols.

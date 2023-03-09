@@ -6,8 +6,9 @@ grand_parent: Public Cloud
 permalink: /public-cloud/database/postgresql/
 nav_order: 3
 ---
-# PostgreSQL
-## What is PostgreSQL
+# UDB PostgreSQL
+## Introduction
+### What is PostgreSQL
 After more than 30 years of active development, PostgreSQL open source database has grown into a powerful database software with mature architecture, reliable and robust, complete functions, and complete implementation of SQL specifications. At the same time, strong extensibility and rich plug-in system make PostgreSQL have more advanced features, some of which are not available in most other databases.
 
 SCloud Cloud cloud database UDB PostgreSQL is a stable and secure fully managed online PostgreSQL database service based on mature cloud computing technology, with high availability, high performance and elastic scalability. Cloud database for PostgreSQL provides a complete set of solutions such as disaster recovery, backup, and monitoring, completely solving the troubles of database operation and maintenance.

@@ -6,7 +6,7 @@ grand_parent: Public Cloud
 permalink: /public-cloud/database/mongodb/
 nav_order: 2
 ---
-# MongoDB UDB
+# UDB MongoDB
 ## Introduction
 ### What is cloud database MongoDB
 cloud database for MongoDB is a highly available and high-performance database service based on mature cloud computing technology. It is fully compatible with the MongoDB protocol and supports flexible deployment. In addition to the replica set instance architecture, cloud database for MongoDB also provides a fragmented cluster architecture to meet massive data business scenarios ; At the same time provide a complete set of solutions for disaster recovery, backup, monitoring and alarming.
