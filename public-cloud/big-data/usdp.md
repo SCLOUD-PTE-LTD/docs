@@ -33,8 +33,9 @@ The USDP management service provides complete cluster control and management fun
 The monitoring metrics provisioned by USDP mainly include three parts:
   - JMX full index acquisition
   - Http common indicator collection
-  - Custom indicator collection<br/>
-The above three parts of monitoring data will eventually be summarized in USDP's Promethues, and the most commonly used monitoring indicators will be displayed in the overview page of each service, and in Grafana, users can view the most detailed monitoring indicators through the USDP official preset monitoring template (Dashboard). If the monitoring icons preset by USDP cannot meet your business needs, you can also customize and add the required monitoring charts.
+  - Custom indicator collection
+
+The above three parts of monitoring data will eventually be summarized in USDP's `Prometheus`, and the most commonly used monitoring indicators will be displayed in the overview page of each service, and in `Grafana`, users can view the most detailed monitoring indicators through the USDP official preset monitoring template (Dashboard). If the monitoring icons preset by USDP cannot meet your business needs, you can also customize and add the required monitoring charts.
 
 4. Flexible and convenient alarm service
 USDP provides preset alarm templates, and users only need to guide and configure simple to achieve the need to send cluster metric alarms to different destinations (WeChat, DingTalk, email, interface calls, etc.). Similar to the design of monitoring metrics, if you think that the preset alarm templates cannot meet your business needs, you can customize and modify the alarm templates or add new alarm rules.
