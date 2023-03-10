@@ -13,7 +13,7 @@ logo: "/assets/images/scloud-logo.png"
 favicon_ico: "/assets/images/favicon-32x32.png"
 
 # Footer content
-footer_content: "Copyright &copy; 2016-2023 SCloud Pte. Ltd. All rights reserved."
+footer_content: "Global footprint with Asia focus | Flexible | 24/7/365 Support | Value-added Services"
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
