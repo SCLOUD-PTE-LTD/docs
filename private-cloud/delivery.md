@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Delivery model
+title: Delivery Model
 has_children: false
 parent: Private Cloud
 permalink: /private-cloud/delivery-model
