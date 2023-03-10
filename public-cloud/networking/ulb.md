@@ -30,7 +30,7 @@ ULB services are mainly composed of the following three parts:
 | Layer 7 forwarding(HTTP/HTTPS). | ✓ | ✓ |
 | Load balancing algorithm | Polling, source address hash,weighted polling, minimal connection, primary/standby | Polling, source address hash, consistent hash, minimal connection, primary/standby |
 | Health checks | ✓ | ✓ | According to the rules, the back-end service node health-check is carried out, and the abnormal service node is automatically isolated, once the problem is found, Quickly switch issues to ensure service availability. |
-| Will keep talking | ✓ | ✓ | Support will beheld, and users can forward their requests to the same backend service node. |
+| Session persistence | ✓ | ✓ | Support will beheld, and users can forward their requests to the same backend service node. |
 | Cross-zone disaster recovery | ✓ | ✓ | You can tie backend service nodes in different zones to achieve cross-zone disaster recovery |
 | Extranet fireproof wall | ✓ | — | Only the proxy type support is requested and only effective for Layer7 traffic |
 | Domain name forwarding | ✓ | ✓ | Supports forwarding traffic to different backend nodes by access domain name andURL |
