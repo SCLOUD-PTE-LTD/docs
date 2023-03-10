@@ -47,6 +47,7 @@ Redis provides two architectures: primary, standby and distributed.
 - Primary/standby architecture: When the system is running, the standby node (Replica) synchronizes the master node data in real time, and the system automatically switches over the system in seconds when the primary node fails, and the standby node takes over the business, which is automatic and has no impact on the business, and the primary/standby architecture ensures high availability of services.
 
 - Distributed architecture: Distributed instances adopt a distributed cluster architecture, and each node adopts a highly available primary/standby architecture of one master and one slave, which can perform automatic disaster recovery switchover and failover migration. Different capacity configurations of the distributed version can be applied to services under different pressures, and the performance of distributed Redis can be extended as needed.
+  
 ### Full monitoring
 Provide users with multiple types of monitoring, including usage, number of connections, QPS, number of keys, etc.
 ### Online scaling
