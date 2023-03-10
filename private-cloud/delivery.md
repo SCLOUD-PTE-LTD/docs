@@ -7,4 +7,4 @@ permalink: /private-cloud/delivery-model
 nav_order: 7
 ---
 
-# Delivery model
+# Delivery Model
