@@ -19,7 +19,7 @@ In the SCloud cloud platform,users can select different bandwidth usage patterns
 
 ### Bandwidth billing
 
-When you purchase an elastic IP address for bandwidth billing, you should purchase an egress bandwidth cap at the same time. If you select this billing method, the public IP address (rawIP)is free of charge and does not count Traffic charges.
+When you purchase an elastic IP address for bandwidth billing, you should purchase an egress bandwidth limit at the same time. If you select this billing method, the public IP address (rawIP)is free of charge and does not count Traffic charges.
 
 ### Traffic billing
 
