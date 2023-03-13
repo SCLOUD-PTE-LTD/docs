@@ -6,11 +6,87 @@ grand_parent: Public Cloud
 permalink: /public-cloud/compute/uhost/
 nav_order: 1
 ---
+# UHost - Cloud Host
+## Introduction
+### What is a cloud host? 
+Each cloud host runs as a virtual machine, and the host resources include the most basic computing components such as CPU, memory, and disk.
+Cloud host is the most core service of SCloud, some services, such as IP, image, cloud disk, etc. must be combined with the cloud host after use, other services, such as database, cache, object storage, etc. can be combined with the cloud host to build IT architecture.
+## Product advantages
+### Flexible and resilient
+According to the development trend of the business, users can scale cloud resources horizontally and vertically at any time to eliminate waste of resources.
 
-# UHost Cloud Compute Instance
+Create or release an ECS at the minute level, with the online hot upgrade capability, that is, upgrade or downgrade the CPU and memory of the host within 5 minutes.
 
-SCloud UHost is based on mature cloud computing technology, high-performance infrastructure, high-quality network bandwidth, high-quality data center and other resources. It provides safe and stable, fast deployment, flexible expansion, and convenient management computing unit.
+Upgrade or downgrade public bandwidth online, and customize the image feature to easily copy host data and environment.
 
+It also provides open APIs and open source developer tools to meet the needs of batch management and automatic management.
+### High availability
+Strictly rent or build IDCs in accordance with Tier 3+/GB A standards, and follow IDC standards, server access standards, and O&M standards to ensure the high availability of cloud computing infrastructure frameworks, data reliability, and cloud server high availability.
+
+There are multi-AZ in the regions where UCD is located, and you can use the multi-AZ deployment solution to build primary/standby services or active-active services to improve availability.
+
+For solutions for two regions and three centers in the financial field, higher availability services can be built through multi-region and multi-AZ. 
+
+Smooth switching can be achieved between the provided cloud services, including disaster recovery, backup and other services, and there are very mature solutions.
+### Stable and reliable
+Commitment to 99.95% service availability, data reliability is not less than 99.9999%.
+
+The local disk of the cloud host adopts RAID for data protection to prevent data loss. 
+
+Cloud disks have three-copy disaster recovery capabilities, I/O isolation, and rapid data migration. Kernel optimization and hot patch technology, uninterrupted online migration technology, provide data snapshots and other functions, failure failure, 100 times compensation.
+### Performance
+The host CPU and memory performance indicators are excellent, and the unique storage technology (IO acceleration technology) increases the random read and write I/O capabilities of the disk by 10 times that of ordinary SAS disks.
+
+There are also SSD disk cloud hosts, providing ultra-high IOPS performance. Excellent network processing capabilities to meet various business application requirements.
+### Security guarantees
+100% complete network isolation between tenants to ensure data security.
+
+Provides functions such as network firewalls and security groups to strictly control public network connections. In conjunction with the VPC feature, you can create a private subnet under a single account to support your internal security management requirements. 
+
+Provides a wealth of monitoring and security tools, DDOS protection, intrusion detection, data leakage detection, vulnerability protection and other comprehensive security protection solutions to protect business data security in an all-round way. 
+
+You can create snapshots and back up data through manual and automated snapshot backup policies without worrying about the risk of data loss such as operational errors.
+### Data Center
+You can launch cloud host products in more than 31 availability zones around the world to cover all five continents, and provide high-quality cloud computing services with consistent experience for your global business
+
+![1](/docs/assets/images/uhost1.png)
+
+### Seconds Ark backup capability
+UDataArk provides continuous data protection (CDP) services for SCloud local disks/EVS disks, and is an automatic data backup system that is completely heterogeneous with local disks/EVS disk storage, which can prevent data deletion or loss caused by mis-operation and hacker attacks to the greatest extent. 
+
+The Ark product capability provided by SCloud has an RPO of seconds, which supports restoring any second within 12 hours by default, and can also customize the second-level backup time according to user business needs. 
+
+The RTO of the data ark can be restored in as little as 5 minutes, and the amount of 1TB data can be restored within 1 hour. 
+
+For the cloud disk backup solution, SCloud launched Disk Snapshot Service (USnap), which provides the ability to create snapshots for all series of cloud disks (normal/SSD/RSSD) based on the data ark CDP technology, in addition to the automatic backup capability of the basic layer ark, you can also manually make snapshots.
+
+### Flexible CPU and memory ratio
+SCloud provides 1:8 ratio capability of CPU and memory, flexible configuration, to meet the needs of different customers' business scenarios, and the cost can be optimized.
+
+## Introduction to the feature
+All SCloud data center nodes can support the creation of cloud hosts
+
+A variety of host models meet the needs of customers in different business scenarios. The previous generation includes `general-purpose N-type, high-frequency C-type and GPU models`; The new generation of outstanding series products include outstanding O type, outstanding Pro type, outstanding shared type and outstanding memory type
+
+Flexible host specifications, CPU and memory sizes can be customized combinations, CPU memory ratio from `1:1` to `1:8`, can meet the customized needs of different businesses, can maximize the cost of enterprise IT expenditure. You can also create a more flexible CPU memory ratio through the API.
+
+Three disk types: local ordinary disk, local SSD disk, and cloud disk (UDisk), of which EVS disk includes ordinary cloud disk, SSD cloud disk, and RSSD cloud disk, and can be freely combined with different performance, price, availability, and capacity limit;
+
+Support common Linux and Windows images, support custom images;
+
+Internet firewall, providing network security access control function;
+
+Supports two network modes: basic network and VPC;
+
+Multiple monitoring indicators comprehensively monitor the health of the host;
+
+Supports the use of load balancing products (ULB) to build high-availability clusters.
+
+The data ark function can be activated and restored to any second within 12 hours;
+
+Some hosts can enable the hot upgrade function, and the CPU/memory upgrade does not need to be shut down;
+
+Multiple billing models: monthly prepaid annually, and hourly prepaid.
 ## Cloud Instance Type
 
 UHost are divided into four types according to the application scenarios: Outstanding (O), Standard (N), High Frequency (C).
@@ -52,17 +128,17 @@ Specific selection range:
 
 | System Disk | Data Disk |
 | --- | --- |
-| SSD cloud disk (20-500GB) | SSD cloud disk (20-4000GB),Standard cloud disk (20-8000GB) |
-| Standard local disk (20-100GB) | Standard local disk (20-2000GB) |
-| SSD local disk (20-100GB) | SSD local disk (20-1000GB) |
+| SSD cloud disk (`20-500GB`) | SSD cloud disk (`20-4000GB`),Standard cloud disk (`20-8000GB`) |
+| Standard local disk (`20-100GB`) | Standard local disk (`20-2000GB`) |
+| SSD local disk (`20-100GB`) | SSD local disk (`20-1000GB`) |
 
 - Feature support: network enhancement 1.0/network enhancement 2.0 (only Skylake and above support) and Hot Scale-Up
 
 ### High Frequency Instance C
 
-- Scenario: Models with CPU frequency ≥3.0GHz, suitable for computing services, such as high-frequency trading, rendering, artificial intelligence, etc.
+- Scenario: Models with CPU frequency `≥3.0GHz`, suitable for computing services, such as high-frequency trading, rendering, artificial intelligence, etc.
 - CPU platform support: Skylake
-- CPU memory combination (support ratio 1:1-1:8):
+- CPU memory combination (support ratio `1:1 - 1:8`):
 
 | CPU | RAM |
 | --- | --- |
@@ -108,32 +184,3 @@ The latest generation of cloud hosts with excellent computing, storage and netwo
 | SSD cloud disk (20-500GB) | RSSD cloud disk (20-32000GB) |
 
 - Feature support: network enhancement 2.0 and Hot Scale-Up.
-
-
-## Product Advantages
-
-- Elastic and Flexible
-
-You can easily scale cloud resources horizontally and vertically at any time based on your business demands to prevent resource waste. Create or release cloud hosts in minutes; upgrade or downgrade host CPU and memory within 5 minutes; upgrade or downgrade public network bandwidth online, and easily copy host data and environment with custom image. It also provides open APIs to meet the needs of batch management and automated management.
-
-- Stable and Reliable
-
-SCloud promises 99.95% service availability and data durability no less than 99.9999%. The local disk of the cloud host uses RAID for data protection to prevent data loss. UHost has industry-leading kernel optimization and hot patch technology, non-stop online migration technology, and also provide data snapshots capability.
-
-- High Performance
-
-The performance indicators of the host CPU and memory are industry-leading, and the unique storage technology increases the random read and write I/O capacity of the disk by 10 times that of the Standard SAS disk. There is also an SSD disk cloud host that provides ultra-high IOPS performance. Excellent network processing capabilities to meet various business application requirements.
-
-UHost can support up to Intel Cascadelake CPU, self-developed network enhancement 2.0 technology, disk Binlog technology, full NVMe disk RSSD cloud disk, etc., can achieve up to 1.2 million IOPS IO performance and 10 million PPS network performance
-
-- Secure
-
-UHost has 100% complete network isolation between users to ensure data security. We also provide network firewall function to strictly control access to the public network. In conjunction with the VPC function, a private subnet under a single account can be established to support your internal security management needs. And provide a wealth of monitoring and security tools.
-
-- Data Center
-
-SCloud is located in global Tier-3 data centers, relying on high-quality hardware resources and infrastructure to provide users with high-quality BGP, and international bandwidth resources. According to the needs of the business, you can select a matching data center for the target user area that needs to be covered.
-
-- Wide Coverage with 31 availability zones Globally
-
-You can launch cloud host products in more than 31 availability zones around the world to cover all five continents, and provide high-quality cloud computing services with consistent experience for your global business
