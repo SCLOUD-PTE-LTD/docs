@@ -62,8 +62,3 @@ The default quota for each account number is as follows:
 VPN gateway pricing is as follows:
 
 There is no coupling relationship between the VPN gateway and the EIP instance, and the respective performance and billing cycle can be enjoyed exclusively.
-
-| Product Specifications | Product Price | Product Performance | 
-| -- | -- | -- | 
-| Standard | 12.9 USD/month | 50 Mbps | 
-| Enhanced | 34.41 USD/month |  |		

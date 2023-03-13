@@ -23,7 +23,7 @@ When you purchase an elastic IP address for bandwidth billing, you should purcha
 
 ### Traffic billing
 
-When purchasing elasticIP addresses, you can choose to set the "egress" bandwidth cap, according to the unit price of different regions IP production "outbound traffic" is billed after midnight every day, and the specific billing is carried out Information can be seen below the monitoring icon on the EIP Details page. If you select this billing method, the public IP address (naked-IP) is charged, excluding bandwidth fees with.
+When purchasing elasticIP addresses, you can choose to set the "egress" bandwidth limit, according to the unit price of different regions IP production "outbound traffic" is billed after midnight every day, and the specific billing is carried out Information can be seen below the monitoring icon on the EIP Details page. If you select this billing method, the public IP address (naked-IP) is charged, excluding bandwidth fees with.
 
 ### Traffic billing restrictions
 
