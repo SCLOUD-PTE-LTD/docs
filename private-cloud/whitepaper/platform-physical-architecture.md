@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 2. Platform Physical Architecture
+title: Platform Physical Architecture
 parent: Whitepaper
-grand_parent: private Cloud
+grand_parent: Private Cloud
 permalink: /private-cloud/whitepaper/platform-physical-architecture/
 nav_order: 2
 ---

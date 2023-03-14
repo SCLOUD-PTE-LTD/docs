@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 1. Product Introduction
+title: Product Introduction
 parent: Whitepaper
-grand_parent: private Cloud
+grand_parent: Private Cloud
 permalink: /private-cloud/whitepaper/product-introduction/
 nav_order: 1
 ---
