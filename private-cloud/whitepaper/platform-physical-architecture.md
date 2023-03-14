@@ -11,6 +11,7 @@ nav_order: 2
 SCloudStack There are four common cluster node roles in cloud platform systems, namely management nodes, computing and storage fusion nodes, independent computing nodes, and independent storage nodes.
 ### Management Node
 The core management service deployed in the cluster, carrying SCloudStack The northbound interface service module of the cloud platform includes services such as account authentication, metering and billing, resource management, API-Gateway and service monitoring, and provides two access and management methods of standard API and WEB console.
+
 - The management node is responsible for the management of the entire life cycle of virtual resources. Due to the separation of interfaces between northbound business and southbound business and the distributed network mechanism, network traffic is directly forwarded through the computing node where it resides, and platform business expansion is not affected. Limitation on the number of management nodes;
 - The cloud platform supports unified underlying resources, and only forwards and transparently transmits management traffic based on management services. The platform supports and recommends deploying management services in virtual machines of computing nodes. Intelligent scheduling provides high availability of management capabilities.
 Management services and computing services communicate through the TCP/IP protocol, providing management services with the ability to communicate with computing nodes through the intranet or extranet, and supporting the separate deployment of management services and computing services, if the management service is deployed to the public cloud or one of the data centers, the computing nodes are distributed in each data center, and are managed uniformly across computer rooms, data centers and regions through the global cloud management platform.
@@ -92,7 +93,7 @@ Devices in the server area usually include computing and storage hyper-converged
   - Use 2 GE network cards to connect to two external network access switches respectively, and make a bond with dual network cards, as a management node for external network access;
   - Use two 10GE network cards to connect to two intranet access switches respectively, and make a bond with dual network cards to access the internal network as the management node.
   
-All the above NIC bonds use " mode =4 " mode, namely IEEE 802.3ad dynamic link aggregation.
+All the above NIC bonds use `"mode = 4"` mode, namely `IEEE 802.3ad` dynamic link aggregation.
 
 ### Standard Architecture Extension 
 In actual projects, the standard network architecture can be adjusted according to user needs and the provided environment, such as a small project (within 45 nodes) or only a simple test ring environment or other scenes.
@@ -134,11 +135,11 @@ Huawei CE series is recommended as the switch model by default, and switches of 
 
 | Business | Configuration description |
 | --- | --- |
-| Computing and storage fusion nodes (storage -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Silver 4210R Processor (13.75M Cache, 2.40 GHz, 10 core) 2DDR4\_32GB\_RDIMM\_2667MHz <br/>6OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s <br/>2Data HDD SATA3\_HDD\_8TB\_6Gb/s\_7200RPM <br/>12HDD Controller 12Gb\_HBA\_Card x 1 <br/>NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
+| Computing and storage fusion nodes (storage -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Silver 4210R Processor (13.75M Cache, 2.40 GHz, 10 core) <br/>2DDR4\_32GB\_RDIMM\_2667MHz <br/>6OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s <br/>2Data HDD SATA3\_HDD\_8TB\_6Gb/s\_7200RPM <br/>12HDD Controller 12Gb\_HBA\_Card x 1 <br/>NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
 | Computing and storage fusion nodes (computing -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Gold 6248R Processor (35.75M Cache, 3.00 GHz, 24 core) <br/> 2DDR4\_32GB\_RDIMM\_2933MHz <br/>12OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s <br/> 2Data HDD SATA3\_SSD\_960GB\_6Gb/s <br/>12HDD Controller 12Gb\_HBA\_Card <br/>1NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
 
 ### Minimum configuration
-hardware configurations for a production environment. Generally, a production environment requires at least 3 computing nodes and 2 10G access switches.
+hardware configurations for a production environment. Generally, a production environment requires at least 3 computing nodes and 2x10G access switches.
 
 (1) Minimum server configuration
 
