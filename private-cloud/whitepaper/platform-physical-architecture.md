@@ -18,7 +18,7 @@ Management services and computing services communicate through the TCP/IP protoc
 ### Computing and storage fusion nodes
 Computing and storage fusion nodes, including computing resources and storage resources, are used to run virtual machines, virtual networks, distributed storage, database services, cache services and other resources, carrying intelligent scheduling control and monitoring services at the same time. The distributed storage of the cloud platform uses the data disks of all computing nodes, and each node only supports the deployment of one type of data disk, such as `SATA`, `SSD`, etc. (except for the scenario where SSD is used as a cache). Deploy at least 3 machines in the production environment to ensure the normal deployment and operation of the distributed system.
 
-In terms of deployment, each computing node will deploy `KVM, Qemu, Libvirt, OVS, Ceph` for running the computing storage network At the same time, at least 3 computing nodes in each region will deploy the core scheduling and management modules, as shown in the following figure :
+In terms of deployment, each computing node will deploy `KVM, Qemu, Libvirt, OVS, Ceph` for running the computing storage network At the same time, at least 3 computing nodes in each region will deploy the core scheduling and management modules, as shown in the following figure:
 
 ![1](/docs/assets/images/cmp.png)
 
@@ -27,7 +27,7 @@ Where [ Schedule Manager ] is SCloudStack The core scheduling and management mod
 The Schedule Manager deployed in each region or data center will open an API endpoint as a unified entrance for management services to connect and manage computing resources in the data center. The API endpoint supports the connection mode through the intranet and the Internet. When the TCP/IP network communication is reachable, the management service (Management Service) supports deployment in the same data center, and can also be deployed in the public cloud or Other data centers, and can provide unified scheduling and management of computing resources in multiple data centers to meet the deployment of cloud platform multi- application scenarios.
 
 ### Independent computing nodes
-Host nodes in the cluster :
+Host nodes in the cluster:
 - It is used to independently run all computing and network resources, and use the disk of an independent storage node as the storage resource of the cloud platform;
 - Generally, it consists of several to several thousand servers, and at least three servers are deployed in the production environment to ensure the deployment and operation of multiple copies of the distributed storage system;
 - It is generally recommended to place computing node servers with the same configuration in a cluster for virtual resource scheduling.
@@ -58,7 +58,7 @@ In order to build a highly available, highly reliable, and highly secure enterpr
 SCloudStack The platform network is designed as a core and access two-layer architecture, and the access switches are dual- uplinked to the core, and are divided into clusters according to computing services. This architecture design provides public network services from the perspective of business scenarios, so the overall business architecture is divided into two networks, the intranet area and the extranet area, which respectively carry the intranet communication and extranet communication of the cloud platform. Physical isolation at the network device level.
 
 ### Architecture scale
-The standard network architecture is a single data center network architecture. Taking the following configuration as an example, a single data center can support 900 to 1000 nodes :
+The standard network architecture is a single data center network architecture. Taking the following configuration as an example, a single data center can support 900 to 1000 nodes:
 - Two switches are stacked together, called a group of switches, such as a group of internal network access switches or a group of external network access switches;
 - Usually a group of access switches has 96 service interfaces (48 interfaces per switch), stack detection and backup occupy 3*2 interfaces, and 90 available service ports;
 - Each server node uses two network cards to occupy two interfaces of a group of access switches, that is, a group of access switches can access 45 servers;
@@ -66,10 +66,10 @@ The standard network architecture is a single data center network architecture. 
 
 ### Network area
 Devices in the network area usually include internal network core switches, external network core switches, internal network access switches, and external network access switches. If the scale of the server node is small and capacity expansion is not considered for the time being, only internal / external network access switches can be used.
-- Intranet core switch : Two 40GE layer - 3 switches are stacked as a group of intranet cores to carry the aggregation and management of intranet access switches;
-- External network core switch : Two sets of 10G layer-3 switches are stacked as a group of external network cores, which are used to carry the aggregation and management of external network access switches;
-- Intranet access switch : 2 sets of 10 Gigabit switches are stacked as a group of intranet access, which is used to carry 45 servers for intranet access;
-- External network access switch : two Gigabit switches stacked as a group of external network access, used to carry 45 servers for external network access;
+- Intranet core switch: Two 40GE layer - 3 switches are stacked as a group of intranet cores to carry the aggregation and management of intranet access switches;
+- External network core switch: Two sets of 10G layer-3 switches are stacked as a group of external network cores, which are used to carry the aggregation and management of external network access switches;
+- Intranet access switch: 2 sets of 10 Gigabit switches are stacked as a group of intranet access, which is used to carry 45 servers for intranet access;
+- External network access switch: two Gigabit switches stacked as a group of external network access, used to carry 45 servers for external network access;
 - Except for the Internet connection, the network is a large two-layer environment, using the LLDP protocol to obtain network topology information, and all network access is port aggregation to ensure high availability; at the same time, broadcast messages through the control interface Traffic, suppress network broadcast storm;
 - Interconnection modes such as Layer 2 aggregation, Layer 3 aggregation, L3 ECMP, and L3 A/S can be used between the core switch of the external network and the Internet, and support serial or bypass firewalls, IDS, IPS, and anti- DDOS, etc. safety equipment;
 - functions provided by the cloud platform are implemented in a software- defined manner, and the physical switch is only used as a network traffic forwarding device, that is, only some general capabilities of the switch are used, such as stacking, Vlan, Trunk, LACP and IPV6 etc., without using SDN switch to realize the communication of the virtual network.
@@ -78,12 +78,12 @@ the standard network architecture, it is usually recommended to use at least 10 
 
 ### Server area
 Devices in the server area usually include computing and storage hyper-converged nodes, independent computing nodes, independent storage nodes, and management nodes. If the virtual machine of the computing node is directly used as the management node, the physical management node server can be omitted.
-- Computing node [required ] : x86 /ARM architecture server is used as computing node or computing and storage super-converged node for running virtual machines, virtual network distribution, storage service Service and database cache and other services, carrying the implementation and operation of the resource core of the entire cloud platform.
+- Computing node [required ]: x86 /ARM architecture server is used as computing node or computing and storage super-converged node for running virtual machines, virtual network distribution, storage service Service and database cache and other services, carrying the implementation and operation of the resource core of the entire cloud platform.
   - Use 2 GE network cards to connect to two external network access switches respectively, and do a dual-network card bond as a computing node for external network access;
   - Use two 10GE network cards to connect to two intranet access switches respectively, and make a bond with dual network cards, as the intranet access of the computing node;
   - If it is a hyper-converged node, the distributed storage uses the data disks on all computing nodes, and the data disks on all computing nodes form a unified storage resource pool for building distributed storage;
   - If it is an independent computing node, the distributed storage uses the data disk on the storage node as the unified storage resource pool, which is mounted across the cluster through the network.
-- Independent storage node [ optional ] : If computing and storage need to be deployed separately, servers with x86/ARM architecture and more disks can be used as independent storage nodes to carry independent distributed storage. Storage service.
+- Independent storage node [ optional ]: If computing and storage need to be deployed separately, servers with x86/ARM architecture and more disks can be used as independent storage nodes to carry independent distributed storage. Storage service.
   - Storage nodes and computing services communicate through the intranet, and only two 10GE network cards are required to be uplinked to two intranet access switches, and do a dual-network card bond as the internal network access of the storage node;
   - If it is necessary to physically isolate the computing and storage network, an independent storage access switch can be used, and the network card of the storage node is connected to the storage access switch;
   - Distributed storage uses all data disks on storage nodes and hyper-converged nodes, and three copies ensure data security;
@@ -96,6 +96,7 @@ All the above NIC bonds use " mode =4 " mode, namely IEEE 802.3ad dynamic link a
 
 ### Standard Architecture Extension 
 In actual projects, the standard network architecture can be adjusted according to user needs and the provided environment, such as a small project (within 45 nodes) or only a simple test ring environment or other scenes.
+
 (1) If physical isolation of the internal and external networks is required and access redundancy is considered, 2 groups of 4 access switches can be used for service deployment.
 - 2 stacks are used for server intranet access, and 2 stacks are used for server external network access;
 - Each server’s internal and external network uses two interfaces to bind to the internal and external network access switch, which can support redundant access of 45 server nodes (48 interfaces per switch, considering Stack detection and standby port occupation; the same below).
@@ -104,7 +105,7 @@ In actual projects, the standard network architecture can be adjusted according 
 - One is used for server intranet access, and one is used for server external network access;
 - Each server uses one interface to access the internal network access switch and the external network access switch, supporting 45 server node access;
 
-(3) If there is no need for physical isolation between the internal and external networks and access redundancy is considered, two switches can be stacked, through Vlan Isolate the internal and external networks, as shown in the following figure :
+(3) If there is no need for physical isolation between the internal and external networks and access redundancy is considered, two switches can be stacked, through Vlan Isolate the internal and external networks, as shown in the following figure:
 
 ![1](/docs/assets/images/Network_Topology.jpg)
 
@@ -133,8 +134,8 @@ Huawei CE series is recommended as the switch model by default, and switches of 
 
 | Business | Configuration description |
 | --- | --- |
-| Computing and storage fusion nodes (storage -intensive) | Factor Form ： 2U <br/>CPU Intel® Xeon® Silver 4210R Processor (13.75M Cache, 2.40 GHz, 10 core) \*2DDR4\_32GB\_RDIMM\_2667MHz \*6OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s \*2Data HDD SATA3\_HDD\_8TB\_6Gb/s\_7200RPM \*12HDD Controller 12Gb\_HBA\_Card \*1 <br/>NIC 10GFibre Dual ports (excluding SFP+ multimode modules) 1 <br/>PSU \>=800W Platinum Edition \*2 |
-| Computing and storage fusion nodes (computing -intensive) | Factor Form ： 2U <br/>CPU Intel® Xeon® Gold 6248R Processor (35.75M Cache, 3.00 GHz, 24 core) \* 2DDR4\_32GB\_RDIMM\_2933MHz \*12OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s \*2Data HDD SATA3\_SSD\_960GB\_6Gb/s \*12HDD Controller 12Gb\_HBA\_Card \*1NIC 10G Fibre Dual ports (excluding SFP+ multimode modules) 1 <br/>PSU \>=800W Platinum Edition 2 |
+| Computing and storage fusion nodes (storage -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Silver 4210R Processor (13.75M Cache, 2.40 GHz, 10 core) 2DDR4\_32GB\_RDIMM\_2667MHz <br/>6OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s <br/>2Data HDD SATA3\_HDD\_8TB\_6Gb/s\_7200RPM <br/>12HDD Controller 12Gb\_HBA\_Card x 1 <br/>NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
+| Computing and storage fusion nodes (computing -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Gold 6248R Processor (35.75M Cache, 3.00 GHz, 24 core) <br/> 2DDR4\_32GB\_RDIMM\_2933MHz <br/>12OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s <br/> 2Data HDD SATA3\_SSD\_960GB\_6Gb/s <br/>12HDD Controller 12Gb\_HBA\_Card <br/>1NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
 
 ### Minimum configuration
 hardware configurations for a production environment. Generally, a production environment requires at least 3 computing nodes and 2 10G access switches.
@@ -143,9 +144,9 @@ hardware configurations for a production environment. Generally, a production en
 
 | Configuration classification | Configuration instructions |
 | --- | --- |
-| CPU | The CPU should have at least 16 cores and support the hardware virtualization feature of the x86 or ARM architecture. It is generally recommended that the server be configured with the same type of CPU |
-| Memory | a single server is not less than 128 GB |
-| Network card | Minimum configuration : 1 10 Gigabit network card 2 network ports <br/>Recommended configuration : 2 10 Gigabit network cards |
+| CPU | The CPU should have at least 16 cores and support the hardware virtualization feature of the x86 or ARM architecture. <br/>It is generally recommended that the server be configured with the same type of CPU |
+| Memory | A single server is not less than 128 GB |
+| Network card | Minimum configuration: 1 10 Gigabit network card 2 network ports <br/>Recommended configuration: 2 10 Gigabit network cards |
 | Disk | 2 system disks as RAID1 <br/>Local data disk According to the business situation, you can use mechanical hard disk SATA and SSD hard disk <br/>If the business requires high read and write performance, it is recommended to use SSD or NVMe type of hard drive |
 
 (2) Minimum configuration of network equipment
@@ -156,13 +157,13 @@ hardware configurations for a production environment. Generally, a production en
 | Extranet | If external network access is required, the switch can be shared with the internal network, through Vlan For logical isolation, see Standard Schema Extensions |
 
 ## Cabinet Space Planning
-Space planning of network equipment and servers is shown in the following figure :
+Space planning of network equipment and servers is shown in the following figure:
 
 ![1](/docs/assets/images/Cabinet_Space.jpg)
 
 All devices are symmetrically deployed in the cabinets to achieve cabinet- level redundancy, and the power failure or failure of a single cabinet will not affect the cloud platform business. One cabinet can support 15 nodes. According to the network architecture design, a group of access switches supports 45 nodes, that is, a group of access switches supports 3 cabinets. Three cabinets form one group. On average, one group of cabinets supports 45 nodes, one group of intranet access switches, one group of external network access switches, and one IPMI access switch.
 
-The equipment in the project case shown above includes 8 business switches, 4 operation and maintenance management switches, 21 server devices and 3 cabinets :
+The equipment in the project case shown above includes 8 business switches, 4 operation and maintenance management switches, 21 server devices and 3 cabinets:
 
 - A group of intranet core switches are symmetrically deployed in two cabinets, that is, one is deployed in each of the two cabinets;
 - A group of intranet access switches is symmetrically deployed in two cabinets, that is, one switch is deployed in each of the two cabinets;
