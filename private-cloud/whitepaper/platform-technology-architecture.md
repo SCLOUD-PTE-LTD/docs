@@ -375,4 +375,4 @@ In terms of business data security, the distributed storage of the cloud platfor
 ### Block Storage Data Storage Mechanism
 The block storage service of the private cloud adopts a distributed unified storage system, which provides RBD interfaces to provide system disks, images, and EVS disk services for virtual machines. This section describes the data storage and deletion mechanism through the block storage data storage architecture, block storage data IO process, and data storage management process.
 
-![1](/docs/assets/images/platform-technology-architecture-11.jpg)
+![1](/docs/assets/images/platform-technology-architecture-12.jpg)
