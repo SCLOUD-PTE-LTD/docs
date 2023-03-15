@@ -274,3 +274,105 @@ As shown in the figure above, the client writes ABC three object data through th
 ![1](/docs/assets/images/platform-technology-architecture-8.jpg)
 
 Object replica data is always maintained as 3 copies when there are no anomalies such as network outages or disk failures on the storage node. Only when the node is abnormal and the number of replicas is less than 3, the storage system will automatically rebuild the data copies to ensure that the data copies are permanently three copies and escort the data security of virtualized storage. As shown in the figure above, the third node fails, resulting in data D1-D5 being lost and failing, the storage system will automatically map the PG of object data to a new OSD, and automatically synchronize and rebuild D1'-D5' through the other two copies to ensure that the data is always three copies to ensure data security.
+
+### Erasure coding strategy
+Erasure Coding (EC) is a data protection method, similar to RAID5 technology in commercial storage, which divides data into fragments, expands, encodes redundant blocks, and stores them in different locations, such as disks, storage nodes, or other geographic locations. The SCloudStack distributed object store and file storage can be protected with erasure coding policies for data redundancy.
+
+In a distributed storage system, the erasure coding policy divides the written data (called data blocks), generates backup redundant data based on shard coding (called test block), and finally writes the original shard data and backup data to different storage media to ensure data security. At the same time, data blocks and check blocks can be stored on different OSD disks across nodes, cabinets, and data centers through fault domains, ensuring data security in multiple dimensions.
+
+The number of blocks of data segmentation through the erasure coding strategy is called K, the number of encoded block is called M, and the number of all data blocks is called N, that is, N= K+M; Based on this, the disk utilization can be obtained by K/N, such as K=9, M=3, N=12, then the total empty utilization of the disk is 9/12=75%, that is, the disk utilization is 75%. Storage clusters for object and file storage have different disk utilization based on redundancy policies. Under the three-copy mechanism, the disk utilization is one-third of the total capacity of the cluster; In the erasure coding strategy, the utilization rate is related to the K+M ratio value, that is, different K+M values will have different disk utilization, and the K+M value of the erasure coding policy can be customized according to the actual usage scenario, and the platform recommends 4+2 by default.
+
+Taking 4+2 as an example, when writing data, the storage system will first map the object data to a PG, and then the PG will map to a set of OSDs (the number of OSDs depends on the value of K+M, that is, the number of OSDs is equal to the value of N); At the same time, the primary OSD is elected in the OSD, and the primary OSD shards the object file into 4 data blocks, encodes 2 check blocks through 4 data blocks, and finally writes 4 data blocks and 2 parity blocks to 6 OSDs respectively. When reading data, the main OSD reads all the required shard data from other OSDs of the same PG, and finally the main OSD assembles the specified object files and replies to the client.
+
+Since erasure coding is to write data slices to multiple OSD disks concurrently, and there is no problem of multi-write amplification in the multi-copy mechanism, write performance is advantageous. However, when reading data, it is necessary to calculate data shards first, and then read out data from multiple OSDs for summary, so the read performance is relatively low.
+
+![1](/docs/assets/images/platform-technology-architecture-9.jpg)
+
+The principle of erasure coding proves that the number of data blocks allowed to be corrupted in a storage cluster is less than or equal to M (check block), and the object data block and check block are always unchanged when the storage node or disk is free of failures or exceptions. Only when an exception occurs in the node, when the data block and the test block are less than the N+M value, the corrupted data needs to be decoded and calculated by the remaining data block and the test block, and the period is restored to the normal OSD device. As shown in the EC policy in Figure 5+3 above, the data allowed to fail is 3, that is, 3 disks can be allowed to fail in the actual production environment; When the fragmented data D1 is corrupted, the main OSD calculates the remaining data blocks (D2-D5) and the test block information (P1-P3) of the object file, decodes the information of the data block and the test block through EC, calculates the damaged D1 data D1', and finally restores the D1' data to the normal OSD device to complete the recovery of the damaged data.
+
+If one shard data is corrupted when reading data, the data decoding and restoration operation will be performed synchronously, and the delay in reading the data will be large, which will affect the overall data reading performance.
+
+Since erasure coding consumes more computing resources when accessing data, erasure coding has higher computing requirements for nodes than many copies, but erasure coding is very suitable for storing a large number of data that is not sensitive to latency, such as backup data, office application data, and log data, with its flexible data backup strategy and high storage space utilization. Based on this, SCloudStack's file storage and object storage can provide two redundant protection strategies: erasure coding and multiple copies, while block storage only adopts the multi-copy mechanism for data security protection.
+
+## Data Re-balancing
+When the SCloudSack distributed storage cluster writes data, it tries to ensure the balance of data objects in the storage pool through data sharding, CRUSH mapping, multiple replicas, or erasure coding distribution policies. With the long-term operation of the storage cluster and the operation and maintenance management of the platform, data imbalance in the storage pool may occur, such as storage node and disk expansion, storage data deletion, and disk and host failure.
+
+After the storage nodes and disks are expanded, the total storage capacity of the platform increases, and the new capacity does not carry data storage, resulting in imbalance of cluster data.
+If a user deletes the data of a virtual machine or EVS disk, a large amount of free space appears in the cluster.
+
+After a disk and host failure goes offline, some copies of data objects are rebuilt to other disks or hosts, and are idle after failover.
+In order to avoid imbalance in the data distribution of the storage cluster caused by expansion and failure, the SCloudStack distributed storage system provides data rebalancing capability, which redistributes and balances some objects of the data in a timely manner through CRUSH rules after the storage cluster and disk data are changed, so that the object data in the storage pool is balanced as much as possible, avoiding data hotspots and waste of resources, and improving the stability and resource utilization of the storage system.
+
+### (1) Cluster expansion and rebalancing
+  
+The platform supports horizontal expansion of storage nodes or online expansion of storage nodes by adding disks to storage nodes to expand the capacity of storage clusters, that is, distributed storage clusters support adding OSDs to expand storage pool capacity at runtime. When the cluster capacity reaches the threshold and needs to be expanded, the new disk can be added as the OSD of the cluster and added to the CRUSH running graph of the cluster, and the platform will rebalance the distribution of cluster data according to the new CRUSH operation graph, and move some PGs in/out of multiple OSD devices to return the cluster data to the balanced state. As shown in the following figure:
+
+![1](/docs/assets/images/platform-technology-architecture-10.jpg)
+
+In the process of data balancing, only some PGs in the existing OSDs will be migrated to the new OSD device, and all PGs will not be migrated, so that all OSDs can free up some capacity space to ensure that the object data distribution of all OSDs is relatively balanced. After adding OSD 4 and OSD 5 in the figure above, three PGs (PG #4, PG #9, PG #14) are migrated to OSD 4, and three PGs (PG #5, PG #10, PG #15) are migrated to OSD 5, so that each of the five OSDs has 3 PGs. In order to avoid the overall degradation of cluster performance caused by PG migration, the storage system increases the priority of user read and write requests and performs PG migration operations during system idle time.
+
+During the PG migration process, the original OSD will continue to provide services until the PG migration is complete before writing several objects to the new OSD device.
+
+### (2) Cluster capacity reduction and rebalancing
+
+During the operation of the storage cluster, the cluster capacity may need to be reduced or the hardware replaced, and the platform supports online deletion of OSDs and node offline to reduce the cluster capacity or enter the operation and maintenance mode. When an OSD is deleted in the cluster, the storage system rebalances the cluster data distribution according to the CRUSH operation graph, and migrates the PGs on the deleted OSD to other relatively idle OSD devices to return the cluster to an equilibrium state. 
+
+As shown in the following figure:
+
+![1](/docs/assets/images/platform-technology-architecture-11.jpg)
+
+In the process of data balancing, only PGs on deleted OSDs are migrated to relatively idle OSD devices, and the object data distribution of all OSDs is relatively balanced. As shown in the figure above, a total of 6 PGs are mapped on OSD 4 and OSD 5 that are about to be deleted, and 2 PGs will be migrated to the remaining 3 OSDs after deletion, so that each of the 3 OSDs has 5 PGs.
+
+### (3) Fault data rebalancing
+
+During the long-term operation of distributed storage, there will be physical damage to disks, nodes, system crashes, network interruptions, and other failures, which will interrupt the storage services of nodes. Storage clusters provide fault-tolerant methods to manage hardware and software, and PG acts as an intermediate logical layer between objects and OSDs to ensure that data objects are not directly tied to an OSD device, which means that the cluster can continue to provide services in "degraded" mode. For more information, see Data Failure Reconstruction.
+
+Through the data rebalancing mechanism, you can support smooth expansion of distributed storage clusters, including horizontal expansion and vertical expansion, that is, storage nodes and storage disks can be added online.
+
+### Data failure reconstruction
+According to the protection mechanism of multiple copies and EC erasure coding, after the storage cluster writes data objects to the specified OSD through CRUSH, the OSD will calculate the storage location of the copy or data block by running the graph, and write the data copy or block to the specified OSD device, usually the data object will be assigned to different fault domains to ensure data security and availability.
+
+When the disk is damaged or the node fails, it means that some or all of the OSD devices of the node go offline or cannot provide storage services for the objects in the PG, and it also means that the number of copies of some object data is incomplete, such as 3 copies may become 2 copies due to disk corruption. At the time of failure, the PG of the object data is put into "degraded" mode to continue to provide storage services, and the data copy reconstruction operation begins, and the object data on the failed node or disk is remapped to other OSD devices according to the latest CRUSH operation diagram, that is, the copy of the object data is re-copied to other OSD devices to ensure that the number of copies is consistent with the storage pool settings.
+
+Under the EC erasure coding policy, when a node or disk device fails, part of the data block or check block will be lost, such as 4+2 erasure coding data will lose a data block or check block, at this time, the PG of the object data is set to "degraded" mode to continue to provide storage services, and the decoding and recovery operations of the erasure data are started, and the failed data block or check block data is restored to other healthy OSD devices according to the latest CRUSH operation chart to ensure the integrity and availability of object data.
+
+When rebuilding fault data, the fault domains configured in the storage cluster (host-level, cabinet-level, and data center level) are followed, and OSDs that meet the definition of the fault domain are selected as the location of the fault data reconstruction, so that multiple copies of the same object data or EC data are mutually exclusive, so as to avoid data blocks being located in the same fault domain and ensure data security and reliability. At the same time, in order to improve the reconstruction speed of fault data, the I/O of multiple fault data reconstruction tasks will be performed concurrently to achieve rapid reconstruction of fault data.
+
+After the failed node or disk is restored, the OSD is re-added to the CRUSH running graph of the cluster, and the platform will rebalance the cluster data distribution according to the new CRUSH operation graph, and move some PGs in/out of multiple OSD devices to return the cluster data to the balanced state. To ensure the operational performance of the storage cluster, the number of recovery requests, threads, and object block size are limited during data recovery and migration of replica or erasure coding ECs, and the priority of user read and write requests is increased to ensure cluster availability and running performance.
+
+### Data Cleansing
+During the long-term operation and data rebalancing of the distributed storage cluster, some dirty data, defective files, and system error data may be generated. If an OSD disk is damaged and the cluster rebuilds the data to other OSD devices after rebalancing, the failed OSD device may still store a copy of the previous data, and these replica data must be cleaned in time when the cluster is rebalanced.
+
+The OSD daemon of distributed storage can clean objects in PG, that is, OSD will compare the metadata of each object replica of different OSDs in PG, and if dirty data, file system errors and disk bad sectors are found, it will be deeply cleaned to ensure data integrity.
+
+### Thin Provisioning
+Thin provisioning, also known as overclaim or runtime space, is a technology that uses virtualization to reduce the deployment of physical storage. With thin provisioning, you can provide larger virtual storage with smaller physical capacity, and the true physical capacity will scale as data volumes grow, maximizing storage space utilization and bringing greater return on investment.
+
+The SCloudStack cloud platform distributed storage system supports thin provisioning, allocating logical virtual capacity to users when creating block storage services, and allocating actual capacity from physical space according to the storage capacity allocation policy when users write data to the logical storage capacity. If an EVS disk created by a user has a capacity of 1 TB, the storage system allocates and presents a 1 TB logical volume to the user, and the physical disk capacity is allocated only when the user writes data to the EVS disk. If the data stored on an EVS disk is 100 GB, the EVS disk uses only 100 GB of the storage pool, and the remaining 900 GB can be used by other users.
+
+The distributed storage system of the cloud platform supports monitoring of real physical capacity, providing real physical usable capacity and used capacity. It is generally recommended to scale out a storage cluster when the actual used capacity exceeds 80% of the total capacity. Thin provisioning is similar to the concept of CPU over-allocation, that is, the storage capacity created and used by tenants can be greater than the total physical capacity, and the physical storage space is automatically allocated to block storage devices on demand, eliminating the waste of allocated but unused storage space.
+
+Through automatic thin provisioning, platform administrators do not need to refine and accurately predict the scale of business storage, nor do they need to make detailed space resource planning and preparation for each business in advance, and cooperate with the capacity allocation strategy of logical storage volumes to effectively improve O&M efficiency and overall utilization of storage space.
+
+### Introduction to Storage Functions
+SCloudStack redefines data storage services through software-defined distributed storage, builds a unified storage layer based on general-purpose servers, provides block, object and file storage services for applications, and provides a variety of data interfaces, allowing users to build and use storage services on the cloud platform without paying attention to the underlying storage devices and architecture, suitable for use cases such as virtualization, cloud computing, big data, Internet of Things and enterprise applications.
+
+**Block Storage Services**
+
+SCloudStack is a block device that provides cloud platform tenants with block devices, that is, EVS disk services, based on distributed storage systems, and persistent storage space for computing virtualized virtual machines. It has an independent life cycle, supports binding/unbinding to multiple virtual machines at will, and can expand the capacity of EVS disks when the storage space is insufficient, providing cloud hosts with highly secure, reliable, high-performance, and scalable data disks based on network distributed access.
+
+The cloud platform provides tenants with EVS disks of two architectures: standard EVS disks using SATA/SAS disks as storage media, and performance EVS disks using SSD/NVME disks as storage media. EVS disk data is stored through PG mapping and triple copy mechanism, and provides users with EVS disk resources and full lifecycle management through block storage system interfaces on the basis of distributed storage systems.
+Supports the formation of multiple storage clusters, such as SATA storage clusters and SSD storage clusters, and supports virtual machines to mount block storage services on the cluster across clusters.
+
+- The distributed block storage service is mounted directly over the physical network, eliminating the need for mounting and transmission over the overlay network.
+- Distributed storage RBD and QEMU are fused via libvirt, and QEMU operates distributed storage through librbd.
+- The virtualization process communicates with the distributed storage process over the local & across the physical intranet.
+
+The storage of object data is completely isolated between different storage clusters. The storage policies of different block storage devices in a storage cluster are completely isolated and do not interfere with each other. The distributed storage system provides unified storage and management for virtual machine system disks, images, and EVS disks, improves the data transmission efficiency of virtual machines, system disks, and EVS disks, enables rapid creation and recovery of virtual machines, and supports rapid online expansion and migration of system disks and EVS disks.
+
+In terms of business data security, the distributed storage of the cloud platform supports disk snapshot capabilities, which can reduce the risk of data loss caused by misoperation and version upgrades, which is an important measure for the platform to ensure data security. You can perform manual or scheduled snapshots of system disks and data disks of virtual machines, and use snapshots to quickly restore local business data in the event of data loss or corruption, and achieve minute-level recovery of services, including database data, application data, and file directory data.
+
+### Block Storage Data Storage Mechanism
+The block storage service of the private cloud adopts a distributed unified storage system, which provides RBD interfaces to provide system disks, images, and EVS disk services for virtual machines. This section describes the data storage and deletion mechanism through the block storage data storage architecture, block storage data IO process, and data storage management process.
+
+![1](/docs/assets/images/platform-technology-architecture-11.jpg)
