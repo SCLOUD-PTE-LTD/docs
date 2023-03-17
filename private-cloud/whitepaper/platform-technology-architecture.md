@@ -376,3 +376,225 @@ In terms of business data security, the distributed storage of the cloud platfor
 The block storage service of the private cloud adopts a distributed unified storage system, which provides RBD interfaces to provide system disks, images, and EVS disk services for virtual machines. This section describes the data storage and deletion mechanism through the block storage data storage architecture, block storage data IO process, and data storage management process.
 
 ![1](/docs/assets/images/platform-technology-architecture-12.jpg)
+
+(1) Block storage data storage architecture
+
+After the virtual machine and EVS disk are created, an RBD block storage device, which is the carrier for the KVM engine client to read and write data, is generated in the distributed storage system, and an RBDID mapping object, metadata object, and data shard object are generated for a block storage device.
+
+- RBDID mapping object: refers to the ID mapped by each RBD block storage device in the storage system as a globally unique identifier, such as RBD0 corresponding to the identifier RBD00001.
+- Metadata object: refers to the metadata description information of the RBD block storage device, including the creation time, update time, attributes, and capacity of the block device.
+- Data shard object: Each data shard object file of the RBD block storage device is 4 MB by default, and the number of shards depends on the size of the RBD device, such as a 400 MB EVS disk, and the number of shards is 100 object files.
+
+All object files will calculate the PG storage placement group of the object through the algorithm, and in the three-copy mode, one placement group usually corresponds to three disk devices, that is, all objects of RBDID objects, metadata objects, and data shards will correspond to a placement group, and the object data will be written to the three disk devices corresponding to the placement group.
+
+(2) Block storage data IO process
+
+When the virtualization client of the virtual machine and EVS disk writes data to the RBD block device, it automatically slices the data. As shown in the figure above, the RBD block device is RBD0, and each shard size is 4MB, which will dynamically divide the written data into 4M object files, including metadata objects and RBDID mapping objects. Each object file has a name, rdb device+object+ordinal, such as `rbd0.object0`.
+
+Each rbd.objectn object file is allocated to the copy location through the placement group, and the placement group locates three disk devices through the Cursh algorithm as the storage location of the object file, that is, the data and metadata will first be split into the object file, and stored in all disks in the storage system according to the correspondence between the placement group and the disk device.
+
+(3) Data placement and management process
+
+The distributed storage system uses bare disks for disk management and data disk operation, and when storing and storing object files rbd.objectn files, each object file will be split again for storage through the storage management system, that is, the storage location of the split file on the physical disk is calculated by bitmap, and each 4MB object file is split and stored in the disk device, and the default split size is 32KB.
+
+When writing data, the storage location of the 32KB file on disk media is calculated from the bitmap, and the occupied position is marked as 1 (occupied) and the unoccupied disk position is marked as 0 (free).
+The process of storing data as a whole will split the file into 4MB object files, corresponding to different disk devices; At the same time, the 4MB file is split into 32KB blocks again and stored on the disk device when the disk is dropped.
+
+(4) Mechanism for deleting data
+
+According to the above storage data and disk storage conditions, the files stored in the distributed storage system are split into 32KB block files twice, and completely scattered and written to all disks in the entire storage cluster, including the metadata files of the storage files; When reading data or retrieving data, it is necessary to calculate which object files the data is composed of through metadata, and at the same time need to combine the disk bitmap to calculate which 32KB block data is composed of object data, that is, one of the 32KB data cannot read or restore a file, and the 32KB data stored in all disks in the storage cluster must be scattered into an object file, and then the object file can be stitched through metadata to read and restore a file.
+
+When you delete a virtual machine, EVS disk or delete a file in a virtual machine on the platform, the storage system deletes the metadata of the file, and sets the relevant 32KB block to 0 in the bitmap of disk management (only the block is set to idle, not really clearing the data), that is, the metadata used to restore the data and read the data is cleared, and the 32KB block is set to idle and can be occupied and written by other data.
+
+- If the 32KB block space is occupied by other data, the previous data will be overwritten by new data.
+- If the 32 KB block space is not occupied by other data, the 32 KB data can be recovered by the recovery software, but the 32KB data cannot find other associated 32KB data and corresponding object files due to the lack of metadata and bitmaps to ensure data security.
+
+### Object Storage Services
+SCloudStack adopts distributed storage, based on the standard S3 interface to provide unstructured data object storage services for upper-layer HTTP applications, with high scalability, high reliability, high security, easy access and other characteristics, users can quickly store or access massive data in object storage through the RESTful API interface, SDK and object storage client provided by the object storage service through the network, and support backup and archiving operations of stored data through the S3 interface.
+
+Object Storage Service deploys only one set of storage clusters in a data center, and divides different storage types, such as three-copy storage pool, five-copy storage pool, and erasure coded storage pool, and can configure fault domains and disk media types on the storage pool. The default object storage service uses a three-copy storage pool, that is, the object storage service uses the three-copy redundancy mechanism by default (other data redundancy mechanisms will be opened later). At the object storage service level, the platform object storage service supports object storage management functions such as storage space management, network access, quota management, ACL control, and key management, and supports rich data management capabilities:
+
+- Storage space management: Provides bucket lifecycle management based on cloud platform multi-tenancy and sub-accounts, supporting multi-tenant isolation.
+- Network access: The object storage service accesses the SDN network and the external IP network of the cloud platform to provide the internal and external network access addresses for each object file at the same time. The private network address can be read and written from the VPC network, and the external address can be read and written from the external network of the cloud platform.
+- Quota management: Supports quotas for the space capacity and number of objects in a single bucket, and allows you to customize the quota for each bucket.
+- ACL control: Supports configuring ACL permissions for storage spaces, including public and private types. All files of the public type are accessible directly via URL; All files of the private type must be authorized by the owner to be accessed, and both public and private files are valid only for reading files in space.
+- Key management: A pair of keys authorized for Storage Spaces, including access keys and security keys, for authentication of third-party clients requesting object storage.
+- Data management: provides graphical web services for object storage for end users, and supports rich file management operations, including file upload, file download, folder management, file copying, image preview, and file renaming, improving the convenience of using object storage services.
+- Multipart upload: You can divide the files to be uploaded into multiple data blocks to upload them separately, and then call the Object Storage API to combine these parts into a single File after the upload is completed.
+
+### File Storage Services
+SCloudStack adopts distributed storage, provides POSIX-compliant file directories for upper-layer virtualization, containers, and enterprise applications, supports standard NFS and CIFS/SMB sharing protocol interfaces, and provides users with unstructured data shared storage services, which can be applied to scenarios such as enterprise office, log storage, content management, and data backup. (The current version only supports NFS file storage)
+
+File Storage Service deploys only one set of storage clusters in a data center, and shares a set of storage clusters with object storage, and can divide different storage types, such as performance and capacity, through storage pools, and configure redundancy policies, fault domains, and disk media types for storage pools. The default file store uses a three-copy storage pool, that is, the file storage service uses the three-copy redundancy policy by default (other data redundancy policies will be opened later). At the file storage service level, the platform supports file directory management, network access, capacity expansion, NFS sharing, and other management capabilities:
+
+- File directory management: Provides file directory management based on multi-tenancy and sub-accounts of the cloud platform, supporting multi-tenant isolation.
+- Network access: The file storage service can be connected to the SDN network and external IP network of the cloud platform, and you can provide the internal network and external network mount addresses for each file directory at the same time. The private network address can be used to mount - NFS storage and read and write from virtual machines in the VPC network, and the external address can be used for NFS storage mounting, file reading and writing through the cloud platform external network.
+- Expand: Supports resizing the file directory.
+NFS share: supports NFS sharing of the file directory, after which the file directory will generate an NFS mount address, and the NFS shared storage can be mounted by the Linux client for reading and writing files.
+
+## Network Virtualization
+The network is an indispensable core part of virtualized computing and distributed storage to provide services for cloud platforms, and hardware-defined UnderLay networks or software-defined OverLay networks can be used to connect with virtualized computing to provide multi-application network and information transmission services for cloud platforms.
+- UnderLay Network <br/>
+The single-layer physical network defined by the hardware mode in the traditional IT architecture is composed of physical devices and physical links, that is, the current data center physical foundation forwarding architecture layer - the physical underlying bearer network, including all existing traditional network technologies, responsible for interconnection. Common physical devices include switches, routers, load balancers, firewalls, IDS/IPS, and so on.
+- OverLay Network<br/>
+Virtual network, a logical network built based on the overlay tunnel technology on the underlying UnderLay network architecture, realizes the virtualization of network resources, and completely reproduces the functions of the physical network on the virtualization platform in the form of software.<br/><br/>
+The core of the OverLay network is tunneling technology, which is only responsible for the network communication of virtualized computing resources, with independent control plane and forwarding plane (the core concept of SDN). The physical network is transparent to end devices connected to OverLay, such as servers, allowing separation of the bearer network from the business network.
+
+Virtualized computing, one of the core technologies of cloud computing, has been widely used in data centers, and both UnderLay Network and OverLay Network can provide network services for virtualized computing. As the scale of the business grows, the rapid growth and migration of virtual machines has become a normal business, and adopting the UnderLay network defined in hardware in the traditional IT architecture may cause some problems for the cloud platform:
+
+- Limitations in network isolation
+
+UnderLay's mainstream network isolation technology is VLAN, because the VLAN ID defined in IEEE 802.1Q is 12 bits, only 4096 VLANs can be implemented, which cannot meet the needs of identifying a large number of tenants or tenant groups in a large second-tier network. At the same time, because VLAN technology will cause the flood of broadcast data for unknown purposes in the entire network, it will consume network switching capacity and bandwidth without control, and is only suitable for small-scale cloud computing virtualization environments.
+
+The scope of virtual machine migration is limited by the network architecture
+To ensure hot migration of virtual machines, you need to keep the IP address and MAC address of the virtual machine unchanged, that is, the business network must be a Layer 2 network with redundant backup and reliability of multiple paths. Traditional physical network STP, device virtualization and other technologies are deployed without locking, which is not suitable for large-scale networks, limiting the network scalability of virtual machines, and usually only applicable to data center internal networks.
+
+Technologies such as TRILL/SPB/FabricPath/VPLS for large-scale network expansion can solve the scale problem, but they all require software and hardware upgrades in the network to support such new technologies, increasing the deployment cost of cloud computing platforms.
+
+- Virtual machine scale is limited by network specifications
+
+In a traditional Layer 2 network environment, data packets are forwarded Layer 2 by querying the MAC address table, and the capacity of the MAC address table of network devices limits the number of virtual machines. If you select a network device that fits a larger MAC address table, the network construction cost will increase.
+
+- Deployment is slow and rigid
+
+The rapid deployment and flexible expansion of virtualized computing require strong support from the network. Virtual machine deployment and onboarding in traditional networks require cumbersome configuration of systems and network devices, and even need to change the deployment location of physical devices, reducing service release efficiency and making it difficult to quickly respond to flexible deployment and release of new services.
+
+Based on the above problems and scenarios, the OverLay network solution can be adopted on the UnderLay network infrastructure to build a large second-layer virtual network to achieve network isolation between business systems, and realize various network functions and resources required in the network through NFV, flexibly dispatch resources on demand, and what you see is what you get, so as to realize network virtualization in the cloud computing platform and meet the network capability requirements of virtualized computing.
+
+- Network isolation capability
+
+OverLay network virtualization provides a variety of tunnel isolation technologies, such as VXLAN, GRE, NVGRE, STT, etc., all of which introduce Vlan-like user isolation identities, and greatly expand the isolation identities, such as VXLAN supports 24 bits, which can support more than tens of millions of network isolation identities.
+
+- Tunnel-routed network
+
+OverLay uses tunneling technology to encapsulate Layer 2 Ethernet packets on Layer 3 IP packets and distribute transmission in the network through routing. The routing network itself has no special network structure restrictions, has large-scale expansion capabilities and high-performance forwarding capabilities, and the routing Layer 3 network will reduce the Layer 2 broadcast domain, greatly reduce the risk of network broadcast storms, and have strong fault self-healing capabilities and load balancing capabilities. Through the routed network of OverLay technology, virtual machine migration is not limited by network architecture, and the existing network deployed by the enterprise can be used to support new cloud computing services.
+
+- Large-scale virtual machine scale 
+
+Packets sent by virtual machines are encapsulated in IP packets and appear to the network only as encapsulated network parameters, that is, the addresses of tunnel endpoints. Therefore, the demand for MAC address table capacity in the large Layer 2 network (UnderLay) is greatly reduced, which can support large-scale virtual machine scenarios.
+
+- Fast and flexible deployment
+
+The basic network is not aware of virtual network service changes, and the location of application deployment in the OverLay network will be unlimited, and the network functions are WYSIWYG, supporting plug-and-play, automatic configuration delivery, and automatic operation, which can quickly and flexibly deploy services, and support business migration and change in the virtual network.
+
+Network virtualization provides services through a combination of SDN Software Defined Network and NFV Network Function Virtualization. SDN is a new network architecture, the core idea is to separate the network control plane and data forwarding plane through standardized technologies (such as openflow), and the controller will calculate and distribute the flow table uniformly, so as to realize centralized, flexible and fine-grained control of network traffic. NFV refers to the virtualization of specific network devices, using general-purpose servers and software to implement and run network functions, such as virtual network cards, virtual switches, virtual firewalls, etc., to achieve flexible configuration, rapid deployment, and customized programming capabilities of network functions.
+
+SDN and NFV are highly complementary, each with its own emphasis, and provides solutions from different perspectives to meet the network needs of different virtualization scenarios. SDN enables centralized network control by separating the control plane and data forwarding plane, while NFV technology virtualizes network functions by separating hardware and software. The relationship between the two is as follows:
+- The flexibility provided by SDN technology in traffic routing, combined with NFV's virtualization architecture, can better improve the efficiency of the network and increase the overall agility of the network.
+- NFV does not rely on SDN and can be deployed virtualized without SDN, but the separation of control and data forwarding in SDN can improve NFV network performance, ease of use, and maintainability, enabling rapid deployment and network construction of NFV.
+
+SCloudStack uses the OverLay network and software-defined SDN controller of OVS+VXLAN to build a large layer-2 virtual network to achieve network isolation between business systems. Through NFV, various network functions and resources required in the network are implemented for interconnection with KVM virtualization computing services, and the distributed network architecture provides high-availability, high-performance, and feature-rich network virtualization capabilities and management for the platform.
+
+### Distributed Networks
+Based on OVS (Open vSwitch) components, SCloudStack realizes isolated virtual networks through VXLAN tunnel encapsulation technology, combined with software-defined SDN controllers, to provide a set of pure software-defined, high-performance, highly available, highly reliable, easy-to-manage and low-cost distributed network solutions for virtualized computing platforms that can run on x86 general-purpose servers.
+
+As the core component of the cloud platform, it provides a full range of network forwarding and communication capabilities for all virtual resources of the cloud platform, provides the same functional features and performance guarantees as the physical network, and provides automatic operation and maintenance capabilities such as network resource allocation, flexible deployment and automatic recovery through virtualization, so as to meet the virtualization of network functions and ensure network reliability.
+
+The distributed network provides all network functions of cloud computing on x86 general-purpose servers in a purely software-defined way, without the need for network hardware devices to support SDN or OverLay features, that is, all virtual network functional features and service traffic forwarding are provided by the virtual network components in the computing nodes, and the physical network switch equipment only carries the data forwarding of communication between the physical nodes of the platform, so the physical network only needs to support Vlan, trunk, LACP, IPV6, stacking and other characteristics.
+
+WYSIWYG network functions allow users to build and use virtual network services such as virtual VPCs, subnets, ENIs, external IP addresses, NAT gateways, load balancers, firewalls, and VPNs on the cloud platform without having to specify the underlying device type and network architecture. Cloud platform users use virtual networks in the same way as physical networks, such as joining virtual machines to an isolated network, assigning IP addresses, configuring external IP to access the Internet, or enabling multiple virtual machines to access the Internet through a single external IP address through a NAT gateway. Cloud platform administrators can perform unified configuration, monitoring, and management of global network resources, such as IP address planning, public IP address pool management, network device resource management, and QoS configuration, just like the administrators of the physical network.
+
+### Distributed architecture
+
+SCloudStack uses OVS as a virtual switch and VXLAN tunnel as an OverLay network isolation method, encapsulating Layer 2 protocols through Layer 3 protocols to define the encapsulation and forwarding of packets between virtual VPCs and IP addresses of different virtual machines.
+
+A private network (VPC (Virtual Private Cloud) is a logically isolated Layer 2 network broadcast domain environment belonging to users. Within a VPC, users can build and manage multiple three-layer networks, namely subnets, including network topology, IP network segments, IP addresses, gateways, and other virtual resources as network communication carriers for tenant virtual machine services.
+
+- VPC is the core of the virtualized network, providing intranet services for cloud platform virtual machines, including network broadcast domains, IP network blocks, and IP addresses, and is the foundation of all NVF virtual network functions. VPC networks are based on the VXLAN protocol, and there is complete Layer 2 isolation between different networks.
+
+- VPC networks defined and encapsulated by the platform through VXLAN use the VXLAN header VNI (VXLAN Network Identifier, 3-byte) field as the globally unique network identifier, or VPCID (similar to VlanID in a physical network).
+
+- As described in VXLAN RFC 7348, the VNI field contains a digital wrapper consisting of three 8-bit bytes that authenticates and identifies the origin of the VXLAN packet.
+The VNI field is 24 bits long, and each VXLAN tunnel number corresponds to a VPC network, that is, the platform can support 1600 (2^24^) 10,000 VPC networks. <br/><br/>
+SCloudStack OverLay network data surface components are deployed in a distributed manner on each compute node server, combined with self-developed SDN virtual network controller delivery flow tables, providing virtual network and NFV component implementation, isolation, flow table distribution, data encapsulation and data transmission functions, etc., to achieve elastic, highly secure, highly reliable, and absolutely isolated virtualized networks. As shown in the following figure:
+
+![1](/docs/assets/images/platform-technology-architecture-13.png)
+
+OVS is the core path of the virtual network data path, and when each compute node starts providing services, the SDN controller automatically sends flow tables belonging to the current node to the virtual switch to tell each virtual resource how the network should communicate. VXLAN provides data encapsulation and network tunneling when virtual networks are accessed across physical hosts. OVS is a distributed structure on all computing nodes, and the management control module to which the SDN controller belongs is a cluster architecture, which combines the redundant architecture of the physical network and links to improve the availability of the virtual network as a whole.
+
+As shown in the figure above, the cloud platform OverLay network components run distributed across all compute nodes, that is, each compute node deploys components such as OVS+VXLAN:
+
+- The virtual network flow table distribution service is a high-availability architecture, and only flow table distribution is not transparent to the production network transmission.
+- Distributed architecture, no centralized network forwarding nodes, all production networks are only transmitted on the computing nodes, no need to forward through the management service or flow table distribution service, to avoid the centralized network forwarding node becoming a performance bottleneck.
+- Each compute node only carries the network forwarding and transmission of virtual machines running on the local machine, and a single-node failure does not affect the virtual network communication of other nodes.
+- The failure of the management service and the flow table distribution service does not affect the operation and communication of the deployed virtual resources.
+- Distributed storage is mounted directly over the physical network, eliminating the need for mounting and transmission over the OverLay network, improving storage performance and availability.
+  - Convergence of distributed storage RBD and QEMU via libvirt, which operates distributed storage via librbd;
+  - The virtualization process communicates with the distributed storage process over the local & across the physical intranet.
+
+As described in the Physical Cluster section, the cloud platform management service is only used as an administrative role, and does not undertake network component deployment and production network transmission. The distributed network architecture distributes service data transmission to each computing node, except for the northbound traffic such as business logic that requires management services, and the southbound traffic such as the service implementation of all virtualized resources is distributed on the computing node or storage node, that is, the platform service expansion is not limited by the number of management nodes.
+
+### Communication Mechanisms
+The cloud platform provides a fully isolated virtual network through VXLAN tunneling and distributed network architecture, and provides virtual computing with network functions similar to physical network VLANs by defining virtual private networks, and the specific communication principle is as follows:
+
+- In the same VPC network, virtual resources on the same physical host can directly communicate network data through OVS.
+- In the same VPC network, data between virtual resources across physical hosts is transmitted to the physical network through VXLAN tunnel encapsulation.
+- Different VPCs use different tunnel IDs, and are in two logical routing planes on the network, making the network between VPCs naturally isolated, that is, virtual resources between different VPC networks cannot communicate.
+- If resources between different VPC networks are not connected to the internal network, you must use the routing function of ENI to connect the networks between different VPCs.
+
+As shown in the distributed network architecture diagram, assume that VM1, VM3, and VM4 belong to the same VPC network and VM2 belongs to separate VPC networks. The internal network and external network communication mechanisms of the virtual machine are as follows:
+
+#### (1) Internal network communication and restrictions
+- VM1 and VM2 belong to different VPC networks, and VM1 cannot network communicate with VM2 due to the isolation of the VPC network.
+- VM3 and VM4 belong to the same VPC network and the same physical host, and can communicate directly through the flow tables of Open vSwitch.
+- VM1 and VM3/VM4 belong to the same VPC network and can communicate with the network by default, but because VM1 is not on the same physical host as the other two VMs, data encapsulation and transmission through the physical network through the VXLAN tunnel are required, as follows:
+  - VM1 sends data to the OVS of Compute1, and OVS queries the VPC information of the flow table to know that the destination virtual machine VM3 is located in the Compute2 node.
+  - OVS sends the packet to the Compute1-vtep0 device, encapsulates the packet in VXLAN Layer 3, and establishes a VXLAN tunnel between the two nodes, vtep0;
+  - After VXLAN encapsulates the data packet, it delivers the packet to the Compute2 node through the network interface of Compute1 and the physical network Switch according to the destination address and routing information of the IP packet.
+  - After the compute2-vtep0 device receives the VXLAN packet over the physical network, it decapsulates the packet.
+  - After the data packet is de-encapsulated, the packet is forwarded to VM3/VM4 through the VPC information of the OVS flow table.
+- VM2 and VM3/VM4 belong to different VPC networks and cannot communicate directly due to VPC network isolation.
+
+#### (2) External network communication and restrictions
+As shown in the preceding figure, this topic assumes that VM1 has been bound to an external IP address, and the example of accessing the Internet through the external IP address is described.
+
+When a user applies for an external IP address through the cloud platform and binds it to VM1, the cloud platform system directly configures the external IP address and gateway information to the eth1 interface of the virtual machine's default external virtual NIC.
+
+When the virtual machine needs to access the external network, it sends packets to OVS, and OVS queries the flow table about the external IP routes, sends the packets directly to the Compute1 external network card, and communicates with the Internet through the routes or VLANs configured on the physical network.
+
+When VM1 needs to be accessed on the external network, the packet is sent to OVS through the external NIC of the physical network Compute1, and OVS queries the flow table about the external IP routing information and sends the packet directly to the eth1 interface of the VM1 external virtual NIC.
+
+Network traffic is restricted by security group rules, that is, traffic is filtered again according to security group rules as traffic enters and exits the vNIC.
+
+### SDN Controller
+The SDN controller is the control plane of the OverLay virtual network, which is responsible for the generation and delivery management of virtual network flow tables, and can automatically configure parameters and flow table rules for the virtual network functions and components of the cloud platform through the controller, without manual intervention, improving the platform's network management and control capabilities and O&M efficiency.
+
+When each compute node starts providing services, the controller automatically generates and distributes flow tables belonging to the current node to the node virtual switch to tell each virtual resource how the network should communicate. Like the intelligent scheduling system, the network controller provides virtual network control and management by the [Schedule Manager core scheduling and management module], supports the cluster architecture, and combines the redundant architecture of the physical network and links to improve the availability of the virtual network as a whole.
+
+- Each region only needs to deploy a set of highly available (primary/standby mode) Schedule Manager, which can be deployed on two or more nodes.
+- When the server of the primary compute node where the network control module is deployed fails physically, the standby computing node where the network control module is deployed automatically takes over the scheduling service to ensure the availability of the core scheduling and flow table control services.
+- Network Controller only hosts flow table distribution and control services, and does not transmit production network transmissions.
+
+All failures in the network controller's high-availability architecture only affect the delivery and management of flow tables of newly created virtual resources, and do not affect the operation and communication of deployed virtual resources. Since the network controller and cloud management service do not carry the forwarding and transmission of the production network, but are transmitted by the OVS components distributed in all the compute nodes, the virtual network carrying the production traffic is also expanded while the computing nodes expand horizontally, improving the availability and reliability of the platform as a whole.
+
+### Introduction to Network Functions
+SCloudStack virtualizes the traditional data center physical network through software-defined networking (SDN), virtualizing network functions as WYSIWYG, and users can build and use virtual network services on the cloud platform, including VPC, network isolation, elastic NIC, external IP, NAT gateway, load balanc, firewall (security group), VPN connection and other network services without paying attention to the underlying device type and network architecture, carrying network communication and security of virtual resources on the cloud platform.
+- VPC network <br/>
+Software-defined virtual VPCs for data isolation between tenants. Provides custom VPC networking, subnet planning, and network topology, and adds virtual machines to private networks and subnets to provide Layer 2 network services for virtual machines.
+- Network isolation capability<br/>
+The logically isolated Layer 2 network broadcast domain environment provided by VPC provides network isolation capabilities for cloud platform users or sub-accounts, and the network between different VPC networks is completely isolated and cannot communicate.
+- ENIs<br/>
+An elastic network interface that can be attached to virtual machines at any time, supports binding and unbinding, flexibly migrates between multiple virtual machines, provides high-availability cluster construction capabilities for virtual machines, and enables refined network management and inexpensive failover solutions.
+- Internet IP<br/>
+Internet access for resources such as VMs, load balancing, and NAT gateways. Multi-operator line access is supported and the bandwidth limit of public IP addresses can be adjusted.
+- NAT gateway<br/>
+Enterprise-level VPC gateway, which provides SNAT and DNAT proxies for cloud platform resources, supports both public and physical network address translation capabilities, and supports VPC-level, subnet-level, and instance-level SNAT rules.
+- Load balancing<br/>
+A control service based on TCP/UDP/HTTP/HTTPS protocol that automatically distributes network access traffic among multiple virtual machines, similar to a hardware load balancer of traditional physical networks. It is used to achieve traffic load and high availability among multiple virtual machines, and provides Layer 4 and Layer 7 monitoring and health check services for internal and external networks.
+- Security groups<br/>
+Virtual firewall, which provides access control rules for inbound and outbound traffic, defines which networks or protocols can access resources, restricts network access traffic to virtual resources, supports TCP, UDP, ICMP and multiple application protocols, and provides necessary security for cloud platforms.
+- VPN<br/>
+VPN gateway service provides highly available VPN services that can be tolerated and used with VPC, local gateway, and public network services. Users can choose a variety of encryption and authentication algorithms to ensure tunnel reliability.
+
+Cloud platform virtual network provides users with rich network functions, improves platform operability and O&M, and provides cloud platform administrators with network planning and configuration, monitoring, QoS restrictions, and network resource management, allowing administrators to manage virtual networks like physical networks.
+- Network planning configuration<br/>
+Platform administrators can connect and configure VPC IP address pools, Internet IP address pools, and physical network hybrid access.
+- Monitor<br/>
+Platform administrators can monitor the usage, traffic, and availability of all IP and network resources of the platform to ensure the availability of the platform.
+- Network QoS<br/>
+Support platform administrators to configure network QoS to control and limit the bandwidth of internal/external networks, to avoid competing for network resource performance between users, and to ensure the availability of all virtual network components.
+- Network resource management<br/>
+Platform administrators can view and manage all network resources of the platform, including physical network resources and virtual network resources.
+
+## Reuse the public cloud
+Based on the SCloud public cloud platform, SCloudStack cloud platform reuses the core components of public cloud virtualization, including operating system kernel, KVM, QEMU and OVS.
