@@ -69,7 +69,7 @@ The implementation and logic of the operating system kernel, virtualized computi
 - NAT gateway: enterprise -level VPC gateway, which provides SNAT and DNAT agents for cloud platform resources, supports two network egress modes, automatic and whitelist, and provides port mapping agent services for VPC networks, making external networks Access the virtual machine through the NAT gateway.
 - Load balancing: A control service that automatically distributes network access traffic among multiple virtual machines based on the TCP/UDP/HTTP/HTTPS protocol, similar to a traditional physical network hardware load balancer, used for multiple virtual machines Realize traffic load and high availability between virtual machines, and provide Layer 4 and Layer 7 monitoring and health check services for internal and external networks;
 - IPSecVPN: Provide IPSecVPN gateway service, connect SCloudStack with SCloud public cloud, IDC data center, and third-party public cloud intranet through IPSec protocol encrypted tunnel technology, and provide security for two private networks on the Internet The channel ensures the security of the connection through encryption; at the same time, the IPSecVPN service can also be used as a communication bridge between VPCs on the SCloudStack platform;
-- Bastion machine: Provides the ability to manage and monitor the operation and access of operation and maintenance personnel, notify and warn high - risk behaviors, and improve the operation and maintenance audit mechanism;
+- Bastion machine: Provides the ability to manage and monitor the operation and access of operation and maintenance personnel, notify and warn high-risk behaviors, and improve the operation and maintenance audit mechanism;
 - Vulnerability scanning: Provides complete, fast, stable and efficient detection of WEB and host vulnerabilities, relying on the research accumulation of the professional SCloud Security Center to improve security self-inspection capabilities;
 - Database audit: Provide monitoring of database status and communication content, accurately assess the risks faced by the database, provide reliable evidence through complete log records, and improve the tracing mechanism;
 - Web Application Firewall ( WAF ): Provides security protection capabilities for the business layer, maximizes business security protection, complements the 7- layer protection capability, and builds a complete boundary protection capability;
@@ -90,15 +90,15 @@ An operation and maintenance operation and management platform for cloud platfor
 
 - Tenant management: used to manage the tenant and account information of the entire cloud platform, providing the function of creating / freezing tenants and recharging, and supporting viewing of resource information, order records, transaction records and quota prices owned by tenants and other information, while supporting the modification of tenant resource quotas and product prices;
 - Resource management: support viewing and managing all physical and virtual resources of the platform;
-  - Physical resources include physical data centers, clusters, host resources, storage resources, network IP segment resource pools, and mirror resource pools;
-  - Virtual resources include resources owned by all tenants and sub- accounts, including virtual machines, VPC, load balancing, external network IP, elastic network card, elastic scaling, NAT gateway, IPSecVPN, monitoring alarms, security group, recycle bin, etc.;
+ -Physical resources include physical data centers, clusters, host resources, storage resources, network IP segment resource pools, and mirror resource pools;
+ -Virtual resources include resources owned by all tenants and sub- accounts, including virtual machines, VPC, load balancing, external network IP, elastic network card, elastic scaling, NAT gateway, IPSecVPN, monitoring alarms, security group, recycle bin, etc.;
 - Account management: support viewing all order records, transaction records, recharge records and global product prices on the platform, support configuration of overall product prices on the platform, and support financial report export;
 - Platform monitoring alarm: Provide monitoring data of SCloudStack's own physical equipment, components and all virtual resources, and support custom monitoring alarms and notifications;
 - Log events: provide operation logs and audit information of all tenants, sub- accounts and administrators of the platform, which can be screened and searched in multiple dimensions;
 - System management: Provide cloud platform global configuration, specification configuration and quota management functions.
-  - Global configuration includes mailbox settings, recycling policies, network settings, billing, resource management, quota settings, login status, console and website settings, etc.;
-  - Specification configuration supports custom configuration of the virtual machine's CPU memory specification, disk capacity range, and external network IP bandwidth;
-  - Global quota supports viewing and modifying the global quota value of each regional virtual resource.
+ -Global configuration includes mailbox settings, recycling policies, network settings, billing, resource management, quota settings, login status, console and website settings, etc.;
+ -Specification configuration supports custom configuration of the virtual machine's CPU memory specification, disk capacity range, and external network IP bandwidth;
+ -Global quota supports viewing and modifying the global quota value of each regional virtual resource.
 - Installation and deployment: Provide a private cloud deployment system, support graphical interface, configure servers, networks and other infrastructure, automate machine installation, and deploy private clouds.
 
 ## Product Features
@@ -148,17 +148,17 @@ In terms of deployment, the SSD disk built into the computing node is built as a
 (3) Distributed network architecture: Distributed Overlay network is adopted to provide network functions such as VPC, NAT gateway, load balancing, security group, and external network IP.
 
 - The Overlay network of the SCloudStack cloud platform is distributed and runs on all computing nodes;
-  - The management service is only used as a management role, and does not undertake the deployment of network components and production network transmission;
-  - The virtual network flow table distribution service is a high-availability architecture, only for flow table distribution and not transparently transmitted to the production network;
-  - All production networks are only transmitted on computing nodes, without forwarding through management services or flow table distribution services;
-  - the management service and the flow table distribution service will not affect the operation and communication of the deployed virtual resources.
+ -The management service is only used as a management role, and does not undertake the deployment of network components and production network transmission;
+ -The virtual network flow table distribution service is a high-availability architecture, only for flow table distribution and not transparently transmitted to the production network;
+ -All production networks are only transmitted on computing nodes, without forwarding through management services or flow table distribution services;
+ -the management service and the flow table distribution service will not affect the operation and communication of the deployed virtual resources.
 - Hyper-converged computing nodes or independent storage nodes are divided into different clusters ( Set ) according to disks and services;
-  - Each cluster has a maximum of 45 nodes to control the cluster size;
-  - The business data network is only transmitted in a single cluster, that is, in a single group of switches.
+ -Each cluster has a maximum of 45 nodes to control the cluster size;
+ -The business data network is only transmitted in a single cluster, that is, in a single group of switches.
 - Distributed storage is mounted directly through the physical network, without the need for mounting and transmission through the overlay network;
-  - Integrate distributed storage rbd and qemu through libvirt, qemu operates distributed storage through librbd;
-  - The virtualization process and the distributed storage process communicate through the local & cross-physical machine intranet;
-  - The intranet of the cloud platform uses at least 10 Gigabit switches and port aggregation, which can meet the performance requirements of virtual machines and distributed storage;
+ -Integrate distributed storage rbd and qemu through libvirt, qemu operates distributed storage through librbd;
+ -The virtualization process and the distributed storage process communicate through the local & cross-physical machine intranet;
+ -The intranet of the cloud platform uses at least 10 Gigabit switches and port aggregation, which can meet the performance requirements of virtual machines and distributed storage;
 
 The distributed network architecture disperses business data transmission to each computing node. Except for northbound traffic such as business logic that requires management services, all southbound traffic such as business implementation of virtualized resources is distributed on computing nodes or On storage nodes, that is, platform business expansion is not limited by the number of management nodes.
 
@@ -233,7 +233,7 @@ By deploying business systems and internal applications to the SCloudStack platf
 Platform service, and you can deploy and manage the infrastructure and middleware required for business delivery with one click through the self- service cloud management platform, including online expansion, load distribution, and database caching and monitoring logs and other application basic environment service capabilities; at the same time, the platform supports image import and export, which can conveniently and quickly migrate business systems to the cloud platform, and can manage resources of all business systems Unified management.
 
 ### Hyper-converged all-in-one machine
-The platform provides an all-in-one machine delivery model. Various models are used in different business scenarios. It integrates the SCloudStack private cloud platform. It is pre - installed and ready to use out of the box. A series of cloud service capabilities such as network, storage, database, cache and cloud management; at the same time, it can build a hybrid cloud solution by interconnecting with the IDC data center.
+The platform provides an all-in-one machine delivery model. Various models are used in different business scenarios. It integrates the SCloudStack private cloud platform. It is pre-installed and ready to use out of the box. A series of cloud service capabilities such as network, storage, database, cache and cloud management; at the same time, it can build a hybrid cloud solution by interconnecting with the IDC data center.
 
 ### Private Cloud for Government and Enterprise
 SCloudStack provides tenant console and administrator console, supports multi- tenant, account registration, metering and billing and other features, and provides cloud platform managers with operation and maintenance management functions, including resource management, tenant Management, price configuration, resource specification configuration, deployment upgrade and monitoring logs and other services, providing industry- specific cloud solutions for government and enterprises.
@@ -247,7 +247,7 @@ customers who need to build an industry- specific cloud and combine their own Sa
 Industry customers who need a large number of virtualized environments that can be delivered quickly and privately deployed, for rapid deployment and management of scientific research projects and training systems.
 
 ## Delivery Mode
-SCloudStack is positioned as lightweight delivery, 3 nodes can build a production environment and can be smoothly expanded, and provides unified resource scheduling and management, supporting pure software, hyper-converged all - in-one machines and hyper-converged cabinets The delivery mode can effectively reduce the cost of user management and maintenance, and provide users with a safe, reliable, independent and controllable cloud service platform.
+SCloudStack is positioned as lightweight delivery, 3 nodes can build a production environment and can be smoothly expanded, and provides unified resource scheduling and management, supporting pure software, hyper-converged all-in-one machines and hyper-converged cabinets The delivery mode can effectively reduce the cost of user management and maintenance, and provide users with a safe, reliable, independent and controllable cloud service platform.
 
-- Pure software delivery
+- Pure software delivery <br/>
 The customer provides the hardware server, network equipment and related infrastructure for the operation of the cloud platform, and SCloud provides SCloudStack lightweight private cloud software; usually in the case of complete infrastructure network facilities, SCloudStack software can be deployed and delivered within 2 hours.

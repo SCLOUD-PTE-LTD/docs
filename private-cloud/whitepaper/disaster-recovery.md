@@ -35,10 +35,12 @@ SCloudStack platform automatically shields software and hardware failures, disk 
  The remote disaster recovery service supports multiple service deployment methods, provides different RTO indicators for cloud platform services, and controls the disaster recovery cost of cloud platform services.
 
 ### (1) High RTO indicators, long business recovery time, and low cost
+
 - Service deployment: Only the object storage service is deployed in the remote disaster recovery center, and the cloud service image, business data, and database of the on-premises data center are fully or incrementally copied to the object storage service.
 - Service recovery: Restore the backup data of the object storage service of the remote disaster recovery center to the local computer, restore cloud services and data locally, and rebuild the local data center.
 
 ### (2) Low RTO indicators, long business recovery time, and high cost
+
 - Service deployment: All business applications, databases, and load balancers are deployed in local data centers and remote disaster recovery centers.
   - The on-premises data center is in Active mode, and the remote disaster recovery center is in Cold Standby mode.
   - Server Load Balancer: Each server for each service is deployed in the disaster recovery center.
@@ -171,6 +173,7 @@ The SCloudStack disaster recovery service network is a dual-center network in th
     - High RPO indicators and low cost;
 
 ## Disaster Recovery Switch
+
 SCloudStack disaster recovery services are divided into planned and unplanned switch according to business scenarios. According to the disaster recovery service mode, it is divided into intra-city and remote switching.
 - The plan refers to business disaster recovery drills and cloud platform O&M, and the production center has not experienced disasters or failures, which is mostly used to verify disaster recovery service capabilities.
 - Unplanned refers to the occurrence of large-scale disasters in the production center, such as earthquakes, electronic failures, virus attacks, etc., and the production center has been completely damaged;
