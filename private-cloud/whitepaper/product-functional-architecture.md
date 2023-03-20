@@ -97,3 +97,21 @@ The LUN storage volume device that successfully scans is assigned to the tenant 
 - Platform tenants use LUN storage volume devices<br/>
 Platform tenants can directly query the allocated storage volumes through the console external storage, and specify the system disk type as external storage when creating a virtual machine, or they can directly attach LUN storage volumes to existing virtual machines and use them as data disks of virtual machines.<br/>
 The premise for platform tenants to use external storage services is that storage volumes are mapped and assigned to tenants, and tenants only need simple binding to easily use the external storage devices provided by the platform, and can be elastically bound and unbound.
+
+## Virtual Machines
+Virtual machine is the core service of SCloudStack cloud platform, providing scalable computing power services at any time, including the most basic computing components such as CPU, memory, operating system, etc., and combining with network, disk, security and other services to provide a complete computing environment. Build IT architecture by combining with services such as load balancing, databases, caching, object storage, and more.
+
+The SCloudStack cloud platform virtualizes the computing resources of physical servers through KVM (Kernel-based Virtual Machine) to provide computing resources for virtual machines.
+
+The computing resources of a virtual machine can only be located on one physical server, and when the physical server load is high or fails, it will be automatically migrated to other healthy physical servers.
+Virtual machine computing power is expressed by virtual CPU (vCPU) and virtual memory, and storage capacity is reflected in cloud storage capacity and performance;
+
+The hypervisor controls the QoS of vCPUs, memory, and disks to support virtual machine resource isolation to ensure that multiple virtual machines do not affect each other on the same physical server.
+
+Virtual machines are the basic environment for cloud platform users to deploy and run application services, which is used in the same way as physical computers, providing complete life cycle functions such as creation, shutdown, power off, power on, password reset, system reinstallation, and upgrading. Support Linux, Windows and other different operating systems, and can be accessed and managed through VNC, SSH, etc., and have full control of virtual machines. The resources involved in virtual machine operation and their association relationships are as follows:
+
+![1](/docs/assets/images/product-functional-architecture-3.jpg)
+
+As shown in the figure, the instance type, image, and VPC network are the basic resources that must be specified to run the virtual machine, that is, the CPU memory, operating system, virtual NIC, and IP information of the virtual machine. On top of the virtual machine, you can bind EVS disks, EIPs, and security groups to provide data disks, public IP addresses, and network firewalls for virtual machines to ensure data storage and network security of virtual machine applications.
+
+In terms of virtualization computing capabilities, the platform provides GPU device transparent transmission capabilities, allowing users to create and run GPU virtual machines on the platform, allowing virtual machines to have high-performance computing and graphics processing capabilities. Devices that support transparent transmission include `NVIDIA's K80, P40, V100, 2080, 2080Ti, T4, and Huawei Atlas300`.
