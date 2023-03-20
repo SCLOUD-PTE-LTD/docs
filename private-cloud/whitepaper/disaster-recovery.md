@@ -26,7 +26,7 @@ SCloudStack platform automatically shields software and hardware failures, disk 
 - When local data is damaged or accidentally deleted, you can restore the local backup data to the platform to restore business data and business operation.
 - In the event of a disaster in an on-premises data center, the data center can be rebuilt and services restored through remote disaster recovery or public cloud disaster recovery.
 
- ## Remote disaster recovery services
+## Remote disaster recovery services
 
  The SCloudStack cloud platform provides remote disaster recovery services while ensuring the security of business data in on-premises data centers, and incrementally replicates cloud service images and data to remote object storage services through leased lines, SD-WAN, VPN, or Internet connections to ensure business data RPO metrics. When a disaster occurs in an on-premises data center, you can quickly restore business through off-site data.
 
@@ -51,7 +51,7 @@ SCloudStack platform automatically shields software and hardware failures, disk 
 - Data replication: According to the different requirements of services for RPO, the two data centers adopt multiple network interconnections.
   - The database service asynchronously copies the data to the disaster recovery center object storage service.
   - Virtual machine images, business data, and file data are copied from the local data center to the disaster recovery center object storage in a full/incremental manner.
-- Service recovery: When a disaster occurs in the on-premises data center or a service switchover is required, modify the service domain name A record and database status.
+- Service recovery: When a disaster occurs in the on-premises data center or a service switch is required, modify the service domain name A record and database status.
   - Use intelligent DNS to manually modify the service domain name A record to the IP address of the service LB of the disaster recovery center to achieve failover and service recovery.
   - Modify the business application database service of the disaster recovery center to read-write state, and the business application database directly reads and writes data in object storage.
 
@@ -81,7 +81,7 @@ The public cloud disaster recovery service supports multiple service deployment 
 - Data replication: According to the different requirements of business RPO, multiple network interconnections are adopted between local data centers and public cloud platforms.
   - The database service asynchronously copies the data to the public cloud platform object storage service;
   - Virtual machine images, business data, and file data are copied from the on-premises data center to the public cloud platform object storage service in a full/incremental manner.
-- Service recovery: When a disaster occurs in the on-premises data center or a service switchover is required, modify the service domain name A record and database status.
+- Service recovery: When a disaster occurs in the on-premises data center or a service switch is required, modify the service domain name A record and database status.
   - Use intelligent DNS to manually modify the service domain name A record to the IP address of the service LB of the public cloud platform to achieve failover and service recovery.
   - Modify the business application database service of the public cloud platform to read-write state, and the business application database directly reads and writes data in object storage.
 
@@ -170,15 +170,15 @@ The SCloudStack disaster recovery service network is a dual-center network in th
     - Network quality cannot be guaranteed, data replication and synchronization speed is slow, and remote disaster recovery service RPO cannot be guaranteed.
     - High RPO indicators and low cost;
 
-## Disaster Recovery Switchover
-SCloudStack disaster recovery services are divided into planned and unplanned switchover according to business scenarios. According to the disaster recovery service mode, it is divided into intra-city and remote switching.
+## Disaster Recovery Switch
+SCloudStack disaster recovery services are divided into planned and unplanned switch according to business scenarios. According to the disaster recovery service mode, it is divided into intra-city and remote switching.
 - The plan refers to business disaster recovery drills and cloud platform O&M, and the production center has not experienced disasters or failures, which is mostly used to verify disaster recovery service capabilities.
 - Unplanned refers to the occurrence of large-scale disasters in the production center, such as earthquakes, electronic failures, virus attacks, etc., and the production center has been completely damaged;
-- Intra-city switching refers to the service switchover in which a disaster occurs in a data center in the same city dual center, and reasonable deployment of services can realize automatic disaster recovery in the same city and dual centers, without user intervention and switching, and automatic service recovery.
-- Remote switching refers to the occurrence of disasters in both centers in the same city, which cannot provide services, and requires manual service recovery and switchover.
-- Under normal circumstances, dual centers in the same city automatically perform service disaster recovery switchover without manual intervention, and the following describes only the remote disaster recovery switchover.
+- Intra-city switching refers to the service switch in which a disaster occurs in a data center in the same city dual center, and reasonable deployment of services can realize automatic disaster recovery in the same city and dual centers, without user intervention and switching, and automatic service recovery.
+- Remote switching refers to the occurrence of disasters in both centers in the same city, which cannot provide services, and requires manual service recovery and switch.
+- Under normal circumstances, dual centers in the same city automatically perform service disaster recovery switch without manual intervention, and the following describes only the remote disaster recovery switch.
 
-### Planned switchover
+### Planned Switch
 - Data comparison: manual intervention compares the consistency and completeness of business data and resource data of the same city dual center and the remote disaster recovery center;
 - Stop the production center business, network, load balancing, or turn off the power supply of hardware facilities;
 - Check the service running status of the service virtual machine in the remote disaster recovery center, and check whether the virtual machine is on the backend of the service load balancer instance.
@@ -187,7 +187,7 @@ SCloudStack disaster recovery services are divided into planned and unplanned sw
 
 If the remote disaster recovery center only deploys the object storage service, that is, only the backup of business data in the production center, you need to prepare the basic IaaS and PaaS environment for running the business in the remote disaster recovery center or production center, and restore the business VMs, load balancers, databases, and storage one by one through the backup data.
 
-### Unplanned Switch-overs
+### Unplanned Switch
 - Check and confirm that both centers in the same city are faulty or unavailable;
 - Check the service running status of the service virtual machine in the remote disaster recovery center, and check whether the virtual machine is on the backend of the service load balancer instance.
 - Change the status of the service database of the disaster recovery center to read-write status, and test the status of accessing the service service address through the load balancing service address.
@@ -197,4 +197,4 @@ If the remote disaster recovery center only deploys the object storage service, 
 If the remote disaster recovery center only deploys the object storage service, that is, only the backup of business data in the production center, you need to prepare the basic IaaS and PaaS environment for running the business in the remote disaster recovery center, and restore the service virtual machines, load balancers, databases, and storage one by one through the backup data.
 
 ### Disaster recovery failover
-After the failure of the production center or the same city dual center is recovered or restored, the new production center in the remote area is switched back to the original production center, that is, the local data center. Disaster recovery fail-back is planned, and the switchover process is consistent with planned switchover.
+After the failure of the production center or the same city dual center is recovered or restored, the new production center in the remote area is switched back to the original production center, that is, the local data center. Disaster recovery fail-back is planned, and the switch process is consistent with planned switch.
