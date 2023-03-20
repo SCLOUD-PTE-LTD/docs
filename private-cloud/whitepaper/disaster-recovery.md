@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Services Disaster Recovery 
+title: Disaster Recovery Services
 parent: Whitepaper
 grand_parent: Private Cloud
-permalink: /private-cloud/whitepaper/services-disaster-recovery/
+permalink: /private-cloud/whitepaper/disaster-recovery-services/
 nav_order: 5
 ---
-# Services Disaster Recovery 
+# Disaster Recovery Services
 
 SCloudStack cloud platform ensures the security of local data through distributed storage systems, and provides users with remote data backup and disaster recovery services through remote data backup services, which can archive and back up local cloud data to remote cloud platforms to ensure that services can be quickly restored through remote data centers in the event of major local disasters. There are two core indicators to consider in disaster recovery plans:
 - RTO (RecoveryTime Object): Recovery Time Objective, which refers to the time required for the application system to recover from downtime to business recovery after a disaster in the data center, that is, the timeliness of business recovery, representing the maximum business recovery time that can be tolerated. The smaller the RTO value, the faster the business needs to be restored, and the relative cost is higher.
