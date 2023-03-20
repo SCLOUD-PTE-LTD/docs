@@ -9,7 +9,7 @@ nav_order: 4
 # Product Functional Architecture
 ## Core Functional Concepts
 ### Territory
-- Region refers to the geographic area of the SCloudStack cloud platform physical data center, such as Shanghai, Beijing, Hangzhou, etc.
+- Region refers to the geographic area of the SCloudStack cloud platform physical data center, such as Singapore, Tokyo, Seoul, etc.
 - Different regions are completely physically isolated, and regions cannot be changed after cloud platform resources are created.
 - The networks between different regions are completely isolated, and the internal networks of resources cannot be interconnected, and network communication can be carried out through the public network or private lines.
 VPC and Server Load Balancer support deployment in the same region.

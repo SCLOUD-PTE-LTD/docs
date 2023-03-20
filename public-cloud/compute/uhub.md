@@ -52,9 +52,9 @@ docker pull uhub.service.scloud.sg/{image repository created}/{image}:tag
 ```
 ## Cross-region experience
 The SCloud public image database is a cross-region architecture, and images pushed by nodes in one region can be pulled from nodes in other regions through the intranet.
-For example, in Zone C in North China, push the image:
+For example, in Zone A in Singapore, push the image:
 
-In Shanghai 2, you can also pull to:
+In Singapore 2, you can also pull to:
 
 As long as the image push is completed, all regions covered by the internal network in the SCloud platform can be pulled to the pushed image through the internal network.
 ## Restrictions on use
