@@ -115,3 +115,96 @@ Virtual machines are the basic environment for cloud platform users to deploy an
 As shown in the figure, the instance type, image, and VPC network are the basic resources that must be specified to run the virtual machine, that is, the CPU memory, operating system, virtual NIC, and IP information of the virtual machine. On top of the virtual machine, you can bind EVS disks, EIPs, and security groups to provide data disks, public IP addresses, and network firewalls for virtual machines to ensure data storage and network security of virtual machine applications.
 
 In terms of virtualization computing capabilities, the platform provides GPU device transparent transmission capabilities, allowing users to create and run GPU virtual machines on the platform, allowing virtual machines to have high-performance computing and graphics processing capabilities. Devices that support transparent transmission include `NVIDIA's K80, P40, V100, 2080, 2080Ti, T4, and Huawei Atlas300`.
+
+### Instance Specifications
+An instance profile is a configuration definition of a virtual machine's CPU memory that provides computing power to the virtual machine. CPU and memory are the basic attributes of a virtual machine, and you need to cooperate with images, VPC networks, EVS disks, security groups, and keys to provide a fully capable virtual machine.
+
+- By default, instance types such as 1C2G, 2C4G, 4C8G, 8C16G, and 16C32G are provided.
+- Supports custom instance types and provides multiple CPU memory combinations to meet the load requirements of different application scales and scenarios.
+- Support for upgrading and downgrading virtual machine CPU and memory configurations, which can be adjusted by changing the instance type;
+- After the instance type is changed, you need to restart the virtual machine to take effect.
+- Instance types are consistent with the lifecycle of virtual machines, and are released when a virtual machine is destroyed.
+
+Create VM specifications support creating different specifications for different clusters, which can create different specifications for different models, and create virtual machines with different specifications when tenants create virtual machines to adapt to application scenarios where the hardware configuration of different clusters is inconsistent. CPU and memory can be defined separately:
+
+- CPU specification support (C): Increase in multiples of 2 except 1, such as 1C, 2C, 4C, 6C, and the maximum value is 240C.
+- Memory specification support (G): Increase in multiples of 2 except 1, such as 1G, 2G, 4G, 6G, and the maximum value is 1024G.
+
+The created specifications can be seen and used by all tenants, and different specifications can be created in different clusters according to business needs.
+
+### Mirroring
+An image is a template for the running environment of a virtual machine instance, usually including the operating system, preinstalled applications, and related configurations. The hypervisor uses the specified image template as the system disk of the boot instance, and the life cycle is the same as that of the virtual machine, and the system disk is destroyed when the virtual machine is destroyed. Platform virtual machine images are divided into base images and homemade images.
+#### Base image
+The base image is officially provided by SCloudStack and includes multiple distributions of native operating systems such as Centos, Ubuntu and Windows.
+
+- The base image is available to all tenants by default, and the default images include `Centos 6.5 64, Centos 7.4 64, Windows 2008r2 64, Windows 2012r2 64, Ubuntu 14.04 64, Ubuntu 16.04 64`.
+- The basic image has been systematically tested and regularly updated and maintained to ensure the safe and stable operation and use of the image.
+- The base image is an image provided by default by the system, which only supports viewing and running virtual machines through the image, and does not support modification, creation, and deletion.
+- The default system disk for Linux images is 40 GB and the default system disk for Windows images is 40 GB.
+- Supports management of copying the image made or imported by the tenant as the base image and sharing it with all tenants of the platform as the default base image; At the same time, administrators can modify the name, remarks, and delete the base image.
+- 
+Support reinstalling the system, that is, replacing the virtual machine image, Linux virtual machine only supports replacing Centos and Ubuntu operating systems, Windows virtual machine only supports replacing other versions of Windows operating systems;
+
+Windows operating system images are officially provided by Microsoft and need to purchase license activation by yourself.
+#### Self-managed images
+Custom images are self-owned images exported or custom-imported by tenants or administrators through virtual machines, which can be used to create virtual machines, and only the account itself has permission to view and manage them except platform administrators.
+
+- Support management will import custom images for tenants, and administrators can export tenants' virtual machines as homemade images; At the same time, the administrator can download all the self-made images in the image repository.
+- Administrators can create virtual machines, delete homemade images, and modify the name of homemade images from homemade images.
+
+In order to facilitate the sharing of platform image template files, the platform supports administrators to copy a self-made image as a base image, so that a tenant's self-made image can be shared with all tenants, which is suitable for scenarios where the operation and maintenance department makes a template image, such as after the vulnerability repair or upgrade of the self-made image operating system, make a self-made image and copy the base image, so that all tenants can use the new image file to upgrade the virtual machine system.
+
+#### Mirror storage
+By default, both the base image and the user-made image are stored in the distributed storage system, ensuring performance and ensuring data security through three copies.
+
+- The image supports `QCOW2` format, which can convert RAW, VMDK and other format images into `QCOW2` format files for V2V migration scenarios.
+- All images are stored in a distributed storage system, that is, the image files are distributed on the disks of the underlying computing storage `hyperconverged` node.
+- If it is an isolated storage node, it is distributed across all disks of the isolated storage node;
+- Only virtual machines in the local domain can be created for an image in a region, and you cannot create virtual machines across region images.
+
+### Virtual NIC
+A virtual NIC (Virtual NIC) is a virtual network device that communicates with the outside world and is created by default with the VPC network when the virtual machine is created. The virtual NIC is the same as the life cycle of the virtual machine, and cannot be detached, and the virtual NIC is destroyed when the virtual machine is destroyed. For more information about VPC networks, see VPC Networks .
+
+The virtual NIC is implemented based on Virtio, and QEMU provides a set of Tun/Tap emulation devices through APIs to bridge the network of virtual machines to the host NIC and communicate with other virtual networks through OVS.
+- By default, each virtual machine generates two virtual NICs to carry the internal and external network communication of the virtual machine.
+- When the virtual machine starts, a DHCP request is automatically initiated to obtain the private IP address based on the selected VPC subnet, and the network information is configured on a virtual NIC to provide private network access for the virtual machine.
+- After the virtual machine is started, you can apply for a public IP address (external IP) to be bound to the virtual machine to provide Internet access services
+  - The bound public IP address automatically configures the public IP information on another virtual NIC to provide external network access for the virtual machine.
+  - A virtual machine supports binding 50 public IPv4 and 10 IPv6 addresses.
+- Modifying the IP address of a vNIC is not supported, and manually modified IP addresses will not take effect.
+- Each vNIC can be bound to a security group to provide NIC-level security control.
+- Supports virtual NIC QoS control and provides custom settings for the ingress/ingress bandwidth of the vNIC.
+
+By default, the platform provides two virtual NICs, and if your service has two NICs, you can bind an ENI to provide multi-network services for virtual machines.
+
+### ENIs
+Elastic Network Interface (ENI) is an elastic network interface that can be attached to virtual machines at any time, supports binding and unbinding, can be flexibly migrated between multiple virtual machines, provides high-availability cluster construction capabilities for virtual machines, and can achieve refined network management and cheap failover solutions.
+
+ENIs and the default NICs (one internal NIC and one external NIC) that come with a virtual machine are virtual network devices that provide network transmission for virtual machines, which are divided into two types: internal NICs and external NICs, and assign IP addresses, gateways, subnet masks, and routing-related network information from the network to which they belong.
+
+- The ENI of the private network type belongs to a VPC and a subnet, and an IP address is automatically or manually assigned from the VPC.
+- The network to which the EIP belongs is an external CIDR block, and an IP address is automatically or manually assigned from the external CIDR segment, and the assigned IP address is consistent with the lifecycle of the ENI, and can only be released when the ENI is destroyed.
+- If the NIC type is Internet, the NIC is billed based on the bandwidth specifications of the selected Internet IP, and you can select the appropriate payment method and purchase duration according to your business needs.
+
+The default NIC of a virtual machine belongs to the VPC and subnet specified when the virtual machine is created, and an ENI of a different VPC is bound to the virtual machine, so that the virtual machine can communicate with the virtual machine of a different VPC network.
+
+ENIs have an independent lifecycle, support binding and unbinding management, and can be freely migrated between multiple virtual machines. When a virtual machine is destroyed, the ENI is automatically debound and bound to another virtual machine.
+
+ENIs have the region (data center) attribute and can only bind virtual machines to the same data center. An ENI can only be bound to one VM, an x86 VM can bind up to 6 ENIs, and an ARM VM can bind up to 3 NICs. After the external ENI is bound to a virtual machine, the default network egress policy of the virtual machine is not affected, including the external IP address bound by the ENI on the virtual machine, the first IP with a default route is used as the default network egress of the virtual machine, and you can set a public IP address with a default route as the default network egress of the virtual machine.
+
+Each ENI can be assigned only one IP address, and a security group can be bound to the ENI as needed to control traffic to and from the ENI to achieve refined network security control. If you do not need to control the traffic of the ENI, you can empty the security group of the ENI.
+
+Users can custom-create network cards through the platform, bind, unbind, and modify security groups on the network cards, and perform the Adjust Bandwidth operation for external ENIs to adjust the bandwidth limit of external IP addresses on external ENIs.
+
+ENIs have attributes such as region, NIC type, VPC, subnet, public CIDR block, public IP bandwidth, IP address, and security group, and can be managed during the life cycle of creating, binding, unbinding, binding, unbind, and deleting ENIs.
+
+- Region: ENIs can only be bound to virtual machines in the same region.
+- NIC type: The network access type of the ENI supports VPC intranet and EIP external network type.
+- VPC/subnet: An intranet ENI can only be added to a VPC and subnet, and you cannot modify the VPC or subnet after it is created.
+- Internet CIDR block: An Internet ENI can only assign an IP address from an external CIDR block, and cannot modify it after it is created.
+- Internet IP bandwidth: The bandwidth of the IP address assigned by the external network card.
+- IP address: You can manually specify and automatically obtain the IP address of an ENI in a subnet or public CIDR segment.
+- Security group: Each ENI can be bound to a security group to provide NIC-level security control, see Security groups for details.
+- MAC address: Each ENI has a globally unique MAC address.
+
+The entire life cycle of an ENI includes states such as creating, unbound, bound, bound, bound, unbound, and deleted.
