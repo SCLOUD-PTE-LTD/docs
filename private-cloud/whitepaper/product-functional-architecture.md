@@ -16,6 +16,9 @@ VPC and Server Load Balancer support deployment in the same region.
 
 ### Clustering
 A cluster is a logical division of SCloudStack physical resources that distinguishes server nodes with different configuration specifications and different storage types. The logical relationships between regions, clusters, and physical servers are as follows:
+
+![1](/docs/assets/images/product-functional-architecture-1.png)
+
 - A region can contain multiple clusters, and the unified cloud management platform is used for cluster management and operation, and cloud resources can only be scheduled in a single cluster.
 - A cluster consists of at least 3 server nodes, and the servers in the cluster must have the same CPU/memory, disk type, and operating system;
   - When the server is a compute-storage fusion node, the nodes of different disk types are divided into a cluster, such as an SSD computing node cluster.
@@ -73,3 +76,24 @@ The platform only uses commercially stored LUNs as storage volumes, and does not
 ISCSI protocol and FC protocol have their own emphasis: ISCSI is based on TCP/IP protocol, and the device supports the protocol consistently; The FC protocol is fast and requires the purchase of specialized switches. Users can mix and match according to their needs. Before using external storage, the platform manager or storage device manager needs to connect the external storage with the platform's computing node network, so that the computing nodes can communicate with the storage device directly on the internal network.
 
 After the physical storage device and network are ready, you can connect with the platform and use the external storage services provided by the platform, and the entire docking process requires three roles of storage device administrator, platform administrator and platform tenant to operate, of which the operation related to the platform is the platform administrator and the platform tenant, as shown in the following figure process:
+
+![1](/docs/assets/images/product-functional-architecture-2.jpg)
+
+- Storage device administrators manage storage volumes<br/>
+All storage volume management is handled by the storage device administrator on the commercial storage management system, including the creation and mapping of storage volumes (LUNs), as well as the related lifecycle management of storage volume expansion, snapshots, backups, and deletions.
+- The storage device administrator maps storage volumes to cluster compute nodes<br/>
+The created LUN is mapped to all compute nodes on the storage device by the storage device administrator (if new compute nodes are added, they need to be mapped again), and multipath mapping is also possible.
+- The platform administrator logs in and manages storage devices<br/>
+  ISCSI storage:<br/>
+After the storage volume LUN mapping is successful, the platform administrator enters the ISCSI storage pool or storage device in the management console "External Storage - ISCSI", and you need to specify the ISCSI address of the storage device, such as 172.18.12.8:8080 when entering.<br/>
+FC storage: No device address entry required.
+- The platform administrator scans the mapped LUN information<br/>
+ISCSI storage:<br/>
+After the storage device is entered, the platform administrator scans the storage device and information that have been mapped to the cluster node in the storage device with one click.<br/>
+FC Storage:<br/>
+After the storage volume LUN mapping is successful, the Storage Devices present in the system can be added to the platform by scanning by the Platform Administrator in the Management Console External Storage - FC SAN.
+- The platform administrator assigns LUN devices to the tenant<br/>
+The LUN storage volume device that successfully scans is assigned to the tenant by the Platform Administrator, and a storage volume can only be assigned to one tenant at a time, after allocation, the tenant can query the allocated storage volume device in the external storage device, and create virtual machines or mount virtual machines.
+- Platform tenants use LUN storage volume devices<br/>
+Platform tenants can directly query the allocated storage volumes through the console external storage, and specify the system disk type as external storage when creating a virtual machine, or they can directly attach LUN storage volumes to existing virtual machines and use them as data disks of virtual machines.<br/>
+The premise for platform tenants to use external storage services is that storage volumes are mapped and assigned to tenants, and tenants only need simple binding to easily use the external storage devices provided by the platform, and can be elastically bound and unbound.
