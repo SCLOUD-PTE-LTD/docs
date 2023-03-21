@@ -55,7 +55,7 @@ The file storage instance that the user applies for through the console and APIs
 ### File system name
 A user-defined string that describes the usage scenario and service type of a file system to identify a specific file system instance.
 ### Storage type
-The product type of file system, the current storage type of file storage is divided into capacity type (SATA media) and performance type (SSD media) according to the storage media used by its data.
+The product type of file system, the current storage type of file storage is divided into capacity type (`SATA` media) and performance type (SSD media) according to the storage media used by its data.
 ### Capacity
 The size of the file system specified at the time of purchase remains unchanged until the capacity is expanded.
 ### Capacity remaining

@@ -47,9 +47,9 @@ If you need to connect commercial storage devices, you need to connect the stora
 ### Recommended Node Scheme
 SCloudStack The physical node solution will be adjusted according to the business needs and application scenarios of the enterprise, and computing and storage fusion nodes can be deployed (for example, a 3+3 node solution, that is, 3 `SATA` hyper-converged computing nodes + 3 `SSD` hyper-converged computing nodes, management services are deployed in the virtual machines of the computing nodes, which can be expanded horizontally according to the business scale, such as expanding the capacity of `SATA` hyper-converged computing nodes to 9 units), you can also deploy independent computing nodes + independent storage nodes (the computing nodes or storage nodes can be expanded horizontally according to the scale of business).
 
-SSD and SATA nodes depends on business requirements. For example, if there is a large demand for high storage capacity, more SATA nodes need to be configured; if there are more high-performance business needs, more SSD full flash nodes need to be configured. point.
+SSD and `SATA` nodes depends on business requirements. For example, if there is a large demand for high storage capacity, more `SATA` nodes need to be configured; if there are more high-performance business needs, more SSD full flash nodes need to be configured. point.
 
-Best practice, the production environment requires at least 3 SATA/SSD hyper-converged nodes to be deployed and built SCloudStack platform, namely SCloudStack The minimum production scale is 3 servers 
+Best practice, the production environment requires at least 3 `SATA`/SSD hyper-converged nodes to be deployed and built SCloudStack platform, namely SCloudStack The minimum production scale is 3 servers 
 
 ## Physical Network Architecture
 In order to build a highly available, highly reliable, and highly secure enterprise proprietary cloud platform, SCloudStack The platforms are all designed with high availability redundancy. This article describes the physical network architecture based on the standard network topology diagram. This architecture design requires at least 6 10G switches, 2 Gigabit switches, Multiple computing & storage node servers. If there are requirements for IPMI management and network device management, IPMI and management switches can be added and connected to the network according to the requirements.
@@ -135,8 +135,8 @@ Huawei CE series is recommended as the switch model by default, and switches of 
 
 | Business | Configuration description |
 | --- | --- |
-| Computing and storage fusion nodes (storage -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Silver 4210R Processor (13.75M Cache, 2.40 GHz, 10 core) <br/>2DDR4\_32GB\_RDIMM\_2667MHz <br/>6OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s <br/>2Data HDD SATA3\_HDD\_8TB\_6Gb/s\_7200RPM <br/>12HDD Controller 12Gb\_HBA\_Card x 1 <br/>NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
-| Computing and storage fusion nodes (computing -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Gold 6248R Processor (35.75M Cache, 3.00 GHz, 24 core) <br/> 2DDR4\_32GB\_RDIMM\_2933MHz <br/>12OS HDD 480G\_SSD\_SATA3\_512E\_2.5"\_6Gb/s <br/> 2Data HDD SATA3\_SSD\_960GB\_6Gb/s <br/>12HDD Controller 12Gb\_HBA\_Card <br/>1NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
+| Computing and storage fusion nodes (storage -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Silver 4210R Processor (13.75M Cache, 2.40 GHz, 10 core) <br/>2DDR4\_32GB\_RDIMM\_2667MHz <br/>6OS HDD 480G\_SSD\_`SATA`3\_512E\_2.5"\_6Gb/s <br/>2Data HDD `SATA`3\_HDD\_8TB\_6Gb/s\_7200RPM <br/>12HDD Controller 12Gb\_HBA\_Card x 1 <br/>NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
+| Computing and storage fusion nodes (computing -intensive) | Factor Form: 2U <br/>CPU Intel® Xeon® Gold 6248R Processor (35.75M Cache, 3.00 GHz, 24 core) <br/> 2DDR4\_32GB\_RDIMM\_2933MHz <br/>12OS HDD 480G\_SSD\_`SATA`3\_512E\_2.5"\_6Gb/s <br/> 2Data HDD `SATA`3\_SSD\_960GB\_6Gb/s <br/>12HDD Controller 12Gb\_HBA\_Card <br/>1NIC 10G Fibre Dual ports (excluding SFP+ multi-mode modules) 1 <br/>PSU \>=800W Platinum Edition x 2 |
 
 ### Minimum configuration
 hardware configurations for a production environment. Generally, a production environment requires at least 3 computing nodes and 2x10G access switches.
@@ -148,7 +148,7 @@ hardware configurations for a production environment. Generally, a production en
 | CPU | The CPU should have at least 16 cores and support the hardware virtualization feature of the x86 or ARM architecture. <br/>It is generally recommended that the server be configured with the same type of CPU |
 | Memory | A single server is not less than 128 GB |
 | Network card | Minimum configuration: 1 10 Gigabit network card 2 network ports <br/>Recommended configuration: 2 10 Gigabit network cards |
-| Disk | 2 system disks as RAID1 <br/>Local data disk According to the business situation, you can use mechanical hard disk SATA and SSD hard disk <br/>If the business requires high read and write performance, it is recommended to use SSD or NVMe type of hard drive |
+| Disk | 2 system disks as RAID1 <br/>Local data disk According to the business situation, you can use mechanical hard disk `SATA` and SSD hard disk <br/>If the business requires high read and write performance, it is recommended to use SSD or NVMe type of hard drive |
 
 (2) Minimum configuration of network equipment
 
@@ -173,7 +173,7 @@ The equipment in the project case shown above includes 8 business switches, 4 op
 - A group of management aggregation switches is symmetrically deployed in two cabinets, that is, one switch is deployed in each of the two cabinets;
 - 1 IPMI access switch and one network device out-of -band management switch are deployed on 1 cabinet;
 - 3 management nodes are symmetrically deployed in 3 cabinets, that is, each cabinet is deployed separately 1 set;
-- 12 computing & SATA nodes are symmetrically deployed in 3 cabinets, that is, 4 nodes are deployed in each cabinet;
+- 12 computing & `SATA` nodes are symmetrically deployed in 3 cabinets, that is, 4 nodes are deployed in each cabinet;
 - Six computing and SSD nodes are symmetrically deployed in three cabinets, that is, two nodes are deployed in each cabinet.
   
 If the servers are deployed on the cloud platform in clusters, it is recommended that servers in different clusters be symmetrically deployed in multiple cabinets.

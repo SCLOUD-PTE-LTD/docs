@@ -27,7 +27,7 @@ The overall product architecture of the SCloudStack platform consists of basic h
 Servers, switches, and storage devices used to host the SCloudStack platform.
 
 - The platform supports and is compatible with general-purpose `X86, ARM` and `MIPS` architecture hardware servers, with no restrictions on server and hardware brands;
-- Support `SSD, SATA, SAS` and other disk storage, and support computing and storage hyper-converged nodes and docking disk array devices, without vendor lock-in;
+- Support `SSD, `SATA`, SAS` and other disk storage, and support computing and storage hyper-converged nodes and docking disk array devices, without vendor lock-in;
 - Support Huawei, Cisco, H3C and other general switches, router network equipment access, all network functions are defined by SDN software, only physical switches are required to support `Vlan, Trunk, IPv6`, port aggregation, stacking, etc. characteristics;
 - Support hybrid cloud access and adapt to customers' existing hardware resources, and seamlessly connect existing resource services while making full use of resources.
 
@@ -50,7 +50,7 @@ The implementation and logic of the operating system kernel, virtualized computi
 ### Core Product Resources
 
 - Region (data center): Data center refers to the physical location classification of resource deployment, and data centers are independent of each other, such as Ho Chi Minh data center and Singapore data center. The platform supports multi-data center management, using a management platform to manage private cloud platforms spread across data centers;
-- Cluster: used to distinguish the distribution of different resources in a data center, such as x86 computing clusters, ARM computing clusters, and SSD storage clusters And SATA storage clusters, one data center can deploy multiple clusters;
+- Cluster: used to distinguish the distribution of different resources in a data center, such as x86 computing clusters, ARM computing clusters, and SSD storage clusters And `SATA` storage clusters, one data center can deploy multiple clusters;
 - Multi- tenant: The platform supports multi- tenant mode, providing functions such as tenant isolation, sub -account, authority control, quota configuration and price configuration;
 - Sub- accounts and permissions: support a tenant to have multiple sub- accounts, support resource isolation and control the permissions of sub- accounts for resource management;
 - Metering and billing: Supports three billing methods: on-demand, monthly, and yearly, supports overdue renewal and recycling strategies, and provides complete billing orders and consumption details;
@@ -143,7 +143,7 @@ SCloudStack ensures the idempotence of platform resource APIs through technical 
 - Support uninterrupted data storage and access services, with an SLA of 99.95%, ensuring high availability of the storage system;
 - Support high-performance cloud disk, IOPS and Throughput increases linearly with storage capacity scale, guaranteeing response delay;
 
-In terms of deployment, the SSD disk built into the computing node is built as a high-performance storage pool, and the `SATA/SAS` disk built into the computing node is built into a common performance storage pool. The distributed storage system builds block devices as elastic block storage, which can be directly mounted and used by virtual machines. When data is written, it uses three copies, a write confirmation mechanism, and copy distribution strategies. Maximize data security and availability. The snapshot technology can be used locally to back up the local data regularly. When the data is lost or damaged, the snapshot can be used to quickly restore the local business data.
+In terms of deployment, the SSD disk built into the computing node is built as a high-performance storage pool, and the ``SATA`/SAS` disk built into the computing node is built into a common performance storage pool. The distributed storage system builds block devices as elastic block storage, which can be directly mounted and used by virtual machines. When data is written, it uses three copies, a write confirmation mechanism, and copy distribution strategies. Maximize data security and availability. The snapshot technology can be used locally to back up the local data regularly. When the data is lost or damaged, the snapshot can be used to quickly restore the local business data.
 
 (3) Distributed network architecture: Distributed Overlay network is adopted to provide network functions such as VPC, NAT gateway, load balancing, security group, and external network IP.
 

@@ -14,7 +14,7 @@ The overall product architecture of SCloudStack platform consists of basic hardw
 ### Infrastructure: Servers, switches, and storage devices used to host the SCloudStack platform.
 The platform supports and is compatible with general-purpose x86, ARM and MIPS architecture hardware servers, regardless of server and hardware brand;
 
-Supports disk storage such as SSD, SATA, SAS, etc., as well as computing and storage hyper-converged nodes and interconnected disk array devices, without vendor lock-in.
+Supports disk storage such as SSD, `SATA`, SAS, etc., as well as computing and storage hyper-converged nodes and interconnected disk array devices, without vendor lock-in.
 
 Supports access to network devices such as Huawei, Cisco, and H3C routers, and all network functions are defined through SDN software, requiring only physical switches to support features such as VLANs, trunks, IPv6, port aggregation, and stacking.
 
@@ -46,7 +46,7 @@ Supports the control and delivery of network flow tables of platform virtual res
 
 Region (data center): Data center refers to the classification of the physical location of resource deployment, and the data centers are independent of each other, such as Singapore data center and Ho Chi Minh data center. The platform supports multi-data center management, and uses a set of management platforms to manage private cloud platforms located in various data centers;
 
-Cluster: It is used to distinguish the distribution of different resources under a data center, such as x86 computing cluster, ARM computing cluster, SSD storage cluster and SATA storage cluster, and multiple clusters can be deployed in one data center;
+Cluster: It is used to distinguish the distribution of different resources under a data center, such as x86 computing cluster, ARM computing cluster, SSD storage cluster and `SATA` storage cluster, and multiple clusters can be deployed in one data center;
 
 Multi-tenancy: The platform supports multi-tenancy mode and provides functions such as tenant isolation, sub-accounts, permission control, quota configuration, and price configuration.
 

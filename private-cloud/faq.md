@@ -100,8 +100,8 @@ NAT gateway is used in scenarios where multiple virtual machines share an EIP, s
 ### Do VMs and EVS disks have backup functions?
 Virtual machines can be backed up by exporting as images. EVS disks do not have a backup function, and EVS disk snapshots will be available in Q2 2019.
 
-### How should the ratio of SATA and SSD/NVME nodes be planned?
-SCloudStack only supports the deployment of one type of disk per compute/storage node, and the ratio of SATA (common disk) nodes and SSD/NVME (high-performance disk) nodes depends on the service characteristics, such as services with more database services, more SSD nodes need to be configured.
+### How should the ratio of `SATA` and SSD/NVME nodes be planned?
+SCloudStack only supports the deployment of one type of disk per compute/storage node, and the ratio of `SATA` (common disk) nodes and SSD/NVME (high-performance disk) nodes depends on the service characteristics, such as services with more database services, more SSD nodes need to be configured.
 
 ### Does SCloudStack support resource overscoring (overselling/overselling)?
 

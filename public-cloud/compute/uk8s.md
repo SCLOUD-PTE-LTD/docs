@@ -47,7 +47,7 @@ The above picture is a summary Kubernetes architecture, including ApiServer, Mas
 | --- | --- | --- |
 | Cluster Management | One-click to create a cluster in 5 minutes; multi-zone support, high availability of Master through ULB4; | Users deploy and build by themselves; |
 | Network Solution | High-performance network plug-in adapting to VPC, with no loss in performance; inter working with physical cloud, hybrid cloud, and public cloud internal network by default; Choose and deploy third-party network plug-ins by yourself; | Need to adapt to the existing network architecture; |
-| Storage Plan | Currently supports SATA, SSD UDisk and UFS, and will also support cloud storage such as US3 in the future; | Build a storage cluster by yourself and adapt to Kubernetes storage types; |
+| Storage Plan | Currently supports `SATA`, SSD UDisk and UFS, and will also support cloud storage such as US3 in the future; | Build a storage cluster by yourself and adapt to Kubernetes storage types; |
 | Load balancing | Integrated internal and public network ULB4/ULB7 high performance, high availability, automatic failover; | Deploy load balancing by yourself; |
 | Using K8S | Provide web terminal; provide a graphical management interface consistent with cloud products; | Install kubectl by yourself; install dashboard by yourself; |
 | Technical Support | The K8S expert team provides 7\*24 hours technical support all year round; provides guidance for business migration from VM to K8S, and uses specifications; | Learn and explore on your own; |
