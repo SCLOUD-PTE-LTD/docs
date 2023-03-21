@@ -680,7 +680,7 @@ With IPsecVPN, you can connect VPC private networks in on-premises data centers,
 ### Logical Architecture
 VPN gateway IPsecVPN service consists of three parts: VPN gateway, peer gateway, and VPN tunnel connection.
 
-![1](/docs/assets/images/product-functional-architecture-16.jpg)
+![1](/docs/assets/images/product-functional-architecture-16.jpeg)
 
 - VPN gateway <br/>
 The platform-side VPC network establishes an egress gateway for IPsecVPN connection, and connects with the IPsecVPN of the peer gateway by associating VPC and external IP addresses to establish secure and reliable encrypted network communication between the platform's private network and external networks (such as IDC, public cloud, and private cloud).
