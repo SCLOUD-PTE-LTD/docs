@@ -428,6 +428,8 @@ The physical network architecture is a high-availability schematic, and the actu
 ### Logical Architecture
 After the physical network architecture and configuration are confirmed, the Internet IP block and the IDC physical CIDR block need to be added to the cloud IP block resource pool at the platform level, and tenants can apply for EIP addresses of different CIDR blocks and bind EIP addresses to the virtual machine's default external network cards, so that the virtual machine can access the Internet and the IDC data center physical network at the same time through the external IP address.
 
+![1](/docs/assets/images/product-functional-architecture-12.jpg)
+
 As shown in the logical architecture diagram, users add network blocks to the Internet (VLAN200) and IDC physical network (VLAN100) to the cloud platform, respectively. Examples of CIDR blocks are as follows:
 - The CIDR block of VLAN200 is `106.75.236.0/25`, and the default route is configured, that is, the EIP bound to the CIDR block of the virtual machine will automatically deliver the default route with the destination address `0.0.0.0/0`.
 - The CIDR block of VLAN100 is `192.168.1.0/24`, and only the current CIDR block route is delivered, that is, the EIP bound to the CIDR block of the VM is only routed with the specified destination address `192.168.1.0/24`.
@@ -442,6 +444,8 @@ The entire communication process is directly communicated through the physical N
 
 ### Features
 EIPs are floating IPs that drift to healthy nodes as the failed VM recovers and continue to provide Internet access services for VMs or other virtual resources.
+
+![1](/docs/assets/images/product-functional-architecture-13.jpg)
 
 When the physical host where a virtual machine resides fails, the intelligent scheduling system will automatically perform downtime migration operations on the virtual machine on the failed host, that is, the failed virtual machine will be re-pulled up on other healthy hosts and provide normal business services. If the virtual machine is bound to an external IP address, the intelligent scheduling system will drift the external IP address and related flow table information to the physical host where the virtual migration is located to ensure network communication.
 
@@ -482,6 +486,8 @@ When users use virtual machines to deploy application services on the platform, 
 The underlying resources of the platform products and services are unified, and the NAT gateway instance is the primary and standby high-availability cluster architecture, which can automatically fail over the NAT gateway and improve the availability of SNAT and DNAT services. At the same time, combined with the public IP address, SNAT and DNAT proxies are provided according to the NAT configuration for tenant virtual resources.
 
 At the product level, tenants apply for a NAT gateway, specify the subnets that the NAT gateway can allow communication on, and bind [Internet IP] to enable virtual machines under multiple subnets to communicate with the Internet or the physical network of IDC data centers, as follows:
+
+![1](/docs/assets/images/product-functional-architecture-14.jpg)
 
 - The platform supports using a NAT gateway for multi-subnet VMs with the same VPC to access the internet or IDC data center network.
 - When a virtual machine in multiple subnets that is not bound to a public IP address is associated with a NAT gateway, the platform automatically issues routes to the Internet in the virtual machine.
@@ -597,6 +603,8 @@ You can also bind the IP address assigned by Server Load Balancer with your own 
 ### Architecture Principles
 A load balancer that provides services is mainly composed of three parts: LB instance (LoadBalancer), virtual server (VServer), and backend server (Backend Real Server). As shown in the architecture diagram:
 
+![1](/docs/assets/images/product-functional-architecture-15.jpg)
+
 - LoadBalancer (LB): The Server Load Balancer instance is an active and standby high-availability cluster architecture, which can automatically fail over load balancers and improve the availability of access to Server Load Balancer. At the same time, combined with the internal and external IP addresses, according to the listener configured by VServer, the virtual machine is added to the backend to become a real server to achieve traffic balancing and service fault tolerance.
 - Virtual Server (VServer): Listener, each listener is a set of load-balanced listening port configurations, including protocol, port, load algorithm, session persistence, connection idle timeout, health check and other configuration items, used to distribute and process requests to access LB.
 - Backend Server Pool: A group of virtual machine server pools at the back end, and the real server (RealServer) that actually processes the request, that is, the virtual machine instance where the real business is deployed.
@@ -671,6 +679,9 @@ With IPsecVPN, you can connect VPC private networks in on-premises data centers,
 
 ### Logical Architecture
 VPN gateway IPsecVPN service consists of three parts: VPN gateway, peer gateway, and VPN tunnel connection.
+
+![1](/docs/assets/images/product-functional-architecture-16.jpg)
+
 - VPN gateway <br/>
 The platform-side VPC network establishes an egress gateway for IPsecVPN connection, and connects with the IPsecVPN of the peer gateway by associating VPC and external IP addresses to establish secure and reliable encrypted network communication between the platform's private network and external networks (such as IDC, public cloud, and private cloud).
 - Peer gateway <br/>
@@ -679,6 +690,8 @@ The public IP address of the IPsecVPN gateway running on the external network, t
 Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC VPC and the external VPC.
 
 A VPN gateway has and must be associated with one VPC network and one public IP address, which corresponds to the peer gateway and connects through the VPN tunnel. IPsecVPN supports point-to-multipoint connectivity, which enables VPN gateways and peer gateways to have one-to-one or one-to-many connections, that is, a VPN gateway can tunnel with multiple peer gateways at the same time. VPN tunnels allow encrypted communication between multiple VPC subnets of the platform and multiple CIDR blocks of the peer network through the tunnel, and the CIDR blocks of the platform VPC subnet cannot overlap with the network of the peer network (the overlap of the local and peer subnets will affect the normal communication of the network).
+
+![1](/docs/assets/images/product-functional-architecture-17.jpg)
 
 As shown in the example shown in the preceding figure, the VPC network in the cloud platform already has two subnets, subnet1 (`192.168.1.0/24`) and subnet2 (`192.168.2.0/24`). There are two intranet CIDR blocks in the remote IDC data center, subnet3 (`192.168.3.0/24`) and subnet4 (`192.168.4.0/24`).
 - The VPN gateway of the private cloud platform is bound to a VPC subnet and uses the public IP address as the network egress and the peer gateway of the remote data center.
@@ -756,6 +769,8 @@ You can use Auto Scaling to customize auto scaling groups and scaling policies, 
 
 ### Logical Architecture
 Auto scaling can be logically divided into three parts: scaling groups, scalers, and virtual machine templates.
+
+![1](/docs/assets/images/product-functional-architecture-18.jpg)
 
 Scaling group: It is responsible for maintaining the number of instances in the group at the desired level, and the actions of adding/shrinking virtual machines are operated by the scaling group, which supports the "automatic scaling" and "fixed quantity" modes to maintain the number of instances in the scaling group.
 - Scaling device: A scaling policy that defines the rules for scaling virtual machines in a scaling group, triggers scaling actions based on CPU usage thresholds for the scaling group, supports defining the minimum and maximum number of instances of the scaling group, and allows scaling in.
