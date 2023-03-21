@@ -181,6 +181,8 @@ By default, the platform provides two virtual NICs, and if your service has two 
 ### ENIs
 Elastic Network Interface (ENI) is an elastic network interface that can be attached to virtual machines at any time, supports binding and unbinding, can be flexibly migrated between multiple virtual machines, provides high-availability cluster construction capabilities for virtual machines, and can achieve refined network management and cheap failover solutions.
 
+![1](/docs/assets/images/product-functional-architecture-4.jpg)
+
 ENIs and the default NICs (one internal NIC and one external NIC) that come with a virtual machine are virtual network devices that provide network transmission for virtual machines, which are divided into two types: internal NICs and external NICs, and assign IP addresses, gateways, subnet masks, and routing-related network information from the network to which they belong.
 
 - The ENI of the private network type belongs to a VPC and a subnet, and an IP address is automatically or manually assigned from the VPC.
@@ -210,6 +212,8 @@ ENIs have attributes such as region, NIC type, VPC, subnet, public CIDR block, p
 
 The entire life cycle of an ENI includes states such as creating, unbound, bound, bound, bound, unbound, and deleted.
 
+![1](/docs/assets/images/product-functional-architecture-5.jpg)
+
 ### Security Groups
 
 Security Group is a virtual firewall similar to IPTABLES, which provides access control rules for inbound and outbound traffic, defines which networks or protocols can access resources, restricts network access traffic to virtual resources, supports IPv4 and IPv6 dual-stack restrictions, and provides necessary security guarantees for cloud platforms.
@@ -220,6 +224,8 @@ The platform security group is based on the Linux net-filter subsystem, which is
 Security groups can only be applied to virtual machines, ENIs, load balancers, NAT gateways, and bastion hosts with the same security requirements in the same data center, as shown in the following figure:
 
 Security groups have an independent lifecycle and can be bound to virtual machines, ENIs, Server Load Balancer, and NAT gateways to provide secure access control, and are automatically unbound after the virtual resources bound to them are destroyed.
+
+![1](/docs/assets/images/product-functional-architecture-6.jpg)
 
 - The security protection of a security group for a virtual machine is for a network card, that is, the security group is bound to the default virtual network card or elastic network card of the virtual machine, and access control rules are set separately to restrict the network traffic of each network card.
 - As shown in the schematic diagram of the security group, the security group is bound to a virtual external network card that provides external IP services, and the inbound and outbound rules are added to filter the north-south traffic (virtual machine extranet) access traffic.
@@ -278,9 +284,13 @@ Shutdown is the normal shutdown of the operating system of the virtual machine, 
 
 The complete life cycle of SCloudStack virtual machines includes resource states such as starting, running, shutting down, power off, shutdown, starting, reinstalling, deleting, and deleted.
 
+![1](/docs/assets/images/product-functional-architecture-7.jpg)
+
 ## EVS disk
 ### EVS disk overview
 EVS disk is a block device that provides persistent storage space for virtual machines based on a distributed storage system. It has an independent life cycle, supports binding/unbinding to multiple virtual machines at will, and can expand the capacity of EVS disks when the storage space is insufficient, providing cloud hosts with highly secure, reliable, high-performance, and scalable data disks based on network distributed access.
+
+![1](/docs/assets/images/product-functional-architecture-8.jpg)
 
 The storage system is compatible with and supports a variety of underlying storage hardware, such as general-purpose servers (computing and storage hyper-converged or independent general-purpose storage servers) and commercial storage, and the underlying storage hardware is abstracted into storage resource pools of different types of clusters, which are uniformly scheduled and managed by distributed storage systems. In practical application scenarios, the mechanical disks of ordinary `SATA` interfaces can be uniformly abstracted as `SATA` storage clusters, and SSD all-flash disks can be abstracted into SSD storage clusters, which can be used by platform users after being packaged by unified storage.
 
@@ -308,6 +318,9 @@ EVS disks are allocated from the storage cluster capacity by unified storage, pr
 Supports thin provisioning, and only the allocated logical virtual capacity is presented when you create an EVS disk. When a user writes data to a logical storage capacity, the actual capacity is allocated from the physical space according to the storage capacity allocation policy. If an EVS disk created by a user has a capacity of 1 TB, the storage system allocates and presents a 1 TB logical volume to the user, and the physical disk capacity is allocated only when the user writes data to the EVS disk.
 
 The performance of high-performance EVS disks is linearly related to the size of the capacity, the larger the capacity, the higher the IO performance provided. The complete lifecycle of SCloudStack EVS disks includes resource statuses that are being created, available, mounted, mounted, unmounted, expanded, and deleted.
+
+![1](/docs/assets/images/product-functional-architecture-9.jpg)
+
 ### Application scenarios
 - Normal EVS disks
   - It is suitable for application scenarios with high capacity requirements, infrequent data access, or low I/O load;
@@ -335,6 +348,8 @@ VPC networks have data center attributes, each VPC VPC belongs to only one data 
 ### VPC Logical Structure
 A VPC network consists of VPC CIDR blocks and subnets, as shown in the following figure:
 
+![1](/docs/assets/images/product-functional-architecture-10.jpg)
+
 (1) VPC CIDR block
 The CIDR CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see CIDR. To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR CIDR blocks supported by platform VPC by default:
 
@@ -359,6 +374,8 @@ When virtual resources exist in a subnet, deleting and destroying VPC and subnet
 
 ### VPC Connections
 By connecting VPC networks with virtual machines, ENIs, public IP addresses, security groups, NAT gateways, load balancers, VPN gateways, MySQL databases, Redis caches, and leased lines, the platform can quickly build and configure complex network environments and hybrid cloud scenarios, as shown in the following figure:
+
+![1](/docs/assets/images/product-functional-architecture-11.jpg)
 
 - The default internal NIC (the virtual NIC that comes with the virtual NIC) of a virtual machine joins the same VPC network to implement network communication between virtual machines, and security groups can be used to ensure the security of east-west traffic of virtual machines.
 - The default external network NIC of a virtual machine (the virtual network card that comes with it when it is created) can be directly bound to multiple external IP addresses for Internet access, and the external IP address connected to the IDC physical network can be bound to realize physical network connection, and the security group can control the north-south traffic of the virtual machine while building a secure and reliable hybrid access environment.
