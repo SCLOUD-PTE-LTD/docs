@@ -1,10 +1,10 @@
 ---
 layout: default
 title: URocketMQ
-parent: Enterprise Application
+parent: Big Data
 grand_parent: Public Cloud
-permalink: /public-cloud/enterprise-application/urocketmq/
-nav_order: 1
+permalink: /public-cloud/big-data/urocketmq/
+nav_order: 5
 ---
 # URocketMQ
 ## Product concept
