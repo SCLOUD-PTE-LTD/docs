@@ -2,8 +2,8 @@ title: SCloud Documentation
 description: Find technical documentation for SCloud services, SDKs and toolkits, use cases, scenarios, and tasks. Browse user guides, developer guides, tutorials, and API references.
 theme: just-the-docs
 
-url: https://scloud-pte-ltd.github.io
-
+url: https://docs.scloud.sg
+baseurl: ""
 aux_links:
   SCloud Homepage: https://www.scloud.sg/
 
