@@ -20,7 +20,7 @@ DNS (Domain Name System) is a service that the Internet relies on, as a system t
 
 SCloud intranet DNS cluster uses `BGP+ECMP` to achieve high availability and scalability. The architecture is as follows:
 
-![1](/docs/assets/images/DNS1.png)
+![1](/assets/images/DNS1.png)
 
 As shown in the figure above, the UDNS service provided by SCloud is a region-level product. A DNS cluster can be thought of as a stateless service, and each server can provide services independently. 
 
@@ -28,15 +28,15 @@ The DNS server declares the same VIP to the upstream switch via BGP. When an exc
 
 ### Application scenarios
 
-![1](/docs/assets/images/DNS2.png)
+![1](/assets/images/DNS2.png)
 The core function of DNS is to convert the domain name into an IP address, so as to get rid of the service's dependence on the IP address, and the following functions can be achieved through the operation of the domain name:
 #### Service discovery
 
-![1](/docs/assets/images/DNS3.png)
+![1](/assets/images/DNS3.png)
 As shown in the preceding figure, the client uses the domain name as the service request object. The server registers the corresponding domain name with the UDNS system separately, so that the client can access the server through the domain name. The server IP address is migrated, and the configuration of the client does not need to be changed, and the DNS resolution record in UDNS can be modified to seamlessly switch the service address.
 #### Load balancing
 
-![1](/docs/assets/images/DNS4.png)
+![1](/assets/images/DNS4.png)
 As shown in the figure above, UDNS supports the "random answer" mode, and users can configure the A record and AAAA record in this mode. UDNS can randomly return the corresponding value based on the configured record value and weight. According to the weight, the client's requests are distributed to each server.
 #### High availability
 

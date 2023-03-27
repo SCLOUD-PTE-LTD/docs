@@ -17,7 +17,7 @@ VPC and Server Load Balancer support deployment in the same region.
 ### Clustering
 A cluster is a logical division of SCloudStack physical resources that distinguishes server nodes with different configuration specifications and different storage types. The logical relationships between regions, clusters, and physical servers are as follows:
 
-![1](/docs/assets/images/product-functional-architecture-1.png)
+![1](/assets/images/product-functional-architecture-1.png)
 
 - A region can contain multiple clusters, and the unified cloud management platform is used for cluster management and operation, and cloud resources can only be scheduled in a single cluster.
 - A cluster consists of at least 3 server nodes, and the servers in the cluster must have the same CPU/memory, disk type, and operating system;
@@ -78,7 +78,7 @@ The platform only uses commercially stored LUNs as storage volumes, and does not
 
 After the physical storage device and network are ready, you can connect with the platform and use the external storage services provided by the platform, and the entire docking process requires three roles of storage device administrator, platform administrator and platform tenant to operate, of which the operation related to the platform is the platform administrator and the platform tenant, as shown in the following figure process:
 
-![1](/docs/assets/images/product-functional-architecture-2.jpg)
+![1](/assets/images/product-functional-architecture-2.jpg)
 
 - Storage device administrators manage storage volumes<br/>
 All storage volume management is handled by the storage device administrator on the commercial storage management system, including the creation and mapping of storage volumes (LUNs), as well as the related lifecycle management of storage volume expansion, snapshots, backups, and deletions.
@@ -111,7 +111,7 @@ The hypervisor controls the QoS of vCPUs, memory, and disks to support virtual m
 
 Virtual machines are the basic environment for cloud platform users to deploy and run application services, which is used in the same way as physical computers, providing complete life cycle functions such as creation, shutdown, power off, power on, password reset, system reinstallation, and upgrading. Support Linux, Windows and other different operating systems, and can be accessed and managed through VNC, SSH, etc., and have full control of virtual machines. The resources involved in virtual machine operation and their association relationships are as follows:
 
-![1](/docs/assets/images/product-functional-architecture-3.jpg)
+![1](/assets/images/product-functional-architecture-3.jpg)
 
 As shown in the figure, the instance type, image, and VPC network are the basic resources that must be specified to run the virtual machine, that is, the CPU memory, operating system, virtual NIC, and IP information of the virtual machine. On top of the virtual machine, you can bind EVS disks, EIPs, and security groups to provide data disks, public IP addresses, and network firewalls for virtual machines to ensure data storage and network security of virtual machine applications.
 
@@ -181,7 +181,7 @@ By default, the platform provides two virtual NICs, and if your service has two 
 ### ENIs
 Elastic Network Interface (ENI) is an elastic network interface that can be attached to virtual machines at any time, supports binding and unbinding, can be flexibly migrated between multiple virtual machines, provides high-availability cluster construction capabilities for virtual machines, and can achieve refined network management and cheap failover solutions.
 
-![1](/docs/assets/images/product-functional-architecture-4.jpg)
+![1](/assets/images/product-functional-architecture-4.jpg)
 
 ENIs and the default NICs (one internal NIC and one external NIC) that come with a virtual machine are virtual network devices that provide network transmission for virtual machines, which are divided into two types: internal NICs and external NICs, and assign IP addresses, gateways, subnet masks, and routing-related network information from the network to which they belong.
 
@@ -212,7 +212,7 @@ ENIs have attributes such as region, NIC type, VPC, subnet, public CIDR block, p
 
 The entire life cycle of an ENI includes states such as creating, unbound, bound, bound, bound, unbound, and deleted.
 
-![1](/docs/assets/images/product-functional-architecture-5.jpg)
+![1](/assets/images/product-functional-architecture-5.jpg)
 
 ### Security Groups
 
@@ -225,7 +225,7 @@ Security groups can only be applied to virtual machines, ENIs, load balancers, N
 
 Security groups have an independent lifecycle and can be bound to virtual machines, ENIs, Server Load Balancer, and NAT gateways to provide secure access control, and are automatically unbound after the virtual resources bound to them are destroyed.
 
-![1](/docs/assets/images/product-functional-architecture-6.jpg)
+![1](/assets/images/product-functional-architecture-6.jpg)
 
 - The security protection of a security group for a virtual machine is for a network card, that is, the security group is bound to the default virtual network card or elastic network card of the virtual machine, and access control rules are set separately to restrict the network traffic of each network card.
 - As shown in the schematic diagram of the security group, the security group is bound to a virtual external network card that provides external IP services, and the inbound and outbound rules are added to filter the north-south traffic (virtual machine extranet) access traffic.
@@ -284,13 +284,13 @@ Shutdown is the normal shutdown of the operating system of the virtual machine, 
 
 The complete life cycle of SCloudStack virtual machines includes resource states such as starting, running, shutting down, power off, shutdown, starting, reinstalling, deleting, and deleted.
 
-![1](/docs/assets/images/product-functional-architecture-7.jpg)
+![1](/assets/images/product-functional-architecture-7.jpg)
 
 ## EVS disk
 ### EVS disk overview
 EVS disk is a block device that provides persistent storage space for virtual machines based on a distributed storage system. It has an independent life cycle, supports binding/unbinding to multiple virtual machines at will, and can expand the capacity of EVS disks when the storage space is insufficient, providing cloud hosts with highly secure, reliable, high-performance, and scalable data disks based on network distributed access.
 
-![1](/docs/assets/images/product-functional-architecture-8.jpg)
+![1](/assets/images/product-functional-architecture-8.jpg)
 
 The storage system is compatible with and supports a variety of underlying storage hardware, such as general-purpose servers (computing and storage hyper-converged or independent general-purpose storage servers) and commercial storage, and the underlying storage hardware is abstracted into storage resource pools of different types of clusters, which are uniformly scheduled and managed by distributed storage systems. In practical application scenarios, the mechanical disks of ordinary `SATA` interfaces can be uniformly abstracted as `SATA` storage clusters, and SSD all-flash disks can be abstracted into SSD storage clusters, which can be used by platform users after being packaged by unified storage.
 
@@ -319,7 +319,7 @@ Supports thin provisioning, and only the allocated logical virtual capacity is p
 
 The performance of high-performance EVS disks is linearly related to the size of the capacity, the larger the capacity, the higher the IO performance provided. The complete lifecycle of SCloudStack EVS disks includes resource statuses that are being created, available, mounted, mounted, unmounted, expanded, and deleted.
 
-![1](/docs/assets/images/product-functional-architecture-9.jpg)
+![1](/assets/images/product-functional-architecture-9.jpg)
 
 ### Application scenarios
 - Normal EVS disks
@@ -348,7 +348,7 @@ VPC networks have data center attributes, each VPC VPC belongs to only one data 
 ### VPC Logical Structure
 A VPC network consists of VPC CIDR blocks and subnets, as shown in the following figure:
 
-![1](/docs/assets/images/product-functional-architecture-10.jpg)
+![1](/assets/images/product-functional-architecture-10.jpg)
 
 (1) VPC CIDR block
 The CIDR CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see CIDR. To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR CIDR blocks supported by platform VPC by default:
@@ -375,7 +375,7 @@ When virtual resources exist in a subnet, deleting and destroying VPC and subnet
 ### VPC Connections
 By connecting VPC networks with virtual machines, ENIs, public IP addresses, security groups, NAT gateways, load balancers, VPN gateways, MySQL databases, Redis caches, and leased lines, the platform can quickly build and configure complex network environments and hybrid cloud scenarios, as shown in the following figure:
 
-![1](/docs/assets/images/product-functional-architecture-11.jpg)
+![1](/assets/images/product-functional-architecture-11.jpg)
 
 - The default internal NIC (the virtual NIC that comes with the virtual NIC) of a virtual machine joins the same VPC network to implement network communication between virtual machines, and security groups can be used to ensure the security of east-west traffic of virtual machines.
 - The default external network NIC of a virtual machine (the virtual network card that comes with it when it is created) can be directly bound to multiple external IP addresses for Internet access, and the external IP address connected to the IDC physical network can be bound to realize physical network connection, and the security group can control the north-south traffic of the virtual machine while building a secure and reliable hybrid access environment.
@@ -417,7 +417,7 @@ EIP resources can be independently applied for and owned, and users can apply fo
 ### Physical Architecture
 In the private cloud platform, platform administrators are allowed to customize the platform public IP resource pool, that is, the platform administrator can customize the way the platform accesses the Internet, and the external IP block resource pool needs to be delivered to the switch port connected to the computing node through the physical network device before being added to the cloud platform.
 
-![1](/docs/assets/images/SCloudStack_Network_Topology.jpg)
+![1](/assets/images/SCloudStack_Network_Topology.jpg)
 
 As shown in the physical architecture diagram above, all compute nodes need to connect network cables to the external network access switch of the physical network, and configure the connected ports on the interactive machines of the physical network to allow transparent transmission of VLAN network access mode, so that virtual machines running on computing nodes can directly communicate with the external network through external physical NICs:
 - If you access the Internet through an external IP, you need to configure the custom Internet IP block on the physical network device to be pass-through or NAT to the Internet.
@@ -428,7 +428,7 @@ The physical network architecture is a high-availability schematic, and the actu
 ### Logical Architecture
 After the physical network architecture and configuration are confirmed, the Internet IP block and the IDC physical CIDR block need to be added to the cloud IP block resource pool at the platform level, and tenants can apply for EIP addresses of different CIDR blocks and bind EIP addresses to the virtual machine's default external network cards, so that the virtual machine can access the Internet and the IDC data center physical network at the same time through the external IP address.
 
-![1](/docs/assets/images/product-functional-architecture-12.jpg)
+![1](/assets/images/product-functional-architecture-12.jpg)
 
 As shown in the logical architecture diagram, users add network blocks to the Internet (VLAN200) and IDC physical network (VLAN100) to the cloud platform, respectively. Examples of CIDR blocks are as follows:
 - The CIDR block of VLAN200 is `106.75.236.0/25`, and the default route is configured, that is, the EIP bound to the CIDR block of the virtual machine will automatically deliver the default route with the destination address `0.0.0.0/0`.
@@ -445,7 +445,7 @@ The entire communication process is directly communicated through the physical N
 ### Features
 EIPs are floating IPs that drift to healthy nodes as the failed VM recovers and continue to provide Internet access services for VMs or other virtual resources.
 
-![1](/docs/assets/images/product-functional-architecture-13.jpg)
+![1](/assets/images/product-functional-architecture-13.jpg)
 
 When the physical host where a virtual machine resides fails, the intelligent scheduling system will automatically perform downtime migration operations on the virtual machine on the failed host, that is, the failed virtual machine will be re-pulled up on other healthy hosts and provide normal business services. If the virtual machine is bound to an external IP address, the intelligent scheduling system will drift the external IP address and related flow table information to the physical host where the virtual migration is located to ensure network communication.
 
@@ -487,7 +487,7 @@ The underlying resources of the platform products and services are unified, and 
 
 At the product level, tenants apply for a NAT gateway, specify the subnets that the NAT gateway can allow communication on, and bind [Internet IP] to enable virtual machines under multiple subnets to communicate with the Internet or the physical network of IDC data centers, as follows:
 
-![1](/docs/assets/images/product-functional-architecture-14.jpg)
+![1](/assets/images/product-functional-architecture-14.jpg)
 
 - The platform supports using a NAT gateway for multi-subnet VMs with the same VPC to access the internet or IDC data center network.
 - When a virtual machine in multiple subnets that is not bound to a public IP address is associated with a NAT gateway, the platform automatically issues routes to the Internet in the virtual machine.
@@ -603,7 +603,7 @@ You can also bind the IP address assigned by Server Load Balancer with your own 
 ### Architecture Principles
 A load balancer that provides services is mainly composed of three parts: LB instance (LoadBalancer), virtual server (VServer), and backend server (Backend Real Server). As shown in the architecture diagram:
 
-![1](/docs/assets/images/product-functional-architecture-15.jpg)
+![1](/assets/images/product-functional-architecture-15.jpg)
 
 - LoadBalancer (LB): The Server Load Balancer instance is an active and standby high-availability cluster architecture, which can automatically fail over load balancers and improve the availability of access to Server Load Balancer. At the same time, combined with the internal and external IP addresses, according to the listener configured by VServer, the virtual machine is added to the backend to become a real server to achieve traffic balancing and service fault tolerance.
 - Virtual Server (VServer): Listener, each listener is a set of load-balanced listening port configurations, including protocol, port, load algorithm, session persistence, connection idle timeout, health check and other configuration items, used to distribute and process requests to access LB.
@@ -680,7 +680,7 @@ With IPsecVPN, you can connect VPC private networks in on-premises data centers,
 ### Logical Architecture
 VPN gateway IPsecVPN service consists of three parts: VPN gateway, peer gateway, and VPN tunnel connection.
 
-![1](/docs/assets/images/product-functional-architecture-16.jpeg)
+![1](/assets/images/product-functional-architecture-16.jpeg)
 
 - VPN gateway <br/>
 The platform-side VPC network establishes an egress gateway for IPsecVPN connection, and connects with the IPsecVPN of the peer gateway by associating VPC and external IP addresses to establish secure and reliable encrypted network communication between the platform's private network and external networks (such as IDC, public cloud, and private cloud).
@@ -691,7 +691,7 @@ Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combin
 
 A VPN gateway has and must be associated with one VPC network and one public IP address, which corresponds to the peer gateway and connects through the VPN tunnel. IPsecVPN supports point-to-multipoint connectivity, which enables VPN gateways and peer gateways to have one-to-one or one-to-many connections, that is, a VPN gateway can tunnel with multiple peer gateways at the same time. VPN tunnels allow encrypted communication between multiple VPC subnets of the platform and multiple CIDR blocks of the peer network through the tunnel, and the CIDR blocks of the platform VPC subnet cannot overlap with the network of the peer network (the overlap of the local and peer subnets will affect the normal communication of the network).
 
-![1](/docs/assets/images/product-functional-architecture-17.jpg)
+![1](/assets/images/product-functional-architecture-17.jpg)
 
 As shown in the example shown in the preceding figure, the VPC network in the cloud platform already has two subnets, subnet1 (`192.168.1.0/24`) and subnet2 (`192.168.2.0/24`). There are two intranet CIDR blocks in the remote IDC data center, subnet3 (`192.168.3.0/24`) and subnet4 (`192.168.4.0/24`).
 - The VPN gateway of the private cloud platform is bound to a VPC subnet and uses the public IP address as the network egress and the peer gateway of the remote data center.
@@ -770,7 +770,7 @@ You can use Auto Scaling to customize auto scaling groups and scaling policies, 
 ### Logical Architecture
 Auto scaling can be logically divided into three parts: scaling groups, scalers, and virtual machine templates.
 
-![1](/docs/assets/images/product-functional-architecture-18.jpg)
+![1](/assets/images/product-functional-architecture-18.jpg)
 
 Scaling group: It is responsible for maintaining the number of instances in the group at the desired level, and the actions of adding/shrinking virtual machines are operated by the scaling group, which supports the "automatic scaling" and "fixed quantity" modes to maintain the number of instances in the scaling group.
 - Scaling device: A scaling policy that defines the rules for scaling virtual machines in a scaling group, triggers scaling actions based on CPU usage thresholds for the scaling group, supports defining the minimum and maximum number of instances of the scaling group, and allows scaling in.

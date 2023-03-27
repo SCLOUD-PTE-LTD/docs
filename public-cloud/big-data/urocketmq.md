@@ -16,7 +16,7 @@ The current URocketMQ is based on the open source RocketMQ version `4.7.1`.
 ## Product architecture
 The product architecture is as follows
 
-![1](/docs/assets/images/architecture.jpg)
+![1](/assets/images/architecture.jpg)
 
 NameServer: Routing registry, providing broker management and routing information management functions.
 

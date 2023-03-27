@@ -14,7 +14,7 @@ In addition to standardized general product services, the platform provides a mu
 ## Compute virtualization
 Cloud computing technology is an extension of virtualization technology, computing virtualization is to add a hypervisor on top of the hardware, through which multiple completely isolated hosts and can install different operating systems, carry different applications to run, to the greatest extent to solve the problem of a physical machine being occupied by a system or an application, effectively improve resource utilization.
 
-![1](/docs/assets/images/platform-technology-architecture-1.jpg)
+![1](/assets/images/platform-technology-architecture-1.jpg)
 
 As shown in the preceding figure, there are essential differences between physical machines and virtual machines in terms of application deployment and resource consumption:
 
@@ -93,7 +93,7 @@ Intelligent scheduling is the core of SCloudStack platform virtual machine resou
 
 The intelligent scheduling system monitors the compute, storage, network and other load information of all computing nodes in the cluster in real time, and serves as the data basis for virtual machine scheduling and management. When new virtual resources need to be deployed, the scheduling system preferentially selects low-load nodes for deployment to ensure the load of the entire cluster nodes. As shown in the following figure, the newly created virtual resource is automatically deployed to a low-load Node3 node through scheduling detection.
 
-![1](/docs/assets/images/platform-technology-architecture-2.jpg)
+![1](/assets/images/platform-technology-architecture-2.jpg)
 
 While giving priority to low-load nodes for virtual resource deployment, the scheduling system provides capabilities such as scattered deployment, online migration, and downtime migration to ensure the reliability of the cloud platform as a whole. The SCloudStack cloud platform uses distributed storage to provide storage services, as shown in the figure above, virtual machines run on distributed storage pools, and distributed storage pools can build a unified distributed storage resource pool across multiple physical machines. The system disk, image file and mounted hard disk of the virtual machine are stored in the unified distributed storage pool, and each computing node can register the same virtual machine process through the system disk file and configuration information of the virtual machine in the distributed storage pool, which can be used for online migration or downtime migration tasks.
 
@@ -185,7 +185,7 @@ The distributed storage system can provide block storage, file storage, and obje
 
 The distributed storage storage system provides elastic block storage services, object storage, and file storage services for disk devices in the cluster through different storage resource pools built into the OSD, among which the block storage service can be directly mounted and used by virtual machines, and measures such as three copies, write confirmation mechanism, and copy distribution policy are used to ensure data security and availability to the greatest extent when data is written. File storage and object storage can provide multiple protocol interfaces such as NFS, CIFS, and S3 to provide unstructured data storage services for application services, and combine multiple copies and erasure coding data redundancy strategies to meet data storage and processing in various scenarios, and the logical architecture is as follows:
 
-![1](/docs/assets/images/platform-technology-architecture-3.png)
+![1](/assets/images/platform-technology-architecture-3.png)
 
 SCloudStack distributed storage system is an indispensable core component of the entire cloud platform architecture, providing basic storage resources through the distributed storage cluster architecture, supporting online horizontal expansion, and integrating intelligent storage cluster, ultra-large-scale expansion, multi-replica and erasure coding redundancy strategy, data re-balancing, fault data reconstruction, data cleaning, thin provisioning and snapshots and other technologies to provide high performance, high reliability, high scalability, easy management and data security guarantee for virtualized storage. Improve the service quality of storage virtualization and cloud platforms in all aspects.
 
@@ -200,11 +200,11 @@ A distributed storage cluster can contain thousands of storage nodes and typical
 
 When storing data, the storage cluster receives data from clients (block devices, object storage, file systems) and shards the data into objects in the storage pool, and each object is stored directly on the OSD's bare storage device, and the OSD process handles read and write operations on the bare device. As shown in the following figure:
 
-![1](/docs/assets/images/platform-technology-architecture-4.png)
+![1](/assets/images/platform-technology-architecture-4.png)
 
 The client program obtains the mapping relationship data by interacting with the OSD or monitor, calculates the object storage location locally through the CRUSH algorithm, and directly communicates with the corresponding OSD to complete data reading and writing operations. In order to realize autonomous, intelligent and self-healing access to data in distributed storage clusters, intelligent storage clusters are associated with each other to carry data storage processes through various logical concepts such as CURSH algorithm, storage pool pool, placement group PG and OSD, and the logical architecture diagram is as follows:
 
-![1](/docs/assets/images/platform-technology-architecture-5.png)
+![1](/assets/images/platform-technology-architecture-5.png)
 
 - A cluster can be logically divided into multiple pools, Pool is a namespace, and clients need to specify a Pool when storing data;
 - A Pool contains several logical PGs (Placement Group), which can define the number of PGs and the number of object replicas in the pool;
@@ -255,7 +255,7 @@ The SCloudStack distributed storage system maximizes data security and availabil
 
 Users who write data to distributed storage through the client write three copies according to the number of replicas set by the pool3, and store them on disks of different physical hosts according to the replica distribution policy. Distributed storage keeps data secure at least 2 copies so that the storage cluster can run in a degraded state to keep data secure.
 
-![1](/docs/assets/images/platform-technology-architecture-6.png)
+![1](/assets/images/platform-technology-architecture-6.png)
 
 - (2) Write confirmation mechanism
 As shown in the figure above, during the writing process of the three replicas, only when all three write processes are confirmed will the write be returned to complete to ensure strong consistency in data writing.
@@ -267,11 +267,11 @@ Distributed storage supports the replica data disk distribution strategy (multi-
 
 To ensure the access latency of stored data, it is recommended to save up to three copies of data to different cabinets, and if three copies of data are saved to different data rooms, the IO performance of EVS disks may be affected due to network latency.
 
-![1](/docs/assets/images/platform-technology-architecture-7.jpg)
+![1](/assets/images/platform-technology-architecture-7.jpg)
 
 As shown in the figure above, the client writes ABC three object data through the distributed storage system, and according to the fault domain defined by the CRUSH rule, the copies of the three objects need to be stored in different cabinets. Taking object A as an example, the storage system sets a replica distribution policy in advance to ensure that the object replicas are distributed in the server OSDs of different cabinets, that is, define the enclosure and host buckets. When the distributed storage system calculates the PG of the written object and the corresponding OSD location, it will first write A to the server OSD of enclosure 1, and at the same time replicate A' to the server OSD of enclosure 2 through the primary OSD replica A' to the server OSD of enclosure 2, and replicate A'' to the server OSD of enclosure 3.
 
-![1](/docs/assets/images/platform-technology-architecture-8.jpg)
+![1](/assets/images/platform-technology-architecture-8.jpg)
 
 Object replica data is always maintained as 3 copies when there are no anomalies such as network outages or disk failures on the storage node. Only when the node is abnormal and the number of replicas is less than 3, the storage system will automatically rebuild the data copies to ensure that the data copies are permanently three copies and escort the data security of virtualized storage. As shown in the figure above, the third node fails, resulting in data D1-D5 being lost and failing, the storage system will automatically map the PG of object data to a new OSD, and automatically synchronize and rebuild D1'-D5' through the other two copies to ensure that the data is always three copies to ensure data security.
 
@@ -286,7 +286,7 @@ Taking 4+2 as an example, when writing data, the storage system will first map t
 
 Since erasure coding is to write data slices to multiple OSD disks concurrently, and there is no problem of multi-write amplification in the multi-copy mechanism, write performance is advantageous. However, when reading data, it is necessary to calculate data shards first, and then read out data from multiple OSDs for summary, so the read performance is relatively low.
 
-![1](/docs/assets/images/platform-technology-architecture-9.jpg)
+![1](/assets/images/platform-technology-architecture-9.jpg)
 
 The principle of erasure coding proves that the number of data blocks allowed to be corrupted in a storage cluster is less than or equal to M (check block), and the object data block and check block are always unchanged when the storage node or disk is free of failures or exceptions. Only when an exception occurs in the node, when the data block and the test block are less than the N+M value, the corrupted data needs to be decoded and calculated by the remaining data block and the test block, and the period is restored to the normal OSD device. As shown in the EC policy in Figure 5+3 above, the data allowed to fail is 3, that is, 3 disks can be allowed to fail in the actual production environment; When the fragmented data D1 is corrupted, the main OSD calculates the remaining data blocks (D2-D5) and the test block information (P1-P3) of the object file, decodes the information of the data block and the test block through EC, calculates the damaged D1 data D1', and finally restores the D1' data to the normal OSD device to complete the recovery of the damaged data.
 
@@ -307,7 +307,7 @@ In order to avoid imbalance in the data distribution of the storage cluster caus
   
 The platform supports horizontal expansion of storage nodes or online expansion of storage nodes by adding disks to storage nodes to expand the capacity of storage clusters, that is, distributed storage clusters support adding OSDs to expand storage pool capacity at runtime. When the cluster capacity reaches the threshold and needs to be expanded, the new disk can be added as the OSD of the cluster and added to the CRUSH running graph of the cluster, and the platform will rebalance the distribution of cluster data according to the new CRUSH operation graph, and move some PGs in/out of multiple OSD devices to return the cluster data to the balanced state. As shown in the following figure:
 
-![1](/docs/assets/images/platform-technology-architecture-10.jpg)
+![1](/assets/images/platform-technology-architecture-10.jpg)
 
 In the process of data balancing, only some PGs in the existing OSDs will be migrated to the new OSD device, and all PGs will not be migrated, so that all OSDs can free up some capacity space to ensure that the object data distribution of all OSDs is relatively balanced. After adding OSD 4 and OSD 5 in the figure above, three PGs (PG #4, PG #9, PG #14) are migrated to OSD 4, and three PGs (PG #5, PG #10, PG #15) are migrated to OSD 5, so that each of the five OSDs has 3 PGs. In order to avoid the overall degradation of cluster performance caused by PG migration, the storage system increases the priority of user read and write requests and performs PG migration operations during system idle time.
 
@@ -319,7 +319,7 @@ During the operation of the storage cluster, the cluster capacity may need to be
 
 As shown in the following figure:
 
-![1](/docs/assets/images/platform-technology-architecture-11.jpg)
+![1](/assets/images/platform-technology-architecture-11.jpg)
 
 In the process of data balancing, only PGs on deleted OSDs are migrated to relatively idle OSD devices, and the object data distribution of all OSDs is relatively balanced. As shown in the figure above, a total of 6 PGs are mapped on OSD 4 and OSD 5 that are about to be deleted, and 2 PGs will be migrated to the remaining 3 OSDs after deletion, so that each of the 3 OSDs has 5 PGs.
 
@@ -375,7 +375,7 @@ In terms of business data security, the distributed storage of the cloud platfor
 ### Block Storage Data Storage Mechanism
 The block storage service of the private cloud adopts a distributed unified storage system, which provides RBD interfaces to provide system disks, images, and EVS disk services for virtual machines. This section describes the data storage and deletion mechanism through the block storage data storage architecture, block storage data IO process, and data storage management process.
 
-![1](/docs/assets/images/platform-technology-architecture-12.jpg)
+![1](/assets/images/platform-technology-architecture-12.jpg)
 
 (1) Block storage data storage architecture
 
@@ -508,7 +508,7 @@ A private network (VPC (Virtual Private Cloud) is a logically isolated Layer 2 n
 The VNI field is 24 bits long, and each VXLAN tunnel number corresponds to a VPC network, that is, the platform can support 1600 (2^24^) 10,000 VPC networks. <br/><br/>
 SCloudStack OverLay network data surface components are deployed in a distributed manner on each compute node server, combined with self-developed SDN virtual network controller delivery flow tables, providing virtual network and NFV component implementation, isolation, flow table distribution, data encapsulation and data transmission functions, etc., to achieve elastic, highly secure, highly reliable, and absolutely isolated virtualized networks. As shown in the following figure:
 
-![1](/docs/assets/images/platform-technology-architecture-13.png)
+![1](/assets/images/platform-technology-architecture-13.png)
 
 OVS is the core path of the virtual network data path, and when each compute node starts providing services, the SDN controller automatically sends flow tables belonging to the current node to the virtual switch to tell each virtual resource how the network should communicate. VXLAN provides data encapsulation and network tunneling when virtual networks are accessed across physical hosts. OVS is a distributed structure on all computing nodes, and the management control module to which the SDN controller belongs is a cluster architecture, which combines the redundant architecture of the physical network and links to improve the availability of the virtual network as a whole.
 

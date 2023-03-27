@@ -20,7 +20,7 @@ SCloudStack disaster recovery service supports multiple service modes such as lo
 
 SCloudStack platform automatically shields software and hardware failures, disk damage, and software failures through distributed storage systems, RAID5 and multi-replica mechanisms, and the system automatically detects and automatically performs replica data backup and migration to ensure local data security. See [Distributed Storage] (#2.3.5 Distributed Storage). At the same time, the platform supports scheduled incremental backup of data such as local virtual machines, images, EVS disks, and databases to Object Storage Service. The local disaster recovery architecture is shown in the following figure:
 
-![1](/docs/assets/images/services-disaster-recovery-1.jpg)
+![1](/assets/images/services-disaster-recovery-1.jpg)
 
 - The platform supports flexible backup and recovery strategies, and can back up data in different time dimensions, full or incremental.
 - When local data is damaged or accidentally deleted, you can restore the local backup data to the platform to restore business data and business operation.
@@ -30,7 +30,7 @@ SCloudStack platform automatically shields software and hardware failures, disk 
 
  The SCloudStack cloud platform provides remote disaster recovery services while ensuring the security of business data in on-premises data centers, and incrementally replicates cloud service images and data to remote object storage services through leased lines, SD-WAN, VPN, or Internet connections to ensure business data RPO metrics. When a disaster occurs in an on-premises data center, you can quickly restore business through off-site data.
 
- ![1](/docs/assets/images/services-disaster-recovery-2.jpg)
+ ![1](/assets/images/services-disaster-recovery-2.jpg)
 
  The remote disaster recovery service supports multiple service deployment methods, provides different RTO indicators for cloud platform services, and controls the disaster recovery cost of cloud platform services.
 
@@ -62,7 +62,7 @@ The interconnection between the remote disaster recovery center and the local da
 ## Public Cloud Disaster Recovery Service
 SCloudStack provides disaster recovery services from on-premises data centers to public cloud platforms, and incrementally copies cloud service images and data to third-party public cloud platform object storage services through leased lines, SD-WAN, VPN, or Internet connections to ensure business data RPO metrics. When a disaster occurs in an on-premises data center, you can quickly restore services on the public cloud, and restore business data backups on the public cloud to the local data center and re-establish the local data center.
 
- ![1](/docs/assets/images/services-disaster-recovery-3.jpg)
+ ![1](/assets/images/services-disaster-recovery-3.jpg)
 
 The public cloud disaster recovery service supports multiple service deployment methods, provides different RTO indicators for cloud platform services, and controls the disaster recovery cost of cloud platform services.
 ### (1) High RTO indicators, long business recovery time, and low cost
@@ -94,7 +94,7 @@ Three centers in two regions refers to a disaster recovery solution with dual ce
 
 The SCloudStack cloud platform provides disaster recovery services for three centers in two regions, supporting the addition of an off-site disaster recovery center on the basis of the active-active data center in the same city, and realizes synchronization with active-active in the same city. When both centers in the same city fail due to natural disasters, the remote disaster recovery center can restore data and further improve service RTO and RPO indicators.
 
- ![1](/docs/assets/images/services-disaster-recovery-4.jpg)
+ ![1](/assets/images/services-disaster-recovery-4.jpg)
 
 The SCloudStack cloud platform uses two Availability Zones in a region in one region, namely the production zone and the disaster recovery zone. The distance between the two zones is about 30 kilometers, and the DWDM channel is used to directly interconnect the two zones network, which has the conditions of Layer 2 network connectivity and network load balancing, and meets the latency of the active-active network in the same city of less than 2ms.
 
@@ -154,7 +154,7 @@ In response to the different RPO requirements of services, the dual-center and r
 ## Disaster recovery network architecture
 The SCloudStack disaster recovery service network is a dual-center network in the same city and a disaster recovery network in different places, and different disaster recovery service construction methods are interconnected through different network links. The production center and the remote disaster recovery center can perform network communication and data replication through SD-WAN, leased line, VPN, and Internet, and can select different network connection solutions according to the RPO requirements of the business.
 
- ![1](/docs/assets/images/services-disaster-recovery-5.jpg)
+ ![1](/assets/images/services-disaster-recovery-5.jpg)
 
 - Dual centers in the same city
   - The local data center and the intra-city disaster recovery center physically interconnect the intranet cores of the dual-center intranet through DWDM links, and connect the dual-center and layer-2 networks through Layer 3 to ensure network load balancing conditions and network latency of less than 2ms.

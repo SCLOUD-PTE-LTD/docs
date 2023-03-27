@@ -57,11 +57,11 @@ Provides fast and efficient database query and transaction processing capabiliti
 ### High availability
 UDB PostgreSQL supports highly available deployments, that is, UDB PostgreSQL highly available instances. UDB PostgreSQL high-availability instances adopt a master-slave replication architecture, where the master database provides services while another set of database services continuously synchronizes data and is ready to standby, the general architecture is shown in the figure:
 
-![1](/docs/assets/images/pg-v4.png)
+![1](/assets/images/pg-v4.png)
 
 The powerful automatic disaster recovery module in the UDB background can automatically detect problems when UDB PostgreSQL high-availability instance services are problematic and automatically perform disaster recovery to ensure the stability and reliability of user PostgreSQL database services. When a UDB PostgreSQL instance is switched, the disaster recovery module promotes the standby PostgreSQL service to the master database and falls back to the slave database after the original master service is started. The entire process does not require any manual intervention and configuration modification. The schematic diagram of the entire disaster recovery is shown in the following figure:
 
-![1](/docs/assets/images/pg-v4-01.png)
+![1](/assets/images/pg-v4-01.png)
 
 ### Tackle complex scenarios with ease
 It can easily cope with business scenarios with larger data volumes and more complex data types, such as data mining and map spatial data. PostGIS extension supports standards in the field of geography and is suitable for business scenarios such as maps and LBS.

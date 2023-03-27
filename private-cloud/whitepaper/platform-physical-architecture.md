@@ -21,7 +21,7 @@ Computing and storage fusion nodes, including computing resources and storage re
 
 In terms of deployment, each computing node will deploy `KVM, Qemu, Libvirt, OVS, Ceph` for running the computing storage network At the same time, at least 3 computing nodes in each region will deploy the core scheduling and management modules, as shown in the following figure:
 
-![1](/docs/assets/images/cmp.png)
+![1](/assets/images/cmp.png)
 
 Where [ Schedule Manager ] is SCloudStack The core scheduling and management module of the cloud platform is used for the operation scheduling of virtual resources and the delivery management of virtual network flow tables. Only one set of highly available Schedule Manager needs to be deployed in each region. Generally, the active/ standby mode can be deployed on three or more computing nodes. When the server of the primary computing node that deploys the scheduling module fails physically, the standby computing node that deploys the scheduling module Nodes will automatically take over the scheduling service to ensure the availability of core scheduling and flow table control services.
 
@@ -54,7 +54,7 @@ Best practice, the production environment requires at least 3 `SATA`/SSD hyper-c
 ## Physical Network Architecture
 In order to build a highly available, highly reliable, and highly secure enterprise proprietary cloud platform, SCloudStack The platforms are all designed with high availability redundancy. This article describes the physical network architecture based on the standard network topology diagram. This architecture design requires at least 6 10G switches, 2 Gigabit switches, Multiple computing & storage node servers. If there are requirements for IPMI management and network device management, IPMI and management switches can be added and connected to the network according to the requirements.
 
-![1](/docs/assets/images/SCloudStack_Network_Topology.jpg)
+![1](/assets/images/SCloudStack_Network_Topology.jpg)
 
 SCloudStack The platform network is designed as a core and access two-layer architecture, and the access switches are dual- uplinked to the core, and are divided into clusters according to computing services. This architecture design provides public network services from the perspective of business scenarios, so the overall business architecture is divided into two networks, the intranet area and the extranet area, which respectively carry the intranet communication and extranet communication of the cloud platform. Physical isolation at the network device level.
 
@@ -108,7 +108,7 @@ In actual projects, the standard network architecture can be adjusted according 
 
 (3) If there is no need for physical isolation between the internal and external networks and access redundancy is considered, two switches can be stacked, through Vlan Isolate the internal and external networks, as shown in the following figure:
 
-![1](/docs/assets/images/Network_Topology.jpg)
+![1](/assets/images/Network_Topology.jpg)
 
 - Option 1: By dividing on the switch Vlan, the server uses two interfaces to bind and access the internal and external network of the switch Vlan Interface, that is, each server needs 2 groups Bond (4 interfaces) realizes internal and external network business communication, and can support 22 nodes;
 - Solution 2: By partitioning within the server operating system Vlan (that is, sub-interface), the server uses 2 interfaces to bind to the Trunk interface of the switch, that is, each server only needs 2 interfaces to bind to realize internal and external network business communication, and can support 45 nodes;
@@ -160,7 +160,7 @@ hardware configurations for a production environment. Generally, a production en
 ## Cabinet Space Planning
 Space planning of network equipment and servers is shown in the following figure:
 
-![1](/docs/assets/images/Cabinet_Space.jpg)
+![1](/assets/images/Cabinet_Space.jpg)
 
 All devices are symmetrically deployed in the cabinets to achieve cabinet- level redundancy, and the power failure or failure of a single cabinet will not affect the cloud platform business. One cabinet can support 15 nodes. According to the network architecture design, a group of access switches supports 45 nodes, that is, a group of access switches supports 3 cabinets. Three cabinets form one group. On average, one group of cabinets supports 45 nodes, one group of intranet access switches, one group of external network access switches, and one IPMI access switch.
 

@@ -11,7 +11,7 @@ nav_order: 1
 
 SCloudStack private cloud platform provides unified management, resource scheduling, monitoring logs and operation and maintenance of core services such as virtualization, SDN network, distributed storage, container and security. A complete set of cloud resource management capabilities to facilitate the digital transformation of government and enterprises.
 
-![1](/docs/assets/images/scloud-stack.png)
+![1](/assets/images/scloud-stack.png)
 
 Based on the SCloud public cloud infrastructure, the platform reuses the core and core virtualization components, and privatizes the public cloud architecture. It has the characteristics of independent controllability, stability and reliability, continuous evolution, and open compatibility. The console or APIs can quickly build resources and services, support seamless connection with the public cloud, flexibly call public cloud capabilities, and help governments and enterprises quickly build a safe and reliable business architecture.
 
