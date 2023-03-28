@@ -45,11 +45,11 @@ The implementation and logic of the operating system kernel, virtualized computi
 - the physical host fails or exceeds the load, the virtual machine is automatically migrated to the low- load physical host;
 - When creating a virtual machine, according to the business scheduling policy, automatically start the virtual machine to a healthy physical host with low load;
 - Support computing quota allocation and resource preemption, and effectively share physical resources under the premise of ensuring fairness;
-- flow table control and delivery of platform virtual resources to ensure the performance and availability of the distributed network architecture.
+- Flow table control and delivery of platform virtual resources to ensure the performance and availability of the distributed network architecture.
 
 ### Core Product Resources
 
-- Region (data center): Data center refers to the physical location classification of resource deployment, and data centers are independent of each other, such as Ho Chi Minh data center and Singapore data center. The platform supports multi-data center management, using a management platform to manage private cloud platforms spread across data centers;
+- Region (data center): Data center refers to the physical location classification of resource deployment, and data centers are independent of each other, such as Tokyo data center and Singapore data center. The platform supports multi-data center management, using a management platform to manage private cloud platforms spread across data centers;
 - Cluster: used to distinguish the distribution of different resources in a data center, such as x86 computing clusters, ARM computing clusters, and SSD storage clusters And `SATA` storage clusters, one data center can deploy multiple clusters;
 - Multi- tenant: The platform supports multi- tenant mode, providing functions such as tenant isolation, sub -account, authority control, quota configuration and price configuration;
 - Sub- accounts and permissions: support a tenant to have multiple sub- accounts, support resource isolation and control the permissions of sub- accounts for resource management;
