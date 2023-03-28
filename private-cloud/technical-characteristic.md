@@ -8,7 +8,7 @@ nav_order: 5
 ---
 
 # Technical Characteristics
-### API
+### Idempotent API
 Idempotent means that one and multiple requests for a resource should have the same side effects, ensuring that the result of the resource request is always consistent no matter how many times it is called. If you call the API request to update a virtual machine multiple times, the results returned are consistent.
 
 SCloudStack ensures the idempotence of platform resource APIs through technical means such as distributed locks, unique constraints on business fields, and unique constraints on tokens. Repeated submission of operation requests (except creation requests) for resources such as VMs, EVS disks, VPCs, and Server Load Balancer ensures that the results returned by multiple calls to the same API request are consistent, and the problem of repeated operations is prevented from being obtained due to network interruptions.
