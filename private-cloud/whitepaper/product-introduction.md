@@ -76,7 +76,7 @@ The implementation and logic of the operating system kernel, virtualized computi
 
 ### Unified cloud management platform
 
-- SCloudStack platform provides web console Access and manage the cloud platform in two ways: and API interface;
+- The SCloudStack platform provides two ways to access and manage the cloud platform: Web console and API interface;
 - Through the WEB console, users can quickly use and manage cloud platform resources, such as virtual machines, elastic IPs, and load balancing, billing, etc.;
 - Developers can customize and build cloud platform resources through APIs to support seamless migration to the cloud.
 
