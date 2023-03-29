@@ -4,7 +4,7 @@ title: Product Characteristics
 has_children: false
 parent: Private Cloud
 permalink: /private-cloud/product-characteristics
-nav_order: 4
+nav_order: 5
 ---
 
 # Product Characteristics

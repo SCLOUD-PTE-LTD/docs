@@ -4,7 +4,7 @@ title: Product Architecture
 has_children: false
 parent: Private Cloud
 permalink: /private-cloud/product-architecture
-nav_order: 2
+nav_order: 3
 ---
 
 # Product Architecture
