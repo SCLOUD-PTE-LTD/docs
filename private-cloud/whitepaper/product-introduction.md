@@ -17,8 +17,6 @@ Based on the SCloud public cloud infrastructure, the platform reuses the core an
 
 SCloudStack is positioned as a lightweight delivery, 3 nodes can build a production environment and can be smoothly expanded, without binding hardware and brands, compatible with X86 and ARM architecture, and provides unified resource scheduling and management, It supports multiple delivery modes of pure software, hyper-converged all-in-one machine and all-in-one cabinet, effectively reducing user management and maintenance costs, and providing users with a safe, reliable, self-controllable cloud service platform.
 
-SCloudStack is positioned as a lightweight delivery, 3 nodes can build a production environment and can be smoothly expanded, without binding hardware and brands, compatible with X86 and ARM architecture, and provides unified resource scheduling and management, It supports multiple delivery modes of pure software, hyper-converged all-in-one machine and all-in-one cabinet, effectively reducing user management and maintenance costs, and providing users with a safe, reliable, self-controllable cloud service platform.
-
 ## Product Architecture
 
 The overall product architecture of the SCloudStack platform consists of basic hardware facilities, virtual core engine, intelligent scheduling system, core product resources, unified cloud management platform and operation and maintenance management platform. and operators to provide cloud platform management and services.
