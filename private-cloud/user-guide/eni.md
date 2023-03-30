@@ -41,7 +41,7 @@ The security group bound to an ENI and the internal/external network security gr
 
 When you create an ENI, you are billed based on the bandwidth specifications of the Internet IP address, and you can select the appropriate payment method and purchase duration based on your needs. When the ENI is created, the status changes to Unbound, the NIC has been successfully created, and you can bind a virtual machine and modify the security group of the ENI.
 
-## Check the network card
+## View the network card
 Go to the VM console in the navigation pane and switch to the NIC Management page to view the list and related information of ENI resources, including the name, resource ID, NIC type, network, IP address, bound resource, security group, status, creation time, and operation items of the NIC, as shown in the following figure:
 
 ![1](/assets/images/user-guide/user-guide-47.png)
