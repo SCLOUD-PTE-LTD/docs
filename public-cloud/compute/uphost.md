@@ -50,11 +50,11 @@ An image is a template for the running environment of a physical cloud host inst
 - Standard images are officially provided by SCloud and include various Linux, Windows and other operating systems.
 - A self-made image is a dedicated image created by a user using a physical cloud host and is visible only to the user.
 
-### Homemade mirroring
+### Self-managed mirroring
 
 - Bare metal 2.0 adopts smart network card and RSSD cloud disk technology, for Linux images, after testing, the standard image CentOS uses the 3.10.0 kernel, and Ubuntu uses the 5.4 kernel.
 
-- During the process of making homemade images, please note the following:
+- During the process of making self-managed images, please note the following:<br/>
 If it is not necessary, do not upgrade the kernel, as upgrading the kernel will cause the intelligent NIC driver to be incompatible and cause the machine to fail to boot and system instability. If necessary, please contact sales or technical support.
 
 - The basic system has a root partition and a boot partition, the boot partition is a UEFI boot partition, do not modify, modification will cause the machine to fail to boot.

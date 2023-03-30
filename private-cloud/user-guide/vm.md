@@ -4,7 +4,7 @@ title: Virtual Machine
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/virtual-machine/
-nav_order: 1
+nav_order: 2
 ---
 # Virtual Machine
 ##  Overview

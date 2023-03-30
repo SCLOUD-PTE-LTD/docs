@@ -134,7 +134,7 @@ Create VM specifications support creating different specifications for different
 The created specifications can be seen and used by all tenants, and different specifications can be created in different clusters according to business needs.
 
 ### Mirroring
-An image is a template for the running environment of a virtual machine instance, usually including the operating system, preinstalled applications, and related configurations. The hypervisor uses the specified image template as the system disk of the boot instance, and the life cycle is the same as that of the virtual machine, and the system disk is destroyed when the virtual machine is destroyed. Platform virtual machine images are divided into base images and homemade images.
+An image is a template for the running environment of a virtual machine instance, usually including the operating system, preinstalled applications, and related configurations. The hypervisor uses the specified image template as the system disk of the boot instance, and the life cycle is the same as that of the virtual machine, and the system disk is destroyed when the virtual machine is destroyed. Platform virtual machine images are divided into base images and self-managed images.
 #### Base image
 The base image is officially provided by SCloudStack and includes multiple distributions of native operating systems such as Centos, Ubuntu and Windows.
 
@@ -150,8 +150,8 @@ Windows operating system images are officially provided by Microsoft and need to
 #### Self-managed images
 Custom images are self-owned images exported or custom-imported by tenants or administrators through virtual machines, which can be used to create virtual machines, and only the account itself has permission to view and manage them except platform administrators.
 
-- Support management will import custom images for tenants, and administrators can export tenants' virtual machines as homemade images; At the same time, the administrator can download all the self-made images in the image repository.
-- Administrators can create virtual machines, delete homemade images, and modify the name of homemade images from homemade images.
+- Support management will import custom images for tenants, and administrators can export tenants' virtual machines as self-managed images; At the same time, the administrator can download all the self-made images in the image repository.
+- Administrators can create virtual machines, delete self-managed images, and modify the name of self-managed images from self-managed images.
 
 In order to facilitate the sharing of platform image template files, the platform supports administrators to copy a self-made image as a base image, so that a tenant's self-made image can be shared with all tenants, which is suitable for scenarios where the operation and maintenance department makes a template image, such as after the vulnerability repair or upgrade of the self-made image operating system, make a self-made image and copy the base image, so that all tenants can use the new image file to upgrade the virtual machine system.
 
