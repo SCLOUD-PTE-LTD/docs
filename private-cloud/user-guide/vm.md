@@ -508,3 +508,83 @@ The expansion operation is different for different types of operating system par
 - The partition of the Windows system disk is expanded
 
 Before you perform partition expansion and file system expansion, make sure that the storage capacity of the system disk is adjusted in the console.
+
+### Linux system disk partition expansion
+Linux systems usually use `growpart` and `resize2fs` tools to complete system partition expansion and file system expansion operations. This example uses the Centos 7.4 operating system as an example, and performs the following operations:
+
+(1) Install the `growpart` file system expansion tool.
+- Centos
+```
+yum install -y epel-release
+yum install -y cloud-utils
+```
+(2) View the system disk capacity through `fdisk -l` is 200GB, run `df -th` to view the system disk `partition/dev/vda1` The capacity is 40GB, and the file system type is `ext4`.
+
+```
+[root@localhost ~]# fdisk -l
+
+Disk /dev/vda: 214.7 GB, 214748364800 bytes, 419430400 sectors
+Units = sector of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (min/optimal): 512 bytes / 512 bytes
+Disk label type: DOS
+Disk identifier: 0x000ba442
+
+Device Boot Start End Blocks Id System
+/dev/vda1   *        2048    83883775    41940864   83  Linux
+[root@localhost ~]# 
+[root@localhost ~]# df -Th
+
+File System Type Capacity Used Available % Used mount point
+devtmpfs       devtmpfs  1.9G     0  1.9G    0% /dev
+tmpfs          tmpfs     1.9G     0  1.9G    0% /dev/shm
+tmpfs          tmpfs     1.9G  8.4M  1.9G    1% /run
+tmpfs          tmpfs     1.9G     0  1.9G    0% /sys/fs/cgroup
+/dev/vda1      ext4       40G  1.4G   36G    4% /
+tmpfs          tmpfs     382M     0  382M    0% /run/user/0
+```
+
+(3) Run the `growpart <DeviceName> <PartionNumber>` command to resize the partition and restart the virtual machine, this example `growpart /dev/vda 1` indicates the capacity of partition 1 of the system disk.
+
+```
+[root@localhost ~]# LANG=en_US. UTF-8
+[root@localhost ~]# growpart /dev/vda 1
+CHANGED: partition=1 start=2048 old: size=83881728 end=83883776 new: size=419428319 end=419430367
+[root@localhost ~]# reboot
+```
+
+(4) After the virtual machine is restarted, expand the file system of the virtual machine system disk, and use different ways to expand it in different file system types.
+
+The `ext` file system can be resized using the `resize2fs <PartitionName>` tool as follows:
+
+```
+[root@localhost ~]# resize2fs /dev/vda1
+resize2fs 1.42.9 (28-Dec-2013)
+Filesystem at /dev/vda1 is mounted on /; on-line resizing required
+old_desc_blocks = 5, new_desc_blocks = 25
+The filesystem on /dev/vda1 is now 52428539 blocks long.
+```
+If you have an `XFS` file system, you can use the `xfs_growfs <mountpoint>` tool to resize the file.
+
+(5) Run `df -Th` to view the system disk `partition/dev/vda1` with a capacity of 200GB.
+```
+[root@localhost ~]# df -Th
+File System Type Capacity Used Available % Used mount point
+devtmpfs       devtmpfs  1.9G     0  1.9G    0% /dev
+tmpfs          tmpfs     1.9G     0  1.9G    0% /dev/shm
+tmpfs          tmpfs     1.9G  8.3M  1.9G    1% /run
+tmpfs          tmpfs     1.9G     0  1.9G    0% /sys/fs/cgroup
+/dev/vda1      ext4      197G  1.5G  187G    1% /
+tmpfs          tmpfs     382M     0  382M    0% /run/user/0
+```
+
+### Windows system disk partition expansion
+Windows systems typically use the Disk Management tool in Administrative Tools - Computer Management for volume expansion operations. The specific operation is as follows:
+
+(1) Select the operation > rescan disk in the disk management tool to identify the newly expanded unallocated empty space, as shown in the following figure 20GB of unallocated space;
+
+(2) Right-click the `C` drive, select Expand Volume, and perform volume expansion operations on the system disk.
+
+(3) In the Expand Volume wizard, use the default configuration to extend the volume.
+
+(4) After the expansion volume operation is completed, the new system disk capacity is automatically merged to the `C` disk, which means that the system disk file system is successfully extended.
