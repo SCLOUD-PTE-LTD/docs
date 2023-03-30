@@ -35,7 +35,7 @@ You can specify the model, specification, image, EVS disk, VPC network, public I
 ### Create Operation
 After selecting the region (data center) where the virtual resource needs to run, select a virtual machine in the left-side navigation pane, enter the VM console, and click Create VM to pop up the VM creation wizard.
 
- ![1](/assets/images/user-guide-4.png)
+ ![1](/assets/images/user-guide/user-guide-4.png)
 
 Select the model of the virtual machine and determine the operating system image that the virtual machine is running;
 - Model is the cluster type of the host running the virtual machine, representing different architectures, different models of CPU or hardware characteristics, can be customized by the administrator, such as x86 models, GPU models, ARM models, etc., the instance created by the ARM model is an ARM version of the virtual machine instance, has been adapted to domestic chips, servers and operating systems, and can run localized operating systems, such as UOS or Galaxy Alliance.
@@ -61,7 +61,7 @@ Expanding the system disk is to increase the capacity of the block device, and d
 
 Configure network-related settings, including VPC networks, subnets, private IP addresses, private security groups, public IP addresses, and public security groups to which the virtual machine needs to join:
 
- ![1](/assets/images/user-guide-5.png)
+ ![1](/assets/images/user-guide/user-guide-5.png)
 
 - A VPC network is a logically isolated, Layer 2 network broadcast domain environment that belongs to users. Within a VPC network, users can build and manage multiple three-layer networks, namely subnets, VPC VPCs are containers of subnets, and the networks between different VPCs are absolutely isolated.
   - When you create a virtual machine, you must select the VPC network and subnet, that is, select the network and IP block to be joined by the virtual machine.
@@ -78,7 +78,7 @@ The platform supports viewing the bound external IP address and network route in
 
 Select and configure the basic management configuration of the virtual machine, including the virtual machine name, logon method, and logon password.
 
- ![1](/assets/images/user-guide-6.png)
+ ![1](/assets/images/user-guide/user-guide-6.png)
 
 - Virtual machine name: The default configuration name of the platform is `host`, and the user can customize the virtual machine name, which can be searched and filtered by name;
 - Login mode: Set the login credentials for the virtual machine, that is, the password to log in to the virtual machine;
@@ -86,7 +86,7 @@ Select and configure the basic management configuration of the virtual machine, 
 
 Select the purchase quantity and payment method, confirm the order as shown in the following figure, and click "Buy Now" to create the virtual machine.
 
- ![1](/assets/images/user-guide-7.png)
+ ![1](/assets/images/user-guide/user-guide-7.png)
 
 - Purchase quantity: Create multiple virtual machines in batches according to the selected configuration and parameters, up to 10 virtual machines in batches, and manually set the IP address of virtual machines during batch creation.
 - Payment method: Select the billing method of the virtual machine, support three modes: hourly, annual, and monthly, and you can choose the appropriate payment method according to your needs.
@@ -98,7 +98,7 @@ Enter the VM console through the navigation bar to view the list of VM resources
 ### List of virtual machines
 On the VM List page, you can view the list of virtual machine resources that exist under the current account, including name/comment, resource ID, VPC, subnet, model, configuration, IP, billing method, creation time, expiration time, status, and operation.
 
- ![1](/assets/images/user-guide-8.png)
+ ![1](/assets/images/user-guide/user-guide-8.png)
 
 - Host Name: The name and remarks of the virtual machine, which can be modified through the Edit button on the list page;
 - Resource ID: The globally unique ID of the virtual machine, which can be copied through the Copy button;
@@ -118,12 +118,12 @@ In order to facilitate tenants to maintain and operate virtual machines, the pla
 ### Virtual machine details
 On the virtual machine list, click the name or ID of the virtual machine to enter the overview page of the current virtual machine to view the virtual machine details and monitoring information, and switch to the hard disk, network, and operation log page to view the relevant disk, network, IP address, ENI and operation log information of the virtual machine, as shown on the overview page of the following figure:
 
- ![1](/assets/images/user-guide-9.png)
+ ![1](/assets/images/user-guide/user-guide-9.png)
 
 #### Virtual Machine Overview
 The Overview page displays basic information, configuration information, and monitoring charts, and can perform operations and manage virtual machines on the Overview page.
 
- ![1](/assets/images/user-guide-10.png)
+ ![1](/assets/images/user-guide/user-guide-10.png)
 
 - Basic information includes resource ID, name, private IP address, VPC, subnet, status, creation time, and alarm template.
   - You can click the button to the right of the name to modify the name and remarks of the virtual machine;
@@ -136,7 +136,7 @@ Users can enable Auto Refresh in the upper-right corner of the monitoring chart 
 #### Virtual Machine Hard Disk
 The Disks page displays the system disks and mounted data disks of the current virtual machine, including the name, ID, cluster architecture, cluster, disk type, disk capacity, mount point, billing method, status, creation time, expiration time, and snapshot operation information of each disk. As shown in the following figure:
 
- ![1](/assets/images/user-guide-11.png)
+ ![1](/assets/images/user-guide/user-guide-11.png)
 
 - Cluster architecture refers to the cluster architecture of the physical machine to which the virtual machine system disk or data disk belongs, including `HDD, SSD, NVME`, etc., which represents the disk media type of the cluster.
 - A cluster refers to the cluster where the physical machine to which the system disk or data disk of a virtual machine belongs is located, which can be customized by the administrator, such as capacity or performance type.
@@ -150,18 +150,18 @@ In the operation items in the virtual machine hard disk management list, you can
 ##### Hard disk snapshots
 In order to ensure that the data of all applications is captured in the snapshot, it is recommended to shut down the virtual machine or unmount the data disk before taking a snapshot. The specific operation is shown in the following figure:
 
- ![1](/assets/images/user-guide-12.png)
+ ![1](/assets/images/user-guide/user-guide-12.png)
 
 ##### Hard disk expansion
 Support the system disk and data disk expansion operation separately, the expansion of the EVS disk is to increase the capacity of the block device, and does not expand the file system in the system, that is, the system disk and data disk need to enter the virtual machine to perform the file system expansion (resize) operation after expansion, the specific operation steps of the system disk are detailed in: System disk expansion.
 
- ![1](/assets/images/user-guide-13.png)
+ ![1](/assets/images/user-guide/user-guide-13.png)
 
 Expansion will be charged according to the new capacity, and hard disks paid by the hour, and the next payment cycle for upgrading capacity will be charged according to the new configuration; For hard drives that are paid annually and monthly, the upgrade capacity takes effect immediately, and the price difference is automatically made up on a pro rata basis.
 #### Data disk renewal
 You can directly renew data disks attached to a virtual machine, and you will be charged for the renewal period when you renew, as shown in the following figure:
 
- ![1](/assets/images/user-guide-14.png)
+ ![1](/assets/images/user-guide/user-guide-14.png)
 
 If the billing method of the data disk is Hourly, you can select 1 to 24 hours. If the billing method of the data disk is Monthly, the renewal period can be from January to November. If the billing method of the data disk is Annual, the renewal period of the data disk is 1 to 5 years.
 
@@ -169,7 +169,7 @@ If the billing method of the data disk is Hourly, you can select 1 to 24 hours. 
 
 The Network page displays the basic network information of the current virtual machine, and can manage the external IP address and ENI resources of the virtual machine. The basic network information includes the VPC, subnet, private IP address, public security group, and private network security group of the current virtual machine, and you can update the public network security group and private network security group of the virtual machine by clicking the buttons on the right side of the security group. As shown in the following figure:
 
- ![1](/assets/images/user-guide-15.png)
+ ![1](/assets/images/user-guide/user-guide-15.png)
 
 For more information about the public IP addresses and ENI resources of virtual machines, see Internet IP Management and ENI Management.
 
@@ -194,37 +194,37 @@ The IP address of the external ENI bound to the virtual machine is also displaye
 ##### Bind an external IP address
 You can bind up to 50 IPv4 and 10 IPv6 public IP addresses, and the first IP address with a default route is used as the default network egress of the virtual machine.
 
- ![1](/assets/images/user-guide-16.png)
+ ![1](/assets/images/user-guide/user-guide-16.png)
 
 After the binding is successful, you can view the bound IP address configured on the second NIC of the virtual machine, this section uses the Centos operating system as an example, as shown in the following figure:
 
- ![1](/assets/images/user-guide-17.jpg)
+ ![1](/assets/images/user-guide/user-guide-17.jpg)
 
 ##### Unbind the external IP address
 If you unbind the default egress IP address, the next public IP address with default route is automatically selected as the default egress of the virtual machine.
 
- ![1](/assets/images/user-guide-18.png)
+ ![1](/assets/images/user-guide/user-guide-18.png)
 
 If you want to unbind the IP address of an ENI bound to a virtual machine, you can unbind the ENI directly.
 #### Set as default export
 You can manually set a bound public IP address as the default network egress of a virtual machine, and only the public IP address with a default route can be set as the default network egress of a virtual machine. You can use the Virtual Machine Internet IP Management console to set default network egress for IPv4 and IPv6 Internet IP addresses bound to a virtual machine. As shown in the following figure:
 
- ![1](/assets/images/user-guide-19.png)
+ ![1](/assets/images/user-guide/user-guide-19.png)
 
 This section takes the `Centos 7.4` system to set IPv4 default egress to `106.75.234.39` as an example, as shown in the following figure, the new IP address is set to egress in the bound Internet IP address list:
 
- ![1](/assets/images/user-guide-20.png)
+ ![1](/assets/images/user-guide/user-guide-20.png)
 
 Log in to the `Centos` virtual machine, enter `curl ifconfig.io` to view that the exit of the virtual machine to access the public network has been replaced with `106.75.234.39`, as shown in the output of the following figure:
 
- ![1](/assets/images/user-guide-21.jpg)
+ ![1](/assets/images/user-guide/user-guide-21.jpg)
 
 The public IP address pool resources are customized by the administrator, and you can use private IP address blocks to simulate public IP addresses, and perform NAT translation on upper-layer physical network devices to access the Internet or IDC data center networks.
 #### ENI management
 
 x86 virtual machines can bind up to six ENIs, and ARM virtual machines can bind up to three NICs, which are used in application scenarios such as refined network management or high-availability services. In the virtual machine, you can view information such as the bound ENI and the associated IP address, which is usually named with `eth2` in the Linux operating system.
 
- ![1](/assets/images/user-guide-22.png)
+ ![1](/assets/images/user-guide/user-guide-22.png)
 
 As shown in the preceding figure, the ENI tab can view the list of ENIs bound to the current virtual machine and the unbind operation, and supports batch unbind operations. The bound ENI information includes the name, ID, NIC type, network, IP address, security group, and status information.
 - NIC Type: refers to the ENI type that is currently bound to a virtual machine, including internal NICs and external NICs.
@@ -236,7 +236,7 @@ As shown in the preceding figure, the ENI tab can view the list of ENIs bound to
 
 You can unbind the bound ENI in the VM details, bind the ENI to other VMs, and unbind the NIC to other VMs through the Unbind operation in the Bound ENI list, as follows:
 
- ![1](/assets/images/user-guide-23.png)
+ ![1](/assets/images/user-guide/user-guide-23.png)
 
 ## VNC login
 
@@ -244,14 +244,14 @@ VNC (Virtual Network Console) is a login method provided by SCloudStack to conne
 
 Users can log in to the current virtual machine using a VNC link through the "Login" button in the virtual machine list or the operation of the details overview page, providing a display-like function to log in to the virtual machine operating system and perform system-level operation and management of the virtual machine. As shown in the following figure:
 
- ![1](/assets/images/user-guide-24.jpg)
+ ![1](/assets/images/user-guide/user-guide-24.jpg)
 
  The prerequisite for logging in to a virtual machine is to have an operating system account and password, and VNC login is suitable for scenarios where the virtual machine does not have an external IP address.
 ## Start/Shutdown/Power Off/Restart
 
 Users can perform basic operations such as shutting down, starting, power-off, and restarting virtual machines, and all of them support batch operations with multiple APIs. As shown in the following figure:
 
- ![1](/assets/images/user-guide-25.png)
+ ![1](/assets/images/user-guide/user-guide-25.png)
 
 - Shutdown
   - Users can click [Shutdown] through the console to shut down, and the status of the virtual machine must be running at the time of shutdown.
@@ -279,7 +279,7 @@ Self-made images are exported by the cloud platform account through the virtual 
 
 You can click the Create Image button in the VM list to create an image, and enter the image name and description, as shown in the following figure:
 
- ![1](/assets/images/user-guide-26.png)
+ ![1](/assets/images/user-guide/user-guide-26.png)
 
 - Image name: the name and logo of the self-made image;
 - Image description: self-made image description and remarks information, optional;
@@ -293,7 +293,7 @@ Reinstalling the system is to reset the operating system of the virtual machine,
 
 After the virtual machine is shut down, use the Reinstall System button in the virtual machine console operation to replace the image of the virtual machine, as shown in the following figure, you can perform a password reset operation during reinstallation:
 
- ![1](/assets/images/user-guide-27.png)
+ ![1](/assets/images/user-guide/user-guide-27.png)
 
  Reinstalling the system automatically erases the system disk snapshots created by the virtual machine, and you can back up the system disk data of the virtual machine by making an image. During the reinstallation process, the status of the virtual machine is automatically changed to "reloading", and after the reinstallation is successful, it is converted to "shutdown", and the virtual machine can be turned on by starting the operation, and when the virtual machine starts, the virtual machine will be run with a new image.
 
@@ -304,7 +304,7 @@ Reset password refers to changing the login password of the virtual machine oper
 
 The Linux operating system is to change the password of the root or ubuntu account, and the Windows operating system is to change the password of the administrator account. The virtual machine must be running when the password is reset. The user resets the password by clicking the Reset Password button in the VM console operation, as shown in the following figure:
 
- ![1](/assets/images/user-guide-28.png)
+ ![1](/assets/images/user-guide/user-guide-28.png)
 
 - Virtual machine name: the name and ID of the virtual machine that needs to change the password;
 - Administrator password/confirm password: the new password that needs to be changed;
@@ -317,7 +317,7 @@ Modifying the configuration changes the CPU and memory specifications of a virtu
 
 Before modifying the configuration, the virtual machine needs to be `shut down`, that is, the configuration modification operation must be performed in the shutdown state, and after the configuration change, it needs to be restarted to take effect. You can click Modify Configuration in the resource list operation in the virtual machine console to adjust the CPU memory of the virtual machine, as shown in the following figure:
 
- ![1](/assets/images/user-guide-29.png)
+ ![1](/assets/images/user-guide/user-guide-29.png)
 
 If the virtual machine is downgraded, the new configuration will be charged in the next billing cycle. For hourly virtual machines, the new configuration will be charged in the next billing cycle. For virtual machines that are billed annually and monthly, the upgrade configuration takes effect immediately, and the price difference is automatically repaid on a pro rata basis.
 - VM ID and Name: The name of the virtual machine that currently needs to change the specification and the globally unique ID ID;
@@ -341,15 +341,15 @@ Note: Currently, only hot upgrade of virtual machines with Base image of `Centos
 
 Virtual machines whose platforms support hot upgrade are automatically displayed on the list, as shown in the following figure:
 
- ![1](/assets/images/user-guide-30.png)
+ ![1](/assets/images/user-guide/user-guide-30.png)
 
 (1) When the user sees the hot upgrade prompt, you can adjust the virtual machine online through "hot upgrade" in the list operation items, as shown in the following figure:
 
-  ![1](/assets/images/user-guide-31.png)
+  ![1](/assets/images/user-guide/user-guide-31.png)
 
 (2) In the hot upgrade wizard, you can perform a hot upgrade operation on the CPU memory specifications of the virtual machine, which takes effect immediately after the hot upgrade, and the virtual machine purchased by the hour will be charged according to the new configuration in the next billing cycle, and the virtual machine purchased by year and month will automatically make up the difference in proportion, as shown in the following figure:
 
-  ![1](/assets/images/user-guide-32.png)
+  ![1](/assets/images/user-guide/user-guide-32.png)
 
 If you customize the image and the Base image is based on Centos 7.4, the hot upgrade operation is allowed by default.
 
@@ -358,7 +358,7 @@ Modifying the alarm template is to configure the monitoring data of the virtual 
 
 You can click the button on the right side of the alarm template on the VM Details Overview page to modify the alarm template, select a new VM alarm template in the Modify Alarm Template wizard, and click OK to take effect immediately.
 
-  ![1](/assets/images/user-guide-33.png)
+  ![1](/assets/images/user-guide/user-guide-33.png)
 
 - Resource ID: The ID of the virtual machine that currently needs to add or modify the alarm template;
 - Resource Type: The resource type that you need to add or modify alarm templates.
@@ -373,7 +373,7 @@ After binding the external IP address, the platform configures the specified ext
 
 Taking the Linux operating system as an example, the internal network card is generally eth0, the external network card is generally `eth1`, and the default bound external IP will be configured in the `eth1` of the virtual machine, that is, 50 external network IPs will be bound to the external network card and share the external network security group of the virtual machine; When you bind an ENI to a virtual machine, an ENI is directly added to the virtual machine, and the IP address and security group policy of the external ENI are automatically configured.
 
-  ![1](/assets/images/user-guide-16.png)
+  ![1](/assets/images/user-guide/user-guide-16.png)
 
 The virtual machine must be running or shut down to perform public IP binding, you can use the virtual machine management console list or the "bind EIP" button of the operation item of virtual machine details network management to perform external IP binding operations, the specific operation steps can refer to virtual machine external IP management. The bind operation specifies the public IP address to be bound, and only 50 IPv4 and 10 IPv6 public IP addresses can be bound.
 - If the virtual machine has 50 IPv4 public IP addresses bound, you cannot bind IPv4 public IP addresses again.
@@ -382,7 +382,7 @@ The virtual machine must be running or shut down to perform public IP binding, y
 
 After the public IP address is bound, you can view the bound public IP address through the IP information of the virtual machine list, or view the details of the bound public IP address through the Internet IP tab of the VM Details network management, and perform operations such as setting as the default egress and unbinding.
 
-  ![1](/assets/images/user-guide-34.png)
+  ![1](/assets/images/user-guide/user-guide-34.png)
 
 Only public IP addresses of the same data center can be bound, and the bound public IP addresses must be unbound. To unbind the external IP address of a virtual machine, refer to Virtual Machine External IP Management.
 
@@ -402,7 +402,7 @@ Modifying a public network security group means modifying the security group ass
 
 You can use the Modify Internet Security Group button on the VM list and VM Details page, as shown in the following figure:
 
- ![1](/assets/images/user-guide-35.png)
+ ![1](/assets/images/user-guide/user-guide-35.png)
 
 Select the Internet security group that you want to modify, and you can bind only one Internet security group to a virtual machine. After the modification is successful, you can view the modified public network security group information through the network information of the virtual machine details.
 
@@ -411,7 +411,7 @@ The access restriction of a public security group rule applies to all public IP 
 ### Modify the intranet security group
 Modifying an intranet security group means modifying the security group associated with the internal NIC of a virtual machine, that is, changing the security policy of the virtual machine's internal network for traffic control between virtual machines and virtual machines. You can use the Modify Private Network Security Group button on the VM list and VM Details page, as shown in the following figure (Network/Elastic NIC):
 
- ![1](/assets/images/user-guide-35.png)
+ ![1](/assets/images/user-guide/user-guide-35.png)
 
 Select the private network security group to be modified, and modify it to "Do not bind yet" to unbind the private network security group, and only one private network security group can be bound to a virtual machine. After the modification is successful, you can view the modified private network security group information through the network information of the virtual machine details.
 
@@ -420,12 +420,12 @@ Intranet security groups and external security groups can be bound to the same s
 ## Modify Name and Remarks
 Modify the name and notes of the virtual machine to operate in any state. Click the button to the right of the virtual machine name on the VM List page to modify it, as shown in the following figure:
 
- ![1](/assets/images/user-guide-36.png)
+ ![1](/assets/images/user-guide/user-guide-36.png)
 
 ## Virtual Machine Renewal
 You can manually renew virtual machines, and the renewal operation is only for the resource itself, and does not renew additional resources associated with the resource, such as public IP addresses, EVS disks, and external ENIs. After the additional associated resources expire, they are automatically unbound, and to ensure normal service use, you must renew the relevant resources in a timely manner, as shown in the following figure:
 
- ![1](/assets/images/user-guide-37.png)
+ ![1](/assets/images/user-guide/user-guide-37.png)
 
 When the virtual machine is renewed, the renewal period will be charged according to the renewal period, which matches the billing method of the resource, and if the billing method of the virtual machine is [Hour], the renewal period can be selected from 1 to 24 hours; If the billing method of the virtual machine is Monthly, you can select the renewal period from January to November. If the billing method for a virtual machine is Annual, the renewal period of the virtual machine is 1 to 5 years.
 ## Obtaining VNC login information
@@ -433,7 +433,7 @@ Users are supported to obtain VNC login information of virtual machines, which i
 
 You can view the VNC login information of a virtual machine, including the VM ID, VNCIP address, VNC port, and VNC client login password, through the API interface or [Get VNC Information] in the VM console operation item, as shown in the following figure (Get console information):
 
- ![1](/assets/images/user-guide-38.png)
+ ![1](/assets/images/user-guide/user-guide-38.png)
 
 - VNCIP address: The address assigned in the current cloud platform public IP address pool, and the network that can access the external IP address can use the <br/>VNCIP: port and password to connect to the virtual machine through VNC clients, such as VNCView client software.
 - VNC port: The port used when VNC login, to ensure that the security platform will replace an unused port each time it obtains VNC information.
@@ -445,14 +445,14 @@ When using the cloud platform, the user will provide at least one external IP bl
 
 Users can log in to the platform virtual machine using a client such as VNCView in the environment of the network-reachable platform, as shown in the following figure:
 
- ![1](/assets/images/user-guide-39.jpg)
+ ![1](/assets/images/user-guide/user-guide-39.jpg)
 
- ![1](/assets/images/user-guide-40.jpg)
+ ![1](/assets/images/user-guide/user-guide-40.jpg)
 
 ## Delete a virtual machine
 Platform users can delete virtual machine resources that are powered off or running in the account in the console and can delete them in batches. When a virtual machine is deleted, it automatically goes to the Recycle Bin, which can be restored or completely destroyed. This can be done through Delete in the VM List action item, as shown in the following figure:
 
- ![1](/assets/images/user-guide-41.png)
+ ![1](/assets/images/user-guide/user-guide-41.png)
 
 - When you delete a virtual machine, it automatically unbinds resources such as external IP addresses, ENIs, and EVS disks bound to the virtual machine.
 - If a virtual machine is added to the NAT gateway whitelist or a Server Load Balancer service node, the virtual machine is automatically unbound when it is deleted.
@@ -472,7 +472,7 @@ For verification purposes, this manual assumes that the local client operating s
 
 (1) Bind a public IP address to a virtual machine that requires remote login, and the public security group allows SSH port 22 access, as shown in the following figure:
 
- ![1](/assets/images/user-guide-34.png)
+ ![1](/assets/images/user-guide/user-guide-34.png)
 
 (2) The user opens the terminal that comes with the system and enters the SSH command to log in: ssh root@ the external IP address of the virtual machine, as shown in the following example:
 
@@ -498,7 +498,7 @@ The prerequisite for remote desktop connection is that the virtual machine must 
 ## System disk expansion
 The default system disk size of a virtual machine is 40 GB, and the platform supports users to expand the system disk capacity up to 500 GB. If the default system disk capacity of 40 GB cannot meet the business requirements, you can specify the required system disk capacity to create a virtual machine, as shown in the following figure, specify a system disk capacity of 200 GB to create a virtual machine, and the system disk device capacity of the created virtual machine is 200 GB.
 
- ![1](/assets/images/user-guide-42.png)
+ ![1](/assets/images/user-guide/user-guide-42.png)
 
 The expansion of the capacity of the system disk is to expand the capacity of the system disk device, and does not expand the file system in the virtual machine operating system, that is, after the system disk is expanded, it needs to enter the virtual machine to resize the file system.
 

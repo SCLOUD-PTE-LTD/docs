@@ -10,7 +10,7 @@ nav_order: 1
 ## Master account registration and login
 SCloudStack cloud platform supports multi-tenant mode, the tenant is the main account, the platform administrator can independently create the master account and recharge the main account through the administrator console, and the platform provides a self-service registration process, users can automatically register and use the cloud platform through the registration link. You can enter the account page through the platform registration link for simple account registration.
 
- ![1](/assets/images/user-guide-1.png)
+ ![1](/assets/images/user-guide/user-guide-1.png)
 
 
 As shown on the registration screen in the figure above, the information required for registration is as follows:
@@ -23,13 +23,13 @@ Click the link in the "SCloudStack Activate Account" email in the mailbox to com
 
 Log in to the SCloudStack cloud platform with a registered email and password, and this article uses [SCloudStack Online POC Environment] as an example.
 
- ![1](/assets/images/user-guide-2.png)
+ ![1](/assets/images/user-guide/user-guide-2.png)
 
 Cloud platform resources support metering and billing, and you need to contact the platform administrator to recharge the account before using it before you can create and use resources normally.
 
 After logging in successfully, the user is presented with the overview page of SCloudStack Cloud Platform, as shown in the following figure:
 
- ![1](/assets/images/user-guide-3.png)
+ ![1](/assets/images/user-guide/user-guide-3.png)
 
 The overview is the comprehensive statistical information and resources of the current login account, including login account information, account balance, free balance, alarm record information in the last 12 hours, resource utilization statistics and account quota usage information, etc., and can log out of the platform:
 - The login account information displays the account attributes and email address of the current login platform, and if you use a sub-account to log in to the platform, it is displayed as a sub-account and email address.
