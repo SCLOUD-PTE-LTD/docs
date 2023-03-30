@@ -81,5 +81,5 @@ When a tenant is assigned an external storage volume, the LUN device with permis
 
 Users only need to bind the LUN device directly to the virtual machine on the external storage device list, and a LUN storage volume can be used as a data disk of the virtual machine, only the storage volume device with the binding status of `unbound` state is supported, and the platform supports users to unbind the storage volume from the virtual machine at any time.
 
-## Un-tethering External Storage
+## Unbind External Storage
 The platform supports unbinding storage volumes that have been mounted to virtual machine LUNs and rebinding them to other virtual machines. Only storage volumes with a bound status of "Bound" are supported, and the unbinding operation does not affect the normal access of the system disk of the virtual machine or the data in the storage volume device.
