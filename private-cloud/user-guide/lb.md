@@ -189,3 +189,436 @@ If a Server Load Balancer instance is deleted, it must be directly destroyed, an
 You can manually renew the load balancer operation, which applies only to the resource itself, and does not renew the resources associated with the resource, such as the public IP resources bound to the load balancer. After the additional associated resources expire, they are automatically unbound from Server Load Balancer, and to ensure normal service usage, you must renew the relevant resources in a timely manner.
 
 When Server Load Balancer is renewed, the renewal period will be charged according to the renewal period, which matches the billing method of the resource, and if the billing method of Server Load Balancer is [Hours], the renewal period can be selected from 1 to 24 hours. If the billing method of Server Load Balancer is Monthly, you can select the renewal period from 1 to 11 months. If the billing method of Server Load Balancer is Annual, the renewal period of Server Load Balancer is 1 to 5 years.
+
+## VServer Management
+VServer is a load-balanced listener, which mainly carries Layer 4 and Layer 7 listeners of the load-balanced service network, and requests through the IP address of the Server Load Balancer can only access the protocol and port being listened to, and distribute the request traffic to the backend service nodes according to the forwarding policy defined by the scheduling algorithm.
+Users can add, modify, delete, and view listeners, and manage VServer's backend service nodes and Layer 7 content forwarding rules. For each VServer listener, users can configure the listening protocol, port, load balancing algorithm, session persistence, and health check, and if the protocol is HTTP or HTTPS, Layer 7 content forwarding or SSL certificate can be configured and managed. A Server Load Balancer supports multiple VServer listeners, each of which corresponds to an application load balancing service.
+### Adding VServer
+Adding VServer refers to adding a listener to a load balancer to listen on the IP address of the load balancer, so that users can access the service load through the IP address of the load balancer. ENABLE USERS TO CREATE LISTENERS IN TCP, UDP, HTTP, AND HTTPS PROTOCOLS ACCORDING TO APPLICATION REQUIREMENTS, SUCH AS ADDING AN HTTP:80 VServer listener to a load balancer to provide highly available web services based on load balancing.
+- TCP listener: TCP protocol-based listener, that is, only listen on TCP port, suitable for reliability and high data accuracy requirements, such as file transfer FTP, sending or receiving mail SMTP & POP3, remote login 22/3389, etc.
+- UDP listeners: UDP protocol-based listeners that focus on real-time and relatively little reliability, such as DNS applications.
+- HTTP listener: A listener based on HTTP protocol and content forwarding policy, suitable for web services and application services.
+- HTTPS listener: A listener based on HTTPS and certificate encryption, which is suitable for application services that encrypt transmission.
+
+#### Adding TCP listeners
+This topic uses the TCP:23 (Telnet) service as an example to create a TCP:23 (Telnet) service. You can go to the VServer listener creation wizard page in the left navigation pane of VServer on the VServer details page, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-76.png)
+
+Configure the VServer listener according to the wizard page, including protocol, port, load balancing algorithm, connection idle timeout, and health check:
+Listening protocol: The network protocol of the Server Load Balancer service, which supports TCP, UDP, HTTP, HTTPS, and TCP is selected in this example.
+
+- Port: The application port used to receive requests when the Server Load Balancer service provides external or inbound services, the port range is 1~65535, this example uses port 23 to provide highly available Telnet services.<br/>
+Ports `323, 9102, 9103, 9104, 9105, 60909, 60910`, etc. are occupied and cannot be used under any protocol.
+- Load balancing algorithm: The scheduling calculation strategy of load balancing to distribute requests to backend RealServer supports three algorithms: weighted round robin, minimum number of connections, and source address.
+- Connection idle timeout: The connection idle timeout limit from the client to the load balancer ranges from 1~86400 seconds. The default value is 60 seconds, that is, within 60 seconds, the client has no access request to the load balancer, and the platform automatically disconnects the connection.
+- Health check: Performs robustness checks on backend service nodes based on rules to automatically detect and isolate backend service nodes that are unavailable. - - The TCP protocol only supports port checking, that is, detecting the availability of services through IP:port.
+
+During the creation process, the resource status of VServer is "Creating", and when the status is updated to "Running", the creation is successful, and users can view the added TCP listeners through the VServer list and details, and view the health status of all service nodes under VServer.
+
+#### Adding UDP listeners
+This topic uses the UDP:53 (DNS) service to create a UDP:53 (DNS) service as an example. You can go to the VServer listener creation wizard page in the left navigation pane of VServer on the VServer details page, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-77.png)
+
+Configure the VServer listener according to the wizard page, including protocol, port, load balancing algorithm, session persistence, and health checks:
+Listening Protocol: The network protocol of the Server Load Balancer service, which supports TCP, UDP, HTTP, HTTPS, and UDP is selected in this example.
+- Port: The port range is 1~65535, and port 53 is used to provide highly available DNS services.<br/>
+Ports 323, 9102, 9103, 9104, 9105, 60909, 60910, etc. are occupied and cannot be used under any protocol.
+- Load balancing algorithm: The scheduling calculation strategy of load balancing to distribute requests to backend RealServer supports three algorithms: weighted round robin and source address.
+- Session persistence: For the UDP protocol, session persistence is guaranteed based on the IP address, and access requests from the same IP address are forwarded to the same back-end virtual machine for processing, and the session persistence feature of the UDP protocol can be turned on or off.
+- Health check: Performs robustness checks on backend service nodes based on rules to automatically detect and isolate backend service nodes that are unavailable. The UDP protocol only supports port checking, that is, detecting the availability of services through the IP:port method.
+
+During the creation process, the resource status of VServer is "Creating", and when the status is updated to "Running", the creation is successful, and users can view the added UDP listeners through the VServer list and details, and view the health status of all service nodes under VServer.
+
+#### Adding HTTP listeners
+In this example, you create an HTTP:80 (WEB) service as an example to create an HTTP:80 (WEB) service for a Server Load Balancer instance. You can go to the VServer listener creation wizard page in the left navigation pane of VServer on the VServer details page, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-78.png)
+
+Configure the VServer listener according to the wizard page, including protocol, port, load balancing algorithm, session persistence, connection idle timeout, and health check:
+
+- Listening Protocol: The network protocol of the Server Load Balancer service, which supports TCP, UDP, HTTP, HTTPS, and HTTP is selected in this example.
+- Port: The application port used to receive requests when the Server Load Balancer service provides external or inbound services, the port range is 1~65535, this example uses port 80 to provide highly available web services based on the HTTP protocol.<br/>
+Ports 323, 9102, 9103, 9104, 9105, 60909, 60910, etc. are occupied and cannot be used under any protocol.
+- Load balancing algorithm: A scheduling calculation strategy for load balancing to distribute requests to backend Realservers, which supports three algorithms: weighted round robin, minimum number of connections, and based on source address.
+- Session persistence: For HTTP and HTTPS protocols, it provides cookie insertion for session persistence, and supports automatic generation of KEYS and custom KEYS. Select Auto generate KEY to automatically generate a key for implantation, and enter the KEY value (only numbers, letters, and _ characters) when selecting a custom key.
+- Connection idle timeout: The connection idle timeout limit from the client to the load balancer ranges from 1~86400 seconds. The default value is 60 seconds, that is, within 60 seconds, the client has no access request to the load balancer, and the platform automatically disconnects the connection.
+- Health check: Performs robustness checks on backend service nodes based on rules to automatically detect and isolate backend service nodes that are unavailable. There are two ways of HTTP protocol inspection and HTTP inspection, in which HTTP inspection supports health checks and filters healthy nodes by URL path and the domain name carried in the request HOST header.
+  - HTTP health check path: default is `/` , you can enter a path in Linux format, only use letters, numbers, and `-/.%?#&` these characters, must start with `/`, such as `/data`;
+  - HTTP Health Domain Name: The domain name in the HOST field of the verification request during checking, you can enter the standard domain name to verify the domain name carried in the host field of the request.
+
+Domain name role in HTTP health check: Some application servers verify the host field in the request, that is, the host field must exist in the request header. If a domain name is configured in the health check, Server Load Balancer configures the domain name in the host field and carries the domain name to check the backend service node during the health check. If the application server needs to verify the host field of the request, you need to configure the relevant domain name to ensure that the health check works normally.
+
+During the creation process, the resource status of VServer is "Creating", and when the status is updated to "Running", it means that the creation is successful, and users can view the added HTTP listeners through the VServer list and details, and view the health status of all service nodes under VServer.
+
+#### Adding HTTPS listeners
+This topic creates an `HTTP:443` (WEB) service based on SSL certificate encryption to create a listener based on the HTTP protocol and provides a Server Load Balancer service based on the HTTPS protocol. You can go to the VServer listener creation wizard page in the left navigation pane of VServer on the VServer details page, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-79.png)
+
+Configure the VServer listener according to the wizard pages, including protocol, port, SSL resolution mode, server certificate, client certificate, load balancing algorithm, session persistence, connection idle timeout, and health check:
+
+- Listening protocol: The network protocol of the Server Load Balancer service, which supports TCP, UDP, HTTP, HTTPS, and HTTPS is selected in this example.
+- Port: The port range is 1~65535, this example uses port 443 to provide high-security and high-availability web services based on the HTTPS protocol and encrypted authentication using SSL certificates.<br/>
+Ports 323, 9102, 9103, 9104, 9105, 60909, 60910, etc. are occupied and cannot be used under any protocol.
+- SSL parsing mode: The parsing mode of SSL certificate authentication of the HTTPS protocol supports one-way authentication and two-way authentication, usually selecting one-way authentication.
+  - One-way authentication: SSL certificate and authentication are provided by the website server to ensure the data security of the HTTPS website, and any user who visits the website can access the website at any time without having a CA certificate;
+  - Two-way authentication: Both the website server and the user need to provide SSL certificates, and only clients that provide CA certificates are allowed to access the website.
+- Server certificate: The user proves the identity of the server, and HTTPS checks whether the certificate sent by the server is signed by a center that he trusts.
+  - Deployed and configured on a Server Load Balancer to provide SSL server certificates and authentication for the websites of the Server Load Balancer backend service nodes.
+  - When you create a server certificate, you need to upload the server certificate to the platform in advance, and you can upload it by creating a new server certificate, see SSL certificate management for details.
+- Client certificate: The client CA public key certificate is used to verify the issuer of the client certificate, and the certificate provided by the client needs to be verified in HTTPS two-way authentication to successfully establish a connection.
+  - The website server verifies the signature of the client certificate with the CA certificate and rejects the connection if the verification does not pass;
+  - When you create a client certificate, you need to upload the client certificate to the platform in advance, and you can upload it by creating a new client certificate, see SSL certificate management.
+- Load balancing algorithm: A scheduling calculation strategy for load balancing to distribute requests to backend Realservers, which supports three algorithms: weighted round robin, minimum number of connections, and based on source address.
+- Session persistence: For HTTP and HTTPS protocols, it provides cookie insertion for session persistence, and supports automatic generation of KEYS and custom KEYS. Select Auto generate KEY to automatically generate a key for implantation, and enter the KEY value (only numbers, letters, and _ characters) when selecting a custom key.
+- Connection idle timeout: The connection idle timeout limit from the client to the load balancer ranges from 1~86400 seconds. The default value is 60 seconds, that is, within 60 seconds, the client has no access request to the load balancer, and the platform automatically disconnects the connection.
+- Health check: Performs robustness checks on backend service nodes based on rules to automatically detect and isolate backend service nodes that are unavailable. There are two ways of HTTP protocol inspection and HTTP inspection, in which HTTP inspection supports health checks and filters healthy nodes by URL path and the domain name carried in the request HOST header.
+  - HTTP health check path: default is / , you can enter a path in Linux format, only use letters, numbers, and -/.%?#& these characters, must start with /, such as /data;
+  - HTTP Health Domain Name: The domain name in the HOST field of the verification request during checking, you can enter the standard domain name to verify the domain name carried in the host field of the request.
+
+The resource status of VServer is "Creating" during the creation process, and when the status is updated to "Running", the creation is successful, and users can view the added HTTPS listeners through the VServer list and details, and view the health status of all service nodes under VServer.
+
+After the VServer listener is configured, you need to add a service VM to the listener's service node before it can provide services normally. Listeners of HTTP and HTTPS protocols can configure content forwarding rules according to requirements, and accurately distribute requests according to the domain name and URL of the request.
+
+### Viewing VServer
+You can enter the VServer resource console through the Server Load Balancer details page to view the VServer list information and the health status of the service nodes that already exist in the current Server Load Balancer instance, and switch VServer to view the basic information and monitoring information of VServer in the overview on the right, and switch to the Service Node and Content Forwarding tab to manage service nodes and content forwarding rules.
+#### VServer list
+On the VServer list page, you can view the list of VServer resources already owned by the current Server Load Balancer instance, including the protocol port and status, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-80.png)
+
+- Protocol port: VServer listener protocol and port, which is the entry basis for load balancing to process requests;
+- Status: The service status of the VServer listener, including green, yellow, and red;
+  - Green: The health status of all service nodes added in VServer is healthy;
+  - Yellow: Some service section exceptions added in VServer;
+  - Red: The health status of all service nodes added in VServer is abnormal, which means that VServer has stopped working; If no service nodes are added, the default status of VServer is All Exceptions.
+
+On the list page, you can add, modify and delete VServer, click VServer to view the details of the current VServer on the right, and click the status button to display the status description.
+
+#### VServer details
+Through the "Protocol Port" of the VServer resource list, you can view the VServer details page on the right side, and you can view the details of the current VServer resource, as shown in the following figure, the details page is divided into basic information, VServer monitoring information, service node management, and content forwarding information:
+
+![1](/assets/images/user-guide/user-guide-81.png)
+
+(1) Basic information
+
+The basic information of VServer, including ID, protocol port, load balancing algorithm, session persistence, session persistence key, connection idle timeout, health check mode, running status, VS status, alarm template, and creation time. If the VServer listener protocol is HTTP/HTTPS, you can view information such as the HTTP health check path, HTTP check domain name, SSL resolution mode, server certificate, and client certificate.
+
+- Session persistence: The switch and type of session persistence. The UDP protocol value is On or Off, and the HTTP/HTTPS protocol value is Off, Automatically generated KEY, or Custom KEY.
+- Running Status: The service status of the VServer listener, including all exceptions, partial exceptions, and all normal.
+- VS Status: The status of the VServer listener resource, including Available, Updating, Deleted.
+- Alarm template: A monitoring alarm template bound to VServer, or displayed as None if not bound.
+- Server Certificate/Client Certificate: The name of the HTTPS listener SSL certificate, which can be queried by viewing the contents of the certificate.
+(2) Monitoring information
+
+VServer instance monitoring charts and information, including the number of new connections, HTTP 2XX, HTTP 3XX, HTTP 4XX, HTTP 5XX, and can view monitoring data for 1 hour, 6 hours, 12 hours, 1 day, and custom times.
+
+(3) Service nodes and content forwarding
+
+- Service nodes: VServer's service node lifecycle management, including adding, viewing, modifying, enabling, disabling, and deleting service nodes, see Service node management.
+- Content forwarding rules: Manage the lifecycle of content forwarding rules configured by VServer, including adding, viewing, modifying, and deleting forwarding rules.
+
+### Modifying VServer
+You can modify the VServer listener configuration through the console, such as modifying the listener's load balancing algorithm, session persistence, connection idle timeout, and health check configuration information, and if the protocol is HTTPS, the SSL resolution mode and SSL certificate of the replaceable listener. Modifications can be made through the Modify button on the VServer list, as shown by the Modify Wizard:
+
+![1](/assets/images/user-guide/user-guide-82.png)
+
+Modifying the parameter settings of the configuration is the same as when creating VServer, and modifying the protocol and port of VServer is not supported. During the modification process, the VS status changes from "running" to "Update", and after the update is successful, the flow changes to "Running", which means that the update is successful, and you can view the newly modified configuration through the details page. After the modification is successful, the platform immediately re-checks the service node according to the new configuration, and distributes requests according to the newly modified scheduling algorithm.
+
+Modify VServer's scheduling algorithm, session persistence, and connection idle timeout, which take effect only for new connections and do not affect services that have already established connections.
+
+### Modify the alarm template
+Modify the alarm template to configure the VServer monitoring data to alarm, through the indicators and thresholds defined by the alarm template, you can trigger alarms when VServer-related indicators fail or exceed the indicator thresholds, notify relevant personnel to handle the fault, and ensure load balancing and service network communication.
+
+You can modify the alarm template through the action items on the VServer Details Overview page, and select a new alarm template on the Modify Wizard page to modify it. VServer and Load Balancer can share a single load balancing monitoring alarm template, that is, you can define the metric alarm policy of LB instances in the load balancing alarm template, and you can define VServer monitoring indicator alarms, and customize the rules of the alarm template according to your needs.
+
+### Removing VServer
+Users can delete VServer resources through the console or API, and the content forwarding rule policy created under VServer will be automatically cleared when deleted, and the associated SSL certificate will be automatically unbound, and the deletion operation can be performed only when there is no back-end RealServer resource in VServer.
+
+![1](/assets/images/user-guide/user-guide-83.png)
+
+VServer cannot be recovered after deletion, you need to check and confirm whether it is necessary to delete VServer resources when deleting, the VServer tab in the console can view the deletion process, and when the deleted VServer resources are emptied, the deletion is successful.
+
+## Service Node Management
+Service nodes refer to the back-end real servers in the load balancing architecture, that is, RealServer, which are used to provide real services and process service requests, which are generally composed of multiple virtual machine clusters.
+- Adding a service node requires that the VServer listener be created before it can be added.
+- After a service node is added, Server Load Balancer checks whether the service node is normal by health checking.
+- If the service node cannot handle the request sent by VServer normally, the platform prompts the service node that the status is invalid and needs to detect the service status deployed in the service node.
+- If the service node can process Check requests normally, that is, the status of the service node is valid, the load balancer can work normally.
+
+### Adding Service Nodes
+Before you add a service node, you must ensure that the services on the service node are running normally and can be accessed normally. You can enter the "Service Node" resource console through the VServer details page and click "Add Service Node" to add the backend RealServer. When you add a service node, you can select only virtual machines that are in the same data center and have the same VPC network as the load-balanced instance. As shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-84.png)
+
+- Virtual Machine: A virtual machine that needs to be added to the current VServer service node of Server Load Balancer, and you can specify the port and weight exposed by the service node.
+- Port: The service port exposed by the backend service node, such as VServer listening on port 80 and the service node listening on port 8080, enter 8080 at the port, and Server Load Balancer will distribute requests arriving at port 80 of VServer to port 8080 of the service node.
+- Weight: The weight of the backend service node, the range is 1~100. A higher number indicates a higher weight, and Server Load Balancer preferentially distributes requests to service nodes with higher weights, with a default value of 1.
+
+You can add multiple ports of the same virtual machine to VServer's service nodes, that is, requests from VServer listener ports are forwarded to multiple ports of the same service node to meet the load distribution requirements of different application scenarios.
+
+After you add a service node, you can view the process of adding a service node on the Service Node Resource List page, and if the status of the service node is Valid or Invalid, the service node is successfully added. If the status of the service node is invalid, you need to check the running status of the service in the service node, and the prerequisite for the service status is that the service can be accessed normally through the network address and health check of the virtual machine.
+
+If you add a virtual machine to a Server Load Balancer backend that provides the Internet, you can directly access the service node through the Internet without configuring the loopback service address on the backend service node.
+
+### Viewing Service Nodes
+On the VServer details page, you can view the list of service node resources added by the VServer listener backend, including service node ID, resource ID, private IP address, port, weight, node mode, node status, and operation items, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-85.png)
+
+- Service node: The global RS unique identifier of the current service node.
+- Resource ID: The name and ID of the virtual machine to which the current service node is bound.
+- IP/Port: The private IP address of the current service node and the configured service port.
+- Weight: The forwarding weight configured by the current service node.
+- Node Mode: The enabled and disabled mode of the current service node.
+- Status: The service load status of the current service node, including active and invalid.
+  - Valid: means that the business services in the current service node operate normally and can be accessed through the network, that is, the service node is healthy;
+  - Invalid: It means that the business services in the current service node are not running normally or cannot be accessed through the network, which means that the service node is not unhealthy.
+
+The operation items on the list refer to the operations on a single service node, including enable, disable, delete, and modify, and support batch enable, batch disable, and batch delete operations of service nodes.
+
+### Enable/Disable
+Users enable and disable service nodes added to VServer for load balancing, and support batch enablement and disablement.
+
+- Disable: Disable the service node, after which Server Load Balancer stops distributing requests to the service node and stops its health checks.
+- Enabled: Enable the service node, after which Server Load Balancer will check its health, and if the health check is passed, new requests will be distributed to the service node according to the scheduling algorithm.
+- Disable operations can only be performed when the node mode is enabled;
+- Enable operation is available only if the node mode is disabled.
+
+### Modifying Service Nodes
+You can modify the service port and weight of a VServer service node, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-86.png)
+
+Modifying the port and weight does not affect established business connections and takes effect only for new distribution requests for Server Load Balancer. After clicking OK, you will return to the service node list page, the node status will change from "valid" or "invalid" to "update", and after the modification is successful, it will be transferred back to "valid" or "invalid", which means that the health check is successful and the service node can provide services normally.
+
+### Deleting Service Nodes
+If you need to change the service of a service node or disconnect a service node from the backend of Server Load Balancer, you can delete the service node function to perform offline operations, which will not affect the operation and use of the virtual machine itself. You can delete a service node by deleting it from the service node list action item, and then add it back to the Server Load Balancer instance.
+
+![1](/assets/images/user-guide/user-guide-87.png)
+
+If the listening protocol of VServer is HTTP/HTTPS and content forwarding rules are configured, the content forwarding rules are automatically unbound when the service node is deleted.
+
+## SSL Certificate Management
+Server Load Balancer supports HTTPS load forwarding and SSL certificate loading to ensure that user services are protected by encryption and authenticated by authoritative authorities. For server certificates and client certificates of HTTPS protocol, the platform provides unified certificate management services, including certificate uploading, binding, and deletion.
+
+The certificate does not need to be uploaded to the service node, and the decryption process is performed on load balancing, which reduces the CPU overhead of the backend server, that is, the listener of the HTTPS protocol only implements HTTPS requests and SSL encryption and decryption from the client to the load balancer, and the load balancer to the backend service node still uses the HTTP protocol to forward requests.
+
+Before uploading and creating a certificate, you need to confirm the type of certificate to be uploaded, including server certificate and client certificate, and upload or enter the certificate content to the platform according to the certificate format requirements.
+
+- Server certificate: The user proves the identity of the server, and HTTPS checks whether the certificate sent by the server is signed by a center that he trusts. Deployed and configured on a Server Load Balancer to provide SSL server certificates and authentication for the websites of the Server Load Balancer backend service nodes. Both one-way authentication and two-way authentication require uploading the server certificate and private key content.
+- Client certificate: The client CA public key certificate is used to verify the issuer of the client certificate, and the certificate provided by the client needs to be verified in HTTPS two-way authentication to successfully establish a connection. The website server verifies the signature of the client certificate with the CA certificate and rejects the connection if it does not pass validation. You only need to upload a client certificate and bind to a VServer listener for mutual authentication.
+
+If a certificate needs to be used in multiple data centers at the same time, you need to create and upload certificates in multiple data centers at the same time.
+
+### Certificate Format Requirements
+When the SSL certificate is associated with a VServer listener, the platform will automatically read the certificate content in the file and load it into the VServer listener, so that the user's HTTPS application can be encrypted and decrypted through the SSL certificate.
+
+The certificate file format supports `PEM` or `CRT` in the Linux environment, and does not support certificates in other formats, so you need to convert the certificate format before uploading. You can also create a certificate by directly entering the certificate content, and before uploading the certificate or entering the certificate content, you need to ensure that the certificate, certificate chain, and private key content meet the format requirements of the certificate.
+
+#### Certificate issued by the root CA authority
+If the certificate is unique from the root CA authority, the configured site can be considered trusted by accessing devices such as browsers without additional certificates. The certificate content format requirements are as follows:
+- Begin with -----BEGIN CERTIFICATE----- and end with -----END CERTIFICATE-----.
+- Each line is 64 characters, and the last line can be less than 64 characters long.
+- The certificate content cannot contain spaces.
+
+The format specification of the certificate issued by the root CA authority is as follows, you can refer to the following text content and certificate examples:
+```
+-----BEGIN CERTIFICATE-----
+User certificate (BASE64 encoded)
+-----END CERTIFICATE-----
+-----BEGIN  CERTIFICATE-----
+MIIFnDCCBISgAwIBAgIQD1pxAmxfzY+R4k4Ua1cVWDANBgkqhkiG9w0BAQsFADBy
+MQswCQYDVQQGEwJDTjElMCMGA1UEChMcVHJ1c3RBc2lhIFRlY2hub2xvZ2llcywg
+SW5jLjEdMBsGA1UECxMURG9tYWluIFZhbGlkYXRlZCBTU0wxHTAbBgNVBAMTFFRy
+dXN0QXNpYSBUTFMgUlNBIENBMB4XDTE5MDQyMzAwMDAwMFoXDTIwMDQyMjEyMDAw
+MFowHDEaMBgGA1UEAwwRKi51Y2xvdWRzdGFjay5jb20wggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQC2SDT5pJEQhRhQQ98vzuAvK1zUFMD1p1E3YyJGDISY
+SINH38QTtVqWbZgmVkU6v2R1GrBz0iMfevO0/sjxefwHmiGYd1ytG9dm8D3fVZox
+piST9hoIyjOFRstBLGXuxWSa2LdjVSePaFfxaN3UZLYY6MIHkdqxVZLhM4ANSLNr
+PI6cRUZVBU29V3A2znkVEbx5dwKA3SGFVWfqjfzXqC+NTylLKb7H304BxspZlKDi
+n+/aV/vSovVM7zg57AOtxjkSNzBDjdz+Ud3wqaT1O4vEG4tqqAnsIyJeaMueFti0
+cjiMwLVsFsmV1eVSBiYWGO8U/YRFv+dNg4XG2MqYUFsRAgMBAAGjggKCMIICfjAf
+BgNVHSMEGDAWgBR/05nzoEcOMQBWViKOt8ye3coBijAdBgNVHQ4EFgQUJYEWLiyn
+YgqKaGaT8thKWAnuWfEwLQYDVR0RBCYwJIIRKi51Y2xvdWRzdGFjay5jb22CD3Vj
+bG91ZHN0YWNrLmNvbTAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwEGCCsGAQUFBwMCMEwGA1UdIARFMEMwNwYJYIZIAYb9bAECMCowKAYIKwYBBQUH
+AgEWHGh0dHBzOi8vd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwCAYGZ4EMAQIBMH0GCCsG
+AQUFBwEBBHEwbzAhBggrBgEFBQcwAYYVaHR0cDovL29jc3AuZGNvY3NwLmNuMEoG
+CCsGAQUFBzAChj5odHRwOi8vY2FjZXJ0cy5kaWdpdGFsY2VydHZhbGlkYXRpb24u
+Y29tL1RydXN0QXNpYVRMU1JTQUNBLmNydDAJBgNVHRMEAjAAMIIBBAYKKwYBBAHW
+eQIEAgSB9QSB8gDwAHYA7ku9t3XOYLrhQmkfq+GeZqMPfl+wctiDAMR7iXqo/csA
+AAFqSaRkyQAABAMARzBFAiEAuovTHM3SEWQRyktGXvtm1hLHd7gxhPNzdzrzkJFX
+rWMCIAPideB1BqUSUcpRME6NxIXJD7066ldWuSqgPkOiPtwLAHYAh3W/51l8+IxD
+mV+9827/Vo1HVjb/SrVgwbTq/16ggw8AAAFqSaRl4wAABAMARzBFAiBiIpO59m6U
+bmlmuQ8cL7WzoDkHiyE+UloEKZXiDpqCfQIhAPIKRdaJfh/5IZHFq31oJVd/TZ3g
+pTQ6RpHe0BseSSefMA0GCSqGSIb3DQEBCwUAA4IBAQARaNWOJbAI7Rv6QPChPeWL
+Mqryk+tOlterdxYZay6tr3Ea8VOqSS7YdVtvdkR1/k4k87H5AwCQT60/yu4N5J7M
+Vkzmqo3tVQTtzVFo0SavgARY12XuU0jhG3LGFI0a43CgfMYMcZ0DiylhYUM48GWz
+/axza5uangnIQxBwv+4KXGUfplJujv8WfBepeh+tqPgS8qCqn6e0+sdkUN7yHcA/
+O24DiQajtMXG5nR6qHdZhRLCFRXRghYdvVKrkOVFogYqwa4dViyuP/6EFDkuMwDs
+7XrxJIjL8qp9Lrw2sHN1F+USKhlPRaNBtWzDELf54zVgAIAeFUriqtER8ZWBWgp4
+-----END CERTIFICATE-----
+```
+
+#### Certificates issued by intermediate authorities
+If the certificate is issued by an intermediate CA authority, the certificate file obtained contains multiple certificates, and it is necessary to manually merge the server certificate and the intermediate certificate to fill in or upload it, commonly known as the certificate chain.
+
+The splicing rules of the certificate chain are: put the first copy of the user certificate, put the second copy of the intermediate certificate, and there should be no blank line in the middle; Each line is 64 characters and the certificate content cannot contain spaces, and the last line can be less than 64 characters long, the format specification and certificate example are as follows:
+
+```
+-----BEGIN CERTIFICATE-----
+User certificate (BASE64 encoded)
+-----END CERTIFICATE-----
+!!! There must be no empty rows in between!!!
+-----BEGIN CERTIFICATE-----
+User certificate (BASE64 encoded)
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIIFnDCCBISgAwIBAgIQD1pxAmxfzY+R4k4Ua1cVWDANBgkqhkiG9w0BAQsFADBy
+MQswCQYDVQQGEwJDTjElMCMGA1UEChMcVHJ1c3RBc2lhIFRlY2hub2xvZ2llcywg
+SW5jLjEdMBsGA1UECxMURG9tYWluIFZhbGlkYXRlZCBTU0wxHTAbBgNVBAMTFFRy
+dXN0QXNpYSBUTFMgUlNBIENBMB4XDTE5MDQyMzAwMDAwMFoXDTIwMDQyMjEyMDAw
+MFowHDEaMBgGA1UEAwwRKi51Y2xvdWRzdGFjay5jb20wggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQC2SDT5pJEQhRhQQ98vzuAvK1zUFMD1p1E3YyJGDISY
+SINH38QTtVqWbZgmVkU6v2R1GrBz0iMfevO0/sjxefwHmiGYd1ytG9dm8D3fVZox
+piST9hoIyjOFRstBLGXuxWSa2LdjVSePaFfxaN3UZLYY6MIHkdqxVZLhM4ANSLNr
+PI6cRUZVBU29V3A2znkVEbx5dwKA3SGFVWfqjfzXqC+NTylLKb7H304BxspZlKDi
+n+/aV/vSovVM7zg57AOtxjkSNzBDjdz+Ud3wqaT1O4vEG4tqqAnsIyJeaMueFti0
+cjiMwLVsFsmV1eVSBiYWGO8U/YRFv+dNg4XG2MqYUFsRAgMBAAGjggKCMIICfjAf
+BgNVHSMEGDAWgBR/05nzoEcOMQBWViKOt8ye3coBijAdBgNVHQ4EFgQUJYEWLiyn
+YgqKaGaT8thKWAnuWfEwLQYDVR0RBCYwJIIRKi51Y2xvdWRzdGFjay5jb22CD3Vj
+bG91ZHN0YWNrLmNvbTAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwEGCCsGAQUFBwMCMEwGA1UdIARFMEMwNwYJYIZIAYb9bAECMCowKAYIKwYBBQUH
+AgEWHGh0dHBzOi8vd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwCAYGZ4EMAQIBMH0GCCsG
+AQUFBwEBBHEwbzAhBggrBgEFBQcwAYYVaHR0cDovL29jc3AuZGNvY3NwLmNuMEoG
+CCsGAQUFBzAChj5odHRwOi8vY2FjZXJ0cy5kaWdpdGFsY2VydHZhbGlkYXRpb24u
+Y29tL1RydXN0QXNpYVRMU1JTQUNBLmNydDAJBgNVHRMEAjAAMIIBBAYKKwYBBAHW
+eQIEAgSB9QSB8gDwAHYA7ku9t3XOYLrhQmkfq+GeZqMPfl+wctiDAMR7iXqo/csA
+AAFqSaRkyQAABAMARzBFAiEAuovTHM3SEWQRyktGXvtm1hLHd7gxhPNzdzrzkJFX
+rWMCIAPideB1BqUSUcpRME6NxIXJD7066ldWuSqgPkOiPtwLAHYAh3W/51l8+IxD
+mV+9827/Vo1HVjb/SrVgwbTq/16ggw8AAAFqSaRl4wAABAMARzBFAiBiIpO59m6U
+bmlmuQ8cL7WzoDkHiyE+UloEKZXiDpqCfQIhAPIKRdaJfh/5IZHFq31oJVd/TZ3g
+pTQ6RpHe0BseSSefMA0GCSqGSIb3DQEBCwUAA4IBAQARaNWOJbAI7Rv6QPChPeWL
+Mqryk+tOlterdxYZay6tr3Ea8VOqSS7YdVtvdkR1/k4k87H5AwCQT60/yu4N5J7M
+Vkzmqo3tVQTtzVFo0SavgARY12XuU0jhG3LGFI0a43CgfMYMcZ0DiylhYUM48GWz
+/axza5uangnIQxBwv+4KXGUfplJujv8WfBepeh+tqPgS8qCqn6e0+sdkUN7yHcA/
+O24DiQajtMXG5nR6qHdZhRLCFRXRghYdvVKrkOVFogYqwa4dViyuP/6EFDkuMwDs
+7XrxJIjL8qp9Lrw2sHN1F+USKhlPRaNBtWzDELf54zVgAIAeFUriqtER8ZWBWgp4
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIIErjCCA5agAwIBAgIQBYAmfwbylVM0jhwYWl7uLjANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0xNzEyMDgxMjI4MjZaFw0yNzEyMDgxMjI4MjZaMHIxCzAJBgNVBAYTAkNO
+MSUwIwYDVQQKExxUcnVzdEFzaWEgVGVjaG5vbG9naWVzLCBJbmMuMR0wGwYDVQQL
+ExREb21haW4gVmFsaWRhdGVkIFNTTDEdMBsGA1UEAxMUVHJ1c3RBc2lhIFRMUyBS
+U0EgQ0EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCgWa9X+ph+wAm8
+Yh1Fk1MjKbQ5QwBOOKVaZR/OfCh+F6f93u7vZHGcUU/lvVGgUQnbzJhR1UV2epJa
+e+m7cxnXIKdD0/VS9btAgwJszGFvwoqXeaCqFoP71wPmXjjUwLT70+qvX4hdyYfO
+JcjeTz5QKtg8zQwxaK9x4JT9CoOmoVdVhEBAiD3DwR5fFgOHDwwGxdJWVBvktnoA
+zjdTLXDdbSVC5jZ0u8oq9BiTDv7jAlsB5F8aZgvSZDOQeFrwaOTbKWSEInEhnchK
+ZTD1dz6aBlk1xGEI5PZWAnVAba/ofH33ktymaTDsE6xRDnW97pDkimCRak6CEbfe
+3dXw6OV5AgMBAAGjggFPMIIBSzAdBgNVHQ4EFgQUf9OZ86BHDjEAVlYijrfMnt3K
+AYowHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUwDgYDVR0PAQH/BAQD
+AgGGMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjASBgNVHRMBAf8ECDAG
+AQH/AgEAMDQGCCsGAQUFBwEBBCgwJjAkBggrBgEFBQcwAYYYaHR0cDovL29jc3Au
+ZGlnaWNlcnQuY29tMEIGA1UdHwQ7MDkwN6A1oDOGMWh0dHA6Ly9jcmwzLmRpZ2lj
+ZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcmwwTAYDVR0gBEUwQzA3Bglg
+hkgBhv1sAQIwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29t
+L0NQUzAIBgZngQwBAgEwDQYJKoZIhvcNAQELBQADggEBAK3dVOj5dlv4MzK2i233
+lDYvyJ3slFY2X2HKTYGte8nbK6i5/fsDImMYihAkp6VaNY/en8WZ5qcrQPVLuJrJ
+DSXT04NnMeZOQDUoj/NHAmdfCBB/h1bZ5OGK6Sf1h5Yx/5wR4f3TUoPgGlnU7EuP
+ISLNdMRiDrXntcImDAiRvkh5GJuH4YCVE6XEntqaNIgGkRwxKSgnU3Id3iuFbW9F
+UQ9Qqtb1GX91AJ7i4153TikGgYCdwYkBURD8gSVe8OAco6IfZOYt/TEwii1Ivi1C
+qnuUlWpsF1LdQNIdfbW3TSe0BhQa7ifbVIfvPWHYOu3rkg1ZeMo6XRU9B4n5VyJY
+RmE=
+-----END CERTIFICATE-----
+```
+#### RSA Private Key
+When you upload a server certificate, you need to upload the private key content of the certificate at the same time.
+- Begin with -----BEGIN RSA PRIVATE KEY----- and end with -----END RSA PRIVATE KEY-----.
+- Each line is 64 characters, and the last line can be less than 64 characters long.
+- The certificate content cannot contain spaces.
+
+The format specification of the RSA private key content of the certificate is as follows, and you can refer to the following text content and certificate examples:
+```
+-----BEGIN RSA PRIVATE KEY-----
+User certificate (BASE64 encoded)
+-----END RSA PRIVATE KEY-----
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAtkg0+aSREIUYUEPfL87gLytc1BTA9adRN2MiRgyEmEiDR9/E
+E7Valm2YJlZFOr9kdRqwc9IjH3rztP7I8Xn8B5ohmHdcrRvXZvA931WaMaYkk/Ya
+CMozhUbLQSxl7sVkmti3Y1Unj2hX8Wjd1GS2GOjCB5HasVWS4TOADUizazyOnEVG
+VQVNvVdwNs55FRG8eXcCgN0hhVVn6o3816gvjU8pSym+x99OAcbKWZSg4p/v2lf7
+0qL1TO84OewDrcY5EjcwQ43c/lHd8Kmk9TuLxBuLaqgJ7CMiXmjLnhbYtHI4jMC1
+bBbJldXlUgYmFhjvFP2ERb/nTYOFxtjKmFBbEQIDAQABAoIBAAbLqdftu+/A+n9R
+jHJIlOCFThRlAq2V04gMVNSGNnJD78r/61wtvGcTxmKVgEa4qGraOB5VRPRxPcEv
+Z3fjK5Nv+lUoDAczHMRsa+4Vz6YOstnmSKGvwhxzn3O6T0GHz+Ca+DlGjS9CPVcV
+aQG4UHacxNEJ7byDO3LUW++C2JeEjg2LVLJt+jRwFIAwmk8XjM/jyOn5kCj2kvz6
+w/yHbmwAac2mfA42CQN78o1bvEHlHH1cVDRHZ482pNlfp8WBGgCFWHBGeMpLOq9R
+YXEt+SyJ84o80mTeR2DgswpW577uZLGfPyFUwKPc/XGZSzbfKX5L9ctGQrr4lsQ+
+F2stOk0CgYEA5JyQ5S7qPf8YcczQfXblVueslDL56Zt1/KUdUQ4L9i2as+5LkiN+
+7gVK8INhvYi8dRAqZxqXLqU5dXEWbkcnFbenjoQyPCfYI5lZE2+cZriLtO3I0YKP
+nc9NwSE+gRR9kXbgGSiANJmGC5TxOU99hR7Nx6wUMAflatCaSmP5RbUCgYEAzB67
+MOWzeVD8Eq/DhEE5N0o3hpyhiMy++A/LC8lAjFAi6ldc70zMYMUjfh+eTNK89Z6H
+1z3xBaQMMlHAy8pU5uI9LOgm/xWaPNZ034Xx4fWftBnEGFtBgLfbNphoUz3Df5vK
+XvXhjdKEkwevcLoZWHfNZIJnennlEV26Tk1DGW0CgYBYCKaPasqPRy2NnRZoSiG0
+npBJnXu5ZsE/ogGxFdyrVxJs2YXGZ97YH7ek+KLpzr7rwWbiv02ai8udmwfNPZ8i
+cM+YRPXnTlygEMxJfMBYmhZKfQrJCyLs3UiO55NfN5nHK2TOq1b7amdBDID71c17
+Nsp9apl3iYLh6CSSIv95xQKBgCHmKKhiPYA0VuizkADy5BGunbIZaSpS9pQz60C1
+16Z12Jaak7CaTIb1toNHtP6FMSSJg33Xp6OMLwpcUWyG2brOb+J5W6CZcdgQtbA5
+ioZASJmcfdidry81WY6jmQ/Z/hG/ScijhSYMhD/20sgh3/u1ScMbdRv+CnDr4/kF
+E9OxAoGBAK0mCJyyKNkWSdOg7fbBwYJKQ1BBZ6lh1gVpc7recSreNPRFWTd6l+cw
+eCxXqbSJJw4oYYF4IoBX1fCfFd82engRkwmkDykGMwpomnJoZqjFhmVtDb81xRQL
+pscHorV4flpOcSwg6b3jq0N6+PN85XI9XIFImXXHJqqKSFBBSPrf
+-----END RSA PRIVATE KEY-----
+```
+If the rsa private key content is encrypted, such as the private key starting with '-----BEGIN PRIVATE KEY----- or -----BEGIN ENCRYPTED PRIVATE KEY-----, and ending with -----END PRIVATE KEY----- or -----END ENCRYPTED PRIVATE KEY-----', the contents of the certificate private key need to be converted. On a Linux system, the operation is as follows:
+
+```
+openssl rsa -in old_server_key.pem -out new_server_key.pemCopyErrorSuccess
+```
+#### Client Certificates
+The client certificate format requirements are the same as those issued by the root CA authority, starting with -----BEGIN CERTIFICATE----- and ending with -----END CERTIFICATE-----, 64 characters per line, and the last line can be less than 64 characters. The following specifications are shown:
+```
+-----BEGIN CERTIFICATE-----
+Client CA certificate (BASE64 encoded)
+-----END CERTIFICATE-----
+```
+### Creating an SSL Certificate
+The SSL certificate uploaded by the user is used to deploy the load balancing service of the HTTPS protocol, and you can upload server certificates and client certificates. When uploading the certificate, you need to check the format and validity of the SSL certificate, and if the content of the SSL certificate does not meet the format specifications, the SSL certificate cannot be successfully generated.
+#### Creating a Server Certificate
+You can switch to the SSL Certificates tab through the Server Load Balancer console, enter the SSL Certificate Management console, create an SSL certificate to enter the Upload Certificate wizard page, and select a server certificate to create a server certificate.
+
+(1) The method of uploading the certificate file locally is created as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-88.png)
+
+When uploading locally, you need to upload the user certificate file and the certificate private key file, where the user certificate file only supports CRT and PEM format files, and the certificate private key only supports uploading files in .key format.
+- User certificate: The content of the user's authorization certificate, including information such as public key and signature, supports certificate chains, and is generally a file in .crt and .pem format.
+- Certificate private key: Encrypts the private key content of the certificate, typically a file in .key format.
+
+Click Upload Certificate to read the locally generated certificate file to the platform and confirm the certificate creation, during which the platform will detect the legitimacy of the certificate content.
+
+(2) Manually enter the certificate content to create the following figure:
+
+![1](/assets/images/user-guide/user-guide-89.png)
+
+Manual input of the certificate also needs to enter the text content of the user certificate and the certificate private key, you need to refer to the format specification in the text box to enter the certificate content and private key content, confirm the certificate creation, during the creation process, the platform will detect the legitimacy of the certificate content.
+#### Creating a Client Certificate
+You can switch to the SSL Certificates tab through the Server Load Balancer console, enter the SSL Certificate Management console, create an SSL certificate to enter the Upload Certificate Wizard page, and select a client certificate to create a client certificate.
+
+(1) The method of uploading the certificate file locally is created as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-90.png)
+
+When uploading locally, you need to upload the client CA public key certificate file, and only CRT and PEM format files are supported. Click Upload Certificate to read the locally generated certificate file to the platform and confirm the certificate creation, during which the platform will detect the legitimacy of the certificate content.
+
+(2) Manually enter the certificate content to create the following figure:
+
+![1](/assets/images/user-guide/user-guide-91.png)
+
+Manually entering the certificate also needs to enter the text content of the CA client certificate, you need to refer to the format specification in the text box to enter the certificate content and private key content, confirm the certificate creation, during the creation process, the platform will detect the legitimacy of the certificate content.
