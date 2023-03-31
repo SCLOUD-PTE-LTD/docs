@@ -100,13 +100,13 @@ The External IP List can view the list information of all EIP resources under th
 - Bandwidth: The upper limit of bandwidth egress specified when EIP resources are requested.
 - Bind resource: The resource name and resource ID bound by the EIP, and the resource type can be virtual machine, NAT gateway, load balancer, and VPN gateway.
 - Route Type: The route type defined by the CIDR block to which the EIP address belongs, including default route and non-default route (specified route or unspecified route).
-  - The default route is bound to the virtual resource, and the route with the destination address 0.0.0.0/0 is automatically delivered, which is the default route.
+  - The default route is bound to the virtual resource, and the route with the destination address `0.0.0.0/0` is automatically delivered, which is the default route.
   - Non-default routes are bound to virtual resources, and only routes with user-specified destination addresses are delivered.
 - Billing method: The billing method for EIP addresses, including hourly, annual, and monthly.
 - Created/Expired: The creation time and expense expiration time of the EIP resource.
 - Status: The status of the EIP resource, including requesting, unbound, bound, bound, unbound, modified bandwidth, and deleted.
 
-The operation items on the list refer to operations on a single public IP address, including binding, unbinding, modifying bandwidth, and deleting, and can be searched and filtered through the search box to support fuzzy search.
+The operation items on the list refer to operations on a single public IP address, including binding, unbinding, modifying bandwidth, and deleting, and can be searched and filtered through the search box to support approximate search .
 
 In order to facilitate the statistics and maintenance of resources by tenants, the platform supports downloading the list of all external IP resources owned by the current user as an Excel table. At the same time, you can unbind and delete External IP addresses in batches.
 
@@ -120,7 +120,7 @@ On the list of public IP resources, click the name or ID to view the details of 
   - You can click the button on the right side of the alarm template to modify the alarm template associated with the public IP address, and the default alarm template will be bound by default.
   - You can modify the alarm template only if the external IP address is bound to a virtual machine resource.
 - Monitoring Information: The monitoring information of the current public IP address, including the outbound bandwidth usage, ingress/outbound bandwidth, and outbound/inbound packet volume of the NIC.
-- Operation Log: The Operation Log page displays the operation log of the current External IP address. It can display logs at a custom time level, perform fuzzy search on logs, provide operation logs within two weeks by default, and view operation logs of different time periods by switching the date period.
+- Operation Log: The Operation Log page displays the operation log of the current External IP address. It can display logs at a custom time level, perform approximate search  on logs, provide operation logs within two weeks by default, and view operation logs of different time periods by switching the date period.
 
 ## Bind a public IP address
 Binding an external IP address refers to binding an EIP address to a virtual machine, NAT gateway, Server Load Balancer, and VPN gateway to provide Internet service capabilities for virtual resources.
@@ -168,7 +168,7 @@ You can use the Adjust Bandwidth item in the External IP resource list to enter 
 
 The EIP status in the modified bandwidth is converted to "Adjusting Bandwidth", and after success, it changes to the "Unbound" or "Bounded" state. In a private cloud environment, the external IP address can be simulated by the "private IP address", that is, the external IP block issued by the administrator to the cloud platform on the physical network is a NAT internal IP address block, and the real bandwidth of the external IP address is controlled at the physical network level.
 
-If the IP address block of the external IP address is used as a pure intranet communication with the IDC data center physical network, the bandwidth specification can be set to the maximum bandwidth of the internal network, such as 10000 Mbps.
+If the IP address block of the external IP address is used as a pure intranet communication with the IDC data center physical network, the bandwidth specification can be set to the maximum bandwidth of the internal network, such as `10000 Mbps`.
 
 ## Modify the alarm template
 Modify the alarm template to configure alarms on the monitoring data of the external IP address, and trigger alarms when the external IP-related indicators fail or exceed the indicator thresholds through the indicators and thresholds defined by the alarm template, notify relevant personnel to handle the fault, and ensure normal communication of the external IP network.

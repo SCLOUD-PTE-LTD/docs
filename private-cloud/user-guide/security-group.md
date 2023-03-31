@@ -93,7 +93,7 @@ On the Security Groups page, you can view the list of security group resources a
 Number of bound resources: The number of resources bound to the security group, expressed as a number, displayed as 0 when unbound;
 Creation time: The creation time of the security group;
 Status: The running status of the security group, including active, creating, and deleting.
-The operation items on the list can delete a single security group, support batch deletion of security groups, and search and filter the list of security groups through the search box, supporting fuzzy search.
+The operation items on the list can delete a single security group, support batch deletion of security groups, and search and filter the list of security groups through the search box, supporting approximate search .
 
 #### Security Group Details
 On the security group resource list, click the name of the security group to view the details of the current security group and the security group rule information, and switch to the Resources page to view the resource information bound to the current security group, as shown on the overview page of the following figure:

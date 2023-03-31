@@ -157,7 +157,7 @@ The VPN gateway list can view the resource information of all VPN gateways under
 - Number of tunnels: The number of tunnels that have been created on the current VPN gateway.
 - Status: The running status of the VPN gateway, including creating, running, and deleting.
 
-The action items on the list refer to the deletion operations of a single VPN gateway instance, and you can search and filter the list of Server Load Balancer resources through the search box, supporting fuzzy search.
+The action items on the list refer to the deletion operations of a single VPN gateway instance, and you can search and filter the list of Server Load Balancer resources through the search box, supporting approximate search .
 
 In order to facilitate the statistics and maintenance of resources by tenants, the platform supports downloading the list of all VPN gateway resources owned by the current user as an Excel table. You can also delete VPN gateways in bulk.
 
@@ -210,7 +210,7 @@ In the VPN Gateway resource console, you can switch to the peer gateway to view 
 - Public IP address: refers to the public IP address of the peer gateway, specify that the tunnel created by the peer gateway will initiate VPN connection requests with this IP address as the peer IP address, and ensure that the IP address is the IP address of the remote VPN gateway.
 - Number of tunnels: The number of tunnels that have been created on the current peer gateway.
 
-The operation items on the list refer to the deletion operations of a single peer gateway instance, and you can search and filter the peer gateway resource list through the search box, supporting fuzzy search.
+The operation items on the list refer to the deletion operations of a single peer gateway instance, and you can search and filter the peer gateway resource list through the search box, supporting approximate search .
 
 In order to facilitate the statistics and maintenance of resources by tenants, the platform supports downloading the list of all peer gateway resources owned by the current user as an Excel table. You can also delete the peer gateway in batches.
 
@@ -312,7 +312,7 @@ Connection Status: The connection status of the VPN tunnel, including Connected,
   - Phase 1 failure means that the VPN tunnel fails to negotiate the first IKE SA, and you need to check whether the VPN gateway IP, peer gateway IP, peer CIDR block, local CIDR block, pre-shared key, and IKE configuration parameters of the two end tunnels are consistent.
   - Phase 2 failure usually means that the IKE SA negotiation of Phase 1 has been successful, but the IPSec SA negotiation of Phase 1 fails, and you need to check whether the IPSec configuration parameters of the second stage of the tunnel at both ends are consistent.
 
-The operation items on the list refer to operations on a single tunnel, including downloading tunnel configurations and deleting tunnel configurations, and you can search and filter the tunnel resource list through the search box, supporting fuzzy search.
+The operation items on the list refer to operations on a single tunnel, including downloading tunnel configurations and deleting tunnel configurations, and you can search and filter the tunnel resource list through the search box, supporting approximate search .
 
 In order to facilitate the statistics and maintenance of resources by tenants, the platform supports downloading the list of all tunnel resources owned by the current user as an Excel table. You can also delete tunnels in batches.
 

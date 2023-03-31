@@ -6,7 +6,7 @@ grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/eni/
 nav_order: 4
 ---
-# ENIs
+# Elastic Network Interface (ENI)
 Elastic Network Interface (ENI) is an elastic network interface that can be attached to virtual machines at any time, supports binding and unbinding, can be flexibly migrated between multiple virtual machines, provides high-availability cluster construction capabilities for virtual machines, and can achieve refined network management and cheap failover solutions.
 
 ENIs and the default NICs (one internal NIC and one external NIC) that come with a virtual machine are virtual network devices that provide network transmission for virtual machines, which are divided into two types: internal NICs and external NICs, and assign IP addresses, gateways, subnet masks, and routing-related network information from the network to which they belong.
@@ -57,7 +57,7 @@ Go to the VM console in the navigation pane and switch to the NIC Management pag
 
 ![1](/assets/images/product-functional-architecture-5.jpg)
 
-The operation items on the list refer to operations on a single ENI, including binding, unbinding, modifying security groups, adjusting bandwidth, and deleting, and you can search and filter the ENI list through the search box, supporting fuzzy search.
+The operation items on the list refer to operations on a single ENI, including binding, unbinding, modifying security groups, adjusting bandwidth, and deleting, and you can search and filter the ENI list through the search box, supporting approximate search .
 
 To facilitate tenants' statistics and maintenance of ENI resources, the platform supports downloading the list of all ENI resources owned by the current user as an Excel table. You can also unbind and delete ENIs in batches.
 

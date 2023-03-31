@@ -140,7 +140,7 @@ The Server Load Balancer list can view the information of all Server Load Balanc
 - Billing method: The billing method specified when the load balancer is created.
 - Status: The running status of the load balancer, including Creating, Active, and Deleted.
 
-The operation items on the list refer to operations on a single Server Load Balancer instance, including deleting or modifying alarm templates, modifying security groups, etc., and you can search and filter the list of Server Load Balancer resources through the search box, supporting fuzzy search.
+The operation items on the list refer to operations on a single Server Load Balancer instance, including deleting or modifying alarm templates, modifying security groups, etc., and you can search and filter the list of Server Load Balancer resources through the search box, supporting approximate search .
 
 In order to facilitate the statistics and maintenance of resources by tenants, the platform supports downloading the list of all load balancing resources owned by the current user as an Excel table. You can also delete load balancers in batches.
 

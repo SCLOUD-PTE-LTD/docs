@@ -167,7 +167,7 @@ The NAT gateway list can view the resource information of all NAT gateways under
 - Creation time/expiration time: refers to the creation time and fee expiration time of the current NAT gateway.
 - Billing method: refers to the billing method specified when the current NAT gateway is created.
 
-The operations on the list refer to operations on a single NAT gateway instance, including deleting and modifying security groups, and you can search and filter the NAT gateway resource list through the search box, supporting fuzzy search.
+The operations on the list refer to operations on a single NAT gateway instance, including deleting and modifying security groups, and you can search and filter the NAT gateway resource list through the search box, supporting approximate search .
 
 To facilitate tenants' resource statistics and maintenance, the platform supports downloading the list of all NAT gateway resources owned by the current user as an Excel table. You can also delete NAT gateways in batches.
 
@@ -261,7 +261,7 @@ You can use SNAT Rules on the NAT gateway details page to view the list and info
 - Status: refers to the status of the current SNAT rule, including Creating, Active, and Deleted.
 - Creation Time: refers to the creation time of the current SNAT rule.
 
-The action items on the list refer to the operations on a single SNAT rule, including modification and deletion, and the SNAT rule can be searched and filtered through the search box, supporting fuzzy search. At the same time, to facilitate the maintenance of resources by tenants, SNAT rules can be deleted in batches.
+The action items on the list refer to the operations on a single SNAT rule, including modification and deletion, and the SNAT rule can be searched and filtered through the search box, supporting approximate search . At the same time, to facilitate the maintenance of resources by tenants, SNAT rules can be deleted in batches.
 
 ### Modifying SNAT Rules
 If a user modifies the public IP address of an SNAT rule, the rule takes effect immediately after the rule is modified, and the source address of the current rule uses the new public IP address as an egress to access the Internet. As shown in the following figure:

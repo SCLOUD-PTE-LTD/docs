@@ -63,7 +63,7 @@ Transaction management is the details of income and expenditure related to the a
   - Recharge refers to the recharge operation performed by the platform administrator for tenants through the background;
   - Deduction refers to the system’s billing method for each resource, which is automatically deducted from the account balance in each billing cycle. For example, for a virtual machine billed by the hour, the bill is deducted once per hour according to the unit price;
 - Expenditure: the amount deducted from the current transaction record, it is only valid when the transaction type is deduction, and the recharge type is displayed as 0.00;
-- Income: The finance that the current transaction record is credited to, it is only valid when the transaction type is recharge, and the deduction type is displayed as 0.00;
+- Income: The finance that the current transaction record is credited to, it is only valid when the transaction type is recharge, and the deduction type is displayed as `0.00`;
 - Free balance: the current balance of the current account after the current transaction record occurs;
 - Transaction time: the time when the current transaction record occurs.
 

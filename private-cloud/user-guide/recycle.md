@@ -28,7 +28,7 @@ Through the resource list of the recycle bin, you can view the information of re
   - If the cloud platform is configured globally so that the recycle bin resources are not automatically destroyed, the resources will remain in the recycle bin permanently, and the resources can be restored or destroyed manually;
 - Destruction time: refers to the time when the current reserved resources will be automatically destroyed, and it is only valid when the cloud platform is configured globally to automatically destroy resources in the recycle bin.
 
-The operation item on the list refers to the operation on a single resource, including recovery, renewal, and immediate renewal. The renewal operation is only valid when the resource type is a resource that needs to be billed. You can search and filter the resource list through the search box. Support fuzzy search.
+The operation item on the list refers to the operation on a single resource, including recovery, renewal, and immediate renewal. The renewal operation is only valid when the resource type is a resource that needs to be billed. You can search and filter the resource list through the search box. Support approximate search .
 
 To facilitate tenants' maintenance of recycle bin resources, batch operations on resources entering the recycle bin are supported, including batch restoration of resources, batch destruction of resources, and batch renewal of resources. Among them, batch renewal resources will be automatically renewed for one cycle according to the billing method of Zihu. For example, resources billed by the hour will be automatically renewed for one hour; resources purchased on a monthly basis will be automatically renewed for one month.
 

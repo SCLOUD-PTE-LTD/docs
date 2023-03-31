@@ -65,7 +65,7 @@ You can log in to the console, enter the External Storage resource console throu
 - LUNID: The LUNID of the current storage volume on commercial storage.
 - Mount resource: The name and ID of the virtual machine that is mounted to the current storage volume.
 
-The operation items on the list refer to the binding and unbinding operations of storage volumes, which support batch unbinding operations, and support searching storage volume devices and fuzzy search on the list.
+The operation items on the list refer to the binding and unbinding operations of storage volumes, which support batch unbinding operations, and support searching storage volume devices and approximate search  on the list.
 
 ## External storage as a system disk
 When an external storage volume is allocated to a tenant, the LUN device with permission is automatically obtained in the external storage volume list, and the system disk type can be selected as a storage pool cluster with a qualified storage volume when creating a virtual machine.

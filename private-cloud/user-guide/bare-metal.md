@@ -19,7 +19,7 @@ The platform provides PXE remote self-service installation service through the d
 
 By applying for the bare metal physical machine of the platform, tenants can apply it to application scenarios such as core databases, big data services, and key applications. For example, database cluster OracleRAC can be deployed on bare metal services, and business applications can be deployed on platform virtual machines. The external network IP of the machine and the physical machine are directly interconnected through the physical device, which not only improves business performance and stability, but also improves the convenience of resource management.
 
-### Use process
+### Usage process
 Before using the bare metal service, the bare metal equipment must be prepared in advance, and the IPMI network and business network of the bare metal server should be connected with the platform network according to the requirements. After entering the equipment information through the platform, the equipment will be allocated to the tenants, and the tenants will help themselves After application, the operating system is automatically installed and the server network is configured. The use process of the bare metal service is divided into two parts: [platform administrator process] and [tenant process], and the first 6 steps are operated by the platform administrator, as follows:
 
 (1) Hardware environment equipment

@@ -789,7 +789,7 @@ Choose Move the latest healthy VM instance out of the scaling group and perform 
 - The healthy instance is less than expected <br/>
 The scaling group automatically initiates the creation of instances using the VM template, maintains the expected number of instances, and removes unhealthy instances from the scaling group and deletes them.
 
-### Telescopic Workflow
+### Scaler Workflow
 Based on the minimum and maximum instance values set in the scaling policy, the scaler collects CPU monitoring data of healthy instances in a scaling group every 15 seconds to determine whether you need to scale up or scale out instances in the scaling group.
 - Expansion <br/>
 If the average CPU usage of healthy instances in a scaling group is greater than the threshold defined by the scaling policy, the scaling group is triggered to scale out instances.

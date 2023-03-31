@@ -63,7 +63,7 @@ On the alarm template list page, you can view the list of templates owned by the
 - Resource type: the resource type specified when the current alarm template is created;
 - Number of bound resources: the number of resources associated with the current alarm template;
 - Operation: operation items for a single alarm template, including details, viewing resources and deleting;
-- The resource list can be searched and filtered through the search box, and fuzzy search is supported.
+- The resource list can be searched and filtered through the search box, and approximate search  is supported.
 
 #### Alarm Template Details
 Enter the template details page through the "name" of the alarm template list, and you can view the details of the current alarm template, as shown in the figure below, the details page is divided into basic information, alarm rule management and resource binding management:

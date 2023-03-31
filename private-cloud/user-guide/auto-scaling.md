@@ -36,7 +36,7 @@ Choose Move the latest healthy VM instance out of the scaling group and perform 
 - The healthy instance is less than expected <br/>
 The scaling group automatically initiates the creation of instances using the VM template, maintains the expected number of instances, and removes unhealthy instances from the scaling group and deletes them.
 
-### Telescopic Workflow
+### Scaler Workflow
 Based on the minimum and maximum instance values set in the scaling policy, the scaler collects CPU monitoring data of healthy instances in a scaling group every 15 seconds to determine whether you need to scale up or scale out instances in the scaling group.
 - Expansion <br/>
 If the average CPU usage of healthy instances in a scaling group is greater than the threshold defined by the scaling policy, the scaling group is triggered to scale out instances.
@@ -97,38 +97,6 @@ When creating a virtual machine from a template, you need to specify the name of
 
 ### Modify name and remarks
 Modify the name and notes of the virtual machine template, which can be operated in any state. It can be modified by clicking the "Edit" button to the right of each image name on the virtual machine template list page.
-
-## Scaling policy management
-The scaling policy is used to define the scaling rules of the virtual machines in the scaling group. The scaling action can be triggered according to the threshold of the CPU usage for the scaling group. It supports defining the minimum and maximum number of instances in the scaling group, and can configure whether scaling is allowed. Support scaling policies Life cycle management such as creation, viewing, modification and deletion of data.
-
-### Create scaling policy
-The prerequisite for users to use auto scaling groups is that there must be virtual machine templates and scaling policies in the account. Users can create scaling policies suitable for the business through the auto scaling console - scaling policy resource list according to business needs, and define the scaling policies in the scaling group. Instance scaling rules, such as scaling detection indicators, indicator thresholds, minimum instances and maximum instances, etc., as shown in the following figure:
-
-- Policy name/comment: the name and comment of the current scaling policy.
-- Scaling indicators: The scaling group detects the monitoring indicators of all instances in the group. Currently, only CPU usage is supported, that is, the scaler automatically detects the CPU usage of all instances in the group.
-- Indicator threshold: The monitoring threshold of the scaling indicator, that is, when the threshold is exceeded, the instances in the scaling group will be automatically scaled, and controlled at the minimum instance and maximum instance.
-- Minimum number of instances: The minimum number of instances of the scaling policy must be specified when creating the scaling policy, so as to avoid the number of instances in the scaling group being 0 due to low CPU usage, resulting in business interruption or service stop.
-- Maximum number of instances: The maximum number of instances of the scaling policy, which must be specified when creating the scaling policy, to avoid unlimited expansion of the number of instances in the scaling group due to high CPU usage, such as cluster virtual machines being attacked.
-- Allow shrinkage: Whether the scaling policy allows shrinkage, supports allowed and disallowed. If it is set to disallow, the instances in a scaling group are only allowed to scale up, but not scaled down.
-
-After clicking Confirm, the platform will automatically generate a scaling policy for the user, which can be viewed through the scaling policy list and used to create scaling groups.
-
-### View scaling policy
-Users can view the list of existing scaling policies and related information through the scaling policy list, including name, ID, scaling rules, minimum instance, maximum instance, allowed scaling, associated resources, and operating system, as shown in the following figure:
- 
-- Scaling rules: scaling rules of the current scaling policy, including scaling indicators and scaling thresholds, such as CPU usage: 80%.
-- Minimum/Maximum Number of Instances: The minimum and maximum number of instances specified when creating a scaling policy.
-- Associated resources: Refers to the auto scaling group associated with the scaling policy, that is, the auto scaling group maintains the virtual machine instances in the group according to the expected value of the scaling policy.
-
-The list operation item supports the modification and deletion of a single scaling policy. At the same time, for the convenience of tenants to manage scaling policies, it supports batch deletion of scaling policies.
-
-### Modify scaling policy
-The platform supports users to instantly update the scaling index, index threshold, minimum number of instances, maximum number of instances, and scaling policy of the scaling policy. Users can enter the modification wizard page by updating the operation item on the scaling policy list, as shown in the following figure:
- 
-After the scaling policy is modified, it will take effect immediately. If the scaling policy is associated with the scaling group, the platform will maintain the virtual machine instances in the scaling group according to the expected value of the new scaling policy to ensure the validity of the services in the scaling policy.
-
-### Delete scaling policy
-Supports platform tenants and sub-accounts to delete authorized scaling policies, and supports batch deletion. Only scaling policies that are not associated with scaling groups can be deleted, and the deleted scaling policies will be destroyed directly. It can be operated by "Delete" in the operation item of the universal scaling policy list, as shown in the following figure:
 
 ## Scaling group management
 The scaling group is responsible for maintaining the number of instances in the group at the "desired" water level. The actions of adding/shrinking virtual machines are all operated by the scaling group, which supports "automatic scaling" and "fixed number" to maintain instances in the scaling group. Quantity, suitable for various automatic scaling scenarios. The scaling group maintains the expected level of instances in the group through the scaling rules and the number of scaling instances in the scaling policy, and creates new instances through virtual machine templates.

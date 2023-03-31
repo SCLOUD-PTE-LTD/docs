@@ -110,7 +110,7 @@ On the VPC Network List page, you can view the list and related information of V
 - Status: The status of the current VPC network, which is generally active;
 - Creation time: The creation time of the current VPC network resource;
 
-The action items on the list can delete a single VPC network, and you can search and filter the VPC list through the search box, supporting fuzzy search.
+The action items on the list can delete a single VPC network, and you can search and filter the VPC list through the search box, supporting approximate search .
 
 In order to facilitate tenants' resource statistics and maintenance, the platform supports downloading the list of all VPC network resources owned by the current user as an Excel table. You can also delete VPC networks in bulk.
 
