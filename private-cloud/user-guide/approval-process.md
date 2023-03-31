@@ -78,4 +78,5 @@ The user can enter the overview page of the application through the "Details" bu
 - Processor: Refers to the processor of each process node. For example, the email address of the submitting applicant is `john.doe@scloud.sg`, and the default processor of the audit node is admin@scloud.sg.
 - Remarks: Refers to the remarks of each process node, such as the instructions given by the platform administrator when the application is approved or rejected.
 - Processing time: refers to the processing time of each process node.
+
 For the opening and changing of the tenant approval process and the approval management of the platform manager, please refer to the [Approval Process] chapter in the Platform Administrator Manual.
