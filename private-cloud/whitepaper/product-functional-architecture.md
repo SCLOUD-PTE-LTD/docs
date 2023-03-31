@@ -813,7 +813,7 @@ Auto scaling uses scaling groups, scaling policies, and virtual machine template
 
 Supports auto scaling and load balancing, adding instances in a scaling group to a load-balanced listener to provide load balancing services for virtual machine services in a scaling group, and determining the service health status of all instances in a scaling group through the listener's health check mechanism, automatically removing unhealthy instances and adding healthy instances to the service cluster.
 
-## Timers
+## Scheduler
 ### Overview
 Scheduler is a platform that provides users with automated task functions that can be used to perform a series of tasks on a regular basis, such as creating snapshots. It can be repeated at a specified cycle or only once, and each task supports multiple resource bulk operations.
 

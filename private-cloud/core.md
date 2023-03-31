@@ -65,7 +65,7 @@ External IP: Used for external IP access of resources such as virtual machines, 
 - Monitoring alarms: Supports monitoring data collection and display in various dimensions such as virtual machines, auto scaling, disks, elastic IPs, NAT gateways, load balancers, IPSecVPN, MySQL, and Redis, and can quickly configure alarm policies and notification rules for resource monitoring metrics through alarm templates.
 - Operation log: The operation and audit logs of all resources of the cloud platform and the cloud platform itself support multi-time log collection and display, and provide the cause of operation failure.
 - Recycle bin: The location where resources are temporarily stored after they are deleted, and operations such as reclaiming resources, restoring resources, and completely deleting resources are supported.
-- Timer: Provides a timer task execution function, which can be used to execute a series of tasks on a regular basis, support the creation of snapshots on a regular basis, and can be executed repeatedly or only once in a specified cycle, and each task supports multiple resource batch operations.
+- Scheduler: Provides a timer task execution function, which can be used to execute a series of tasks on a regular basis, support the creation of snapshots on a regular basis, and can be executed repeatedly or only once in a specified cycle, and each task supports multiple resource batch operations.
 
 ### Unified cloud management platform
 The SCloudStack platform provides two ways to access and manage the cloud platform in two ways: web console and API interface.

@@ -72,7 +72,7 @@ The implementation and logic of the operating system kernel, virtualized computi
 - Monitoring and alarming: Supports the collection and display of monitoring data in various dimensions of virtual machines, elastic scaling, disks, elastic IPs, NAT gateways, load balancing, IPSecVPN and other resources, and can be quickly configured through alarm templates Alarm policies and notification rules for resource monitoring indicators;
 - Operation logs: all resources of the cloud platform and the operation and audit logs of the cloud platform itself, support multi- time span log collection and display, and provide reasons for operation failures;
 - Recycle bin: the location where resources are temporarily stored after deletion, and supports operations such as recycling resources, restoring resources, and completely deleting resources;
-- Timer: Provides timer task execution function, which can be used to execute a series of tasks regularly, supports timing creation of snapshots, It can be executed repeatedly in a specified period, or only once, and each task supports multiple resource batch operations.
+- Scheduler: Provides timer task execution function, which can be used to execute a series of tasks regularly, supports timing creation of snapshots, It can be executed repeatedly in a specified period, or only once, and each task supports multiple resource batch operations.
 
 ### Unified cloud management platform
 
