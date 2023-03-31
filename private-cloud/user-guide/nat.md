@@ -16,7 +16,7 @@ The SNAT and DNAT rules of the platform NAT gateway service implement SNAT forwa
 - SNAT rules: SNAT rules enable SNAT capabilities at the VPC level, subnet level, and virtual resource instance level, so that resources in different dimensions can access the Internet through NAT gateways.
 - DNAT rules: DNAT rules allow you to configure port forwarding based on TCP and UDP protocols to map the private network ports of cloud resources in a VPC to the public IP addresses bound by the NAT gateway to provide services to the Internet or IDC data center networks.
 
-As a virtual network gateway device, you need to bind an Internet IP address as the exit of SNAT rules and DNAT rules for the NAT gateway. NAT gateways have region (data center) attributes and only support SNAT and DNAT forwarding services for VPC virtual resources in the same data center.
+As a virtual network gateway device, you need to bind an External IP address as the exit of SNAT rules and DNAT rules for the NAT gateway. NAT gateways have region (data center) attributes and only support SNAT and DNAT forwarding services for VPC virtual resources in the same data center.
 
 The network that a virtual machine can access through a NAT gateway depends on the configuration of the CIDR block to which the bound public IP belongs on the physical network. If the bound public IP address can access the physical network of the IDC data center, the virtual machine accesses the physical network of the IDC data center through a NAT gateway.
 
@@ -30,13 +30,13 @@ When users use virtual machines to deploy application services on the platform, 
 ### Architecture Principles
 The underlying resources of the platform products and services are unified, and the NAT gateway instance is the primary and standby high-availability cluster architecture, which can automatically fail over the NAT gateway and improve the availability of SNAT and DNAT services. At the same time, combined with the public IP address, SNAT and DNAT proxies are provided according to the NAT configuration for tenant virtual resources.
 
-At the product level, tenants apply for a NAT gateway, specify the subnets that the NAT gateway can allow communication on, and bind [Internet IP] to enable virtual machines under multiple subnets to communicate with the Internet or the physical network of IDC data centers, as follows:
+At the product level, tenants apply for a NAT gateway, specify the subnets that the NAT gateway can allow communication on, and bind [External IP] to enable virtual machines under multiple subnets to communicate with the Internet or the physical network of IDC data centers, as follows:
 
 ![1](/assets/images/product-functional-architecture-14.jpg)
 
 - The platform supports using a NAT gateway for multi-subnet VMs with the same VPC to access the internet or IDC data center network.
 - When a virtual machine in multiple subnets that is not bound to a public IP address is associated with a NAT gateway, the platform automatically issues routes to the Internet in the virtual machine.
-- The virtual machine transmits data accessing the Internet to the bound Internet IP address through the NAT gateway through the routed route.
+- The virtual machine transmits data accessing the Internet to the bound External IP address through the NAT gateway through the routed route.
 - The data transmitted to the external IP address sends packets to the physical switch through the platform OVS and physical NIC to complete the data SNAT communication.
 - When the external network needs to access virtual machine services in a VPC, you can use NAT gateway port forwarding to enable the Internet or IDC physical network to access VPC intranet services through the IP + port bound to the NAT gateway.
 
@@ -126,11 +126,13 @@ Security groups and security group rules can restrict traffic to the NAT gateway
 ## Usage Process
 Before you use the NAT gateway service, you need to plan the VPC network and public IP network of the NAT gateway based on your business requirements, and configure SNAT and DNAT rules based on your business requirements. The specific process is as follows:
 - Tenants create VPCs and subnets based on demand, and create virtual machines in multiple subnets;
-- Tenants create an Internet IP address based on their requirements, specify the network type, associated subnet, and bound egress IP address through APIs or consoles, and create a NAT gateway.
+- Tenants create an External IP address based on their requirements, specify the network type, associated subnet, and bound egress IP address through APIs or consoles, and create a NAT gateway.
 - If you add SNAT rules for VPCs, subnets, or VM types through SNAT rules, the associated VMs can access the Internet through a NAT gateway.
 - If you configure rules for virtual machines that need to provide services through DNAT rules, the public network can access resources in the VPC network that are not bound to external IP addresses.
 - If you need to restrict the inbound and outbound traffic of the NAT gateway, you can configure the security group bound to the NAT gateway.
+
 You can bind multiple public IP addresses to a NAT gateway, and configure SNAT rules and DNAT rules for multiple public IP addresses.
+
 ## Create a NAT gateway
 To create a NAT gateway on the platform, you must specify the model, VPC network, subnet, public IP address, security group, NAT gateway name, and remarks. A VPC allows you to create 20 NAT gateways, and SNAT rules in all NAT gateways under the same VPC are not repeatable, that is, SNAT rules in 20 NAT gateways are not allowed.
 
@@ -143,7 +145,7 @@ You can enter the NAT Gateway resource console through the navigation bar, and u
 - Name/Comment: The name and remark information of the NAT gateway.
 - VPC network: The VPC network served by the NAT gateway, that is, the NAT gateway provides SNAT and DNAT services only for the resources in the selected VPC, and only supports adding resources belonging to the VPC network as the source address of the SNAT rule and the destination address of the DNAT rule.
 - Subnet: The subnet where the NAT gateway instance is located, it is generally recommended to choose a subnet with a sufficient number of available IPs.
-- Internet IP: The public IP address used by the NAT gateway address, and the resources bound to the VPC network access the Internet or the IDC physical network through the external IP address bound to the NAT gateway.
+- External IP: The public IP address used by the NAT gateway address, and the resources bound to the VPC network access the Internet or the IDC physical network through the external IP address bound to the NAT gateway.
 - Security Group: The security group used by the public IP address of the NAT gateway to control the traffic that can enter the NAT gateway.
 (2) After selecting and configuring the above information, you can select the purchase quantity and payment method, confirm the order amount, and click "Buy Now" to create a NAT gateway:
 - Purchase quantity: Create NAT gateway instances in batches according to the selected configuration and parameters, and only one NAT gateway instance can be created at a time.
@@ -158,7 +160,7 @@ The NAT gateway list can view the resource information of all NAT gateways under
 ![1](/assets/images/user-guide/user-guide-93.png)
 
 - Name/ID: The name and globally unique identifier of the NAT gateway.
-- Internet IP: The public IP address bound to the NAT gateway, and if the NAT gateway is bound to multiple public IP addresses, multiple public IP addresses are displayed.
+- External IP: The public IP address bound to the NAT gateway, and if the NAT gateway is bound to multiple public IP addresses, multiple public IP addresses are displayed.
 - VPC network: The VPC network served by the NAT gateway, that is, the NAT gateway only provides SNAT and DNAT services for resources in the VPC, and only supports adding resources belonging to the VPC network as the source address of the SNAT rule and the destination address of the DNAT rule.
 - Subnet: Represents only the subnet where the NAT gateway instance resides
 - Status: The running status of the NAT gateway, including Creating, Running, and Deleting Status.
@@ -192,7 +194,7 @@ DNAT rule management of NAT gateway, port mapping management of virtual resource
 
 (5) External IP management
 
-For details about the management of the public IP address of the NAT gateway, including the viewing, binding, and unbinding of the external IP address, see  Internet IP Management.
+For details about the management of the public IP address of the NAT gateway, including the viewing, binding, and unbinding of the external IP address, see  External IP Management.
 
 ## Modifying the Alert Template
 Modifying the alarm template configures the monitoring data of the NAT gateway, and triggers alarms when the NAT gateway-related indicators fail or exceed the metric thresholds, and notifies relevant personnel to handle the fault to ensure the network communication between the NAT gateway and services.
@@ -238,7 +240,7 @@ On the wizard page, you need to specify the source address type, subnet, virtual
 
 (3) Virtual machine: Only if the source address type is virtual machine, you can specify the virtual machine of the VPC to which the NAT gateway belongs, and only one SNAT rule can be created per virtual machine IP, such as VPC CIDR is `192.168.0.0/16`, and virtual machine can be specified as `192.168.1.2`.
 
-(4) Internet IP: refers to the egress IP address specified when the source address of the current SNAT rule accesses the Internet, and only supports selecting the external IP bound to the NAT gateway; At the same time, you can specify the Internet IP address to ALL, which randomly selects an IP address from all external IP pools bound to the gateway to access the Internet on behalf of the source address resource.
+(4) External IP: refers to the egress IP address specified when the source address of the current SNAT rule accesses the Internet, and only supports selecting the external IP bound to the NAT gateway; At the same time, you can specify the External IP address to ALL, which randomly selects an IP address from all external IP pools bound to the gateway to access the Internet on behalf of the source address resource.
 
 After you add an SNAT rule, the platform automatically delivers the default route to the virtual machine specified in the rule, so that the virtual machine can access the Internet or IDC data center network through the NAT gateway, and you can view the route information automatically delivered by the NAT gateway in the Linux virtual machine through the `netstat -rn` command, and detect the connectivity with the external network in the virtual machine.
 
@@ -255,7 +257,7 @@ You can use SNAT Rules on the NAT gateway details page to view the list and info
   - If the source address type is VPC, the source address is the CIDR CIDR block and name of the VPC.
   - If the source address type is Subnet, the source address is the CIDR CIDR block and name of the specified subnet;
   - If the source address type is Virtual Machine, the source address is the specified virtual machine private IP address and name.
-- Internet IP: The target public IP address of the current SNAT rule, if the Internet IP address is ALL, the destination egress of the current SNAT rule is all the public IP addresses bound to the current gateway.
+- External IP: The target public IP address of the current SNAT rule, if the External IP address is ALL, the destination egress of the current SNAT rule is all the public IP addresses bound to the current gateway.
 - Status: refers to the status of the current SNAT rule, including Creating, Active, and Deleted.
 - Creation Time: refers to the creation time of the current SNAT rule.
 
@@ -274,3 +276,91 @@ You can delete SNAT rules, which are destroyed immediately after the rules are d
 ![1](/assets/images/user-guide/user-guide-99.png)
 
 During the deletion process, the status of the SNAT rule is Deleting and the SNAT rule is cleared on the list. Deleting an SNAT rule does not affect the normal operation of the virtual machine itself, and the automatically delivered route is cleared, that is, the Internet cannot be accessed through the NAT gateway, and the Internet can be accessed by adding SNAT rules again or binding a public IP address.
+
+## DNAT Rules
+DNAT rules are the entry point for NAT gateways to provide DNAT services and support both TCP and UDP forwarding protocols. You can configure port mapping for the NAT gateway through port forwarding to map the internal IP addresses of virtual machines in VPC subnets to the external IP addresses of the NAT gateway, so that virtual machines can provide services to the external network.
+
+Each rule consists of a five-tuple of protocol, source IP (external IP), port, destination IP (virtual machine IP), and destination port, that is, the port request of the source IP is forwarded to the port of the destination IP, so that users can directly access the services provided by the VPC intranet virtual machine through the source IP address.
+
+### Adding DNAT rules
+The user adds a forwarding rule for a NAT gateway to support DNAT proxy. After the forwarding rule is added, if the service running on the destination IP VM is normal, the user can access the application services provided by the destination IP VM through the public IP address bound to the NAT gateway.
+
+To add a forwarding rule, you need to specify the NAT gateway name, protocol, source IP, source port, destination IP, destination port, and multiple ports, and you can add DNAT rules from the DNAT Rules list in the NAT gateway details, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-100.png)
+
+- Protocol: refers to the forwarding protocol of DNAT port forwarding rules, supports TCP and UDP, must be specified when created, and defaults to TCP.
+- Source IP: The source IP address of the DNAT port forwarding rule, that is, the public IP address bound to the NAT gateway.
+- Source Port: The source port of the DNAT port forwarding rule, which is the port exposed by the external IP address bound to the NAT gateway.
+  - When you create it, you must specify the source port, and the port range is 1~65535.
+  - Only source ports that are not created can be specified, and duplicate source port rules are not supported under the same protocol.
+- Destination IP: The destination IP of the DNAT port forwarding rule, which is the private IP address of the virtual machine in the VPC network to which the NAT gateway belongs.
+  - You must specify the destination IP address when you create it, and you can only specify the IP address of the virtual machine under the VPC to which the NAT belongs.
+  - The destination IP address is not restricted by SNAT rules, that is, a virtual machine can add both SNAT rules and DNAT rules.
+- Destination port: The destination port of the DNAT port forwarding rule, which is the port on which the destination IP virtual machine provides the service.
+  - When creating, you must specify the destination port, and the port range is 1~65535.
+  - The destination port can be the same or different from the source port, such as TCP:80 for the source port and TCP:8080 for the destination port, which means that TCP port 80 traffic from the source IP address is forwarded to the destination IP address TCP 8080 port.
+  - You can create duplicate destination ports with the same destination IP, such as forwarding two 80 ports with source address to the same port at the same destination address for business data processing.
+- Port range: DNAT rules also support multi-port mapping rules, that is, you can specify the source port as a continuous range, such as 1024~1030; when specifying a port range, the number of destination port ranges must be consistent with the source port.
+
+Duplicate source port rules are not supported for the same protocol. After the DNAT rule is added, users can access the application services provided by the destination virtual machine through the source IP address.
+
+### Viewing DNAT Rules
+The user views the list of port forwarding rules that have been added, including the forwarding rule protocol, source IP, source port, destination IP, destination port, status, and operation items, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-101.png)
+
+- Protocol: The protocol of the current DNAT rule, such as TCP or UDP.
+- Source IP: The source IP address of the current DNAT rule, which is the public IP address specified by the current rule.
+- Source port: The source port of the DNAT rule source IP address.
+- Destination IP: The destination IP address for DNAT rule port forwarding, which is the virtual machine IP specified by the current rule.
+- Destination port: The destination port of the DNAT rule destination IP address, which is the port that ultimately processes the traffic.
+- Status: The status of the current DNAT rule, including Creating, Active, and Deleted.
+
+An action item on the list refers to an action on a single DNAT rule, including modification and deletion; At the same time, to facilitate the maintenance of resources by tenants, DNAT rules can be deleted in batches.
+
+### Modifying DNAT Rules
+The user modifies the added DNAT rules, including protocol, source IP, source port, destination IP, and destination port, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-102.png)
+
+The source IP address must be the public IP address bound to the NAT gateway, and the modification takes effect immediately.
+
+### Deleting DNAT Rules
+Users can delete one or more DNAT forwarding rules, which take effect immediately after deletion, and cannot access the business services of the destination IP address through the external IP address specified by the DNAT rule. As shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-103.png)
+
+Supports batch deletion of multiple forwarding rules, and the rules are destroyed after they are deleted.
+
+## External IP Management
+NAT gateway supports binding IPv4 public IP addresses of 50 default route types, providing a shared public IP resource pool for virtual resources in the specified subnet of the NAT gateway, providing more flexible and convenient SNAT and DNAT capabilities.
+
+You can use External IP management to view the public IP addresses and information bound to the NAT gateway, and support binding and unbinding the public IP addresses of the NAT gateway.
+### View bound public IP addresses
+You can view the list and information of the external IP addresses bound to the NAT gateway, including resource ID, IP, bandwidth, status, and operation items, through the NAT gateway details [External IP Management] tab, as shown in the following figure:
+
+![1](/assets/images/user-guide/user-guide-104.png)
+
+- Resource ID: The EIP globally unique identifier that is currently bound to the NAT gateway.
+- IP address: External IP address.
+- Bandwidth: The current bandwidth of the public IP address, in Mb.
+- Status: The status of the current public IP address, including binding, bound, and unbound.
+
+The operation items on the list refer to the unbinding operation of a single public IP address, and to facilitate the maintenance of resources by tenants, batch unbinding of bound public IP addresses is supported.
+
+### Bind an External IP address
+You can bind IPv4 External IP addresses of 50 default route types to a NAT gateway, provide a shared public IP pool for the specified virtual resources of the NAT gateway, and provide flexible and convenient SNAT and DNAT capabilities. The following figure shows the binding operation:
+
+![1](/assets/images/user-guide/user-guide-106.png)
+
+After the binding is successful, when you add SNAT and DNAT rules, you can select the External IP address of SNAT or the source IP address of DNAT. Note: IPv4 public IP addresses that are bound to IPv6 and non-default route types are not supported.
+
+### Unbind a public IP address
+You can unbind the public IP address of a NAT gateway, and the associated SNAT rules and DNAT rules will be invalid after the network communication is disabled.
+- After unbinding, the public IP address is automatically cleared from the public IP pool of the SNAT rule.
+- After unbinding, the public IP address is automatically cleared from the source IP address of the DNAT rule.
+
+![1](/assets/images/user-guide/user-guide-105.png)
+
+You can modify SNAT and DNAT rules to set new egress IP addresses and ingress source IP addresses, respectively.
