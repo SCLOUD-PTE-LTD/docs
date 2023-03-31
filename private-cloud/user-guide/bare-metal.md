@@ -4,7 +4,7 @@ title: Bare Metal Service
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/bare-metal/
-nav_order: 12
+nav_order: 14
 ---
 # Bare Metal Services
 ## Product Introduction

@@ -4,7 +4,7 @@ title: NAT Gateway
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/nat-gateway/
-nav_order: 10
+nav_order: 11
 ---
 # NAT Gateway
 ## Introduction to NAT Gateways

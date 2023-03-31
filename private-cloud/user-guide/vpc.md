@@ -4,7 +4,7 @@ title: VPC
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/vpc/
-nav_order: 6
+nav_order: 7
 ---
 # Private Network
 ## Introduction to VPC

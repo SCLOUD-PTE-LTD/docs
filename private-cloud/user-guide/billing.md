@@ -4,7 +4,7 @@ title: Billing Management
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/billing-management/
-nav_order: 16
+nav_order: 19
 ---
 ## Billing Management
 

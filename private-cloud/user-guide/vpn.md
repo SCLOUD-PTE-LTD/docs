@@ -4,7 +4,7 @@ title: IPSecVPN
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/IPSec-vpn/
-nav_order: 11
+nav_order: 12
 ---
 # IPSecVPN Service
 ## Product Introduction

@@ -4,7 +4,7 @@ title: Recycle Bin
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/recycle-bin/
-nav_order: 15
+nav_order: 18
 ---
 # Recycle Bin
 ## Overview of Recycle Bin

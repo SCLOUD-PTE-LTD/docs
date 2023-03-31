@@ -4,7 +4,7 @@ title: External IP
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/eip/
-nav_order: 7
+nav_order: 8
 ---
 # External IP
 ## Introduction to EIP

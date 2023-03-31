@@ -4,7 +4,7 @@ title: Monitoring & Alarm
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/monitoring-alarm/
-nav_order: 14
+nav_order: 16
 ---
 
 # Monitor and alarm

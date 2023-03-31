@@ -4,7 +4,7 @@ title: Load Balancing
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/load-balancing/
-nav_order: 9
+nav_order: 10
 ---
 # Load balancing
 ## Introduction to Load Balancing

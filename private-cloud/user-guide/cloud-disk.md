@@ -4,7 +4,7 @@ title: Cloud Disk
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/cloud-disk/
-nav_order: 17
+nav_order: 6
 ---
 # Cloud Disk
 ## Cloud Disk Overview

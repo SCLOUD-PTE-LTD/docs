@@ -4,7 +4,7 @@ title: Operation Log
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/operation-log/
-nav_order: 15
+nav_order: 17
 ---
 # Operation log
 The operation log refers to the audit information of the operation behavior of the user on the console or API on the resource and the login and logout of the platform. The operation log will record all resource operations of the user on the platform, provide operation record query and filtering, and implement security analysis, resource change tracking and compliance audit through the operation log.

@@ -4,7 +4,7 @@ title: Approval Process
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/approval-process/
-nav_order: 13
+nav_order: 15
 ---
 # Approval Process
 ## Overview

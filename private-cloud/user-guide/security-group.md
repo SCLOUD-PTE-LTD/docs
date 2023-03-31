@@ -4,7 +4,7 @@ title: Security Group
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/security-group/
-nav_order: 8
+nav_order: 9
 ---
 # Security Groups
 ## Introduction to Security Groups

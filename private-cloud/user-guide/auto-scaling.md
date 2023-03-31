@@ -4,7 +4,7 @@ title: Auto Scaling
 parent: User Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/user-guide/auto-scaling/
-nav_order: 12
+nav_order: 13
 ---
 # Auto Scaling
 ## Product Introduction
