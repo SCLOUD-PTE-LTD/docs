@@ -15,7 +15,7 @@ The resources entering the recycle bin will be reserved for a default time. The 
 ## View Recycle Bin Resources
 When cloud platform resources are manually deleted by the user or the fee expires, they will automatically enter the recycle bin for temporary storage. During the retention period, you can go to the recycle bin console to view the list of resources that have entered the recycle bin, as shown in the following figure:
 
-
+![1](/assets/images/user-guide/user-guide-151.png)
 
 Through the resource list of the recycle bin, you can view the information of retained resources that have been deleted or released under the current account, including resource ID, resource name, resource type, expiration time, deletion time, whether to automatically destroy, scheduled destruction time, and operation items:
 
@@ -41,7 +41,7 @@ Restoring resources refers to manually restoring resources that have been accide
 
 Users can restore resources through the "Restore" operation item in the recycle bin reserved resource list. If the resource resource fee has expired, it needs to be renewed before the restoration operation can be performed. The specific recovery operation is shown in the figure below:
 
-
+![1](/assets/images/user-guide/user-guide-152.png)
 
 After clicking OK, the current resource will automatically restore to the resource list before deletion, which can be viewed through the related resource list. If the resource is in arrears, the interface will prompt the user that the resource is in arrears and needs to be recharged or renewed before the resource can be restored.
 
@@ -54,13 +54,13 @@ Renewing resources refers to renewing the fee cycle of resources, and only suppo
 
 Users can perform resource renewal operations through the "Renewal" operation item in the recycle bin reserved resource list. If the account is in arrears, it is necessary to contact the administrator to recharge the account before proceeding with the renewal operation. The specific renewal operation is shown in the figure below:
 
-
+![1](/assets/images/user-guide/user-guide-153.png)
 
 After clicking OK, you will return to the list of reserved resources in the recycle bin. On the list page, you can check that the expiration time of the renewed resources has been extended by one billing cycle.
 
 ## Destroying resources
 Destroying resources refers to manually destroying resources left in the recycle bin. Resources cannot be recovered after being destroyed. It is necessary to confirm whether it is necessary to destroy resources. The specific operation is shown in the figure below:
 
-
+![1](/assets/images/user-guide/user-guide-154.png)
 
 After clicking OK, the resource will be cleared from the retained resource list and cannot be restored. Please operate with caution.
