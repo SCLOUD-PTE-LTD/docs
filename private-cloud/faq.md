@@ -4,7 +4,7 @@ title: Frequently Asked Questions
 has_children: false
 parent: Private Cloud
 permalink: /private-cloud/faq
-nav_order: 9
+nav_order: 10
 ---
 # Frequently asked questions
 
