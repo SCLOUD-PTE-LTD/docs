@@ -4,7 +4,7 @@ title: Tenant Management
 parent: Admin Guide
 grand_parent: Private Cloud
 permalink: /private-cloud/admin-guide/tenant/
-nav_order: 1
+nav_order: 2
 ---
 # Tenant Management
 ## Overview
