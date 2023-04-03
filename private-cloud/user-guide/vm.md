@@ -455,7 +455,7 @@ Platform users can delete virtual machine resources that are powered off or runn
  ![1](/assets/images/user-guide/user-guide-41.png)
 
 - When you delete a virtual machine, it automatically unbinds resources such as external IP addresses, ENIs, and EVS disks bound to the virtual machine.
-- If a virtual machine is added to the NAT gateway whitelist or a Server Load Balancer service node, the virtual machine is automatically unbound when it is deleted.
+- If a virtual machine is added to the NAT gateway whitelist or a Load Balancing service node, the virtual machine is automatically unbound when it is deleted.
 - When you delete a virtual machine, you can choose to delete bound resources, that is, automatically unbind and delete bound external IP addresses, ENIs, and EVS disks.
 - When you delete a virtual machine, the deleted public IP addresses and EVS disks are automatically entered into the Recycle Bin, and the deleted ENIs are completely destroyed.
 - If the virtual machine expires and is not renewed within the allowed time, the virtual machine is automatically reclaimed and the associated resources are automatically unbound.

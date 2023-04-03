@@ -61,7 +61,7 @@ When the physical host where a virtual machine resides fails, the intelligent sc
 Users can apply for EIPs through the platform, and perform operations such as binding, unbinding, and adjusting bandwidth of EIPs.
 
 ## Request External IP
-EIP application means that a tenant can apply for an IPv4 or IPv6 public IP address from the public IP block defined by the administrator through the console, and bind the IP address to resources such as VMs, Server Load Balancer, NAT gateways, VPN gateways, MySQL, and Redis to provide Internet access capabilities for virtual resources.
+EIP application means that a tenant can apply for an IPv4 or IPv6 public IP address from the public IP block defined by the administrator through the console, and bind the IP address to resources such as VMs, Load Balancing, NAT gateways, VPN gateways, MySQL, and Redis to provide Internet access capabilities for virtual resources.
 
 When applying for an EIP, you need to specify the IP version, CIDR block, IP address, resource name, bandwidth limit, etc., and you can enter the External IP resource console through the navigation bar, and enter the wizard page through "Request External IP", as shown in the following figure:
 
@@ -123,13 +123,13 @@ On the list of public IP resources, click the name or ID to view the details of 
 - Operation Log: The Operation Log page displays the operation log of the current External IP address. It can display logs at a custom time level, perform approximate search  on logs, provide operation logs within two weeks by default, and view operation logs of different time periods by switching the date period.
 
 ## Bind a public IP address
-Binding an external IP address refers to binding an EIP address to a virtual machine, NAT gateway, Server Load Balancer, and VPN gateway to provide Internet service capabilities for virtual resources.
+Binding an external IP address refers to binding an EIP address to a virtual machine, NAT gateway, Load Balancing, and VPN gateway to provide Internet service capabilities for virtual resources.
 - A virtual machine supports binding 50 IPv4 and 10 IPv6 External IP addresses, and the first IP address with a default route is used as the default network egress of the virtual machine.
 - IPv6 public IP addresses can only be bound to virtual machines, not to other resources.
 - After a virtual machine is bound to a public IP address, the system configures the external IP address and the delivery route of the CIDR block directly to the default external network card that comes with the virtual machine, and you can directly view all the external IP addresses and related routing information bound to the virtual machine through the virtual machine's operating system.
 - NAT gateways can only bind an IPv4 External IPv4 address with a default route, and cannot bind an IPv6 External IP address.
 - VPN Gateway can only bind a public network with a default route IPv4 address, but does not support binding an IPv6 public IP address.
-- Server Load Balancer can bind only one External IPv4 with a default routed IPv4 address, but does not support binding an IPv6 External IP address.
+- Load Balancing can bind only one External IPv4 with a default routed IPv4 address, but does not support binding an IPv6 External IP address.
 - A public IP address can bind only one virtual resource, and only unbound public 
  
 IP addresses can be bound to it, and the bound resource must be running, valid, or shut down. You can use Bind to the External IP Resource List to enter the External IP Binding wizard page and perform resource binding operations, as shown in the following figure:
@@ -142,7 +142,7 @@ When binding, select the type of resource to be bound and the binding resource o
 
 (2) Resource object: refers to the bound resource object, different resource types can choose different resource objects.
 - Virtual machine: You can select the virtual machine resources to be bound based on the virtual machine name and private IP address, but you cannot select a virtual machine with 50 IPv4 or 10 IPv6 addresses bound.
-- Server Load Balancing: You can select the Server Load Balancer resource to be bound based on the name and ID, and you can select a Server Load Balancer instance that is not bound to an External IP address and is an Internet network IP, and you cannot bind an IPv6 External IP address for Server Load Balancer.
+- Server Load Balancing: You can select the Load Balancing resource to be bound based on the name and ID, and you can select a Load Balancing instance that is not bound to an External IP address and is an Internet network IP, and you cannot bind an IPv6 External IP address for Load Balancing.
 - NAT gateway: You can select the NAT gateway resource to be bound based on the name and ID, only you can select a NAT gateway that does not have a public IP address bound to it, and you cannot bind an IPv6 public IP address to a NAT gateway.
 - VPN gateway: You can select the VPN gateway resource to be bound based on the name and ID, and you can select only VPN gateways that do not have an External IP address bound to it, and you cannot bind IPv6 public IP addresses to VPN gateways.
 

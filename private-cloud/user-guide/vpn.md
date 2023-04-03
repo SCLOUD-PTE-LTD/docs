@@ -157,7 +157,7 @@ The VPN gateway list can view the resource information of all VPN gateways under
 - Number of tunnels: The number of tunnels that have been created on the current VPN gateway.
 - Status: The running status of the VPN gateway, including creating, running, and deleting.
 
-The action items on the list refer to the deletion operations of a single VPN gateway instance, and you can search and filter the list of Server Load Balancer resources through the search box, supporting approximate search .
+The action items on the list refer to the deletion operations of a single VPN gateway instance, and you can search and filter the list of Load Balancing resources through the search box, supporting approximate search .
 
 In order to facilitate the statistics and maintenance of resources by tenants, the platform supports downloading the list of all VPN gateway resources owned by the current user as an Excel table. You can also delete VPN gateways in bulk.
 
@@ -339,7 +339,7 @@ IPSec configuration information for the VPN tunnel, including secure transport p
 
 (5) Monitoring information
 
-Monitoring charts and information related to Server Load Balancer instances, including tunnel ingress bandwidth, tunnel out/out packet volume, and tunnel health status, can view monitoring data for 1 hour, 6 hours, 12 hours, 1 day, and custom times.
+Monitoring charts and information related to Load Balancing instances, including tunnel ingress bandwidth, tunnel out/out packet volume, and tunnel health status, can view monitoring data for 1 hour, 6 hours, 12 hours, 1 day, and custom times.
 
 You can also view the connection status of the tunnel directly through the monitoring chart of tunnel health, if the data in the chart is all 1 for connected, and 0 for the country that is connected or failed.
 

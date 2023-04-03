@@ -43,7 +43,7 @@ SCloudStack platform automatically shields software and hardware failures, disk 
 
 - Service deployment: All business applications, databases, and load balancers are deployed in local data centers and remote disaster recovery centers.
   - The on-premises data center is in Active mode, and the remote disaster recovery center is in Cold Standby mode.
-  - Server Load Balancer: Each server for each service is deployed in the disaster recovery center.
+  - Load Balancing: Each server for each service is deployed in the disaster recovery center.
   - Virtual machines: According to different requirements of the business for RTO, the disaster recovery center can deploy virtual machines with the same configuration or downgrade configuration.
     - For applications with high RTO requirements, the disaster recovery center needs to deploy virtual machines with the same configuration as the production center to quickly restore services and ensure the performance of the service operation environment when the service is switched.
     - For applications with low RTO requirements, degraded virtual machines can be deployed in the disaster recovery center to save resources and costs.
@@ -73,7 +73,7 @@ The public cloud disaster recovery service supports multiple service deployment 
 ### (2) Low RTO indicators, long business recovery time, and high cost
 - Service deployment: All business applications, databases, and load balancers are deployed in local data centers and public cloud platforms.
   - The on-premises data center is the Active mode, and the public cloud platform is the Cold Standby mode;
-  - Server balancing: Each service that requires load balancing applies for a Server Load Balancer instance in the public cloud and adds the service ECS to the backend.
+  - Server balancing: Each service that requires load balancing applies for a Load Balancing instance in the public cloud and adds the service ECS to the backend.
   - Cloud host: According to the different requirements of the business for RTO, the public cloud can deploy cloud hosts with the same or downgraded configuration as the on-premises data center.
     - For applications with high RTO requirements, the public cloud needs to deploy cloud hosts with the same configuration as the production center to quickly restore services and ensure the performance of the service operation environment when the service is switched.
     - For applications with low RTO requirements, the public cloud can deploy cloud hosts with downgraded configurations to save resources and costs;
@@ -105,12 +105,12 @@ Dual Centers in the Same City (ACtive-Active)
 
 - Both the production availability zone and the intra-city disaster recovery zone are active, and both centers in the same city accept and handle business visits.
 - Load balancing:
-  - SCloudStack Server Load Balancer adopts a cluster architecture, based on cross-zone distributed deployment, and uses BGP+ECMP to implement cluster automatic disaster recovery to ensure RTO indicators for business availability zone level disasters.
-  - Server Load Balancer instances deployed in intra-city regions are distributed in production zones and disaster recovery zones to ensure service reliability. Support all cloud hosts in the same city dual center as backend servers to achieve the goal of active in the same city;
+  - SCloudStack Load Balancing adopts a cluster architecture, based on cross-zone distributed deployment, and uses BGP+ECMP to implement cluster automatic disaster recovery to ensure RTO indicators for business availability zone level disasters.
+  - Load Balancing instances deployed in intra-city regions are distributed in production zones and disaster recovery zones to ensure service reliability. Support all cloud hosts in the same city dual center as backend servers to achieve the goal of active in the same city;
   - For each service that requires load balancing, the same city dual center only needs to apply for one load balancing service instance in the production center, and the SCloudStack platform automatically deploys a load balancing service instance in the same city disaster recovery center for intra-city load balancing disaster recovery.
   - If all virtual machines of the same service in the same city and dual centers are added to the backend of the load balancer instance in the production center, the requests are loaded on the service virtual machines of the same city and dual centers, realizing the active-active request entry in the same city.
-  - Typically, service requests are forwarded through the Server Load Balancer service instance in the production center, and the disaster recovery center in the same city automatically switches over the production center only in the event of a disaster.
-- Virtual machines: For each service, deploy a certain number of virtual machines and data disks in the same city and dual centers, such as 4 production centers and 2 disaster recovery centers in the same city, and add 6 virtual machines to the backend of a Server Load Balancer service instance.
+  - Typically, service requests are forwarded through the Load Balancing service instance in the production center, and the disaster recovery center in the same city automatically switches over the production center only in the event of a disaster.
+- Virtual machines: For each service, deploy a certain number of virtual machines and data disks in the same city and dual centers, such as 4 production centers and 2 disaster recovery centers in the same city, and add 6 virtual machines to the backend of a Load Balancing service instance.
  - Database:
    - SCloudStack database service provides a disaster recovery solution, supports cross-zone high-availability instances, and can deploy disaster recovery instances based on multi-AZ.
   - If you deploy one set of database services in the production center for each service, the system will automatically deploy the same database instance in the disaster recovery center in the same city.
@@ -142,7 +142,7 @@ In response to the different RPO requirements of services, the dual-center and r
   - Virtual machine images, business data, and file data are copied from the local data center to the disaster recovery center object storage in a full/incremental manner.
 ### Business Recovery
 - Dual-center in the same city is Active-Active mode, when the production center business fails or disaster:
-  - Cross-zone Server Load Balancer automatically switches service requests to intra-city disaster recovery centers through internal DNS, and can restore services within minutes.
+  - Cross-zone Load Balancing automatically switches service requests to intra-city disaster recovery centers through internal DNS, and can restore services within minutes.
   - The database disaster recovery instance is automatically switched to the database instance of the disaster recovery center, which is transparent to users.
 - The remote disaster recovery center is in Cold-Standby mode, when a disaster or service failure occurs in both centers in the same city:
   - Use intelligent DNS to manually modify the service domain name A record to the IP address of the service LB of the remote disaster recovery center to achieve failover.

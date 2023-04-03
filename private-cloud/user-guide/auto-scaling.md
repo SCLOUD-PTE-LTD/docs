@@ -27,7 +27,7 @@ After the scaling mode is defined, the "expectation" value of the instance of th
 ### Scaling Group Workflow
 The warm-up time of a virtual machine instance in a scaling group can be defined, which means that it takes a certain amount of time to pull up applications to undertake business traffic after the virtual machine is created. Therefore, after the scaling group initiates a request to create a virtual machine, when the virtual machine is successfully created and in the running state, the status of the virtual machine in the scaling group is "starting", which means that the virtual machine is in warm-up, and after the warm-up time is exceeded, it will automatically change to "running", which means that the virtual machine is healthy.
 
-The scaling group obtains the status of all virtual machines controlled by it every 15 seconds to determine whether instances need to be added or removed. If Server Load Balancer is turned off in a scaling group, Server Load Balancer determines whether the instances in the scaling group are healthy.
+The scaling group obtains the status of all virtual machines controlled by it every 15 seconds to determine whether instances need to be added or removed. If Load Balancing is turned off in a scaling group, Load Balancing determines whether the instances in the scaling group are healthy.
 
 - A healthy instance equals the expected value <br/>
 The scaling group automatically moves unhealthy (based on the judgment of the three-cycle health detection) instances out of the scaling group and performs the delete VM operation.

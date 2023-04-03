@@ -84,7 +84,7 @@ Resource management: View and manage all physical and virtual resources of the p
 
 - Physical resources include physical data centers, clusters, host resources, storage resources, network IP block resource pools, and mirror resource pools.
 
-- Virtual resources include resources owned by all tenants and sub-accounts, including virtual machines, VPCs, Server Load Balancer, Internet IP addresses, ENIs, Auto Scaling, NAT gateways, MySQL, Redis, IPSecVPN, monitoring alarms, security groups, and recycle bins.
+- Virtual resources include resources owned by all tenants and sub-accounts, including virtual machines, VPCs, Load Balancing, Internet IP addresses, ENIs, Auto Scaling, NAT gateways, MySQL, Redis, IPSecVPN, monitoring alarms, security groups, and recycle bins.
 
 Accounting management: support to view all order records, transaction records, recharge records and global product prices of the platform, support the configuration of the overall product price of the platform, and support the export of financial statements;
 

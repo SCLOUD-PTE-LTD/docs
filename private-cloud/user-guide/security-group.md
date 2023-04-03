@@ -16,7 +16,7 @@ Security Group is a virtual firewall similar to IPTABLES, which provides access 
 The platform security group is based on the Linux net-filter subsystem, which is implemented by adding flow table rules to the OVS flow table, and the host IPv4 and IPv6 packet forwarding functions need to be enabled. Each additional access control rule generates a flow table rule based on the NIC as the matching condition to control the traffic entering OVS and ensure the network security of virtual resources.
 Security groups can only be applied to virtual machines, ENIs, load balancers, NAT gateways, and bastion hosts with the same security requirements in the same data center, as shown in the following figure:
 
-Security groups have an independent lifecycle and can be bound to virtual machines, ENIs, Server Load Balancer, and NAT gateways to provide secure access control, and are automatically unbound after the virtual resources bound to them are destroyed.
+Security groups have an independent lifecycle and can be bound to virtual machines, ENIs, Load Balancing, and NAT gateways to provide secure access control, and are automatically unbound after the virtual resources bound to them are destroyed.
 
 ![1](/assets/images/product-functional-architecture-6.jpg)
 
@@ -25,10 +25,10 @@ Security groups have an independent lifecycle and can be bound to virtual machin
 - Security groups are bound to virtual NICs or ENIs that provide VPC services, and inbound and outbound rules are added to control east-west network access (between virtual machines and ENIs).
 - Security groups are associated with the load balancer of the Internet type, and by adding inbound and outbound rules, you can restrict and filter the Internet IP traffic entering and leaving the Internet load balancer to ensure the security of the traffic of the Internet load balancer.
 - The security group is bound to the NAT gateway, and by adding inbound and outbound rules, you can restrict the traffic entering the NAT gateway to ensure the reliability and security of the NAT gateway.
-- A security group can be bound to multiple virtual machines, ENIs, NAT gateways, and Internet Server Load Balancer instances at the same time.
+- A security group can be bound to multiple virtual machines, ENIs, NAT gateways, and Internet Load Balancing instances at the same time.
 - A virtual machine supports binding an internal network security group and an external network security group, corresponding to the default internal network card and external network card of the virtual machine, respectively, and the external security group takes effect for all external IP addresses bound to the virtual machine.
 - ENI can bind only one security group, which is independent of the security group bound to the default NIC of a virtual machine, and the traffic of the corresponding NIC is restricted.
-- You can bind only one security group to a Server Load Balancer and NAT gateway instance, and you can change the security group to apply different network access rules.
+- You can bind only one security group to a Load Balancing and NAT gateway instance, and you can change the security group to apply different network access rules.
 
 When you create a virtual machine, you must specify a public network security group, and you can modify the inbound and outbound rules of the security group at any time, and the new rules take effect immediately when they are generated, and you can adjust the rules in the inbound and outbound direction of the security group according to your needs. Supports full lifecycle management of security groups, including the creation, modification, and deletion of security groups, and the creation, modification, and deletion of security group rules.
 
