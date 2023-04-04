@@ -81,6 +81,8 @@ Downloading an image means that users download the self-managed image of the pla
 
 If you need to download an image to your local computer, you can use Download in the custom image list operation item to enter the image download wizard page, as shown in the following figure:
 
+ ![1](/assets/images/user-guide/user-guide-171.png)
+
 After clicking Generate Download Address, the platform will jump to the download address display wizard page, through which users can download the image through HTTP, FTP and related download tools by copying the download address link.
 
 The image download address is valid for 24 hours, and the image download must be performed within 24 hours. If the image download address expires, the image download cannot be downloaded, and you need to regenerate the image download address on the platform.
