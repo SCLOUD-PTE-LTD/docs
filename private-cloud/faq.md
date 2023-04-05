@@ -95,7 +95,7 @@ In order to avoid performance fluctuations caused by damaging a disk, first grou
 ### What is the difference between a managed gateway and a NAT gateway?
 A managed gateway is used to connect a virtual network and a physical network so that the physical network server communicates with virtual machines in the VPC network through the internal network.
 
-NAT gateway is used in scenarios where multiple virtual machines share an EIP, saving public IP addresses and providing DNAT and other functions.
+NAT gateway is used in scenarios where multiple virtual machines share an EIP, saving public IP addresses and providing DNAT (Destination Network Address Translation) and other functions.
 
 ### Do VMs and EVS disks have backup functions?
 Virtual machines can be backed up by exporting as images. EVS disks do not have a backup function, and EVS disk snapshots will be available in Q2 2019.

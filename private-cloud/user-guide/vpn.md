@@ -153,7 +153,7 @@ The VPN gateway list can view the resource information of all VPN gateways under
 - Name/ID: The name and globally unique identifier of the VPN gateway.
 - VPC network: The VPC network served by the VPN gateway, that is, the VPN gateway provides IPSecVPN communication services only to the resources in the selected VPC, and only supports adding subnets of the same VPC network to the local gateway of the associated tunnel.
 - Subnet: The subnet where the VPN gateway instance is located.
-- Internet IP: The public IP address used by the VPN gateway, that is, the local gateway address of the peer gateway to establish the IPSecVPN tunnel. When tunneling the current gateway with a remote data center or cloud platform, you must specify the IP address or the address after SNAT as the peer gateway IP address.
+- Internet IP: The public IP address used by the VPN gateway, that is, the local gateway address of the peer gateway to establish the IPSecVPN tunnel. When tunneling the current gateway with a remote data center or cloud platform, you must specify the IP address or the address after SNAT (Source Network Address Translation) as the peer gateway IP address.
 - Number of tunnels: The number of tunnels that have been created on the current VPN gateway.
 - Status: The running status of the VPN gateway, including creating, running, and deleting.
 
@@ -200,7 +200,7 @@ To create a peer gateway, you need to specify the public IP address of the peer 
 
 ![1](/assets/images/user-guide/user-guide-110.png)
 
-If the remote VPN gateway uses a private network address, you must provide a fixed public IP address after the private network address is SNAT. If the address after the SNAT of the remote network is a non-fixed public IP address, such as an IP address pool, the peer gateway is entered as `0.0.0.0`, which means that a tunnel connection is established with any peer gateway IP address, and the connection can be established when the authentication algorithm, key, local subnet and peer subnet are consistent, so that the two end networks can transmit NAT through IPSecVPN communication.
+If the remote VPN gateway uses a private network address, you must provide a fixed public IP address after the private network address is SNAT (Source Network Address Translation). If the address after the SNAT (Source Network Address Translation) of the remote network is a non-fixed public IP address, such as an IP address pool, the peer gateway is entered as `0.0.0.0`, which means that a tunnel connection is established with any peer gateway IP address, and the connection can be established when the authentication algorithm, key, local subnet and peer subnet are consistent, so that the two end networks can transmit NAT through IPSecVPN communication.
 
 ### Viewing Peer Gateways
 In the VPN Gateway resource console, you can switch to the peer gateway to view the resource information of all peer gateways under the current account, including the name, ID, public IP address, number of tunnels, creation time, and operation items, as shown in the following figure:
@@ -228,7 +228,7 @@ After the peer gateway is deleted, it is directly destroyed, so make sure that t
 Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC and the external VPC, and a maximum of 20 VPN tunnels can be created for a single VPN gateway or peer gateway. When you use a VPN tunnel to connect to a remote gateway, you need to have some prerequisites:
 
 - The gateway device of the remote data center or cloud platform needs to support the IKEv1 and IKEv2 versions of the protocol, such as Huawei, H3C, Shanshi, Shengfu, Cisco ASA, Juniper and other brands of routers or firewall settings, or IPSecVPN servers built using Linux systems.
-- The remote data center, cloud gateway, or IPSecVPN server must be configured with a fixed or SNAT-translated public IP address.
+- The remote data center, cloud gateway, or IPSecVPN server must be configured with a fixed or SNAT (Source Network Address Translation)-translated public IP address.
 - Remote data centers and local cloud platforms must open UDP 500, UDP 4500, UDP 50, and UDP 51 ports on the network to ensure normal communication between IKE and IPSec.
 - The CIDR blocks that connect the cloud platform to the remote data center cannot be repeated or overlapped.
 
@@ -378,7 +378,7 @@ ike=aes128-sha1-modp1024!
 ```
 - keyexchange represents the version of IKE used by the current tunnel as V2.
 - IKE and ESP represent authentication and encryption algorithms for IKE policies and IPSec policies, respectively.
-- left and right represent the public IP addresses of the VPN gateway and peer gateway, respectively, and the VPN gateway in the example configuration file uses a private network address to communicate with the peer gateway 106.75.234.78 through SNAT.
+- left and right represent the public IP addresses of the VPN gateway and peer gateway, respectively, and the VPN gateway in the example configuration file uses a private network address to communicate with the peer gateway 106.75.234.78 through SNAT (Source Network Address Translation).
 - leftid and rightid represent the home and peer identities in the IKE configuration item.
 - leftsubnet and rightsubnet represent the local network segment and the peer network segment, respectively.
 

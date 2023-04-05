@@ -11,7 +11,7 @@ nav_order: 7
 ### Overview
 SCloudStack virtualizes traditional data center physical networks through software-defined networking (SDN), using OVS as virtual switches, VXLAN tunnels as OverLay network isolation means, and Layer 2 protocols encapsulated through Layer 3 protocols to define the encapsulation and forwarding of packets between virtual VPCs and different virtual machine IP addresses.
 
-A private network (VPC (Virtual Private Cloud) is a logically isolated Layer 2 network broadcast domain environment belonging to users. Within a VPC, users can build and manage multiple three-layer networks, namely subnets, including network topology, IP network segments, IP addresses, gateways, and other virtual resources as network communication carriers for tenant virtual machine services.
+A private network VPC (Virtual Private Cloud) is a logically isolated Layer 2 network broadcast domain environment belonging to users. Within a VPC, users can build and manage multiple three-layer networks, namely subnets, including network topology, IP network segments, IP addresses, gateways, and other virtual resources as network communication carriers for tenant virtual machine services.
 
 VPC is the core of the virtualized network, providing internal network services for cloud platform virtual machines, including network broadcast domains, subnets (IP network segments), IP addresses, etc., which are the foundation of all NFV virtual network functions. A VPC is a container of subnets, which are absolutely isolated between different VPCs to ensure network isolation and security.
 
@@ -27,7 +27,8 @@ A VPC network consists of VPC CIDR blocks and subnets, as shown in the following
 ![1](/assets/images/product-functional-architecture-10.jpg)
 
 (1) VPC CIDR block
-The CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see CIDR. To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR blocks supported by platform VPC by default:
+
+The CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR blocks supported by platform VPC by default:
 
 | Network segment  | Mask range | IP address range |
 | --- | --- | --- |
@@ -35,10 +36,12 @@ The CIDR block to which the VPC network belongs is used as the private CIDR bloc
 | 172.16.0.0/16 | 16 ~ 29 | 172.16.0.0 - 172.16.255.255 |
 | 192.168.0.0/16 | 16 ~ 29 | 192.168.0.0 - 192.168.255.255 |
 
-Because DHCP and related services need to occupy IP addresses, the CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
+Because DHCP (Dynamic Host Configuration Protocol) and related services need to occupy IP addresses, the CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
 
 By default, the platform occupies or restricts a certain part of the IP CIDR segment, so the unsupported CIDR blocks include `127.0.0.0/8`, `0.0.0.0/8`, `169.254.0.0/16`, and `169.254.0.0/16`.
+
 (2) Subnet
+
 A subnet is the basic network address space of a VPC that is used for intranet connections between virtual resources.
 - A VPC consists of at least one subnet, and the CIDR of the subnet must be within the CIDR block of the VPC.
 - Subnets in the same VPC are connected through public gateways, and resources can communicate with each other on the private network by default, and virtual machines, load balancing, NAT gateways, and IPSecVPN gateways can be deployed.
@@ -57,7 +60,7 @@ By connecting VPC networks with virtual machines, ENIs, public IP addresses, sec
 - The default external network NIC of a virtual machine (the virtual network card that comes with it when it is created) can be directly bound to multiple external IP addresses for Internet access, and the external IP address connected to the IDC physical network can be bound to realize physical network connection, and the security group can control the north-south traffic of the virtual machine while building a secure and reliable hybrid access environment.
 - The ENI of a virtual machine is added to different VPC networks and subnets to implement refined network management and inexpensive failover solutions, and the security group is bound to the ENI to ensure the security of VPCs and virtual resources in multiple dimensions through security group rules.
 - Virtual machines join the same VPC network as UDB and URedis services to meet the connection scenarios of business applications, databases, and cache services.
-- Virtual machines with the same VPC network can access the Internet or IDC data center network through NAT gateway and public IP connection, share the external IP address, and provide external services through DNAT port mapping.
+- Virtual machines with the same VPC network can access the Internet or IDC data center network through NAT gateway and public IP connection, share the external IP address, and provide external services through DNAT (Destination Network Address Translation) port mapping.
 - Virtual machines from the same VPC network are added to the ULB backend service nodes in the private network to provide load balancing services within the VPC network.
 - Virtual machines with the same VPC network are added to the ULB backend service node of the Internet, and the Internet IP address associated with the ULB is combined to provide the Internet load balancing service.
 - Virtual machines of the same VPC network can be interconnected with virtual machines of different VPC networks on the private network through IPSecVPN Gateway to achieve interconnection between VPCs.

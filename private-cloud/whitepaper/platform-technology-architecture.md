@@ -578,7 +578,7 @@ An elastic network interface that can be attached to virtual machines at any tim
 - Internet IP<br/>
 Internet access for resources such as VMs, load balancing, and NAT gateways. Multi-operator line access is supported and the bandwidth limit of public IP addresses can be adjusted.
 - NAT gateway<br/>
-Enterprise-level VPC gateway, which provides SNAT and DNAT proxies for cloud platform resources, supports both public and physical network address translation capabilities, and supports VPC-level, subnet-level, and instance-level SNAT rules.
+Enterprise-level VPC gateway, which provides SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) proxies for cloud platform resources, supports both public and physical network address translation capabilities, and supports VPC-level, subnet-level, and instance-level SNAT (Source Network Address Translation) rules.
 - Load balancing<br/>
 A control service based on TCP/UDP/HTTP/HTTPS protocol that automatically distributes network access traffic among multiple virtual machines, similar to a hardware load balancer of traditional physical networks. It is used to achieve traffic load and high availability among multiple virtual machines, and provides Layer 4 and Layer 7 monitoring and health check services for internal and external networks.
 - Security groups<br/>

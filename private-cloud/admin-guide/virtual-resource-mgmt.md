@@ -34,7 +34,7 @@ Support administrators to designate tenants to create security groups. The creat
 Support administrators to designate tenants to create load balancing instances for tenants. The instances belong to the designated tenants. Only virtual machine resources that the designated tenants have permission to be added to service nodes are supported. At the same time, administrators are supported to manage all load balancing on the platform, such as VServer and service nodes. , domain name forwarding strategy and SSL certificate management, etc.
 
 ## NAT Gateway Management
-Supports administrators to specify tenants to create NAT gateway instances for tenants. The instances belong to the specified tenants, and only supports adding virtual resources that the specified tenant has permission to SNAT and DNAT rules; at the same time, it supports administrators to manage all NAT gateways on the platform, such as all NAT gateways SNAT and DNAT rule management.
+Supports administrators to specify tenants to create NAT gateway instances for tenants. The instances belong to the specified tenants, and only supports adding virtual resources that the specified tenant has permission to SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) rules; at the same time, it supports administrators to manage all NAT gateways on the platform, such as all NAT gateways SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) rule management.
 
 ## Hard Disk Management
 ### Tenant Cloud Disk Management

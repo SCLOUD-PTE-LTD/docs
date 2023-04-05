@@ -168,7 +168,7 @@ A virtual NIC (Virtual NIC) is a virtual network device that communicates with t
 
 The virtual NIC is implemented based on Virtio, and QEMU provides a set of Tun/Tap emulation devices through APIs to bridge the network of virtual machines to the host NIC and communicate with other virtual networks through OVS.
 - By default, each virtual machine generates two virtual NICs to carry the internal and external network communication of the virtual machine.
-- When the virtual machine starts, a DHCP request is automatically initiated to obtain the private IP address based on the selected VPC subnet, and the network information is configured on a virtual NIC to provide private network access for the virtual machine.
+- When the virtual machine starts, a DHCP (Dynamic Host Configuration Protocol) request is automatically initiated to obtain the private IP address based on the selected VPC subnet, and the network information is configured on a virtual NIC to provide private network access for the virtual machine.
 - After the virtual machine is started, you can apply for a public IP address (external IP) to be bound to the virtual machine to provide Internet access services
   - The bound public IP address automatically configures the public IP information on another virtual NIC to provide external network access for the virtual machine.
   - A virtual machine supports binding 50 public IPv4 and 10 IPv6 addresses.
@@ -359,7 +359,7 @@ The CIDR block to which the VPC network belongs is used as the private CIDR bloc
 | 172.16.0.0/16 | 16 ~ 29 | 172.16.0.0 - 172.16.255.255 |
 | 192.168.0.0/16 | 16 ~ 29 | 192.168.0.0 - 192.168.255.255 |
 
-Because DHCP and related services need to occupy IP addresses, the CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
+Because DHCP (Dynamic Host Configuration Protocol) and related services need to occupy IP addresses, the CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
 
 By default, the platform occupies or restricts a certain part of the IP CIDR segment, so the unsupported CIDR blocks include `127.0.0.0/8`, `0.0.0.0/8`, `169.254.0.0/16`, and `169.254.0.0/16`.
 (2) Subnet
@@ -381,7 +381,7 @@ By connecting VPC networks with virtual machines, ENIs, public IP addresses, sec
 - The default external network NIC of a virtual machine (the virtual network card that comes with it when it is created) can be directly bound to multiple external IP addresses for Internet access, and the external IP address connected to the IDC physical network can be bound to realize physical network connection, and the security group can control the north-south traffic of the virtual machine while building a secure and reliable hybrid access environment.
 - The ENI of a virtual machine is added to different VPC networks and subnets to implement refined network management and inexpensive failover solutions, and the security group is bound to the ENI to ensure the security of VPCs and virtual resources in multiple dimensions through security group rules.
 - Virtual machines join the same VPC network as UDB and URedis services to meet the connection scenarios of business applications, databases, and cache services.
-- Virtual machines with the same VPC network can access the Internet or IDC data center network through NAT gateway and public IP connection, share the external IP address, and provide external services through DNAT port mapping.
+- Virtual machines with the same VPC network can access the Internet or IDC data center network through NAT gateway and public IP connection, share the external IP address, and provide external services through DNAT (Destination Network Address Translation) port mapping.
 - Virtual machines from the same VPC network are added to the ULB backend service nodes in the private network to provide load balancing services within the VPC network.
 - Virtual machines with the same VPC network are added to the ULB backend service node of the Internet, and the Internet IP address associated with the ULB is combined to provide the Internet load balancing service.
 - Virtual machines of the same VPC network can be interconnected with virtual machines of different VPC networks on the private network through IPSecVPN Gateway to achieve interconnection between VPCs.
@@ -464,26 +464,26 @@ Users can apply for EIPs through the platform, and perform operations such as bi
 ## NAT Gateway
 ### Product Overview
 
-NAT Gateway is a VPC gateway similar to NAT network address translation protocol, which provides SNAT and DNAT proxies for cloud platform resources and supports Internet or physical network address translation capabilities. 
+NAT Gateway is a VPC gateway similar to NAT network address translation protocol, which provides SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) proxies for cloud platform resources and supports Internet or physical network address translation capabilities. 
 
-The SNAT and DNAT rules of the platform NAT gateway service implement SNAT forwarding and DNAT port mapping for virtual resources in a VPC, respectively.
+The SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) rules of the platform NAT gateway service implement SNAT (Source Network Address Translation) forwarding and DNAT (Destination Network Address Translation) port mapping for virtual resources in a VPC, respectively.
 
-- SNAT rules: SNAT rules enable SNAT capabilities at the VPC level, subnet level, and virtual resource instance level, so that resources in different dimensions can access the Internet through NAT gateways.
-- DNAT rules: DNAT rules allow you to configure port forwarding based on TCP and UDP protocols to map the private network ports of cloud resources in a VPC to the public IP addresses bound by the NAT gateway to provide services to the Internet or IDC data center networks.
+- SNAT (Source Network Address Translation) rules: SNAT (Source Network Address Translation) rules enable SNAT (Source Network Address Translation) capabilities at the VPC level, subnet level, and virtual resource instance level, so that resources in different dimensions can access the Internet through NAT gateways.
+- DNAT (Destination Network Address Translation) rules: DNAT (Destination Network Address Translation) rules allow you to configure port forwarding based on TCP and UDP protocols to map the private network ports of cloud resources in a VPC to the public IP addresses bound by the NAT gateway to provide services to the Internet or IDC data center networks.
 
-As a virtual network gateway device, you need to bind an Internet IP address as the exit of SNAT rules and DNAT rules for the NAT gateway. NAT gateways have region (data center) attributes and only support SNAT and DNAT forwarding services for VPC virtual resources in the same data center.
+As a virtual network gateway device, you need to bind an Internet IP address as the exit of SNAT (Source Network Address Translation) rules and DNAT (Destination Network Address Translation) rules for the NAT gateway. NAT gateways have region (data center) attributes and only support SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) forwarding services for VPC virtual resources in the same data center.
 
 The network that a virtual machine can access through a NAT gateway depends on the configuration of the CIDR block to which the bound public IP belongs on the physical network. If the bound public IP address can access the physical network of the IDC data center, the virtual machine accesses the physical network of the IDC data center through a NAT gateway.
 
 ### Application scenarios
 When users use virtual machines to deploy application services on the platform, there are scenarios where you can access the external network or access the virtual machine through the external network, usually we bind an external IP address to each virtual machine for communication with the Internet or IDC data center network. In real environments and scenarios, it may not be possible to allocate enough public IP addresses, and even if the public IP addresses are sufficient, there is no need to bind a public IP address to each virtual machine that needs to access the Internet.
 
-- Shared EIP: Allows multiple VPC intranet virtual machines to share one or more external IP addresses to access the Internet or the physical network of an IDC data center through SNAT proxy.
-- Mask real IP addresses: With SNAT proxy, multiple VPC intranet virtual machines use proxy IP addresses to communicate and automatically mask real IP addresses.
-- VPC intranet virtual machines provide Internet services: configure IP and port forwarding through DNAT proxy to provide service services to the Internet or IDC data center networks.
+- Shared EIP: Allows multiple VPC intranet virtual machines to share one or more external IP addresses to access the Internet or the physical network of an IDC data center through SNAT (Source Network Address Translation) proxy.
+- Mask real IP addresses: With SNAT (Source Network Address Translation) proxy, multiple VPC intranet virtual machines use proxy IP addresses to communicate and automatically mask real IP addresses.
+- VPC intranet virtual machines provide Internet services: configure IP and port forwarding through DNAT (Destination Network Address Translation) proxy to provide service services to the Internet or IDC data center networks.
 
 ### Architecture Principles
-The underlying resources of the platform products and services are unified, and the NAT gateway instance is the primary and standby high-availability cluster architecture, which can automatically fail over the NAT gateway and improve the availability of SNAT and DNAT services. At the same time, combined with the public IP address, SNAT and DNAT proxies are provided according to the NAT configuration for tenant virtual resources.
+The underlying resources of the platform products and services are unified, and the NAT gateway instance is the primary and standby high-availability cluster architecture, which can automatically fail over the NAT gateway and improve the availability of SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) services. At the same time, combined with the public IP address, SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) proxies are provided according to the NAT configuration for tenant virtual resources.
 
 At the product level, tenants apply for a NAT gateway, specify the subnets that the NAT gateway can allow communication on, and bind [Internet IP] to enable virtual machines under multiple subnets to communicate with the Internet or the physical network of IDC data centers, as follows:
 
@@ -492,62 +492,62 @@ At the product level, tenants apply for a NAT gateway, specify the subnets that 
 - The platform supports using a NAT gateway for multi-subnet VMs with the same VPC to access the internet or IDC data center network.
 - When a virtual machine in multiple subnets that is not bound to a public IP address is associated with a NAT gateway, the platform automatically issues routes to the Internet in the virtual machine.
 - The virtual machine transmits data accessing the Internet to the bound Internet IP address through the NAT gateway through the routed route.
-- The data transmitted to the external IP address sends packets to the physical switch through the platform OVS and physical NIC to complete the data SNAT communication.
+- The data transmitted to the external IP address sends packets to the physical switch through the platform OVS and physical NIC to complete the data SNAT (Source Network Address Translation) communication.
 - When the external network needs to access virtual machine services in a VPC, you can use NAT gateway port forwarding to enable the Internet or IDC physical network to access VPC intranet services through the IP + port bound to the NAT gateway.
 
 ### Features
-The cloud platform provides highly available NAT gateway services and supports gateway lifecycle management, including multi-public IP addresses, SNAT rules, DNAT port forwarding and monitoring alarms, and provides network and resource isolation security for NAT gateways.
+The cloud platform provides highly available NAT gateway services and supports gateway lifecycle management, including multi-public IP addresses, SNAT (Source Network Address Translation) rules, DNAT (Destination Network Address Translation) port forwarding and monitoring alarms, and provides network and resource isolation security for NAT gateways.
 
-A VPC allows you to create 20 NAT gateways, and SNAT rules in all NAT gateways under the same VPC are not repeatable, that is, SNAT rules in 20 NAT gateways are not allowed. Scenario example:
-- When an SNAT rule for the subnet (`192.168.0.1/24`) is created in NATGW (VPC:`192.168.0.0/16`), NATGW cannot create an SNAT rule with subnet (`192.168.0.1/24`) as the source address in the same VPC, and the subnet rule in NATGW01 can be deleted.
+A VPC allows you to create 20 NAT gateways, and SNAT (Source Network Address Translation) rules in all NAT gateways under the same VPC are not repeatable, that is, SNAT (Source Network Address Translation) rules in 20 NAT gateways are not allowed. Scenario example:
+- When an SNAT (Source Network Address Translation) rule for the subnet (`192.168.0.1/24`) is created in NATGW (VPC:`192.168.0.0/16`), NATGW cannot create an SNAT (Source Network Address Translation) rule with subnet (`192.168.0.1/24`) as the source address in the same VPC, and the subnet rule in NATGW01 can be deleted.
 - When you create a VPC-level rule in NATGW (VPC:`192.168.0.0/16`), you cannot create a VPC-level rule under the same VPC.
-- When you create an SNAT rule for a virtual machine (`192.168.1.2`) in NATGW (VPC:`192.168.0.0/16`), NATGW cannot create an SNAT rule with the source address of the virtual machine (`192.168.1.2`) in the same VPC.
+- When you create an SNAT (Source Network Address Translation) rule for a virtual machine (`192.168.1.2`) in NATGW (VPC:`192.168.0.0/16`), NATGW cannot create an SNAT (Source Network Address Translation) rule with the source address of the virtual machine (`192.168.1.2`) in the same VPC.
 
 #### Multi-public IP support
-NAT gateways support binding multiple public IP addresses to enable resources in SNAT rules to access the Internet through multiple public IP addresses, and virtual resources in DNAT port forwarding rules can access VPC intranet services through specified public IP addresses.
+NAT gateways support binding multiple public IP addresses to enable resources in SNAT (Source Network Address Translation) rules to access the Internet through multiple public IP addresses, and virtual resources in DNAT (Destination Network Address Translation) port forwarding rules can access VPC intranet services through specified public IP addresses.
 
-A NAT gateway supports binding IPv4 public IP addresses of 50 default route types, providing a shared public IP resource pool for virtual resources in the specified subnet of the NAT gateway, providing more flexible and convenient SNAT and DNAT capabilities.
+A NAT gateway supports binding IPv4 public IP addresses of 50 default route types, providing a shared public IP resource pool for virtual resources in the specified subnet of the NAT gateway, providing more flexible and convenient SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) capabilities.
 
-You can view all external IP addresses that have been bound to a NAT gateway, and unbind external IP addresses, after which the associated SNAT rules and DNAT rules will be invalidated. You can modify SNAT and DNAT rules to set new egress IP addresses and ingress source IP addresses, respectively.
+You can view all external IP addresses that have been bound to a NAT gateway, and unbind external IP addresses, after which the associated SNAT (Source Network Address Translation) rules and DNAT (Destination Network Address Translation) rules will be invalidated. You can modify SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) rules to set new egress IP addresses and ingress source IP addresses, respectively.
 
-#### SNAT rules
-NAT gateways support SNAT (Source Network Address Translation) capabilities through SNAT rules, each rule consists of a source address and a destination address, that is, the source address is translated to the destination address for network access. Platform SNAT rules support outbound network scenarios in multiple scenarios, that is, the source address includes three types: VPC, subnet, and virtual machine:
+#### SNAT (Source Network Address Translation) rules
+NAT gateways support SNAT (Source Network Address Translation)  capabilities through SNAT (Source Network Address Translation) rules, each rule consists of a source address and a destination address, that is, the source address is translated to the destination address for network access. Platform SNAT (Source Network Address Translation) rules support outbound network scenarios in multiple scenarios, that is, the source address includes three types: VPC, subnet, and virtual machine:
 
 - VPC level: All virtual machines under the VPC to which the NAT gateway belongs can access the Internet through the NAT gateway.
 - Subnet level: All virtual machines in the specified subnet under the VPC to which the NAT gateway belongs can access the Internet through the NAT gateway.
 - VM Level: Only virtual machines specified in the VPC to which the NAT gateway belongs can access the Internet through the NAT gateway.
 
-The destination address of the rule is the public IP address bound to the NAT gateway, and the source address of the VPC, subnet, and virtual machine can be converted to the external IP of the gateway-bound network for network communication through the rule policy, that is, the virtual machine can communicate with the external network of the platform without binding the external IP of the SNAT rule, such as accessing the IDC data center network or the Internet.
+The destination address of the rule is the public IP address bound to the NAT gateway, and the source address of the VPC, subnet, and virtual machine can be converted to the external IP of the gateway-bound network for network communication through the rule policy, that is, the virtual machine can communicate with the external network of the platform without binding the external IP of the SNAT (Source Network Address Translation) rule, such as accessing the IDC data center network or the Internet.
 
-The rule priority of different source address types in SNAT rules is different, and the rule with the highest priority prevails:
+The rule priority of different source address types in SNAT (Source Network Address Translation) rules is different, and the rule with the highest priority prevails:
 
 (1) The source address is VPC
 - All virtual machines in the VPC to which the NAT gateway belongs can access the Internet through the NAT gateway.
-- A NAT gateway allows only one SNAT rule with a source address of ALL.
+- A NAT gateway allows only one SNAT (Source Network Address Translation) rule with a source address of ALL.
 - Rules with a source address of ALL have the lowest priority, and when no precise rule is matched, the rule with a source address of ALL accesses the Internet.
 
 (2) The source address is the subnet CIDR
-- Virtual machines under the subnet can access the Internet through a NAT gateway, and the SNAT rule of the subnet takes precedence over the rule with a source address of ALL.
-- Only one SNAT rule can be created per subnet, and duplicates are not allowed.
-- You can configure SNAT rules separately for virtual machines under a subnet, with a higher priority than SNAT rules with a source address of the subnet.
+- Virtual machines under the subnet can access the Internet through a NAT gateway, and the SNAT (Source Network Address Translation) rule of the subnet takes precedence over the rule with a source address of ALL.
+- Only one SNAT (Source Network Address Translation) rule can be created per subnet, and duplicates are not allowed.
+- You can configure SNAT (Source Network Address Translation) rules separately for virtual machines under a subnet, with a higher priority than SNAT (Source Network Address Translation) rules with a source address of the subnet.
 
 (3) The source address is the IP address of the virtual machine
 - Virtual machines can access the Internet through a NAT gateway.
-- Only one SNAT rule can be created per virtual machine IP, and duplicates are not allowed.
-- SNAT rules with a source address of the virtual machine IP take precedence over SNAT rules with a source address of ALL and Subnet.
+- Only one SNAT (Source Network Address Translation) rule can be created per virtual machine IP, and duplicates are not allowed.
+- SNAT (Source Network Address Translation) rules with a source address of the virtual machine IP take precedence over SNAT (Source Network Address Translation) rules with a source address of ALL and Subnet.
 
-The destination address of an SNAT rule can be one or more public IP addresses bound to the NAT gateway, and when the destination public IP address is ALL, the source address resource randomly selects an IP from all public IP pools on the gateway to access the Internet.
+The destination address of an SNAT (Source Network Address Translation) rule can be one or more public IP addresses bound to the NAT gateway, and when the destination public IP address is ALL, the source address resource randomly selects an IP from all public IP pools on the gateway to access the Internet.
 
-By default, a NAT gateway can create 100 SNAT rules.
+By default, a NAT gateway can create 100 SNAT (Source Network Address Translation) rules.
 
-After you configure SNAT rules, NAT Gateway automatically routes default routes to VMs with matching source addresses, enabling VMs to access the Internet through the external IP addresses of SNAT rules. The specific communication logic is as follows:
+After you configure SNAT (Source Network Address Translation) rules, NAT Gateway automatically routes default routes to VMs with matching source addresses, enabling VMs to access the Internet through the external IP addresses of SNAT (Source Network Address Translation) rules. The specific communication logic is as follows:
 - If the virtual machine is not bound to an IPv4 public IP address, it accesses the Internet through a NAT gateway by default.
 - If the virtual machine is bound to an IPv4 public IP address and a default network egress exists, the virtual machine's default network egress accesses the external network.
 - If the virtual machine is bound to an IPv4 public IP address and has no default network egress, it accesses the Internet through a NAT gateway.
 
-When a virtual machine accesses the Internet through a NAT gateway, the external IP address used depends on the SNAT rule configuration.
+When a virtual machine accesses the Internet through a NAT gateway, the external IP address used depends on the SNAT (Source Network Address Translation) rule configuration.
 
-#### DNAT Rules
+#### DNAT (Destination Network Address Translation) Rules
 NAT gateway supports DNAT (Destination Network Address Translation), also known as port forwarding or port mapping, which translates an external IP address into an IP address of a VPC subnet to provide network services.
 - It supports port forwarding for TCP and UDP protocols, and supports lifecycle management of port forwarding rules.
 - Supports batch multi-port forwarding rule configuration, that is, port segments are mapped, such as TCP:1024~TCP:1030.
@@ -559,7 +559,7 @@ The platform supports the collection and display of NAT gateway monitoring data,
 You can view the monitoring data of a NAT gateway in multiple time dimensions, including 1-hour, 6-hour, 12-hour, 1-day, 7-day, 15-day, and custom time monitoring data. The default query count is 1 hour of data, and you can view up to 1 month of monitoring data.
 
 #### NAT gateway is highly available
-NAT gateway instances support a highly available architecture, that is, at least two virtual machine instances are built, and hot standby is supported. When an instance of a NAT gateway fails, you can automatically switch to another virtual machine instance online to ensure the normal operation of the NAT agent. At the same time, based on the drift characteristics of external IP addresses, it supports the availability of SNAT gateway egress and DNAT ingress when the physical machine is down.
+NAT gateway instances support a highly available architecture, that is, at least two virtual machine instances are built, and hot standby is supported. When an instance of a NAT gateway fails, you can automatically switch to another virtual machine instance online to ensure the normal operation of the NAT agent. At the same time, based on the drift characteristics of external IP addresses, it supports the availability of SNAT (Source Network Address Translation) gateway egress and DNAT (Destination Network Address Translation) ingress when the physical machine is down.
 
 ### NAT Gateway Security
 The network access control of the NAT gateway can be associated with a security group to provide security, and the inbound traffic and outbound traffic to the external IP address bound to the NAT gateway can be controlled through the rules of the security group, and the filtering and control of TCP, UDP, ICMP, GRE and other protocol packets can be supported.
