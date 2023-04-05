@@ -19,7 +19,7 @@ Virtual resources such as virtual machines, load balancers, ENIs, and NAT gatewa
 
 You can use IPSecVPN, leased line, and external IP access to form a customized hybrid cloud network environment with other cloud platforms or IDC data centers through IPSecVPN, leased line, and external IP access.
 
-VPC networks have data center attributes, each VPC VPC belongs to only one data center, and resources and networks are completely isolated between data centers, and resources are not connected to the internal network by default. By default, the intra-tenant and inter-tenant VPC networks are not connected, ensuring the isolation of tenant networks and resources from different dimensions.
+VPC networks have data center attributes, each VPC belongs to only one data center, and resources and networks are completely isolated between data centers, and resources are not connected to the internal network by default. By default, the intra-tenant and inter-tenant VPC networks are not connected, ensuring the isolation of tenant networks and resources from different dimensions.
 
 ### VPC Logical Structure
 A VPC network consists of VPC CIDR blocks and subnets, as shown in the following figure:
@@ -27,7 +27,7 @@ A VPC network consists of VPC CIDR blocks and subnets, as shown in the following
 ![1](/assets/images/product-functional-architecture-10.jpg)
 
 (1) VPC CIDR block
-The CIDR CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see CIDR. To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR CIDR blocks supported by platform VPC by default:
+The CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see CIDR. To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR blocks supported by platform VPC by default:
 
 | Network segment  | Mask range | IP address range |
 | --- | --- | --- |
@@ -35,18 +35,18 @@ The CIDR CIDR block to which the VPC network belongs is used as the private CIDR
 | 172.16.0.0/16 | 16 ~ 29 | 172.16.0.0 - 172.16.255.255 |
 | 192.168.0.0/16 | 16 ~ 29 | 192.168.0.0 - 192.168.255.255 |
 
-Because DHCP and related services need to occupy IP addresses, the CIDR CIDR CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
+Because DHCP and related services need to occupy IP addresses, the CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
 
 By default, the platform occupies or restricts a certain part of the IP CIDR segment, so the unsupported CIDR blocks include `127.0.0.0/8`, `0.0.0.0/8`, `169.254.0.0/16`, and `169.254.0.0/16`.
 (2) Subnet
-A subnet is the basic network address space of a VPC VPC that is used for intranet connections between virtual resources.
-- A VPC consists of at least one subnet, and the CIDR of the subnet must be within the CIDR CIDR block of the VPC.
+A subnet is the basic network address space of a VPC that is used for intranet connections between virtual resources.
+- A VPC consists of at least one subnet, and the CIDR of the subnet must be within the CIDR block of the VPC.
 - Subnets in the same VPC are connected through public gateways, and resources can communicate with each other on the private network by default, and virtual machines, load balancing, NAT gateways, and IPSecVPN gateways can be deployed.
 - By default, subnets in the same VPC communicate through a public gateway.
-- The minimum number of CIDR CIDR blocks in subnets is 29 bits, and subnet CIDR blocks with 30 and 32-bit masks are not supported.
+- The minimum number of CIDR blocks in subnets is 29 bits, and subnet CIDR blocks with `30` and `32-bit` masks are not supported.
 - In each subnet, the gateway address that uses the first available IP address as the gateway, such as `192.168.1.0/24, is 192.168.1.1`.
 
-When virtual resources exist in a subnet, deleting and destroying VPC and subnet resources is not allowed.
+*When virtual resources exist in a subnet, deleting and destroying VPC and subnet resources is not allowed.*
 
 ### VPC Connections
 By connecting VPC networks with virtual machines, ENIs, public IP addresses, security groups, NAT gateways, load balancers, VPN gateways, MySQL databases, Redis caches, and leased lines, the platform can quickly build and configure complex network environments and hybrid cloud scenarios, as shown in the following figure:
@@ -85,7 +85,7 @@ While ensuring network isolation, network scale, network communication, and secu
 VPC networks have data center attributes and only support specifying virtual resources from the same data center into a VPC network, and the subnet block of each VPC network must be in the CIDR segment of the VPC network. The platform provides default VPC network and subnet resources for each tenant and sub-account through the VPC network configured by the administrator, which is convenient for users to log in to the cloud platform to quickly deploy services.
 
 ## Create a VPC
-You can specify the VPC name and CIDR CIDR block to add a VPC network with one click to set up network environments for different services. If a VPC network block is created, you must plan the network in advance, such as planning the service IP CIDR block and IP address.
+You can specify the VPC name and CIDR block to add a VPC network with one click to set up network environments for different services. If a VPC network block is created, you must plan the network in advance, such as planning the service IP CIDR block and IP address.
 
 Go to the VPC Network resource list page in the navigation bar to create a VPC network, as shown in the following figure:
 
@@ -104,8 +104,8 @@ On the VPC Network List page, you can view the list and related information of V
 
 ![1](/assets/images/user-guide/user-guide-53.png)
 
-- Name/ID: The name and globally unique identifier of the VPC VPC.
-- CIDR block information: CIDR CIDR block information specified when the current VPC network is created.
+- Name/ID: The name and globally unique identifier of the VPC.
+- CIDR block information: CIDR block information specified when the current VPC network is created.
 - Number of subnets: The number of subnets included in the current VPC network;
 - Status: The status of the current VPC network, which is generally active;
 - Creation time: The creation time of the current VPC network resource;
@@ -129,7 +129,7 @@ The VPC Details page displays the list of subnet resources created in the curren
 The action item on the subnet list is that you can delete a single subnet, and only subnet resources that are not used by the resource can be deleted. To facilitate tenants' maintenance of subnet resources, the platform supports batch deletion of subnets.
 
 ## Modifying the Name and Remarks
-Modify the name and comment of the VPC VPC to perform operations in any state. You can modify it through the Edit button to the right of each VPC name on the VPC VPC list page.
+Modify the name and comment of the VPC to perform operations in any state. You can modify it through the Edit button to the right of each VPC name on the VPC list page.
 
 ## Delete VPC
 Allows users to delete and release VPC networks that are not occupied by any resources with IP addresses. After the VPC network is deleted, it is completely destroyed, and you must ensure that the resources created by the VPC network have been emptied before deletion. The delete operation is shown in the following figure:
@@ -137,14 +137,14 @@ Allows users to delete and release VPC networks that are not occupied by any res
 ![1](/assets/images/user-guide/user-guide-55.png)
 
 ## Adding Subnets
-Adding subnets refers to adding subnets to a VPC network, that is, three-layer networks, which are used to form private CIDR blocks belonging to users' services, and each CIDR block is an independent broadcast domain. The CIDR CIDR block of a subnet must be within the CIDR CIDR block of the VPC, and resources in the same subnet must be interconnected by default, and all subnets in the same VPC must be interconnected by default.
+Adding subnets refers to adding subnets to a VPC network, that is, three-layer networks, which are used to form private CIDR blocks belonging to users' services, and each CIDR block is an independent broadcast domain. The CIDR block of a subnet must be within the CIDR block of the VPC, and resources in the same subnet must be interconnected by default, and all subnets in the same VPC must be interconnected by default.
 
-You can specify the subnet name, subnet CIDR CIDR block, and add one or more subnets to a VPC network to build different service networks on the internal network. Before creating a subnet, you must ensure that there are sufficient IP CIDRs in the CIDR of the VPC network, and you can enter the creation wizard page by using Create Subnet in the subnet list on the VPC network details page, as shown in the following figure:
+You can specify the subnet name, subnet CIDR block, and add one or more subnets to a VPC network to build different service networks on the internal network. Before creating a subnet, you must ensure that there are sufficient IP CIDRs in the CIDR of the VPC network, and you can enter the creation wizard page by using Create Subnet in the subnet list on the VPC network details page, as shown in the following figure:
 
 ![1](/assets/images/user-guide/user-guide-56.png)
 
 - Name/Description: The name and description of the subnet that needs to be created;
-- Subnet CIDR block: The CIDR CIDR block of the subnet that needs to be created, which must be within the CIDR CIDR CIDR block of the VPC, which can be the same as the CIDR CIDR CIDR CIDR block of the VPC, which means that the subnet includes all network IP addresses under the VPC.
+- Subnet CIDR block: The CIDR block of the subnet that needs to be created, which must be within the CIDR block of the VPC, which can be the same as the CIDR block of the VPC, which means that the subnet includes all network IP addresses under the VPC.
 
 When the subnet is created, the status is "Creating", and after the subnet is created, the status of the subnet changes to "Valid" and can be used for resource creation.
 

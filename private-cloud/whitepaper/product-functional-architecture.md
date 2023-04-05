@@ -343,7 +343,7 @@ Virtual resources such as virtual machines, load balancers, ENIs, and NAT gatewa
 
 You can use IPSecVPN, leased line, and external IP access to form a customized hybrid cloud network environment with other cloud platforms or IDC data centers through IPSecVPN, leased line, and external IP access.
 
-VPC networks have data center attributes, each VPC VPC belongs to only one data center, and resources and networks are completely isolated between data centers, and resources are not connected to the internal network by default. By default, the intra-tenant and inter-tenant VPC networks are not connected, ensuring the isolation of tenant networks and resources from different dimensions.
+VPC networks have data center attributes, each VPC belongs to only one data center, and resources and networks are completely isolated between data centers, and resources are not connected to the internal network by default. By default, the intra-tenant and inter-tenant VPC networks are not connected, ensuring the isolation of tenant networks and resources from different dimensions.
 
 ### VPC Logical Structure
 A VPC network consists of VPC CIDR blocks and subnets, as shown in the following figure:
@@ -351,7 +351,7 @@ A VPC network consists of VPC CIDR blocks and subnets, as shown in the following
 ![1](/assets/images/product-functional-architecture-10.jpg)
 
 (1) VPC CIDR block
-The CIDR CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see CIDR. To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR CIDR blocks supported by platform VPC by default:
+The CIDR block to which the VPC network belongs is used as the private CIDR block of the VPC isolated network. For more information about CIDR, see CIDR. To create a VPC network, you need to specify a private CIDR block, and the platform administrator can customize the CIDR block of the VPC through the management console, so that the virtual resources of the tenant communicate only using the IP address of the administrator-defined CIDR block. The following table lists the CIDR blocks supported by platform VPC by default:
 
 | Network segment  | Mask range | IP address range |
 | --- | --- | --- |
@@ -359,15 +359,15 @@ The CIDR CIDR block to which the VPC network belongs is used as the private CIDR
 | 172.16.0.0/16 | 16 ~ 29 | 172.16.0.0 - 172.16.255.255 |
 | 192.168.0.0/16 | 16 ~ 29 | 192.168.0.0 - 192.168.255.255 |
 
-Because DHCP and related services need to occupy IP addresses, the CIDR CIDR CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
+Because DHCP and related services need to occupy IP addresses, the CIDR block of a VPC does not support a private CIDR block with a 30-bit mask.
 
 By default, the platform occupies or restricts a certain part of the IP CIDR segment, so the unsupported CIDR blocks include `127.0.0.0/8`, `0.0.0.0/8`, `169.254.0.0/16`, and `169.254.0.0/16`.
 (2) Subnet
-A subnet is the basic network address space of a VPC VPC that is used for intranet connections between virtual resources.
-- A VPC consists of at least one subnet, and the CIDR of the subnet must be within the CIDR CIDR block of the VPC.
+A subnet is the basic network address space of a VPC that is used for intranet connections between virtual resources.
+- A VPC consists of at least one subnet, and the CIDR of the subnet must be within the CIDR block of the VPC.
 - Subnets in the same VPC are connected through public gateways, and resources can communicate with each other on the private network by default, and virtual machines, load balancing, NAT gateways, and IPSecVPN gateways can be deployed.
 - By default, subnets in the same VPC communicate through a public gateway.
-- The minimum number of CIDR CIDR blocks in subnets is 29 bits, and subnet CIDR blocks with 30 and 32-bit masks are not supported.
+- The minimum number of CIDR blocks in subnets is 29 bits, and subnet CIDR blocks with 30 and 32-bit masks are not supported.
 - In each subnet, the gateway address that uses the first available IP address as the gateway, such as `192.168.1.0/24, is 192.168.1.1`.
 
 When virtual resources exist in a subnet, deleting and destroying VPC and subnet resources is not allowed.
@@ -589,14 +589,14 @@ It supports two types of access ingress, both internal and external, and provide
 ULB supports collecting and displaying monitoring data of various network metrics of load traffic, and can monitor, alarm, and notify according to alarm templates to ensure the normal operation of services. At present, ULB provides NAT proxy-based request distribution for the incoming virtual machine service pool, and in NAT proxy mode, all service requests and return data must go through ULB, similar to LVS's NAT working mode.
 
 ### Application scenarios
-The platform provides two types of load balancing services: external network and intranet, corresponding to two scenarios: external network service and intranet service, respectively. You can choose to create a Load Balancing instance that is public or private to the outside or internally, and the platform assigns the IP address of the external network or the IP address of the VPC VPC according to the type of Load Balancing, that is, the service access address of Load Balancing.
+The platform provides two types of load balancing services: external network and intranet, corresponding to two scenarios: external network service and intranet service, respectively. You can choose to create a Load Balancing instance that is public or private to the outside or internally, and the platform assigns the IP address of the external network or the IP address of the VPC according to the type of Load Balancing, that is, the service access address of Load Balancing.
 
 - Usage scenarios of Internet load balancer:
   - Business services deployed on the platform need to build a cluster of highly available virtual machines and provide a unified access to the Internet.
   - Business services deployed on the platform need to build clusters of highly available virtual machines and provide unified access to IDC data centers.
 - Intranet Load Balancing usage scenarios:
   - Service services deployed on the platform need to build a cluster of highly available virtual machines and only need to provide unified access to the VPC intranet.
-  - Virtual machine clusters deployed in VPC VPCs need to mask the real IP addresses of other users or services and provide transparent services to clients.
+  - Virtual machine clusters deployed in VPCs need to mask the real IP addresses of other users or services and provide transparent services to clients.
 
 You can also bind the IP address assigned by Load Balancing with your own domain name to access backend App Service through the domain name.
 
@@ -687,7 +687,7 @@ The platform-side VPC network establishes an egress gateway for IPsecVPN connect
 - Peer gateway <br/>
 The public IP address of the IPsecVPN gateway running on the external network, that is, the IP address of the gateway that is tunneled to the VPN gateway of the private cloud platform, and the gateway address that supports NAT forwarding.
 - VPN tunnel <br/>
-Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC VPC and the external VPC.
+Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC and the external VPC.
 
 A VPN gateway has and must be associated with one VPC network and one public IP address, which corresponds to the peer gateway and connects through the VPN tunnel. IPsecVPN supports point-to-multipoint connectivity, which enables VPN gateways and peer gateways to have one-to-one or one-to-many connections, that is, a VPN gateway can tunnel with multiple peer gateways at the same time. VPN tunnels allow encrypted communication between multiple VPC subnets of the platform and multiple CIDR blocks of the peer network through the tunnel, and the CIDR blocks of the platform VPC subnet cannot overlap with the network of the peer network (the overlap of the local and peer subnets will affect the normal communication of the network).
 
@@ -756,7 +756,7 @@ VPN gateway: The VPN gateway attached to the VPN tunnel, that is, the VPN gatewa
 - Lifetime: The time-to-live of the second-stage SA, after which the SA is renegotiated, such as 86400 seconds.
 
 ### Application scenarios
-VPN Gateway IPsecVPN service is an Internet-based network connection service that enables secure and reliable connection between enterprise data centers, office networks and platform VPC VPCs through IPsec secure encrypted tunnels, and users can also use VPN gateways to establish encrypted intranet connections between VPCs. The gateway service is a high-availability architecture that can be tolerated, supports users to select multiple encryption and authentication algorithms, and provides VPN connection health detection and connection logs, which can meet different application scenarios.
+VPN Gateway IPsecVPN service is an Internet-based network connection service that enables secure and reliable connection between enterprise data centers, office networks and platform VPCs through IPsec secure encrypted tunnels, and users can also use VPN gateways to establish encrypted intranet connections between VPCs. The gateway service is a high-availability architecture that can be tolerated, supports users to select multiple encryption and authentication algorithms, and provides VPN connection health detection and connection logs, which can meet different application scenarios.
 - VPC connection to on-premises data center: IPsecVPN service connects private network hosts in on-premises data centers with virtual resources of VPC networks to build a hybrid cloud service model.
 - VPC to public cloud VPC connection: Connect the virtual resources of third-party public cloud VPC private network and private cloud VPC network through IPsecVPN service to build a multi-cloud hybrid service model.
 - Connection of VPC to third-party private private network: Connect the VPC private network of the third-party private cloud with the virtual resources of the SCloudStack VPC network through IPsecVPN to build a multi-cloud hybrid service model.

@@ -254,8 +254,8 @@ You can use SNAT Rules on the NAT gateway details page to view the list and info
 - Resource ID: The globally unique identifier for the SNAT rule that was added.
 - Source Address Type: refers to the source address type of the current SNAT rule, such as subnet level and virtual machine level.
 - Source address: The CIDR or IP address of the source address resource that currently refers to the SNAT rule:
-  - If the source address type is VPC, the source address is the CIDR CIDR block and name of the VPC.
-  - If the source address type is Subnet, the source address is the CIDR CIDR block and name of the specified subnet;
+  - If the source address type is VPC, the source address is the CIDR block and name of the VPC.
+  - If the source address type is Subnet, the source address is the CIDR block and name of the specified subnet;
   - If the source address type is Virtual Machine, the source address is the specified virtual machine private IP address and name.
 - External IP: The target public IP address of the current SNAT rule, if the External IP address is ALL, the destination egress of the current SNAT rule is all the public IP addresses bound to the current gateway.
 - Status: refers to the status of the current SNAT rule, including Creating, Active, and Deleted.

@@ -30,7 +30,7 @@ The platform-side VPC network establishes an egress gateway for IPSecVPN connect
 - Peer gateway <br/>
 The public IP address of the IPSecVPN gateway running on the external network, that is, the IP address of the gateway that is tunneled to the VPN gateway of the private cloud platform, and the gateway address that supports NAT forwarding.
 - VPN tunnel <br/>
-Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC VPC and the external VPC.
+Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC and the external VPC.
 
 A VPN gateway has and must be associated with one VPC network and one public IP address, which corresponds to the peer gateway and connects through the VPN tunnel. IPSecVPN supports point-to-multipoint connectivity, which enables VPN gateways and peer gateways to have one-to-one or one-to-many connections, that is, a VPN gateway can tunnel with multiple peer gateways at the same time. VPN tunnels allow encrypted communication between multiple VPC subnets of the platform and multiple CIDR blocks of the peer network through the tunnel, and the CIDR blocks of the platform VPC subnet cannot overlap with the network of the peer network (the overlap of the local and peer subnets will affect the normal communication of the network).
 
@@ -99,7 +99,7 @@ VPN gateway: The VPN gateway attached to the VPN tunnel, that is, the VPN gatewa
 - Lifetime: The time-to-live of the second-stage SA, after which the SA is renegotiated, such as 86400 seconds.
 
 ### Application scenarios
-VPN Gateway IPSecVPN service is an Internet-based network connection service that enables secure and reliable connection between enterprise data centers, office networks and platform VPC VPCs through IPSec secure encrypted tunnels, and users can also use VPN gateways to establish encrypted intranet connections between VPCs. The gateway service is a high-availability architecture that can be tolerated, supports users to select multiple encryption and authentication algorithms, and provides VPN connection health detection and connection logs, which can meet different application scenarios.
+VPN Gateway IPSecVPN service is an Internet-based network connection service that enables secure and reliable connection between enterprise data centers, office networks and platform VPCs through IPSec secure encrypted tunnels, and users can also use VPN gateways to establish encrypted intranet connections between VPCs. The gateway service is a high-availability architecture that can be tolerated, supports users to select multiple encryption and authentication algorithms, and provides VPN connection health detection and connection logs, which can meet different application scenarios.
 - VPC connection to on-premises data center: IPSecVPN service connects private network hosts in on-premises data centers with virtual resources of VPC networks to build a hybrid cloud service model.
 - VPC to public cloud VPC connection: Connect the virtual resources of third-party public cloud VPC private network and private cloud VPC network through IPSecVPN service to build a multi-cloud hybrid service model.
 - Connection of VPC to third-party private private network: Connect the VPC private network of the third-party private cloud with the virtual resources of the SCloudStack VPC network through IPSecVPN to build a multi-cloud hybrid service model.
@@ -112,7 +112,7 @@ Before using the VPN gateway IPSec service, you need to clarify the scenario and
 - The tenant creates a peer gateway based on the IP address of the peer gateway.
 - Tenants deploy IPSec VPN tunnels based on their needs by specifying VPN tunnel basic parameters, pre-shared keys, IKE policies, and IPSec policies.
 - The user configures the VPN for the remote gateway device with consistent VPN tunnel parameters. (Remote gateway device refers to the VPN routing device of the IDC data center, the VPN gateway different from the local VPC, or the VPN gateway of a third-party cloud platform.)
-- Configure routes that require communication hosts in VPC VPC according to your needs, and you do not need to configure routes if routes can be automatically delivered.
+- Configure routes that require communication hosts in VPC according to your needs, and you do not need to configure routes if routes can be automatically delivered.
 - Test network connectivity, such as virtual machines in the local VPC subnet ping IP addresses in the remote VPC network to verify that the communication is normal.
 
 Typically, the IKE protocol uses UDP's ports 500 and 4500 for communication, and IPSec's AH and ESP protocols use protocols 51 or 50 to work, respectively, so in order to ensure the normal operation of IKE and IPSec, you need to ensure that the gateway device or firewall applying IKE and IPSec configuration has opened traffic to the above ports and protocols.
@@ -225,7 +225,7 @@ You can delete unwanted peer gateway instances through the console or API, only 
 After the peer gateway is deleted, it is directly destroyed, so make sure that the peer gateway has no traffic access requests before deletion, otherwise the service access may be affected.
 
 ## VPN tunnels
-Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC VPC and the external VPC, and a maximum of 20 VPN tunnels can be created for a single VPN gateway or peer gateway. When you use a VPN tunnel to connect to a remote gateway, you need to have some prerequisites:
+Connect the encrypted tunnel of the VPN gateway and the peer gateway, and combine the corresponding encryption authentication algorithms and policies to establish a tunnel connection for encrypted communication between the VPC and the external VPC, and a maximum of 20 VPN tunnels can be created for a single VPN gateway or peer gateway. When you use a VPN tunnel to connect to a remote gateway, you need to have some prerequisites:
 
 - The gateway device of the remote data center or cloud platform needs to support the IKEv1 and IKEv2 versions of the protocol, such as Huawei, H3C, Shanshi, Shengfu, Cisco ASA, Juniper and other brands of routers or firewall settings, or IPSecVPN servers built using Linux systems.
 - The remote data center, cloud gateway, or IPSecVPN server must be configured with a fixed or SNAT-translated public IP address.

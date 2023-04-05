@@ -63,7 +63,7 @@ Configure network-related settings, including VPC networks, subnets, private IP 
 
  ![1](/assets/images/user-guide/user-guide-5.png)
 
-- A VPC network is a logically isolated, Layer 2 network broadcast domain environment that belongs to users. Within a VPC network, users can build and manage multiple three-layer networks, namely subnets, VPC VPCs are containers of subnets, and the networks between different VPCs are absolutely isolated.
+- A VPC network is a logically isolated, Layer 2 network broadcast domain environment that belongs to users. Within a VPC network, users can build and manage multiple three-layer networks, namely subnets, VPCs are containers of subnets, and the networks between different VPCs are absolutely isolated.
   - When you create a virtual machine, you must select the VPC network and subnet, that is, select the network and IP block to be joined by the virtual machine.
   - The console calculates the number of available IPs for the selected subnet for the user, and you need to specify a subnet with a sufficient number of available IPs when creating it;
   - By default, the platform automatically assigns an IP address to the virtual machine from the CIDR segment of the subnet to which it belongs, and you can manually specify the IP address of the virtual machine through the Private IP option.

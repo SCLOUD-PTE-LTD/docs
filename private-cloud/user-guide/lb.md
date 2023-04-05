@@ -17,14 +17,14 @@ It supports two types of access ingress, both internal and external, and provide
 ULB supports collecting and displaying monitoring data of various network metrics of load traffic, and can monitor, alarm, and notify according to alarm templates to ensure the normal operation of services. At present, ULB provides NAT proxy-based request distribution for the incoming virtual machine service pool, and in NAT proxy mode, all service requests and return data must go through ULB, similar to LVS's NAT working mode.
 
 ### Application scenarios
-The platform provides two types of load balancing services: external network and intranet, corresponding to two scenarios: external network service and intranet service, respectively. You can choose to create a Load Balancing instance that is public or private to the outside or internally, and the platform assigns the IP address of the external network or the IP address of the VPC VPC according to the type of Load Balancing, that is, the service access address of Load Balancing.
+The platform provides two types of load balancing services: external network and intranet, corresponding to two scenarios: external network service and intranet service, respectively. You can choose to create a Load Balancing instance that is public or private to the outside or internally, and the platform assigns the IP address of the external network or the IP address of the VPC according to the type of Load Balancing, that is, the service access address of Load Balancing.
 
 - Usage scenarios of Internet load balancer:
   - Business services deployed on the platform need to build a cluster of highly available virtual machines and provide a unified access to the Internet.
   - Business services deployed on the platform need to build clusters of highly available virtual machines and provide unified access to IDC data centers.
 - Intranet Load Balancing usage scenarios:
   - Service services deployed on the platform need to build a cluster of highly available virtual machines and only need to provide unified access to the VPC intranet.
-  - Virtual machine clusters deployed in VPC VPCs need to mask the real IP addresses of other users or services and provide transparent services to clients.
+  - Virtual machine clusters deployed in VPCs need to mask the real IP addresses of other users or services and provide transparent services to clients.
 
 You can also bind the IP address assigned by Load Balancing with your own domain name to access backend App Service through the domain name.
 
