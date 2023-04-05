@@ -19,7 +19,7 @@ In the private cloud platform, platform administrators are allowed to customize 
 ![1](/assets/images/SCloudStack_Network_Topology.jpg)
 
 As shown in the schematic diagram of the physical architecture above, all computing nodes need to connect the network cable to the external network access switch of the physical network, and configure the network access mode of the connected port on the physical network interactive machine to allow transparent transmission of Vlan, so that the running on the computing node The virtual machine can directly communicate with the external network through the physical network card of the external network:
-- If you want to access the Internet through the external network IP, you need to configure the custom external network IP network segment on the physical network device to be able to pass through or NAT to the Internet;
+- If you want to access the Internet through the external network IP, you need to configure the custom external network IP network segment on the physical network device to be directly connect or NAT to the Internet;
 - To access the physical network of the IDC data center through the external network IP, it is necessary to configure the customized external network IP network segment on the physical network device to communicate with the IDC data center network, such as the same Vlan or communication between VLANs, etc.
 
 The physical network architecture is a high-availability schematic diagram, and the actual production environment architecture can be adjusted. For example, the internal and external network access switches can be merged into a group of high-availability access switches, and the internal and external networks can be distinguished through different Vlans.
