@@ -9,13 +9,13 @@ nav_order: 1
 # Product Introduction
 ## Product Overview
 
-SCloudStack private cloud platform provides unified management, resource scheduling, monitoring logs and operation and maintenance of core services such as virtualization, SDN network, distributed storage, container and security. A complete set of cloud resource management capabilities to facilitate the digital transformation of government and enterprises.
+The SCloudStack private cloud platform provides a complete set of cloud resource management capabilities such as unified management of core services such as virtualization, SDN network, distributed storage, containers, and security, resource scheduling, monitoring logs, and operation and maintenance, helping government and enterprise digital transformation.
 
 ![1](/assets/images/scloud-stack.png)
 
-Based on the SCloud public cloud infrastructure, the platform reuses the core and core virtualization components, and privatizes the public cloud architecture. It has the characteristics of independent controllability, stability and reliability, continuous evolution, and open compatibility. The console or APIs can quickly build resources and services, support seamless connection with the public cloud, flexibly call public cloud capabilities, and help governments and enterprises quickly build a safe and reliable business architecture.
+Based on the SCloud public cloud infrastructure, the platform reuses the core and core virtualization components, and privatizes the public cloud architecture. It has the characteristics of independent controllability, stability, reliability, continuous evolution, and open compatibility. It can quickly build resources through the console or APIs and business, support seamless connection with public cloud, flexibly use public cloud capabilities, and help government and enterprises quickly build a safe and reliable business architecture.
 
-SCloudStack is positioned as a lightweight delivery, 3 nodes can build a production environment and can be smoothly expanded, without binding hardware and brands, compatible with X86 and ARM architecture, and provides unified resource scheduling and management, It supports multiple delivery modes of pure software, hyper-converged all-in-one machine and all-in-one cabinet, effectively reducing user management and maintenance costs, and providing users with a safe, reliable, self-controllable cloud service platform.
+SCloudStack is positioned as a lightweight delivery, 3 nodes can build a production environment and can be smoothly expanded, without binding hardware and brands, compatible with X86 and ARM architecture, and provides unified resource scheduling and management, supporting pure software and hyper-converged all-in-one machines And a variety of delivery modes for integrated cabinets, effectively reducing user management and maintenance costs, and providing users with a safe, reliable, independent and controllable cloud service platform.
 
 ## Product Architecture
 
