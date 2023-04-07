@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Role-based Labs
+title: Labs
 has_children: true
 parent: Private Cloud
 nav_order: 3

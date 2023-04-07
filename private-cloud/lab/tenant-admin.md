@@ -2,7 +2,7 @@
 layout: default
 title: Tenant Administrator
 has_children: true
-parent: Role-based Labs
+parent: Labs
 nav_order: 1
 ---
 
