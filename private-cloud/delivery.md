@@ -4,7 +4,7 @@ title: Delivery Model
 has_children: false
 parent: Private Cloud
 permalink: /private-cloud/delivery-model
-nav_order: 9
+nav_order: 10
 ---
 
 # Delivery Model

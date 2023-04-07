@@ -4,7 +4,7 @@ title: Technical Characteristics
 has_children: false
 parent: Private Cloud
 permalink: /private-cloud/technical-characteristics
-nav_order: 7
+nav_order: 8
 ---
 
 # Technical Characteristics

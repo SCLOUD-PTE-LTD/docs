@@ -4,7 +4,7 @@ title: Core Functionality
 has_children: false
 parent: Private Cloud
 permalink: /private-cloud/core-functionality
-nav_order: 5
+nav_order: 6
 ---
 
 # Core Functionality
