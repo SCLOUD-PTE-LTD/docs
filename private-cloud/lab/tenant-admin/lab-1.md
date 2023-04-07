@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Lab 1
-parent: Tenant Admin
-grand_parent: Lab
+parent: Tenant Administrator
+grand_parent: Private Cloud
 permalink: /private-account/lab/tenant-admin/lab-1
 nav_order: 1
 ---
