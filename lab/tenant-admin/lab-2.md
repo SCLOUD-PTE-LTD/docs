@@ -23,7 +23,7 @@ Following services will be used in this labs:
 
 Please contact your System Administrator to get your credential.
 ## Guidelines
-Before start, you need to access the SCloudStack console dashboard, if you don't know how to do that, visit this lab: [Lab 1: Getting Started with SCloudStack Console.](lab-1.md)
+Before start, you need to access the SCloudStack console dashboard, if you don't know how to do that, visit *Lab 1: Getting Started with SCloudStack Console.*
 
 ### 1. Create your first VPC
 
@@ -307,10 +307,4 @@ In this lab, we learned following topics:
 - How to create a Debian OS VM and SSH to it?
 - How to request a public IP address using EIP service and bind it to VM.
 - How to secure in-bound/out-bound traffic of a VM using Security Group.
-
-If you want to know more about above service, visit our documents: 
-- [VPC](/private-cloud/user-guide/vpc.md) 
-- [VM](/private-cloud/user-guide/vm.md) 
-- [External IP](/private-cloud/user-guide/eip.md)
-- [Security Group](/private-cloud/user-guide/security-group.md)
 
