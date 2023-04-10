@@ -45,7 +45,6 @@ Step 3: Enter VPC information as below image:
 ![1](/assets/images/labs/lab-9.png)
 
 - VPC Name: my-vpc
-- VPC Remark: Lab 2 VPC
 - VPC Network Segment: `192.168.0.0/16`
 
 Leave other fields as default value and click **Confirm** to create VPC.
@@ -196,15 +195,15 @@ Step 4: Bind the Security group to VM instance (click Bind button in the Securit
 - Bind the `database-server-nsg` to `vm-3` LAN in `subnet-3`.
   ![1](/assets/images/labs/lab-41.png)  
 
-Access to vm-1 via console login again and try to ping to vm-2, vm-3, you will see that now vm-1 can only communicate to vm-2 (web-server) but NOT vm-3 (database-server) as below image: 
+Access to `vm-1` via console login again and try to ping to `vm-2`, `vm-3`, you will see that now `vm-1` can only communicate to `vm-2` (web-server) but NOT `vm-3` (database-server) as below image: 
 
 ![1](/assets/images/labs/lab-42.png)  
 
-Step 5: Access to vm-2 via console login and try to ping vm-3, the result look like below: 
+Step 5: Access to `vm-2` via console login and try to ping `vm-3`, the result look like below: 
 
 ![1](/assets/images/labs/lab-43.png)  
 
-As you can see, even we already apply the security group to allow ping from resources in subnet 2 to vm-3, but the command still fail, does it a bug? No, it because in the vm-2 security group, we only allow inbound traffic from subnet-1 but didn't create any rules for outbound traffics, hence all outbound traffics are denied.
+As you can see, even we already apply the security group to allow ping from resources in `subnet-2` to `vm-3`, but the command still fail, does it a bug? No, it because in the `vm-2` security group, we only allow inbound traffic from `subnet-1` but didn't create any rules for outbound traffics, hence all outbound traffics are denied.
 
 Lets edit the `web-server-nsg`, add 1 more rule as below and try again.
 
@@ -222,7 +221,7 @@ Then click Add security group rules and fill in information as below and click C
 
 Noted that the Direction is `Out` instead of `Enter`.
 
-After the new rule successfully created, get back to the vm-2 console login and try ping vm-3 again, it should work now.
+After the new rule successfully created, get back to the`vm-2` console login and try ping `vm-3` again, it should work now.
 
 ![1](/assets/images/labs/lab-46.png)  
 
