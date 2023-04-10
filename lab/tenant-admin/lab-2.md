@@ -67,7 +67,7 @@ Step 2: Enter Subnet information as below image:
 
 Leave other fields as default value and click **Confirm** to create Subnet.
 
-Step 3: Ensure that VPC created in the Subnet list.
+Step 3: Ensure that Subnet available in the Subnet list.
 
 ![1](/assets/images/labs/lab-13.png)
 
