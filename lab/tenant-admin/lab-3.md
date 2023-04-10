@@ -28,7 +28,7 @@ We want to allow connection from VM1 -> VM2 and VM2 -> VM3 but not the direct co
 
 Please contact your System Administrator to get your credential.
 ## Guidelines
-Before start, you need to access the SCloudStack console dashboard, if you don't know how to do that, visit *Lab 1: Getting Started with SCloudStack Console.*
+Before start, you need to access the SCloudStack console dashboard, if you don't know how to do that, visit [Lab 1: Getting Started with SCloudStack Console](https://docs.scloud.sg/private-account-labs/tenant-admin/lab-1).
 
 ### 1. Create your VPC
 
