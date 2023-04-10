@@ -226,7 +226,7 @@ After the new rule successfully created, get back to the`vm-2` console login and
 ![1](/assets/images/labs/lab-46.png)  
 
 ## Conclusion
-Congrats, by far we already learn how to create VPC with multiple subnets and apply security group to control the inbound and outbound traffics. Hope this lab give you better understanding about SCloudStack network topology, if you want to learn more on these topics, check out below documents:
+Congrats, by far we already learn how to create VPC with multiple subnets and apply security group to control the inbound and outbound traffics. Hope this lab give you better understanding of SCloudStack network topology. If you want to learn more on these topics, check out below documents:
 
 - [VPC](https://docs.scloud.sg/private-cloud/user-guide/vpc/)
 - [Security Group](https://docs.scloud.sg/private-cloud/user-guide/security-group/)

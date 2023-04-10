@@ -308,3 +308,10 @@ In this lab, we learned following topics:
 - How to request a public IP address using EIP service and bind it to VM.
 - How to secure in-bound/out-bound traffic of a VM using Security Group.
 
+Check out below documents for more information about SCloudStack services: 
+- [VPC](https://docs.scloud.sg/private-cloud/user-guide/vpc/)
+- [Security Group](https://docs.scloud.sg/private-cloud/user-guide/security-group/)
+- [External IP](https://docs.scloud.sg/private-cloud/user-guide/eip/)
+- [Virtual Machine](https://docs.scloud.sg/private-cloud/user-guide/virtual-machine/)
+- [Load Balancing](https://docs.scloud.sg/private-cloud/user-guide/load-balancing/)
+
