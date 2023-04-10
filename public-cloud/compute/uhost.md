@@ -60,6 +60,8 @@ The RTO of the data ark can be restored in as little as 5 minutes, and the amoun
 
 For the cloud disk backup solution, SCloud launched Disk Snapshot Service (USnap), which provides the ability to create snapshots for all series of cloud disks (normal/SSD/RSSD) based on the data ark CDP technology, in addition to the automatic backup capability of the basic layer ark, you can also manually make snapshots.
 
+
+
 ### Flexible CPU and memory ratio
 SCloud provides 1:8 ratio capability of CPU and memory, flexible configuration, to meet the needs of different customers' business scenarios, and the cost can be optimized.
 
@@ -184,3 +186,66 @@ The latest generation of cloud hosts with excellent computing, storage and netwo
 | SSD cloud disk (20-500GB) | RSSD cloud disk (20-32000GB) |
 
 - Feature support: network enhancement 2.0 and Hot Scale-Up.
+
+## UDisk performance
+
+### Performance indicators
+There are three important metrics to evaluate EVS disk performance:
+- IOPS: The number of reads and writes per second.
+- Throughput: Read and write IO traffic per second.
+- IO delay: The time between IO submission and completion of IO.
+
+In theory, the larger the IOPS and throughput, the better, and the lower the latency, the better.
+
+#### IOPS
+
+IOPS (Input/Output Operations Per Second) is a measurement method used for performance testing of computer storage devices such as hard disk drives (HDDs), solid-state drives (SSDs) or storage area networks (SANs), which can be regarded as the number of reads and writes per second. IOPS mainly includes four types of IOPS indicators according to the different test tendencies: random read IOPS, random write IOPS, sequential read IOPS, and sequential write IOPS.
+
+| IOPS type | Illustrate |
+| --- | --- |
+| Random read IOPS | The average number of random reads per second |
+| Write IOPS randomly | The average number of random writes per second |
+| Read IOPS sequentially | The average number of sequential reads per second |
+| Write IOPS sequentially | The average number of sequential writes per second |
+
+#### Throughput
+
+Throughput is the average amount of data that a disk can successfully deliver per unit of time. Throughput is usually expressed in megabytes per second (MB/s or MBps).
+
+#### IO latency
+
+IO latency refers to the time it takes for an IO request to be made and the request to be completed.
+
+### Performance comparison
+UDisk mainly includes 3 types of products: RSSD UDisk, SSD UDisk and Standard UDisk.
+
+- RSSD: The bottom layer uses NVMe SSD as the storage medium, and the network transmission uses `RDMA` (Remote Direct Memory Access). 
+- SSD: The bottom layer uses NVMe SSD as the storage medium.
+- Standard: The bottom layer uses HDD mechanical disk as the storage medium.
+
+The following table shows the performance of cloud disks for the three products:
+
+| Parameter | RSSD UDisk | SSD UDisk | Standard UDisk |
+| --- | --- | --- | --- |
+| Single-disk IOPS |min {1800+50*capacity, 1200000} |  min {1200+30*capacity, 24000} | 1000(peak value) |
+| Throughput per disk | min {120+0.5*capacity,4800}MBps | min {80+0.5*capacity, 260}MBps | 100MB/s (maximum). |
+| Average latency | 0.1-0.2ms | 0.5-3ms | 10ms |
+
+### RSSD performance and instance performance relationship
+The IO performance of a VM instance is proportional to its CPU configuration, and the higher the number of VM cores, the higher the storage IOPS and throughput.
+- If the performance of an RSSD disk does not exceed the IO storage capacity of the instance, the actual storage performance is subject to the performance of the RSSD disk
+- If the performance of an RSSD disk exceeds the IO storage capacity of the instance, the actual storage performance is subject to the storage performance of the instance
+- If the number of cores of the instance is not in the table below, the instance performance is the maximum performance that does not exceed the number of cores, for example, if the number of CPU cores is 50, its storage IO performance is the same as that of 48 cores
+
+| vCPU (core) | Storage IOPS (million) | Storage throughput (MBps) |
+| --- | --- | --- |
+| 1 | 1.8 | 75 |
+| 2 | 3.8 | 150 |
+| 4 | 7.5 | 300 |
+| 8 | 15 | 600 |
+| 12 | 22.5 | 900 |
+| 16 | 30 | 1200 |
+| 24 | 45 | 1800 |
+| 32 | 60 | 2400 |
+| 48 | 90 | 3600 |
+| 64 | 120 | 4800 |
