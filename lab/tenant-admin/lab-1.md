@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lab 1
+title: Lab 1 - Console
 parent: Tenant Administrator
 grand_parent: Private Cloud Labs
 permalink: /private-account-labs/tenant-admin/lab-1

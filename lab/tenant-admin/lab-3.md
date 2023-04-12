@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lab 3
+title: Lab 3 - VPC Basic
 parent: Tenant Administrator
 grand_parent: Private Cloud Labs
 permalink: /private-account-labs/tenant-admin/lab-3

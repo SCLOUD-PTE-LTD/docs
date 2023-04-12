@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lab 2
+title: Lab 2 - Web Server
 parent: Tenant Administrator
 grand_parent: Private Cloud Labs
 permalink: /private-account-labs/tenant-admin/lab-2

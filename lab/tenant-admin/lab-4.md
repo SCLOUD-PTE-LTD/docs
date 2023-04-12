@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lab 4
+title: Lab 4 - VPC Advanced
 parent: Tenant Administrator
 grand_parent: Private Cloud Labs
 permalink: /private-account-labs/tenant-admin/lab-4
