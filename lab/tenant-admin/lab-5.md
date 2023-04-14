@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lab 4 - NAT Gateway
+title: Lab 5 - NAT Gateway
 parent: Tenant Administrator
 grand_parent: Private Cloud Labs
 permalink: /private-account-labs/tenant-admin/lab-5
