@@ -452,6 +452,15 @@ And the new VM will automatically join the load balancer as a service node to ha
 
 ![1](/assets/images/labs/lab-108.png)
 
+### 13. Impose low CPU load situation
+
+In the above step, we used `stress` tool to impose the high CPU load. Lets stop the `stress` tool in the Console login by press `Ctrl + C`, after a while you will noticed the CPU Utilization go downs as below charts.
+
+![1](/assets/images/labs/lab-110.png)
+
+![1](/assets/images/labs/lab-111.png)
+
+You will also notice that, 1 VM will be removed by the auto scaling and only 1 VM available to handle the traffic from load balancer.
 ## Conclusion
 Congrats, so far we already learned how to build a high availability web server using load balancer and auto scaling. 
 
