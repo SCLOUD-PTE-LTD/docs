@@ -9,7 +9,7 @@ nav_order: 4
 
 # Product Overview
 
-The SCloudStack private cloud platform provides a complete set of cloud resource management capabilities such as unified management, resource scheduling, monitoring logs, and operation and maintenance of core services such as virtualization, SDN networking, distributed storage, containers, and security, helping the digital transformation of governments and enterprises.
+The SCloudStack private cloud platform provides a complete set of cloud resource management capabilities such as unified management, resource scheduling, monitoring logs, and operation and maintenance of core services such as virtualization, SDN (Software-defined networking), distributed storage, containers, and security, helping the digital transformation of governments and enterprises.
 
 ![1](/assets/images/scloud-stack.png)
 
