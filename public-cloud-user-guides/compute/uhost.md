@@ -68,3 +68,52 @@ Step 7: Review your order and click `Submit my order` to finalize the process.
 
 Step 8: Wait for a while and you will be redirected to the UHost Compute Instance, your host (VM) should be listed here.
 
+![1](/assets/images/public-cloud-user-guides/guide-13.png)
+
+## 2. How to SSH to your VM?
+Step 1: From the VM listing page, click in the VM's name (ex: my-demo-instance).
+
+![1](/assets/images/public-cloud-user-guides/guide-14.png)
+
+In the VM detail popup, select `Network` tab and copy the public IP address from here.
+
+Step 2: Open terminal on your PC/Laptop and ssh to VM.
+
+```
+scloud ~ % ssh ubuntu@165.154.136.42
+ubuntu@165.154.136.42's password: 
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-43-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Jun  6 03:59:45 PM +07 2023
+
+  System load:  0.0                Processes:             91
+  Usage of /:   32.3% of 19.51GB   Users logged in:       0
+  Memory usage: 8%                 IPv4 address for eth0: 10.53.58.251
+  Swap usage:   0%
+
+
+0 updates can be applied immediately.
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+ubuntu@10-53-58-251:~$ pwd
+/home/ubuntu
+```
+
+## 3. Some basic actions with your VM
+
+![1](/assets/images/public-cloud-user-guides/guide-15.png)
+
+- Open VM detail panel: From the VM listing page, click `Details` button.
+- SSH to VM in browser: From the VM listing page, click `Login` button, then enter username, password to login.
+- Stop VM: From the VM listing page, click `3-dots` menu, then click `Stop`.
+- Restart VM: From the VM listing page, click `3-dots` menu, then click `Restart`.
+- Power Off VM: From the VM listing page, click `3-dots` menu, then click `PowerOff`.
+- Delete VM: From the VM listing page, click `3-dots` menu, then click `Delete Instance`.
+
