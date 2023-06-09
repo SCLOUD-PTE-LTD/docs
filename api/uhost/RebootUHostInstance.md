@@ -28,10 +28,10 @@ You can use any of the following methods to initiate an API request:
 
 | Parameter Name | Type | Description | Required |
 | --- | --- | --- | --- |
-| Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/summary/regionlist) | Yes |
-| Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/summary/regionlist) | No |
-| ProjectId | string | Project ID. Not filling in is the default item, and the sub-account must be filled in. Please refer to [GetProjectList Interface](https://docs.scloud.sg/api/summary/get_project_list) | No |
-| UHostId | string | UHost instance ID See [DescribeUHostInstance](https://docs.scloud.sg/api/uhost-api/describe_uhost_instance) | Yes |
+| Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/summary/region-and-zone) | Yes |
+| Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/summary/region-and-zone) | No |
+| ProjectId | string | Project ID. Not filling in is the default item, and the sub-account must be filled in. | No |
+| UHostId | string | UHost instance ID | Yes |
 | DiskPassword | string | encrypted disk password | No |
 
 Response field
@@ -48,8 +48,8 @@ Response field
 
 ```
 https://api.scloud.sg/?Action=RebootUHostInstance
-&Region=cn-bj2
-&Zone=cn-bj2-04
+&Region=vn-sng
+&Zone=vn-sng-01
 &ProjectId=org-xxx
 &UHostId=uhost-xxx
 ```

@@ -32,8 +32,8 @@ You can use any of the following methods to initiate an API request:
 
 | Parameter Name | Type | Description | Required |
 | --- | --- | --- | --- |
-| Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/summary/regionlist) | Yes |
-| Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/summary/regionlist) | No |
+| Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/summary/region-and-zone) | Yes |
+| Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/summary/region-and-zone) | No |
 | ProjectId | string | Project ID. Not filling in is the default item, and the sub-account must be filled in. | No |
 | UHostId | string | UHost resource Id | Yes |
 | ReleaseEIP | boolean | Whether to release the bound EIP when deleting the host. The default is false. | No |
@@ -54,15 +54,10 @@ You can use any of the following methods to initiate an API request:
 
 ```
 https://api.scloud.sg/?Action=TerminateUHostInstance
-
-&Region=cn-bj2
-
-&Zone=cn-bj2-04
-
+&Region=vn-sng
+&Zone=vn-sng-01
 &ProjectId=org-xxx
-
 &UHostId=uhost-xxx
-
 &ReleaseUDisk=true
 ```
 
@@ -70,14 +65,9 @@ https://api.scloud.sg/?Action=TerminateUHostInstance
 
 ```
 {
-
 "Action": "TerminateUHostInstanceResponse",
-
 "InRecycle": "No",
-
 "RetCode": 0,
-
 "UHostId": "uhost-xxx"
-
 }
 ```

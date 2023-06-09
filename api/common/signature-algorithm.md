@@ -19,7 +19,7 @@ In this example, assume that the user request parameters are stringed as follows
 ```
 {
     "Action"     :  "DescribeUHostInstance",
-    "Region"     :  "cn-bj2",
+    "Region"     :  "vn-sng",
     "Limit"      :  10,
     "PublicKey"  :  "john.doe@example.com1296235120854146120"
 }
@@ -34,13 +34,13 @@ According to the above algorithm, in this example, the calculated Signature is `
     "Action"     :  "DescribeUHostInstance",
     "Limit"      :  10,
     "PublicKey"  :  "john.doe@example.com1296235120854146120",
-    "Region"     :  "cn-bj2"
+    "Region"     :  "vn-sng"
 }
 ```
 ### 2. Construct the signed parameter string
 The construction rules of the signed string are: signed string = all request parameters spliced (no HTTP escaping required). and concatenate the private key of the API key at the end of this signature string.
 ```
-ActionDescribeUHostInstanceLimit10PublicKeyjohn.doe@example.com1296235120854146120Regioncn-bj246f09bb9fab4f12dfc160dae12273d5332b5debe
+ActionDescribeUHostInstanceLimit10PublicKeyjohn.doe@example.com1296235120854146120Regionvn-sng46f09bb9fab4f12dfc160dae12273d5332b5debe
 ```
 
 **Note**:
