@@ -29,8 +29,8 @@ You can use any of the following methods to initiate an API request:
 
 | Parameter Name | Type | Description | Required |
 | --- | --- | --- | --- |
-| Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/summary/region-and-zone) | Yes |
-| Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/summary/region-and-zone) | Yes |
+| Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
+| Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
 | ProjectId | string | Project ID. Not filling in is the default item, and the sub-account must be filled in. | No |
 | ImageId | string | Image ID. | Yes |
 | Disks.N.IsBoot | string | Whether it is a system disk. Enumeration value: True, it is the system disk; False, it is the data disk (default). One and only one disk in the Disks array is the system disk. | Yes |
@@ -84,7 +84,7 @@ You can use any of the following methods to initiate an API request:
 | IPs | array[string] | [Batch creation will not return] IP information | No |
 
 ## Example
-### Request example
+### Example request
 
 ```
 https://api.scloud.sg?Action=CreateUHostInstance
