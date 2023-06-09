@@ -29,21 +29,21 @@ You can use any of the following methods to initiate an API request:
 
 | Parameter Name | Type | Description | Required |
 | --- | --- | --- | --- |
-| Region | string | Region. See [List of Regions and Availability Zones](https://docs.ucloud.cn/api/summary/regionlist) | Yes |
-| Zone | string | Availability zone. See [Availability Zone List](https://docs.ucloud.cn/api/summary/regionlist) | Yes |
-| ProjectId | string | Project ID. Not filling in is the default item, and the sub-account must be filled in. Please refer to [GetProjectList Interface](https://docs.ucloud.cn/api/summary/get_project_list) | No |
-| ImageId | string | Image ID. Please get it through [DescribeImage](https://docs.ucloud.cn/api/uhost-api/describe_image) | Yes |
+| Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/summary/regionlist) | Yes |
+| Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/summary/regionlist) | Yes |
+| ProjectId | string | Project ID. Not filling in is the default item, and the sub-account must be filled in. Please refer to [GetProjectList Interface](https://docs.scloud.sg/api/summary/get_project_list) | No |
+| ImageId | string | Image ID. Please get it through [DescribeImage](https://docs.scloud.sg/api/uhost-api/describe_image) | Yes |
 | Disks.N.IsBoot | string | Whether it is a system disk. Enumeration value: True, it is the system disk; False, it is the data disk (default). One and only one disk in the Disks array is the system disk. | Yes |
-| Disks.N.Type | string | Disk type. Please refer to [Disk Type](https://docs.ucloud.cn/api/uhost-api/disk_type). | Yes |
-| Disks.N.Size | int | Disk size, in GB. Please refer to [Disk Type](https://docs.ucloud.cn/api/uhost-api/disk_type). | Yes |
-| Disks.N.BackupType | string | Disk backup scheme. Enumeration value: NONE, no backup DATAARK, data ark SNAPSHOT, snapshot The backup mode supported by the current disk refers to [disk type](https://docs.ucloud.cn/api/uhost-api/disk_type), default value: NONE | No |
+| Disks.N.Type | string | Disk type. Please refer to [Disk Type](https://docs.scloud.sg/api/uhost-api/disk_type). | Yes |
+| Disks.N.Size | int | Disk size, in GB. Please refer to [Disk Type](https://docs.scloud.sg/api/uhost-api/disk_type). | Yes |
+| Disks.N.BackupType | string | Disk backup scheme. Enumeration value: NONE, no backup DATAARK, data ark SNAPSHOT, snapshot The backup mode supported by the current disk refers to [disk type](https://docs.scloud.sg/api/uhost-api/disk_type), default value: NONE | No |
 | Disks.N.Encrypted | boolean | [The function is only available in some availability zones, please consult technical support for details] Whether the disk is encrypted. encryption: true, no encryption: false Encryption must pass in the corresponding KmsKeyId, the default value is false | No |
 | Disks.N.KmsKeyId | string | [The function is only available in some availability zones, please consult technical support for details] kms key id. Required when selecting an encrypted disk. | No |
 | Disks.N.CouponId | string | Cloud disk coupon id. Not applicable to system disk/local disk. Please inquire through the DescribeCoupon interface, or log in to the user center to view | No |
 | LoginMode | string | Host login mode. Password (default option): Password, Key: KeyPair. | Yes |
-| Password | string | UHost password. Please follow the [Field Specification](https://docs.ucloud.cn/api/uhost-api/specification) to set the password. The password needs to be encoded with base64, for example: # echo -n Password1 \| base64UGFzc3dvcmQx. | No |
-| Name | string | UHost instance name. Default: UHost. Please follow the [Field Specification](https://docs.ucloud.cn/api/uhost-api/specification) to set the instance name. | No |
-| Tag | string | Business group. Default: Default (Default means no grouping). Please follow the [Field Specification](https://docs.ucloud.cn/api/uhost-api/specification) to set the business group. | No |
+| Password | string | UHost password. Please follow the [Field Specification](https://docs.scloud.sg/api/uhost-api/specification) to set the password. The password needs to be encoded with base64, for example: # echo -n Password1 \| base64UGFzc3dvcmQx. | No |
+| Name | string | UHost instance name. Default: UHost. Please follow the [Field Specification](https://docs.scloud.sg/api/uhost-api/specification) to set the instance name. | No |
+| Tag | string | Business group. Default: Default (Default means no grouping). Please follow the [Field Specification](https://docs.scloud.sg/api/uhost-api/specification) to set the business group. | No |
 | ChargeType | string | Charging mode. The enumerated values are: Year, paid annually; Month, paid monthly; Dynamic, prepaid by the hour Postpay, paid by the hour (support shutdown without charge, currently only supported by some availability areas, please contact your account manager) Preemptive billing is preemptive instance (internal testing phase) The default is monthly payment | No |
 | Quantity | int | Purchase duration. Default: value 1. This parameter is not required for hourly purchases (Dynamic/Postpay). When paying monthly, this parameter is passed as 0, which means the purchase is until the end of the month. | No |
 | CPU | int | Number of virtual CPU cores. Optional parameters: 1-64 (refer to the console for the corresponding relationship between specific models and CPUs). Default value: 4. | No |
@@ -55,10 +55,10 @@ You can use any of the following methods to initiate an API request:
 | VPCId | string | VPC ID. The default is the default VPC of the current region. | No |
 | SubnetId | string | Subnet ID. The default is the default subnet of the current region. | No |
 | PrivateIp.N | string | [Array] Specifies the internal network IP when creating the cloud host. If no value is passed, the IP under the current subnet will be randomly assigned. Example of calling method: PrivateIp.0=x.x.x.x. Currently only one intranet IP is supported. | No |
-| SecurityGroupId | string | Firewall ID, default: Web recommended firewall. For how to query SecurityGroupId, please refer to [DescribeFirewall](https://docs.ucloud.cn/api/unet-api/describe_firewall.html). | No |
+| SecurityGroupId | string | Firewall ID, default: Web recommended firewall. For how to query SecurityGroupId, please refer to [DescribeFirewall](https://docs.scloud.sg/api/unet-api/describe_firewall.html). | No |
 | IsolationGroup | string | Hardware isolation group id. Available through DescribeIsolationGroup. | No |
 | AlarmTemplateId | int | Alarm template id, if the alarm template id is passed and the alarm template id is correct, the alarm template will be bound. The failure to bind the alarm template will only have a log in the background, and will not affect the process of creating a host, nor will it report an error on the front end. | No |
-| MachineType | string | Cloud host machine type (V2.0), in this field and field UHostType, only one of the fields is required. Enumeration value ["N", "C", "G", "O", "OS", "OM", "OPRO", "OMAX", "O.BM", "O.EPC"]. Refer to [Cloud Host Model Description](https://docs.ucloud.cn/api/uhost-api/uhost_type). | No |
+| MachineType | string | Cloud host machine type (V2.0), in this field and field UHostType, only one of the fields is required. Enumeration value ["N", "C", "G", "O", "OS", "OM", "OPRO", "OMAX", "O.BM", "O.EPC"]. Refer to [Cloud Host Model Description](https://docs.scloud.sg/api/uhost-api/uhost_type). | No |
 | MinimalCpuPlatform | string | Minimum cpu platform, enumerated value ["Intel/Auto", "Intel/IvyBridge", "Intel/Haswell", "Intel/Broadwell", "Intel/Skylake", "Intel/ Cascadelake", "Intel/CascadelakeR", "Intel/IceLake", "Amd/Epyc2", "Amd/Auto", "Ampere/Auto", "Ampere/Altra"], the default value is "Intel/Auto". | No |
 | MaxCount | int | The maximum number of hosts created this time, the value range is [1,100], and the default value is 1. | No |
 | NetworkInterface.N.EIP.Bandwidth | int | [If EIP is bound, this parameter is required] The external network bandwidth of the elastic IP, the unit is Mbps. The shared bandwidth mode must specify 0M bandwidth, and the non-shared bandwidth mode must specify Specify non-0Mbps bandwidth. The bandwidth range of non-shared bandwidth in each region is as follows: traffic billing [1-300], bandwidth billing [1-800] | No |
