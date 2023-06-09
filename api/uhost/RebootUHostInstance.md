@@ -18,6 +18,7 @@ You can use any of the following methods to initiate an API request:
 
 ## Definition
 ### Common parameters
+
 | Parameter Name | Type | Description | Required |
 | --- | --- | --- | --- |
 | Action | string | The corresponding API command name, the current API is RebootUHostInstance | Yes |
@@ -34,7 +35,7 @@ You can use any of the following methods to initiate an API request:
 | UHostId | string | UHost instance ID | Yes |
 | DiskPassword | string | encrypted disk password | No |
 
-Response field
+### Response field
 
 | Field Name | Type | Description | Required |
 | --- | --- | --- | --- |
