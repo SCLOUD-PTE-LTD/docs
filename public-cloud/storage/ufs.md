@@ -18,9 +18,9 @@ File storage products are designed based on VPC virtual networks at the transpor
 
 ## Product advantages
 ### Reliability
-File storage uses a three-copy mechanism, and the replicas are deployed across cabinets to ensure that they are not affected by single-machine and single-disk failures, and can reconstruct data according to the priority of replica reliability to ensure controllable `MTTR`. The product comes with a 99.999999% data reliability guarantee.
+File storage uses a three-copy mechanism, and the replicas are deployed across cabinets to ensure that they are not affected by single-machine and single-disk failures, and can reconstruct data according to the priority of replica reliability to ensure controllable `MTTR`. The product comes with a `99.999999%` data reliability guarantee.
 ### High elasticity
-File storage supports elastic expansion, and scaling is not aware of applications that use file storage. Supports a maximum capacity of 100 petabytes (see Product Restrictions for the current space restrictions in each region).
+File storage supports elastic expansion, and scaling is not aware of applications that use file storage. Supports a maximum capacity of `100` petabytes (see Product Restrictions for the current space restrictions in each region).
 ### Shareability
 File storage products use mount points to allow any host in the same VPC to access a specified file system to achieve data sharing. File storage does not limit the number of hosts on which a file system can be mounted, which is more friendly for scenarios that require a large number of nodes for shared data processing.
 
@@ -41,7 +41,6 @@ Capacity Type:
 - Enterprise data management: internal sites, data archiving, etc
 
 Performance Type:
-
 - AI data analysis
 - Big data processing, multi-node data sharing
 - Web sites with low latency requirements
@@ -103,26 +102,33 @@ When the usage of the file system exceeds the purchased capacity, we allow the f
 ### Single-account quotas
 There is a limit of 100 file system instances that a single account can create.
 
-File system limits: 
+### File system limits: 
 - The file system supports only the NFSv4.0 protocol in TCP mode
 - Currently, the maximum purchase capacity of the capacity type is `100TB`, and the maximum purchase capacity of the performance type is `20TB`
 - The maximum size per file is limited to `1TB`
 - The number of single file system nodes is limited to `1.000.000.000`
 - There is no limit to the number of file system instances that can be attached to a single ECM
 - There is no limit to the number of hosts that a single file system can be mounted
-- The number of mount points for a single file system is limited to 5, note that the limit on the number of mount points is not the limit on the number of hosts that can mount a file system, as long as hosts in the VPC allowed by the mount point can access the specified file system
+- The number of mount points for a single file system is limited to `5`, note that the limit on the number of mount points is not the limit on the number of hosts that can mount a file system, as long as hosts in the VPC allowed by the mount point can access the specified file system
 - Capacity single-file system throughput grows with capacity, with a single TB throughput of `120MBps` and a maximum of `20GBps`
 - The maximum throughput of a single file system during the beta period is `1GBps`, please contact Technical Support for higher throughput
 - Currently, the file system supports only the scale up operation, but does not support the scale in operation
 - The NFSv4 file system supports cross-account and cross-region access based on VPC
   
-Protocol Restrictions
+### Protocol Restrictions
 
 | Protocol type | Unsupported protocols and semantics |
 | -- | -- |
 | NFSv4.0 | Unsupported attributes include: `ACL, WINDOWS_FILE_ATTRIBUTES (HIDDEN, ARCHIVE, SYSTEM), MIMETYPE, QUOTA_AVAIL_HARD, QUOTA_AVAIL_SOFT, QUOTA_USED, TIME_BACKUP, TIME_CREATE; UNSUPPORTED OPS INCLUDE: DELEGPURGE, DELEGRETURN, LOOKUPP, OPENATTR`; Delegation is not supported |
 
-Billing policies
+### Billing policies
 
 On-demand usage is not supported, and you can currently only use file storage by purchasing capacity upfront.
+
+### Pricing
+
+| Size | USD/Gb/Month |
+| -- | -- |
+| Less than 51.200 Gb | 0,049 |
+| Over 51.200 Gb | 0,042 |
 
