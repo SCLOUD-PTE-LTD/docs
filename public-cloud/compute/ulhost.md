@@ -62,14 +62,14 @@ Supported region: Taipei, HongKong, Los Angeles, Singapore, Tokyo, Bangkok and H
 
 Currently SCloud lightweight application cloud host provides the following packages to choose from:
 
-| | CPU | Memory | System Disk - RSSD | Peak bandwidth | Traffic packets | Price |
+| Package | CPU | Memory | System Disk - RSSD | Peak bandwidth | Traffic packets | Price |
 | --- | --- | --- | --- | --- | --- | --- |
-| Package 1 | 1 | 1 | 40 G | 30 M | 200 GB | 4,76$ per month |
-| Package 2 | 1 | 2 | 40 G | 30 M | 400 GB | 6,44$ per month |
-| Package 3 | 2 | 2 | 60 G | 30 M | 600 GB | 8,12$ per month|
-| Package 4 | 2 | 4 | 80 G | 30 M | 800 GB | 9,66$ per month|
-| Package 5 | 2 | 2 | 60 G | 30 M | 2048 GB | 10,08$ per month|
-| Package 6 | 2 | 4 | 80 G | 30 M | 3072 GB | 14,84$ per month|
+| Package 1 | 1 Core | 1 GB | 40 GB | 30 Mbps | 200 GB | 4,76$ per month |
+| Package 2 | 1 Core | 2 GB | 40 GB | 30 Mbps | 400 GB | 6,44$ per month |
+| Package 3 | 2 Core | 2 GB | 60 GB | 30 Mbps | 600 GB | 8,12$ per month|
+| Package 4 | 2 Core | 4 GB | 80 GB | 30 Mbps | 800 GB | 9,66$ per month|
+| Package 5 | 2 Core | 2 GB | 60 GB | 30 Mbps | 2048 GB | 10,08$ per month|
+| Package 6 | 2 Core | 4 GB | 80 GB | 30 Mbps | 3072 GB | 14,84$ per month|
 
 ```
 - The network traffic package corresponding to the package is the upper limit of the maximum traffic package. After the traffic package of the lightweight application cloud host reaches the upper limit, the traffic will be billed according to the regular network bandwidth traffic billing method.
