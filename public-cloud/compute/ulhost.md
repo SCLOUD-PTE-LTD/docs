@@ -24,8 +24,8 @@ Using lightweight application cloud hosts has the following advantages:
 | Compare projects | ULightHost | UHost |
 | --- | --- | --- |
 | The product is suitable for groups | Individual developers, cross-border e-commerce, small and medium-sized enterprises | Medium and large enterprises |
-| Business scenarios | <ul><li>Cross-border store management, overseas independent website</li> <li> Blogs, forums, information and other websites</li> <li> Cloud disk development and testing environment, learning environment</li> </ul>|  <ul><li> Concurrent access to high websites </li> <li> Big data </li> <li> Large games </li> <li> Medium and heavy duty business </li></ul> |
-| Usage experience | <li> Independent simplified console</li> <li> Rich application images, out-of-the-box</li> <li> Network/disk and other automated configurations</li> | <li> There are many high-level concepts of cloud services, including VPC, EIP, and security groups</li>|
+| Business scenarios | + Cross-border store management, overseas independent website<br/>  + Blogs, forums, information and other websites<br/>  + Cloud disk development and testing environment, learning environment<br/> </ul>| + Concurrent access to high websites <br/> + Big data <br/>  + Large games <br/> + Medium and heavy duty business <br/></ul> |
+| Usage experience |  + Independent simplified console<br/>  + Rich application images, out-of-the-box<br/>  + Network/disk and other automated configurations<br/> |  There are many high-level concepts of cloud services, including VPC, EIP, and security groups<br/>|
 | Billing model | Combined compute/network/storage plan model | Configure compute/network/storage resources and overlay billing separately |
 
 ## Basic concept
@@ -41,7 +41,7 @@ Currently, the lightweight application cloud host provides two image types: basi
 | --- | --- | --- |
 | Image description | The application image contains the basic operating system, pre-installed some application software (such as LAMP, WordPress, etc.) <br/>And the running environment and related initialization configuration files that the application depends on | The base mirror only contains the initial operating system (such as CentOS, Ubuntu, Windows, etc.). |
 | Applicable scenarios | Deploy apps quickly out of the box without manually installing apps | Users install responsive applications on demand |
-| Include images | <li> LAMP</li><li> WordPress </li><li> Pagoda Linux Edition | </li><li> CentOS</li><li> Ubuntu</li><li> Windows</li><li> RedHat </li><li>Rocky </li> Contains all the base images available on the cloud hosting side 
+| Include images |  + LAMP<br/> + WordPress <br/> + Pagoda Linux Edition | <br/> + CentOS<br/> + Ubuntu<br/> + Windows<br/> + RedHat <br/> + Rocky <br/> + Contains all the base images available on the cloud hosting side 
 
 ### Network
 The network service provided by the lightweight application cloud host is based on the SCloud network VPC service. After each lightweight application cloud host is created, it is assigned an intranet IP by default, which can be used for communication between different lightweight application cloud hosts. 
