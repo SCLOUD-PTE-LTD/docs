@@ -24,7 +24,7 @@ Using lightweight application cloud hosts has the following advantages:
 | Compare projects | ULightHost | UHost |
 | --- | --- | --- |
 | The product is suitable for groups | Individual developers, cross-border e-commerce, small and medium-sized enterprises | Medium and large enterprises |
-| Business scenarios | <li>Cross-border store management, overseas independent website</li> <li> Blogs, forums, information and other websites</li> <li> Cloud disk development and testing environment, learning environment</li> | <li> Concurrent access to high websites </li> <li> Big data </li> <li> Large games </li> <li> Medium and heavy duty business </li> |
+| Business scenarios | <ul><li>Cross-border store management, overseas independent website</li> <li> Blogs, forums, information and other websites</li> <li> Cloud disk development and testing environment, learning environment</li> </ul>|  <ul><li> Concurrent access to high websites </li> <li> Big data </li> <li> Large games </li> <li> Medium and heavy duty business </li></ul> |
 | Usage experience | <li> Independent simplified console</li> <li> Rich application images, out-of-the-box</li> <li> Network/disk and other automated configurations</li> | <li> There are many high-level concepts of cloud services, including VPC, EIP, and security groups</li>|
 | Billing model | Combined compute/network/storage plan model | Configure compute/network/storage resources and overlay billing separately |
 
