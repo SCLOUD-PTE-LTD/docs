@@ -24,7 +24,7 @@ Using lightweight application cloud hosts has the following advantages:
 | Compare projects | ULightHost | UHost |
 | --- | --- | --- |
 | The product is suitable for groups | Individual developers, cross-border e-commerce, small and medium-sized enterprises | Medium and large enterprises |
-| Business scenarios | + Cross-border store management, overseas independent website<br/>  + Blogs, forums, information and other websites<br/>  + Cloud disk development and testing environment, learning environment<br/> </ul>| + Concurrent access to high websites <br/> + Big data <br/>  + Large games <br/> + Medium and heavy duty business <br/></ul> |
+| Business scenarios | + Cross-border store management, overseas independent website<br/>  + Blogs, forums, information and other websites<br/>  + Cloud disk development and testing environment, learning environment<br/> | + Concurrent access to high websites <br/> + Big data <br/>  + Large games <br/> + Medium and heavy duty business <br/> |
 | Usage experience |  + Independent simplified console<br/>  + Rich application images, out-of-the-box<br/>  + Network/disk and other automated configurations<br/> |  There are many high-level concepts of cloud services, including VPC, EIP, and security groups<br/>|
 | Billing model | Combined compute/network/storage plan model | Configure compute/network/storage resources and overlay billing separately |
 
@@ -114,8 +114,8 @@ When you delete the purchased lightweight application cloud host, the fee will b
 2. The accuracy of the used time is up to one day, and if it is less than one day, it will be counted as one day;
 
 ```
-- Example 1: Assume that you purchased a one-month light application cloud host with a package amount of 34 RMB, and you will be refunded for deleting resources after 9.5 days of use
-Refund amount = 34 - [10×(34/30)×1.5]= 14 RMB
-- Example 2: Assume that you purchased a 2-month light application cloud host, the package amount is 34×2=68 RMB, and you will be refunded if you delete the resource after 9.5 days of use
-Refund amount = 68 - [10×(68/60)×1.5]= 51 RMB
+- Example 1: Assume that you purchased a one-month light application cloud host with a package amount of 34 Credit, and you will be refunded for deleting resources after 9.5 days of use
+Refund amount = 34 - [10×(34/30)×1.5]= 14 Credit (1,96$)
+- Example 2: Assume that you purchased a 2-month light application cloud host, the package amount is 34×2=68 Credit, and you will be refunded if you delete the resource after 9.5 days of use
+Refund amount = 68 - [10×(68/60)×1.5]= 51 Credit (7,14$)
 ```
