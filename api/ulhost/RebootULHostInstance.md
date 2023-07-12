@@ -34,9 +34,19 @@ CloudShell cloud command line
 ## Example
 ### Example request
 ```
+https://api.scloud.sg/?Action=RebootULHostInstance
+&Region=zqTsfhCZ
+&Zone=LnGTPyLn
+&ProjectId=XfpENCYg
+&UHostId=EfKiVrIR
+&DiskPassword=XKoqBoYD
 
 ```
 ### Example response
 ```
-
+{
+  "Action": "RebootULHostInstanceResponse",
+  "RetCode": 0,
+  "UHostId": "emVfDJHv"
+}
 ```

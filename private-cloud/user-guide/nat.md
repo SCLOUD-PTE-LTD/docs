@@ -354,7 +354,9 @@ You can bind IPv4 External IP addresses of 50 default route types to a NAT gatew
 
 ![1](/assets/images/user-guide/user-guide-106.png)
 
-After the binding is successful, when you add SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) rules, you can select the External IP address of SNAT (Source Network Address Translation) or the source IP address of DNAT (Destination Network Address Translation). Note: IPv4 public IP addresses that are bound to IPv6 and non-default route types are not supported.
+After the binding is successful, when you add SNAT (Source Network Address Translation) and DNAT (Destination Network Address Translation) rules, you can select the External IP address of SNAT (Source Network Address Translation) or the source IP address of DNAT (Destination Network Address Translation). 
+
+> IPv4 public IP addresses that are bound to IPv6 and non-default route types are not supported.
 
 ### Unbind a public IP address
 You can unbind the public IP address of a NAT gateway, and the associated SNAT (Source Network Address Translation) rules and DNAT (Destination Network Address Translation) rules will be invalid after the network communication is disabled.
