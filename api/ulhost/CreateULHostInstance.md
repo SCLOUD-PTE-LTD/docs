@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CreateULHostInstance
-parent: UHost
+parent: ULightHost
 grand_parent: API
 permalink: /api/ulhost/CreateULHostInstance
 nav_order: 1
@@ -31,8 +31,8 @@ CloudShell cloud command line
 | ProjectId | string | projectID. Do not fill in As the default project, the sub-account must be filled in.| No |
 | ImageId | string | mirror imageID.| Yes |
 | BundleId | string | Package ID. Such as: `ulh.c1m1s40b30T800` | Yes |
-| Password | string | ULHost cipher. Please set the password according to[the field specification](https://docs.scloud.sg/api). The password needs to be encoded using base64, for example: `# echo -n Password1 \| base64` | Yes |
-| Name | string | Simple application host name. Default: The plan ID. Follow the [field specification](https://docs.scloud.sg/api) to set the instance name. | No |
+| Password | string | ULHost cipher. Please set the password according to [the field specification](https://docs.scloud.sg/api/common/field-specification). The password needs to be encoded using base64, for example: `# echo -n Password1 \| base64` | Yes |
+| Name | string | Simple application host name. Default: The plan ID. Follow the [field specification](https://docs.scloud.sg/api/common/field-specification) to set the instance name. | No |
 | ChargeType | string | Billing model. Enumeration value: Year, paid annually; Month, payable monthly; Default: Month | No |
 | Quantity | int | Duration of purchase. Default: 1. Purchase to the end of the month is not supported | No |
 | CouponId | string | Host voucher ID. Please check through the DescribeCoupon interface, or log in to the user center to view | No |
