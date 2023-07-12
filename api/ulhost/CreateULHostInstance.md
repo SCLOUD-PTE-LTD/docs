@@ -14,6 +14,7 @@ Create a lightweight application cloud host
 You can choose any of the following methods to initiate an API request:
 
 Multilingual OpenSDK / Java /
+
 CloudShell cloud command line
 
 ## Definition
