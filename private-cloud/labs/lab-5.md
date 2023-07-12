@@ -6,7 +6,7 @@ grand_parent: Private Cloud
 permalink: /private-cloud/labs/lab-5
 nav_order: 5
 ---
-# Using NAT Gateway
+# Lab 5 - Using NAT Gateway
 ## Introduction
 In this lab, we will create a NAT Gateway and configure it in the way that all VM in the subnet can access the Internet through the NAT Gateway without the need of assigning external IP to each individual VM.
 
