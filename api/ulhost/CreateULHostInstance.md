@@ -52,7 +52,7 @@ CloudShell cloud command line
 ## Example
 ### Example request
 ```
-https://api.scloud.sg/?Action=CreateULHostInstance
+https://api.scloud.sg?Action=CreateULHostInstance
 &Region=vn-sng
 &ProjectId=BiVhUqWM
 &BundleId=WKrqUTuj

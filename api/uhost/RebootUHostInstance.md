@@ -48,7 +48,7 @@ You can use any of the following methods to initiate an API request:
 ### Example request
 
 ```
-https://api.scloud.sg/?Action=RebootUHostInstance
+https://api.scloud.sg?Action=RebootUHostInstance
 &Region=vn-sng
 &Zone=vn-sng-01
 &ProjectId=org-xxx
