@@ -28,9 +28,30 @@ CloudShell cloud command line
 
 ### Request parameter
 
+| The parameter name | Type | Description | Required |
+| --- | --- | --- | --- |
+| Region | string | Region [A list of regions and zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
+| ProjectId | string | project ID. Not filling in is the default item, and the sub-account must be filled in. | No |
 
 ### Response field 
 
+| Field name | Type | Description | Required |
+| --- | --- | --- | --- |
+| RetCode | int | Returns a status code, with 0 for success and failure for non-0 | Yes |
+| Action | string | The name of the operation instruction | Yes |
+| Message | string | Returns an error message that provides detailed description information when RetCode is non-0 | No |
+| Bundles | `array[bundle]` | List of packages | Yes |
+
+> Bundle
+
+| Field name | Type | Description | Required |
+| --- | --- | --- | --- |
+| BundleId | string | Package ID. | No |
+| CPU | int | Number of CPU cores. | No |
+| Memory | int | Memory size. Unit: MB. | No |
+| SysDiskSpace | int | System disk size. Unit: GB. | No |
+| Bandwidth | int | Internet bandwidth. Unit: Mbps. | No |
+| TrafficPacket | int | Traffic packet size. Unit: GB. | No |
 
 ## Example
 ### Example request

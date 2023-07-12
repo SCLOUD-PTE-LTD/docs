@@ -19,6 +19,7 @@ CloudShell cloud command line
 
 ## Definition
 ### Common parameter
+
 | Parameter name | Type |  | Required |
 | --- | --- | --- | --- |
 | Action | string | The corresponding API instruction name, the current API is `RebootULHostInstance` | Yes |
