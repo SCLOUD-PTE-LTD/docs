@@ -1,13 +1,13 @@
 ---
 layout: default
 title: Lab 3 - VPC Basic
-parent: Private Cloud Lab
+parent: Labs
 grand_parent: Private Cloud
 permalink: /private-cloud/labs/lab-3
 nav_order: 3
 ---
 
-# Lab 3: VPC, Subnet & Security Group
+# Lab 3 - VPC, Subnet & Security Group
 ## Introduction
 In this lab, we will deep-dive in to VPC and Subnet management in SCloudStack. First, we will create a VPC and 3 Subnet in that VPC, then we will create Debian VM in each Subnet and use Security Group to allow/deny traffics to/from a specific VM.
 

@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Lab 4 - VPC Advanced
-parent: Private Cloud Lab
+parent: Labs
 grand_parent: Private Cloud
 permalink: /private-cloud/labs/lab-4
 nav_order: 4
 ---
-# Lab 4: Connect 2 VPC using Network Interconnection
+# Lab 4 - Connect 2 VPC using Network Interconnection
 ## Introduction
 In the previous lab ([Lab 3: VPC and Subnet in advanced](https://docs.scloud.sg/private-account-labs/tenant-admin/lab-3)), we already learn how to create VPC, Subnet and control the communication between resources (VM) in a single VPC. 
 

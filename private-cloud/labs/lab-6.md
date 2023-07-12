@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Lab 6 - Load Balancer 
-parent: Private Cloud Lab
+parent: Labs
 grand_parent: Private Cloud
 permalink: /private-cloud/labs/lab-6
 nav_order: 6
 ---
-# Lab 6: Use Load Balancer to distribute traffic across VM in your Auto Scaling
+# Lab 6 - Use Load Balancer to distribute traffic across VM in your Auto Scaling
 ## Introduction
 
 In this lab, we will combining auto scaling with load balancer and health check mechanisms to achieve the following target: 

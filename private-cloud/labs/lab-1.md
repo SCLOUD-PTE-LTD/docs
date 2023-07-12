@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Lab 1 - Console
-parent: Private Cloud Lab
+parent: Labs
 grand_parent: Private Cloud
 permalink: /private-cloud/labs/lab-1
 nav_order: 1
 ---
-# Lab 1: Getting Started with SCloudStack Console
+# Lab 1 - Getting Started with SCloudStack Console
 ## Introduction
 In this lab, we will step by step access to the SCloudStack's console as a Tenant Administrator and discover its services, features.
 ## Prerequisite
