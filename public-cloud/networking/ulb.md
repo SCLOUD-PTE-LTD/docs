@@ -100,7 +100,7 @@ ULB performance indicators
 * Requests per second (QPS): The number of queries per second, QPS is not the core of ULB Target, the real consumption of performance is CPS. Short connection case, QPS=CPS; Long connection case, QPS > CPS. 
 
 ```
-Note: The following performance indicators are theoretically maximum performance under simple and ideal flow rates, and here are some limitations and explanations.
+> The following performance indicators are theoretically maximum performance under simple and ideal flow rates, and here are some limitations and explanations.
 
 1. Packet forwarding ULB can achieve the performance shown in the following table, please request to proxy ULB in a single VPC Examples of shared resources.
 

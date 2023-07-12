@@ -131,7 +131,7 @@ Network ACL rules consist of the following components:
 - Priority: The priority corresponding to the rule, the lower the number, the higher the priority. The range is 1-30000. Only one outbound/inbound rule of the same priority can be created.
 - Application Target: The effective range of the ACL rule. All resources in the subnet and specified resources in the subnet are supported. "All resources in subnet" means that the rule takes effect for all resources in the subnet bound to the ACL (except Cloud Host, Physical Cloud Host and ULB); Specified resources in subnet means that the rule takes effect only for selected resources (you cannot specify a high-availability UDB), but not for unselected resources in the subnet.
 
-Note: After you create a network ACL, the system automatically adds a default outbound rule and a default inbound rule.
+> After you create a network ACL, the system automatically adds a default outbound rule and a default inbound rule.
 
 - The default outbound rule is outbound allow for all protocols and all port traffic.
 - The default inbound rule is inbound allow for all protocols and all port traffic.

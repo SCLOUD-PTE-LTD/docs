@@ -175,7 +175,7 @@ Step 1: SSH to your VM follow the above step.
 localhost ~ % ssh root@***.197.48.14
 ```
 
-Note: `***.197.48.14` is the public IP address that you just bind to your VM.
+> `***.197.48.14` is the public IP address that you just bind to your VM.
 
 Step 2: Install NGINX web server on Debian VM.
 
@@ -440,7 +440,8 @@ Step 2: Waiting for a while, you can see the CPU utilization of the VM increase 
 
 ![1](/assets/images/labs/lab-106.png)
 
-You can also monitor the CPU Utilization of the auto scaling in the auto scaling detail page (*Note: the dashed red-line is added by author, this not available in the console UI*).
+You can also monitor the CPU Utilization of the auto scaling in the auto scaling detail page 
+> The Dashed red-line is added by author, this not available in the console UI.
 
 ![1](/assets/images/labs/lab-109.png)
 

@@ -297,7 +297,7 @@ After the virtual machine is shut down, use the Reinstall System button in the v
 
  Reinstalling the system automatically erases the system disk snapshots created by the virtual machine, and you can back up the system disk data of the virtual machine by making an image. During the reinstallation process, the status of the virtual machine is automatically changed to "reloading", and after the reinstallation is successful, it is converted to "shutdown", and the virtual machine can be turned on by starting the operation, and when the virtual machine starts, the virtual machine will be run with a new image.
 
-Note: After the system is reinstalled, the operating system and data content of the virtual machine are erased, and the mounted EVS disk and snapshots are not affected.
+> After the system is reinstalled, the operating system and data content of the virtual machine are erased, and the mounted EVS disk and snapshots are not affected.
 
 ## Reset Password
 Reset password refers to changing the login password of the virtual machine operating system online, which is suitable for scenarios where you forget the login password or want to quickly change the password through the console.
@@ -337,7 +337,7 @@ Virtual machines provide hot upgrade capabilities and support CPU and memory upg
 - Hot upgrade: In the running state of the virtual machine, you can upgrade the CPU and memory of the virtual machine;
 - Base image: A base image that allows you to start a virtual machine through the base image and create a custom image based on the virtual machine.
 
-Note: Currently, only hot upgrade of virtual machines with Base image of `Centos 7.4` is supported, and online downgrade is not supported.
+> Currently, only hot upgrade of virtual machines with Base image of `Centos 7.4` is supported, and online downgrade is not supported.
 
 Virtual machines whose platforms support hot upgrade are automatically displayed on the list, as shown in the following figure:
 

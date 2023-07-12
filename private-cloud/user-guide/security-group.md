@@ -57,7 +57,7 @@ Supports stateful security group rules, and you can set inbound and outbound rul
 
 Security groups support data flow table status, and when a rule allows a request to communicate, the return data flow is automatically allowed without being affected by any rule. That is, security group rules take effect only for newly created connections, and two-way communication is allowed by default for established links. If an inbound rule allows any address to access port 80 of the external IP address of a virtual machine over the Internet, the return traffic (outbound traffic) that accesses port 80 of the virtual machine is automatically allowed without adding an outbound allow rule for the request.
 
-*Note: It is generally recommended to set up concise security group rules to effectively reduce network failures.*
+> It is generally recommended to set up concise security group rules to effectively reduce network failures.
 
 ## Security Group Management
 ### Creating Security Groups

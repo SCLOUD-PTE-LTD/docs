@@ -108,7 +108,7 @@ Adapts to various SCloud public cloud services to provide stable and reliable ba
 
 Supports HTTPS access to ensure transmission security.
 
-Note: Currently, HTTPS is not supported for mirror back-to-origin and custom domain names.
+> Currently, HTTPS is not supported for mirror back-to-origin and custom domain names.
 
 ### Upload file size limit
 

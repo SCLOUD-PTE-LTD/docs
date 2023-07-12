@@ -254,7 +254,7 @@ You can enter the VPN Tunnels tab through the IPSecVPN resource console to creat
 - Peer CIDR Block: The subnet in the IDC data center or third-party cloud platform that needs to communicate with the local CIDR block VPN, such as `192.168.2.0/24`.<br/> The peer CIDR block is used for the second stage of negotiation, cannot overlap with the local CIDR block, and supports the configuration of multiple CIDR segments, each CIDR segment is separated by a carriage return, and up to 20 peer-to-peer CIDR blocks are supported.
 - Pre-shared key: The secret key of the IPSecVPN connection, which is used for the negotiation of the VPN connection, and during the VPN connection negotiation, ensure that the keys of the local and peer sides are consistent. Consists of a-z, A-Z, numbers, special characters, but cannot contain '?' and spaces, which are 128 characters long.
 
-Note: When establishing tunnel configuration at the peer end, from the perspective of the peer gateway device, the local CIDR block and the peer CIDR block need to be swapped when configuring the CIDR segment.
+> When establishing tunnel configuration at the peer end, from the perspective of the peer gateway device, the local CIDR block and the peer CIDR block need to be swapped when configuring the CIDR segment.
 
 (2) Configure the IKE policy for phase 1 and the IPSec policy for phase 2 of VPN tunnel connection negotiation as required. When establishing a connection, ensure that the IKE policy on both ends is consistent (local and peer identities are configured opposite on the peer side). Typically, you select the default value to create a tunnel, and you only need to use the same configuration parameters to connect the two tunnels through gateways at both ends when establishing the tunnel configuration on the peer side.
 
@@ -279,7 +279,7 @@ Note: When establishing tunnel configuration at the peer end, from the perspecti
 - Peer ID: The identity of the peer gateway for IKE Phase 1 negotiation. Supports IP address and FQDN (full domain name), which defaults to the IP address of the peer gateway. If the peer is in NAT passthrough mode (the IP address of the peer gateway is 0.0.0.0), you need to revise the identification IP to the real peer gateway IP address, which is the local gateway IP address configured in the peer VPN gateway device.
 - Lifetime: The survival time of the first stage SA, after the lifetime period is exceeded, the SA will be renegotiated, the value range is 3600~86400, and the default value is 86400 seconds.
 
-Note: When establishing a tunnel configuration at the peer end, from the perspective of the peer gateway device, the local identity and the peer ID need to be switched when configuring the identity.
+> When establishing a tunnel configuration at the peer end, from the perspective of the peer gateway device, the local identity and the peer ID need to be switched when configuring the identity.
 
 **IPSec policy**
 

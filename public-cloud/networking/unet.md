@@ -15,7 +15,7 @@ The service can provide the services with the ability to access the external net
 
 ## Billing method introduction
 
-In the SCloud cloud platform,users can select different bandwidth usage patterns for each EIP in the account. At present, all regions in the cloud platform can provide **standard** bandwidth, **traffic** billing, shared **bandwidth**, and **Bandwidth** postpaid **billing** methods such as billing. For details on the rules for the recovery of overdue resources, see Recovery of expired resources.
+In the SCloud cloud platform,users can select different bandwidth usage patterns for each EIP in the account. At present, all regions in the cloud platform can provide standard bandwidth, traffic billing, shared bandwidth, and Bandwidth postpaid billing methods such as billing. For details on the rules for the recovery of overdue resources, see Recovery of expired resources.
 
 ### Bandwidth billing
 
@@ -76,13 +76,13 @@ When the purchased egress bandwidth is less than 50 Mbps, the ingress bandwidth 
 
 Usually when applying for cloud host (UHost) or load balancing (ULB),at the same time An external elastic IP will be applied for and the IP will be associated with the requested source Proceed to tie-up.
 
-In addition to this, it can be found in the **All Products** -\> **Base Network UNet** -\> **Elasticity IP** page, click **Apply EIP** button to apply.
+In addition to this, it can be found in the All Products -\> Base Network UNet -\> Elasticity IP page, click Apply EIP button to apply.
 
 In the application process, you can select the matching billing method and bandwidth according to the application type.
 
 If you select Specify IP address, you can select an IPaddress that has not been occupied by the last week.
 
-Click the **Buy Now** button, enter the payment page to confirm it, and the payment is completed After that, the newly applied elastic IP can be tied to the existing resources fixed.
+Click the Buy Now button, enter the payment page to confirm it, and the payment is completed After that, the newly applied elastic IP can be tied to the existing resources fixed.
 
 ## Bind/unbind external elasticIP addresses
 
@@ -92,9 +92,9 @@ There are now three portals for the operation of binding resources, specifically
 
 ### Binding operation
 
-Take the elastic IP list entry as an example, pass through the status column and select **Untied State** and click the binding button to open the binding Pop-ups.
+Take the elastic IP list entry as an example, pass through the status column and select Untied State and click the binding button to open the binding Pop-ups.
 
-Then select the type of resource that needs to be tied, and you can use the drop-down list to list the specific type that needs to be tied Search for the source and click **OK**.
+Then select the type of resource that needs to be tied, and you can use the drop-down list to list the specific type that needs to be tied Search for the source and click OK.
 
 ### Unbind operation
 
@@ -108,25 +108,21 @@ The bandwidth of an elastic IP can be divided in to two parts, one of which is s
 
 ### Adjust the base bandwidth
 
-You can check the current bandwidth of the IP address in the Monitoring and Control section of the ElasticIP Details page and a statistical view of traffic. And you can click the **Basic Information** on the left side of the page in the **Alarm Template** button to monitor the bandwidth usage The control detail set up with alarms to grasp the usage of resources at any time and adjust the purchased bandwidth in a timely manner.
+You can check the current bandwidth of the IP address in the Monitoring and Control section of the ElasticIP Details page and a statistical view of traffic. And you can click the Basic Information on the left side of the page in the Alarm Template button to monitor the bandwidth usage The control detail set up with alarms to grasp the usage of resources at any time and adjust the purchased bandwidth in a timely manner.
 
-**Note:**
-
-Both the standard bandwidth mode and the elasticIP address of the traffic billing mode can adjust the base bandwidth. In the shared bandwidth mode, you do not need to adjust the elastic IP bandwidth of a singleIP If tuning is required, you can open the shared bandwidth through the tuning office.
+> Both the standard bandwidth mode and the elasticIP address of the traffic billing mode can adjust the base bandwidth. In the shared bandwidth mode, you do not need to adjust the elastic IP bandwidth of a singleIP If tuning is required, you can open the shared bandwidth through the tuning office.
 
 ### Bandwidth package management
 
 Temporary adjustment of bandwidth in the form of planning tasks.
 
-**Note:**
-
-EIP that shares bandwidth and traffic billing does not **support** bandwidth plans.
+> EIP that shares bandwidth and traffic billing does not support bandwidth plans.
 
 ## Set the host to actively access the egress
 
 If a host has multiple external elastic IP addresses tied to it, if you need to specify an exit, you must introduce the external elastic IP exit Priority is a feature. This special performance is enough to meet the needs of some scenes, the host takes the initiative to visit the outside and determine the access The demand for exports.
 
-On the ECS details page,click the **Network** tab to see the assets that are tied to it All external elasticIP addresses on the source.
+On the ECS details page,click the Network tab to see the assets that are tied to it All external elasticIP addresses on the source.
 
 Select the elasticIPthat needs to be used as active access to the outside world,and click Set as Export when When the icon after the IP address turns green,it means that the IPaddress has been created is the egressIP.
 
@@ -140,4 +136,4 @@ Please note that the released elasticIP is not tied to any source.
 
 For purchased elasticIP addresses, you can change the billing method in the operation menu. Select the pop-up IP address for which you want to change the billing method,and then click the right side In a single column, the Change billing method button is pressed.
 
-In the pop-up window, click **Traffic** and **OK** to cut the existing bandwidth billing elasticIP addressSwitch to traffic billing.
+In the pop-up window, click Traffic and OK to cut the existing bandwidth billing elasticIP addressSwitch to traffic billing.

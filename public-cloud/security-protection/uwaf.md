@@ -93,7 +93,7 @@ The trial version and premium version are offline, and the historical user confi
 
 ### Version comparison
 
-*Note:* `×` indicates that the feature is not supported in this version ULB stands for this item depending on the configuration of the ULB.
+> `×` indicates that the feature is not supported in this version ULB stands for this item depending on the configuration of the ULB.
 
 #### Function description
 

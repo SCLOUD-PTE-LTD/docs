@@ -151,7 +151,7 @@ You can specify the subnet name, subnet CIDR block, and add one or more subnets 
 
 When the subnet is created, the status is "Creating", and after the subnet is created, the status of the subnet changes to "Valid" and can be used for resource creation.
 
-Note: If the subnet CIDR block is the same as the VPC CIDR block, the VPC currently supports only one subnet.
+> If the subnet CIDR block is the same as the VPC CIDR block, the VPC currently supports only one subnet.
 
 ## Delete a subnet
 You can delete the current subnet resources through the Delete function on the subnet list, and the deleted subnets will be directly destroyed. Before deleting a subnet, you must ensure that the resources in the subnet have been emptied, including the resources of the Recycle Bin, otherwise you are not allowed to delete the current subnet, as shown in the following figure:

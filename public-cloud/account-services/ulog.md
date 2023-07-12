@@ -11,7 +11,8 @@ nav_order: 5
 ### Operational logs
 The operation log records the operation behavior of users on resources in the console and API.
 
-Note: The operation log does not record what the user does inside the server.
+> The operation log does not record what the user does inside the server.
+
 ### View operation records
 (1) Operation record summary page
 On the Console Management - > Operation Logs page, you can view the operation behavior records of all resources and filter them by operation time, resource category, and data center.

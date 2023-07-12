@@ -38,7 +38,7 @@ Copy the code and run it locally to get the corresponding query results.
 
 <b>(1) For GO SDK Demo, please refer to the following steps:</b>
 
-Note: For more help, you can view the GO SDK documentation
+> For more help, you can view the GO SDK documentation
 
 - Save the request code as `main.go`
 - Execute `go mod init main`

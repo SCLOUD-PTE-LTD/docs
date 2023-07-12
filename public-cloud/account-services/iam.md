@@ -74,7 +74,8 @@ The scope of the global level is the global service of the account, which does n
 
 The effective scope of the project level is the specified project, and the project-level policy supports sub-project authorization;
 
-Note: Some system policies are global/project level, and custom policies cannot be created.
+> Some system policies are global/project level, and custom policies cannot be created.
+
 ### Review the system policy
 A system policy is a set of permissions packaged by action type. Click Details to view the APIs included in the policy and the references.
 ### Create a custom policy
@@ -104,11 +105,12 @@ Since there may be multiple projects under a cloud account, you must specify the
 ### Edit the project
 1. Open the permission management page, move the mouse next to the project name to be modified, and click ICON.
 2. Enter the project name and click Confirm to modify.
-Note: Only company administrators can edit project information, and currently only support modifying the project name.
+> Only company administrators can edit project information, and currently only support modifying the project name.
 ### Delete the project
 1. Open the permission management page and click Delete in the operation item.
 2. After confirmation, click the OK button.
-Note: This operation can only be performed by administrators, please remove all project members and resources before deleting the project. Once the item is deleted, it cannot be recovered, so please proceed with caution.
+
+> This operation can only be performed by administrators, please remove all project members and resources before deleting the project. Once the item is deleted, it cannot be recovered, so please proceed with caution.
 ### Add members to the project
 1. Open Permission Management - Personnel Management and click New Sub-account
 2. Fill in the sub-account information and click Next.
