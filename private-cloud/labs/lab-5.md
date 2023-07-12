@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Lab 5 - NAT Gateway
-parent: Tenant Administrator
-grand_parent: Private Cloud Labs
-permalink: /private-account-labs/tenant-admin/lab-5
+parent: Private Cloud Lab
+grand_parent: Private Cloud
+permalink: /private-cloud/labs/lab-5
 nav_order: 5
 ---
 # Lab 5: Using NAT Gateway

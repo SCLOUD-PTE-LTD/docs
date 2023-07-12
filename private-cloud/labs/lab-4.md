@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Lab 4 - VPC Advanced
-parent: Tenant Administrator
-grand_parent: Private Cloud Labs
-permalink: /private-account-labs/tenant-admin/lab-4
+parent: Private Cloud Lab
+grand_parent: Private Cloud
+permalink: /private-cloud/labs/lab-4
 nav_order: 4
 ---
 # Lab 4: Connect 2 VPC using Network Interconnection

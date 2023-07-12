@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Lab 3 - VPC Basic
-parent: Tenant Administrator
-grand_parent: Private Cloud Labs
-permalink: /private-account-labs/tenant-admin/lab-3
+parent: Private Cloud Lab
+grand_parent: Private Cloud
+permalink: /private-cloud/labs/lab-3
 nav_order: 3
 ---
 

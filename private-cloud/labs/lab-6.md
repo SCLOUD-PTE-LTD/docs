@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Lab 6 - Load Balancer 
-parent: Tenant Administrator
-grand_parent: Private Cloud Labs
-permalink: /private-account-labs/tenant-admin/lab-6
+parent: Private Cloud Lab
+grand_parent: Private Cloud
+permalink: /private-cloud/labs/lab-6
 nav_order: 6
 ---
 # Lab 6: Use Load Balancer to distribute traffic across VM in your Auto Scaling

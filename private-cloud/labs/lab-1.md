@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Lab 1 - Console
-parent: Tenant Administrator
-grand_parent: Private Cloud Labs
-permalink: /private-account-labs/tenant-admin/lab-1
+parent: Private Cloud Lab
+grand_parent: Private Cloud
+permalink: /private-cloud/labs/lab-1
 nav_order: 1
 ---
 # Lab 1: Getting Started with SCloudStack Console

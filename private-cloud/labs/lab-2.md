@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Lab 2 - Web Server
-parent: Tenant Administrator
-grand_parent: Private Cloud Labs
-permalink: /private-account-labs/tenant-admin/lab-2
+parent: Private Cloud Lab
+grand_parent: Private Cloud
+permalink: /private-cloud/labs/lab-2
 nav_order: 2
 ---
 # Lab 2: Create an NGINX Web Server in SCloudStack
