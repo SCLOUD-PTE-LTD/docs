@@ -8,9 +8,15 @@ nav_order: 5
 ---
 # ULightHost - Cloud Host
 ## Introduction
-ULightHost is a lightweight cloud server product that provides convenient and efficient cloud construction services for small and medium-sized enterprises and developers. It is simpler and easier to use than ordinary cloud servers. It sells cloud resources as a whole in the form of packages, and provides high-bandwidth traffic packages. Users can build applications with one click without complex configuration process, making cloud access easier.
+ULightHost is a lightweight cloud server product that provides convenient and efficient cloud construction services for small and medium-sized enterprises and developers. 
 
-![1](/assets/images/public-cloud-user-guides/guide-21.png)
+It is simpler and easier to use than ordinary cloud servers. It sells cloud resources as a whole in the form of packages, and provides high-bandwidth traffic packages. 
+
+Users can build applications with one click without complex configuration process, making cloud access easier.
+
+![1](/assets/images/public-cloud-user-guides/guide-23.png)
+
+![1](/assets/images/public-cloud-user-guides/guide-22.png)
 
 ## Product Description
 ### Product advantages
