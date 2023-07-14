@@ -21,9 +21,9 @@ Users can build applications with one click without complex configuration proces
 ## Product Description
 ### Product advantages
 Using lightweight application cloud hosts has the following advantages:
-- Convenient creation: Sell computing, storage and network resources as a whole in the form of packages, simplifying the concept of advanced cloud computing functions and the creation of application systems
-- Popular applications: Pre-install the software combinations required by application systems such as websites and blogs, and use them out of the box
-- Cost advantage: provide high-bandwidth traffic packages, and package computing, storage and network resources with high cost performance
+- Streamlined development: Offer comprehensive packages that bundle computing, storage, and network resources together, streamlining the complexity of advanced cloud computing features and the development of application systems.
+- Widely used software: Pre-configure software combinations needed for application systems like websites and blogs, allowing for immediate use.
+- Economical benefits: Deliver cost-effective high-bandwidth traffic packages that include computing, storage, and network resources.
 
 ### Differences from cloud hosting products
 
@@ -57,7 +57,7 @@ Under the same account, multiple lightweight application cloud hosts in the same
 At the same time, each lightweight application cloud host is assigned an independent public network IP by default after creation, and is configured with exclusive public network bandwidth, which can be used for Internet public network access.
 
 ### Storage
-The lightweight application cloud host product package includes a certain capacity of system disk storage space, which uses SCloud RSSD cloud disk. RSSD cloud disk is a high-availability, high-reliability, low-cost, and customizable block storage device. The bottom layer is based on all NVMe SSD storage media and adopts a three-copy distributed mechanism to provide low latency, high random IOPS, and high throughput. Amount of I/O capacity.
+The lightweight application cloud host product package includes a certain capacity of system disk storage space, which uses SCloud RSSD cloud disk. RSSD cloud disk is a high-availability, high-reliability, low-cost, and customizable block storage device. The bottom layer is based on all NVMe SSD storage media and adopts a three-copy distributed mechanism to provide low latency, high random IOPS and high throughput I/O capacity.
 
 The life cycle of the system disk completely follows that of the lightweight application cloud host. It is purchased together with the lightweight application cloud host and used as a system disk. Mounting and unmounting are not supported.
 
@@ -107,9 +107,9 @@ Early warning and recovery strategy:
 
 | Time node | Form of warning |
 | --- | --- |
-| Resource renewal reminders | Resource expiration warning notifications are sent 7 days before, 3 days ago, and 1 day before, respectively |
+| Resource renewal reminders | The resource expiration warning is sent 7 days before, 3 days before, and 1 day before the expiration date |
 | The day the resource expires | Send resource expiration reminders on the day the resource expires |
-| 1 day after resource expiration | Upcoming suspension of alarm |
+| 1 day after resource expiration | Warning about service termination |
 | 2 days after resource expiration | By sending a discontinuation notification, the customer will not be able to use the resource |
 | 5 days after the resource is stopped | Send recycling alert notifications |
 | 6 days after the resource is stopped | Send a recycling notification, and the SCloud backend deletes the relevant data |
