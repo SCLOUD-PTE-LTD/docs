@@ -31,7 +31,7 @@ CloudShell cloud command line
 | Parameter Name | Type | Description | Required
 | -- | -- | -- | -- |
 | Region | string | [See List of Regions and Availability Zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes
-| ProjectId |  string | Project ID. Not filling in is the default item, and the sub-account must be filled in. Please refer to GetProjectList interface |  No
+| ProjectId |  string | Project ID (example: `org-04ibqy`), This field, by default, is empty and is only required when the account is a Sub-Account Please refer to GetProjectList interface |  No
 | ULHostId | string | ULHost instance ID | Yes |
 
 ### Response field 

@@ -31,7 +31,7 @@ You can use any of the following methods to initiate an API request:
 | --- | --- | --- | --- |
 | Region | string | Region. See [List of Regions and Availability Zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
 | Zone | string | Availability zone. See [Availability Zone List](https://docs.scloud.sg/api/common/region-and-zone) | No |
-| ProjectId | string | Project ID. Not filling in is the default item, and the sub-account must be filled in. | No |
+| ProjectId | string | Project ID (example: `org-04ibqy`), This field, by default, is empty and is only required when the account is a Sub-Account | No |
 | UHostId | string | UHost instance ID | Yes |
 | DiskPassword | string | encrypted disk password | No |
 

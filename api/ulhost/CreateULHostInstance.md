@@ -31,7 +31,7 @@ CloudShell cloud command line
 | The parameter name | Type | Description| Required |
 | --- | --- | --- | --- |
 | Region | string | [See List of Regions and Availability Zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
-| ProjectId | string | project ID. Not filling in is the default item, and the sub-account must be filled in. | No |
+| ProjectId | string | Project ID (example: `org-04ibqy`), This field, by default, is empty and is only required when the account is a Sub-Account. | No |
 | ImageId | string | mirror imageID.| Yes |
 | BundleId | string | Package ID. Such as: `ulh.c1m1s40b30T800` | Yes |
 | Password | string | ULHost cipher. Please set the password according to [the field specification](https://docs.scloud.sg/api/common/field-specification). The password needs to be encoded using base64, for example: `# echo -n Password1 \| base64` | Yes |
