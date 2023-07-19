@@ -74,7 +74,8 @@ This article takes cURL POST JSON as an example to describe how to construct and
 
 > Data assumptions
 
-In this example assume
+In this example assume: 
+
 ```
 PublicKey  = 'john.doe@example.com1296235120854146120'
 PrivateKey = '46f09bb9fab4f12dfc160dae12273d5332b5debe'
@@ -91,7 +92,7 @@ Suppose the user request parameters are as follows:
 ```
 Calculate signature
 
-Refer to the signature algorithm document, the calculated Signature is `cba5cf5ec4d4233d206b1b54951e3787350a642f`.
+Refer to the [signature algorithm document](https://docs.scloud.sg/api/common/signature-algorithm), the calculated Signature is `52fc1191f026532c9100946c6a863a90d5f766ed`.
 
 Construct request
 
@@ -106,6 +107,6 @@ curl -X POST \
       "Limit"      :  10,
       "PublicKey"  :  "john.doe@example.com1296235120854146120",
       "Region"     :  "vn-sng",
-      "Signature"  :  "cba5cf5ec4d4233d206b1b54951e3787350a642f"
+      "Signature"  :  "52fc1191f026532c9100946c6a863a90d5f766ed"
   }'
 ```
