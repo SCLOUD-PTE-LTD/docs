@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API Keys
+title: Quick Start
 parent: Common
 grand_parent: API
 permalink: /api/common/quick-start
