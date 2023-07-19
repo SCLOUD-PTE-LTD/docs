@@ -30,9 +30,21 @@ CloudShell cloud command line
 
 ### Request parameter
 
+| Parameter Name | Type | Description | Required
+| -- | -- | -- | -- |
+| Region | string | [See List of Regions and Availability Zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes
+| ProjectId |  string | Project ID. Not filling in is the default item, and the sub-account must be filled in. Please refer to GetProjectList interface |  No
+| ULHostId | string | ULHost instance ID | Yes |
+| Password | string | Login password | Yes |
 
 ### Response field 
 
+| Field Name | Type | Description |  Required |
+| -- | -- | -- | -- |
+| RetCode | int |  Return status code, if it is 0, it returns successfully, if it is not 0, it fails | Yes |
+| Action | string |  Action command name | Yes |
+| Message | string |  Returns an error message, and provides detailed description information when RetCode is not 0 | No |
+| ULHostId | string |  ULHost instance ID | Yes |
 
 ## Example
 ### Example request

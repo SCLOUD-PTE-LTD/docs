@@ -30,7 +30,7 @@ CloudShell cloud command line
 
 | The parameter name | Type | Description | Required |
 | --- | --- | --- | --- |
-| Region | string | Region [A list of regions and zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
+| Region | string | [See List of Regions and Availability Zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
 | ProjectId | string | project ID. Not filling in is the default item, and the sub-account must be filled in. | No |
 
 ### Response field 

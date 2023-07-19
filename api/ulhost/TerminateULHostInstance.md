@@ -30,6 +30,12 @@ CloudShell cloud command line
 
 ### Request parameter
 
+| Parameter Name | Type | Description | Required
+| -- | -- | -- | -- |
+| Region | string | [See List of Regions and Availability Zones](https://docs.scloud.sg/api/common/region-and-zone) | Yes |
+| ProjectId |  string | Project ID. Not filling in is the default item, and the sub-account must be filled in. Please refer to GetProjectList interface |  No |
+| ULHostId | string | ULHost instance ID | Yes |
+| ReleaseUDisk | boolean | Whether to delete the mounted data disk at the same time when deleting the host. The default is `false`. | No |
 
 ### Response field 
 
