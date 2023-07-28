@@ -25,7 +25,7 @@ In this example, assume that the user request parameters are stringed as follows
 }
 ```
 The SHA1 signature of the signed string is generated, which is the value of the request parameter Signature.
-According to the above algorithm, in this example, the calculated Signature is `CBA5CF5EC4D4233D206B1B54951E3787350A642F`.
+According to the above algorithm, in this example, the calculated Signature is `52fc1191f026532c9100946c6a863a90d5f766ed`.
 
 ## Construct the signature
 ### 1. Sort the request parameters in ascending order by name
