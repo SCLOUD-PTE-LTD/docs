@@ -125,10 +125,24 @@ There is a limit of 100 file system instances that a single account can create.
 
 On-demand usage is not supported, and you can currently only use file storage by purchasing capacity upfront.
 
-### Pricing
+## Pricing
+Currently, file storage adopts the policy of billing by capacity, and the prices of various types of file storage are as follows.
 
-| Size | USD/Gb/Month |
-| -- | -- |
-| Less than 51.200 Gb | 0,049 |
-| Over 51.200 Gb | 0,042 |
+### Capacity price
 
+Capacity-based file storage adopts a step-by-step billing strategy.
+
+| Capacity range | Unit price of domestic server (credit/GiB/month) | Unit price of overseas server (credit/GiB/month) | 
+| -- | -- | -- |
+| Less than 51.200 Gb | 0,2 | 0,35 |
+| Over 51.200 Gb | 0,12 | 0,3 |
+
+> Note: The starting point for capacity purchase is 500GiB, and the step size is 100GiB.
+
+### SSD performance price
+
+| Capacity range | Unit price of domestic server (credit/GiB/month) | Unit price of overseas server (credit/GiB/month) |
+| -- | -- | -- |
+| Any size | 0,8 | 0,8 |
+
+> Note: The starting point for performance purchases is 100GiB, and the step size is 100GiB.
