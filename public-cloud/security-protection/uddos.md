@@ -47,7 +47,7 @@ If it is an attack, it is recommended to purchase high-defense for defense. If i
 
 1.   How to report the crime after being attacked?<br/>
 Report the case to the local network monitoring department, and provide relevant information according to the requirements of the network monitoring department. Then the network monitoring department judges whether it meets the standards for filing a case, and enters the network monitoring processing process. <br/>
-After the case is formally filed, UCloud will cooperate with the contact person of the network monitoring department to provide attack evidence (traffic graph, attack events, packet capture information, etc.).
+After the case is formally filed, SCloud will cooperate with the contact person of the network monitoring department to provide attack evidence (traffic graph, attack events, packet capture information, etc.).
 
 1.   The cloud host is attacked by small traffic, why not protect it?<br/>
 Since the basic protection is a public DDoS protection service, it does not protect against small traffic attacks (less than the cleaning threshold). It is recommended to optimize server performance and install host intrusion detection products to deal with small traffic attacks.
