@@ -72,8 +72,7 @@ Configure the origin server (IP/domain name) to be accelerated, support multiple
 ## Price
 ### Accelerated Configuration Price
 - Acceleration configuration can be bound to multiple acceleration lines, and you need to pay a fixed fee of 60 credit * N per month. N is equal to the number of lines bound to the acceleration configuration, and the renewal time follows the bound acceleration line resources.
-- The Apple review channel is a special type of acceleration configuration. It does not need to be bound with an acceleration line. It needs to pay a fixed fee of 96 credit per month, which can be paid on time/monthly/yearly.
-
+- 
 ### Billing method of the accelerated line
 - Currently supports bandwidth prepaid
 - The bandwidth prepayment method is to charge in advance according to the purchased bandwidth, which can be paid by time/month/year. After deleting resources, you will no longer be billed and you will be refunded for the unused portion. If you deprecate the acceleration line but do not delete the resources, arrears orders may be generated, resulting in unnecessary financial losses.
@@ -100,7 +99,7 @@ These addresses are the IP addresses of the accelerated cluster forwarding nodes
 2. Do regular health checks on the origin server
 The health check of the origin server is to detect the availability of the origin through the principle of TCP three-way handshake, which is a short connection. For UDP ports, health checks are not currently supported.
 
-> Note: The cloud service provider or IDC security policy related to the origin site may be sensitive to a large number of short TCP connections in a short period of time. For example, the security knight and Yundun of other companies will accidentally kill such IPs without your knowledge. For safety reasons, it is recommended to add the export EIP list to the Cloud Shield white list in advance after obtaining the export EIP list on the acceleration line details page (including the CDN vendor trust list of friends and the WAF product white list).
+> Note: The cloud service provider or IDC security policy related to the origin site may be sensitive to a large number of short TCP connections in a short period of time.
 
 ### How to check PathX's back-to-source IP (forwarding node IP near the source site)?
 Please check it on the PathX resource details page, which can be used as a reference when setting the whitelist on the origin site. 
