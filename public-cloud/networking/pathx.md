@@ -84,4 +84,81 @@ At present, the renewal of PathX accelerated line and accelerated configuration 
 For example: you purchased a 2mb line from China to Los Angeles. Monthly renewal order price = bandwidth price 2 of a certain line in the console + acceleration configuration price (the monthly fixed fee is 60 credit without discount) and the number of acceleration configurations bound to this line.
 
 ### Specific acceleration line price
-The unit price of prepaid bandwidth is different for different lines. For more information, please consult your account manager or online technical support
+The unit price of prepaid bandwidth is different for different lines. For more information, please consult your account manager or online technical support.
+
+## FAQ
+### Relationship between acceleration configuration and acceleration line
+1. Bandwidth sharing function: an acceleration line can be bound by multiple acceleration configurations, and these acceleration configurations share the bandwidth of the acceleration line;
+2. One acceleration configuration can bind multiple acceleration lines.
+3. Deleting the acceleration configuration will not affect the acceleration line, and the acceleration line still exists;
+4. If the acceleration configuration is bound to the acceleration line, the acceleration line cannot be deleted; if there is no acceleration configuration on the acceleration line, the acceleration line can be deleted.
+
+### Why do I see a large number of fixed IP addresses accessing the origin server?
+These addresses are the IP addresses of the accelerated cluster forwarding nodes, which serve two functions:
+
+1. Transmit your business data traffic (the real IP of the visitor can be obtained through the toa module)
+2. Do regular health checks on the origin server
+The health check of the origin server is to detect the availability of the origin through the principle of TCP three-way handshake, which is a short connection. For UDP ports, health checks are not currently supported.
+
+> Note: The cloud service provider or IDC security policy related to the origin site may be sensitive to a large number of short TCP connections in a short period of time. For example, the security knight and Yundun of other companies will accidentally kill such IPs without your knowledge. For safety reasons, it is recommended to add the export EIP list to the Cloud Shield white list in advance after obtaining the export EIP list on the acceleration line details page (including the CDN vendor trust list of friends and the WAF product white list).
+
+### How to check PathX's back-to-source IP (forwarding node IP near the source site)?
+Please check it on the PathX resource details page, which can be used as a reference when setting the whitelist on the origin site. 
+
+These IPs will change in case of ddos attack or computer room network shutdown. 
+
+The IP obtained by accelerated domain name resolution is the IP of the access point close to the client side, and it will change in the event of a ddos attack or the shutdown of the computer room network.
+
+### Can non-SCloud servers use global dynamic acceleration?
+Yes, as long as the server is reachable by public network routing.
+
+### Is there any difference between global dynamic acceleration and CDN acceleration?
+CDN accelerates access to resource caches at edge nodes, and the cached objects are static media resources. The entire link is on the public network, and the cross-border back-to-source line is not stable. Leading foreign CDN manufacturers have made in-depth optimization of the back-to-source network. Affected by policies, the number of nodes in some areas is limited and other products are needed for assistance.
+
+Global application acceleration optimizes the quality of the transnational (continental) network from the client to the source site. Relying on UCloud network scheduling capabilities, it controls packet loss and delay. It does not support application data caching, and each request will access the source site to obtain resource data. Suitable for payment, login, chat, long connection and other scenarios. At the same time, it supports websocket, http and other application layer protocols, terminates the tcp connection in advance on the side close to the client, and optimizes the end-to-end long connection, which can greatly increase the link speed.
+### Can HTTP(s) websites or API scenarios be used?
+1. It can be used, and the global dynamic acceleration supports tcp transparent transmission back to the source. Configure TCP port 80 or 443 on the console, the certificate is still deployed on your business server, no other settings are required.
+2. If your business scenario requires Offloading SSL nearby, and use the HTTP protocol to return to the source, you can use the HTTPS-HTTP method in PathX layer 7 port forwarding.
+3. If you use HTTP(s) requests, it is not convenient to install the TOA module on the source site and you want to obtain the real client IP, you can use PathX HTTPS-HTTPS or HTTP-HTTP forwarding.
+
+### What is multi-site access?
+Take the acceleration from North China, East China, and South China to Hong Kong as an example. After the acceleration is created, users in North China, East China, and South China access the same acceleration domain name, but the resolved IPs are different. These IPs correspond to the entrances of pathx in the three regions. That is, when users in different regions access the pathx acceleration domain name, the IP of the acceleration entrance closest to the user will be resolved.
+
+### After the resource is used for a period of time, the accelerated domain name + port of PathX or GlobalSSH suddenly cannot be accessed normally, but the source site + port can be accessed normally
+
+Test with curl will generally report "curl: (56) Failure when receiving data from the peer" Test with telnet After the prompt connection is successful, immediately receive "Reset By Remote Peer" Important! focus! focus! Test with nc, it will prompt that the connection is established successfully.
+
+1. Check whether the source site has security policy settings, such as Alibaba Cloud's Security Knight (the cloud shield will automatically block if the user does not make any configurations, and the whitelist IP needs to be enabled to protect the CDN trust vendor), fail2ban, etc. If so, you can download it from The console resource details page obtains pathx or globalssh export ip and adds it to the whitelist.
+2. The above cannot solve your problem, please submit a ticket to consult your origin server provider, whether there is a security policy to automatically block unknown source IP.
+3. Check system parameter settings <br/>
+`net.ipv4.tcp_timestamps = 1 net.ipv4.tcp_tw_recycle = 0 net.ipv4.tcp_tw_reuse = 1`
+
+Enabling tcp_tw_recycle is enough to recycle TCP connections (effective when used as a client pressure test or when sending a large number of requests to the outside). Because tcp_tw_recycle was designed earlier, it did not consider that NAT technology has become popular in the public network today, which will lead to NAT (such as Internet Cafe, 4G, WIFI) The connection of the user part fails. Currently this parameter is basically obsolete. To increase the speed of tcp recovery can also be achieved by reducing the time for tcp to wait for timeout.
+
+### Can the source site be modified?
+Beginning in July 2020, the PathX accelerated source site supports modification. On the accelerated configuration details page, you can modify it to a new source site IP or domain name, and the original accelerated domain name and port remain unchanged. Note that after modifying the source site, a short service interruption may occur, requiring the client to reconnect.
+
+### Is it possible to retrieve the pathX arrears after recovery?
+It cannot be retrieved after recycling. At this time, the resource is marked for deletion in our resource and billing system, and the resource needs to be recreated.
+
+### Can pathX configure bandwidth alarms?
+It can be configured in the "Alarm Template" of the acceleration line details page, and supports bandwidth absolute value and bandwidth usage alarms. On the acceleration line details page and acceleration configuration page, the drop-down list can select different acceleration areas to facilitate the location of entrances with high bandwidth ratios.
+
+### PathX's current limiting measures
+PathX limits traffic according to the purchased bandwidth. When the real-time bandwidth (the maximum value of outgoing bandwidth and incoming bandwidth) exceeds the purchased bandwidth, it will trigger current limiting. 
+
+Current limiting will cause increased packet loss rate and connection interruption. The time-limited flow of purchased bandwidth will be automatically released. Please configure the bandwidth usage alarm on the line details page. 
+
+PathX bandwidth monitoring data needs to be dynamically collected and calculated, and there is a 1-2 minute lag in computer rooms distributed around the world, resulting in a short period of time. The actual bandwidth will greatly exceed the purchased bandwidth, and the current limit command will cause serious loss after the bandwidth report is completed. package case.
+
+### Explanation of Capability Restrictions Related to Acceleration Configuration
+1. Number of acceleration areas: unlimited;
+2. Number of ports: 50;
+3. Layer 4 and Layer 7 protocol support: http(s) websocket(s), layer 4 forwarding can be extended to http2, `quic`, `ipsec-vpn`, `rtmp`, rtc and other protocols, ssl-vpn needs non-standard support, and does not support ftp access.
+4. Layer 4 port forwarding: on ordinary clusters, the number of concurrent connections is limited to 10,000;
+5. Layer 7 port forwarding: On ordinary clusters, a single source IP (client) is limited to 100 concurrent connections, the maximum number of concurrent connections is 4000, and HTTPS requests will be lower; high-performance clusters are supported, and you can contact us at any time if necessary.
+
+### How to handle load balancing when the origin server domain name and origin server have multiple IPs?
+1. If the domain name of the source site filled in is resolved to multiple IPs, a health check will be performed on all source site IP+port combinations (excluding UDP protocol ports for the time being) every 30s, and the source site nodes that fail the health check will be kicked out;
+
+2. The newly added connection request of the client is distributed among multiple source station IP nodes in a polling manner;
