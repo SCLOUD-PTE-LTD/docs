@@ -6,7 +6,7 @@ grand_parent: Public Cloud
 permalink: /public-cloud/networking/pathx/
 nav_order: 6
 ---
-# PathX
+# PathX - Global Dynamic Acceleration
 ## Product introduction
 Global Dynamic Acceleration (PathX) is a network acceleration product dedicated to improving the quality of global access to applications.
 
@@ -58,13 +58,13 @@ The IP or domain name that needs to be accelerated can be selected. In order to 
 The region where the origin server is located. For example, if the origin is in Los Angeles, the business location is the United States.
 
 ### Acceleration area
-The area that needs to be covered by the business (the distance from the source station is far away). For example, if the source station is in the United States and needs to cover Chinese users, the acceleration area is China.
+The area that needs to be covered by the business (the distance from the source station is far away). For example, if the source station is in the United States and needs to cover Singapore users, the acceleration area is Singapore.
 
 ### cname domain name
 The nearest access domain name provided by the accelerated configuration instance. You need to change the cname record of the domain name of the origin site to this domain name in the acceleration zone through DNS intelligent resolution service, so that users in the acceleration zone can access nearby.
 
 ### Acceleration line
-The acceleration line refers to the line instance from the acceleration area to the business location (the location of the source station). One acceleration line can be bound to multiple acceleration configurations (with the same location of origin). If the origin is located in China and the acceleration area is the United States, then the acceleration line to be purchased is "Los Angeles to China or Washington to China".
+The acceleration line refers to the line instance from the acceleration area to the business location (the location of the source station). One acceleration line can be bound to multiple acceleration configurations (with the same location of origin). If the origin is located in Singapore and the acceleration area is the United States, then the acceleration line to be purchased is "Los Angeles to Singapore or Washington to Singapore".
 
 ### Accelerate configuration
 Configure the origin server (IP/domain name) to be accelerated, support multiple service ports, specify the location of the origin, and select the purchased acceleration line.
@@ -80,7 +80,7 @@ Configure the origin server (IP/domain name) to be accelerated, support multiple
 ### PathX Resource Renewal Order Instructions
 At present, the renewal of PathX accelerated line and accelerated configuration is completed together. 
 
-For example: you purchased a 2mb line from China to Los Angeles. Monthly renewal order price = bandwidth price 2 of a certain line in the console + acceleration configuration price (the monthly fixed fee is 60 credit without discount) and the number of acceleration configurations bound to this line.
+For example: you purchased a 2 Mbps line from Singapore to Los Angeles. Monthly renewal order price = bandwidth price 2 of a certain line in the console + acceleration configuration price (the monthly fixed fee is 60 credit without discount) and the number of acceleration configurations bound to this line.
 
 ### Specific acceleration line price
 The unit price of prepaid bandwidth is different for different lines. For more information, please consult your account manager or online technical support.
@@ -125,7 +125,7 @@ At the same time, it supports websocket, http and other application layer protoc
 ### What is multi-site access?
 Take the acceleration from North China, East China, and South China to Hong Kong as an example. After the acceleration is created, users in North China, East China, and South China access the same acceleration domain name, but the resolved IPs are different. 
 
-These IPs correspond to the entrances of pathx in the three regions. That is, when users in different regions access the pathx acceleration domain name, the IP of the acceleration entrance closest to the user will be resolved.
+These IPs correspond to the entrances of PathX in the three regions. That is, when users in different regions access the PathX acceleration domain name, the IP of the acceleration entrance closest to the user will be resolved.
 
 ### After the resource is used for a period of time, the accelerated domain name + port of PathX or GlobalSSH suddenly cannot be accessed normally, but the source site + port can be accessed normally
 
