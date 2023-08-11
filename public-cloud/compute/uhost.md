@@ -47,7 +47,7 @@ Provides a wealth of monitoring and security tools, DDOS protection, intrusion d
 
 You can create snapshots and back up data through manual and automated snapshot backup policies without worrying about the risk of data loss such as operational errors.
 ### Data Center
-You can launch cloud host products in more than 31 availability zones around the world to cover all five continents, and provide high-quality cloud computing services with consistent experience for your global business
+You can launch cloud host products in more than 18 regions around the world to cover all five continents, and provide high-quality cloud computing services with consistent experience for your global business
 
 ![1](/assets/images/uhost1.png)
 
