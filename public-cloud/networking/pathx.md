@@ -17,13 +17,13 @@ After using PathX, with the help of forwarding clusters distributed all over the
 An accelerated domain name can perform accelerated forwarding for multiple ports of the origin site at the same time.
 
 ### Multi-protocol acceleration
-Support TCP, UDP layer 4 forwarding, and HTTP, HTTPS layer 7 forwarding; use TCP to support HTTP HTTPS HTTP2 Websocket and other scenarios; use UDP to support QUIC protocol, chat room and other applications
+Support TCP, UDP layer 4 forwarding, and HTTP, HTTPS layer 7 forwarding; use TCP to support HTTP, HTTPS, HTTP2 Websocket and other scenarios; use `UDP` to support `QUIC` protocol, chat room and other applications.
 
 ### Multi-region acceleration
 If there are multiple regions that need to be accelerated, multiple acceleration lines can be bound to one acceleration configuration, and the acceleration domain name remains unchanged.
 
 ### The acceleration effect is obvious
-Effectively improve the stability of cross-border and trans-continental networks, and reduce network delays by an average of 20%
+Effectively improve the stability of cross-border and trans-continental networks, and reduce network delays by an average of 20%.
 
 ### Zero packet loss during peak hours
 Using SCloud's self-developed overseas routing optimization technology and the advantages of the global backbone network, it supports intelligent link scheduling and greatly optimizes link packet loss.
@@ -72,7 +72,7 @@ Configure the origin server (IP/domain name) to be accelerated, support multiple
 ## Price
 ### Accelerated Configuration Price
 - Acceleration configuration can be bound to multiple acceleration lines, and you need to pay a fixed fee of 60 credit * N per month. N is equal to the number of lines bound to the acceleration configuration, and the renewal time follows the bound acceleration line resources.
-- 
+
 ### Billing method of the accelerated line
 - Currently supports bandwidth prepaid
 - The bandwidth prepayment method is to charge in advance according to the purchased bandwidth, which can be paid by time/month/year. After deleting resources, you will no longer be billed and you will be refunded for the unused portion. If you deprecate the acceleration line but do not delete the resources, arrears orders may be generated, resulting in unnecessary financial losses.
@@ -114,14 +114,18 @@ Yes, as long as the server is reachable by public network routing.
 ### Is there any difference between global dynamic acceleration and CDN acceleration?
 CDN accelerates access to resource caches at edge nodes, and the cached objects are static media resources. The entire link is on the public network, and the cross-border back-to-source line is not stable. Leading foreign CDN manufacturers have made in-depth optimization of the back-to-source network. Affected by policies, the number of nodes in some areas is limited and other products are needed for assistance.
 
-Global application acceleration optimizes the quality of the transnational (continental) network from the client to the source site. Relying on SCloud network scheduling capabilities, it controls packet loss and delay. It does not support application data caching, and each request will access the source site to obtain resource data. Suitable for payment, login, chat, long connection and other scenarios. At the same time, it supports websocket, http and other application layer protocols, terminates the tcp connection in advance on the side close to the client, and optimizes the end-to-end long connection, which can greatly increase the link speed.
+Global application acceleration optimizes the quality of the transnational (continental) network from the client to the source site. Relying on SCloud network scheduling capabilities, it controls packet loss and delay. It does not support application data caching, and each request will access the source site to obtain resource data. Suitable for payment, login, chat, long connection and other scenarios. 
+
+At the same time, it supports websocket, http and other application layer protocols, terminates the tcp connection in advance on the side close to the client, and optimizes the end-to-end long connection, which can greatly increase the link speed.
 ### Can HTTP(s) websites or API scenarios be used?
 1. It can be used, and the global dynamic acceleration supports tcp transparent transmission back to the source. Configure TCP port 80 or 443 on the console, the certificate is still deployed on your business server, no other settings are required.
 2. If your business scenario requires Offloading SSL nearby, and use the HTTP protocol to return to the source, you can use the HTTPS-HTTP method in PathX layer 7 port forwarding.
 3. If you use HTTP(s) requests, it is not convenient to install the TOA module on the source site and you want to obtain the real client IP, you can use PathX HTTPS-HTTPS or HTTP-HTTP forwarding.
 
 ### What is multi-site access?
-Take the acceleration from North China, East China, and South China to Hong Kong as an example. After the acceleration is created, users in North China, East China, and South China access the same acceleration domain name, but the resolved IPs are different. These IPs correspond to the entrances of pathx in the three regions. That is, when users in different regions access the pathx acceleration domain name, the IP of the acceleration entrance closest to the user will be resolved.
+Take the acceleration from North China, East China, and South China to Hong Kong as an example. After the acceleration is created, users in North China, East China, and South China access the same acceleration domain name, but the resolved IPs are different. 
+
+These IPs correspond to the entrances of pathx in the three regions. That is, when users in different regions access the pathx acceleration domain name, the IP of the acceleration entrance closest to the user will be resolved.
 
 ### After the resource is used for a period of time, the accelerated domain name + port of PathX or GlobalSSH suddenly cannot be accessed normally, but the source site + port can be accessed normally
 
@@ -132,7 +136,7 @@ Test with curl will generally report "curl: (56) Failure when receiving data fro
 3. Check system parameter settings <br/>
 `net.ipv4.tcp_timestamps = 1 net.ipv4.tcp_tw_recycle = 0 net.ipv4.tcp_tw_reuse = 1`
 
-Enabling tcp_tw_recycle is enough to recycle TCP connections (effective when used as a client pressure test or when sending a large number of requests to the outside). Because tcp_tw_recycle was designed earlier, it did not consider that NAT technology has become popular in the public network today, which will lead to NAT (such as Internet Cafe, 4G, WIFI) The connection of the user part fails. Currently this parameter is basically obsolete. To increase the speed of tcp recovery can also be achieved by reducing the time for tcp to wait for timeout.
+Enabling tcp_tw_recycle is enough to recycle TCP connections (effective when used as a client pressure test or when sending a large number of requests to the outside). Because tcp_tw_recycle was designed earlier, it did not consider that NAT technology has become popular in the public network today, which will lead to NAT (such as Internet Cafe, 4G, Wifi) The connection of the user part fails. Currently this parameter is basically obsolete. To increase the speed of tcp recovery can also be achieved by reducing the time for tcp to wait for timeout.
 
 ### Can the source site be modified?
 Beginning in July 2020, the PathX accelerated source site supports modification. On the accelerated configuration details page, you can modify it to a new source site IP or domain name, and the original accelerated domain name and port remain unchanged. Note that after modifying the source site, a short service interruption may occur, requiring the client to reconnect.
