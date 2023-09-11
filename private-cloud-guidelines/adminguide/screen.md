@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/monitoring-dashboard/
 nav_order: 12
 ---
-# 12 Monitoring Dashboard
+# 12. Monitoring Dashboard
 
 The monitoring dashboard is a cloud platform resource visualization dashboard provided by the platform for enterprises. It mainly displays monitoring data from a macro perspective of the platform, helping enterprise cloud platform operators to quickly understand the overall operation of the platform. It supports custom drag-and-drop modules and full-screen display, making it easy for administrators to manage split screens. Users can enter the monitoring dashboard page through the button on the left side of the administrator's avatar, as shown in the figure below:
 

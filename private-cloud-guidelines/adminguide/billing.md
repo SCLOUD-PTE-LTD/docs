@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/financial-management/
 nav_order: 9
 ---
-# 9 Financial Management
+# 9. Financial Management
 
 ## 9.1 Overview
 

@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/physical-resources/
 nav_order: 5
 ---
-# 5 Physical Resource Management
+# 5. Physical Resource Management
 
 The platform provides administrators with the ability to manage and operate the entire lifecycle of all physical resources on the platform, including physical machine resources (nodes), physical machine management, image resources, and external network segment resources.
 

@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/auth-management/
 nav_order: 11
 ---
-# 11 Authorization Management
+# 11. Authorization Management
 
 ## 11.1 Overview
 

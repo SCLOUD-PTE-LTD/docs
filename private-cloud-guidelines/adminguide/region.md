@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/region-management/
 nav_order: 3
 ---
-# 3 Region Management
+# 3. Region Management
 
 A region is a logical concept in the cloud platform, referring to the classification of physical locations where resources are deployed, which can correspond to cabinets, computer rooms, or data centers. Typically, one data center corresponds to a private cloud platform that supports the deployment of multiple computing and storage clusters. The resources and networks between data centers are completely physically isolated and can be managed through a management platform that spreads across private cloud platforms in various locations.
 

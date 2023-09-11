@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/virtual-resources/
 nav_order: 6
 ---
-# 6 Virtual Resource Management
+# 6. Virtual Resource Management
 
 The platform provides administrators with full lifecycle operation and management capabilities for virtual resources of all tenants on the platform, allowing administrators to centrally control the overall virtual resources of the platform, including all tenant-side product services such as virtual machines, VM templates, elastic network cards, VPC networks, public IPs, VIPs, security groups, load balancers, NAT gateways, VPN gateways, external storage, cloud disks, snapshots, etc. Additionally, the platform also supports QoS control for single disk IOPS and read/write bandwidth.
 

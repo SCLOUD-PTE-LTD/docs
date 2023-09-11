@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/tenant/
 nav_order: 7
 ---
-# 7 Tenant Management
+# 7. Tenant Management
 ## 7.1 Overview
 
 Tenants mainly provide organization structure management, resource access control, approval processes, cost management and other functions for enterprise users based on tenants.

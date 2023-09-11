@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/system-management/
 nav_order: 10
 ---
-# 10 System Management
+# 10. System Management
 
 Platform management provides administrators with capabilities for platform-wide configuration, quota allocation, and custom resource specification, enabling enterprises and administrators to provide customized configuration services for the platform, enhancing its customization capabilities.
 

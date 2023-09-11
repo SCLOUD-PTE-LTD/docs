@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/approve-management/
 nav_order: 8
 ---
-# 8 Approval Management
+# 8. Approval Management
 
 ## 8.1 Overview
 

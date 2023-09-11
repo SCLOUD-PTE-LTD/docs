@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/resource-overview/
 nav_order: 16
 ---
-# 16 Resource Overview
+# 16. Resource Overview
 
 ## 16.1 Overview
 

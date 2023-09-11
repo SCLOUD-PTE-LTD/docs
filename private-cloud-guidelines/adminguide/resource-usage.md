@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/resource-usage/
 nav_order: 14
 ---
-# 14 Resource Usage
+# 14. Resource Usage
 
 ## 14.1 Overview of Resource Usage
 

@@ -6,7 +6,7 @@ grand_parent: Private Cloud User Guides
 permalink: /private-cloud/user-guides/cluster/
 nav_order: 4
 ---
-# 4 Cluster Management
+# 4. Cluster Management
 
 A cluster is a logical division of the platform's physical resources used to differentiate service nodes with different configuration specifications and storage types, such as X86 computing clusters, ARM computing clusters, SSD storage clusters, or commercial storage clusters. A data center can support deployment of multiple computing and storage clusters, and a cluster is typically composed of a group of physically identical nodes with the same CPU/memory, disk type, and operating system.
 
