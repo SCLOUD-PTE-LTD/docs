@@ -18,7 +18,7 @@ Administrators can create Resource Usage reports by statistics on controlled con
 
 You can access the Resource Usage control panel through the navigation bar and then click "**Create**" to enter the wizard page, as shown in the figure below:
 
-![createRU](../images/adminguide/createRU.png)
+![createRU](/assets/images/adminguide/createRU.png)
 
 * Name: The name of the Resource Usage report, which must be specified when created;
 * Resource Usage Cycle: Ranges from 1 hour to 6 months and can be selected from 1 day/3 days/7 days/14 days/30 days/custom, with customizable start and end times accurate to the hour;
@@ -32,7 +32,7 @@ Administrators can view the Resource Usage list by accessing the Resource Usage 
 
 The Resource Usage list shows all created Resource Usage report information on the platform, including name, resource ID, status, tenant ID, project group information, resource type, creation time, start time, end time, and operation items, as shown in the figure below:
 
-![RUlist](../images/adminguide/RUlist.png)
+![RUlist](/assets/images/adminguide/RUlist.png)
 
 - Name: The name of the Resource Usage report;
 - Resource ID: The ID of the Resource Usage report serves as a global unique identifier;
@@ -49,7 +49,7 @@ The Resource Usage list shows all created Resource Usage report information on t
 
 Only reports that include virtual machines as a resource type can be viewed. The distribution chart of resource usage includes CPU usage distribution of virtual machines and memory usage distribution of virtual machines, with usage rate as the horizontal axis and the number of virtual machines as the vertical axis for statistics. Administrators can click "**View**" in the Resource Usage control panel operation to view details, as shown in the figure below:
 
-![RUdetails](../images/adminguide/RUdetails.png)
+![RUdetails](/assets/images/adminguide/RUdetails.png)
 
 ## 14.5 Downloading Resource Usage Reports
 
@@ -57,27 +57,27 @@ Administrators can download Resource Usage reports by clicking "**Download**" in
 
 * Computing Cluster
 
-![RUcomputercluster](../images/adminguide/RUcomputercluster.png)
+![RUcomputercluster](/assets/images/adminguide/RUcomputercluster.png)
 
 * Storage Cluster
 
-![RUstoragecluster](../images/adminguide/RUstoragecluster.png)
+![RUstoragecluster](/assets/images/adminguide/RUstoragecluster.png)
 
 * Virtual Machine
 
-![RUvm](../images/adminguide/RUvm.png)
+![RUvm](/assets/images/adminguide/RUvm.png)
 
 * Distribution of virtual machine CPU usage
 
-![RUcpu](../images/adminguide/RUcpu.png)
+![RUcpu](/assets/images/adminguide/RUcpu.png)
 
 * Distribution of virtual machine memory usage
 
-![RUmem](../images/adminguide/RUmem.png)
+![RUmem](/assets/images/adminguide/RUmem.png)
 
 ## 14.6 Delete Resource Usage Reports
 
 Administrators are supported to delete resource usage reports. Click on "**Delete**" in the resource usage control console to delete resource usage reports, as shown in the figure below:
 
-![RUrm](../images/adminguide/RUrm.png)
+![RUrm](/assets/images/adminguide/RUrm.png)
 

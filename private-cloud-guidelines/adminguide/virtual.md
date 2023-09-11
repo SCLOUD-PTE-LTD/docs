@@ -56,7 +56,7 @@ The platform provides a global default QoS configuration for all cloud disks, wh
 
 After each cloud disk is created, administrators can configure "QoS" for it on the Cloud Resource Management-Cloud Disk List page. They can also configure QoS for the system disk in the details of a virtual machine. The QoS settings that can be configured include:
 
-![volumeqos](../images/adminguide/volumeqos.png)
+![volumeqos](/assets/images/adminguide/volumeqos.png)
 
 * Read/write IOPS
 

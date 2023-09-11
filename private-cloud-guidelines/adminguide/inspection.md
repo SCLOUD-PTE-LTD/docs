@@ -33,7 +33,7 @@ Inspection mainly scans the entire platform, including time source synchronizati
 
 Cloud platform users can create one-click inspections through the console. After entering the one-click inspection console through the navigation bar, click the "Start One-click Inspection" button to enter the create inspection pop-up window, as shown below:
 
-![createinspection](../images/adminguide/createinspection.png)
+![createinspection](/assets/images/adminguide/createinspection.png)
 
 * Name/Note: A name must be specified when creating an inspection.
 * Confirm Creation: After clicking on "Confirm", the user will be returned to the One-Click Inspection list page. Normally, after a successful creation, the status will show as "In Progress", and upon completion, it will show as "Completed".
@@ -50,62 +50,62 @@ By navigating to the One-Click Inspection Control Panel, users can view the insp
 ## 13.3.1 One-Click Inspection List 
 The inspection report ID can be copied and used for operations in any state. Users can copy the inspection report ID by clicking on the "Copy" button located to the right of each inspection report ID on the inspection list page, as shown in the figure below:
 
-![inspectionlist](../images/adminguide/inspectionlist.png)
+![inspectionlist](/assets/images/adminguide/inspectionlist.png)
 
 ## 13.3.2 One-Click Inspection Details
 Users can click on the inspection report ID on the inspection list or the detail button on the operation bar to access the One-Click Inspection Details page. The details page displays the inspection score, number of inspection items, number of exceptions, inspection completion time, and all inspection items. Expanding the management and calculation nodes allows users to view detailed data, including names, inspection results, current status, and scores. When the inspection result is abnormal, corresponding recommendations will be displayed below the result details. The One-Click Inspection Details are shown in the figure below:
 
-![inspectiondetails](../images/adminguide/inspectiondetails.png)
+![inspectiondetails](/assets/images/adminguide/inspectiondetails.png)
 
 ## 13.3.3 Time Source Synchronization Check
 Checks whether time source synchronization is set up. When the inspection result is normal, it is displayed as shown in the figure below. When the inspection result is abnormal, the inspection result is a warning, and the status is synchronization exception.
 
-![timesource](../images/adminguide/timesource.png)
+![timesource](/assets/images/adminguide/timesource.png)
 
 ## 13.3.4 CPU Usage Rate
 Checks the percentage of CPU usage on the cloud platform management node. When the inspection result is normal, it is displayed as shown in the figure below. When the inspection result is abnormal, the inspection result is a warning, and there is a question mark icon in the upper right corner. Moving the mouse over the question mark icon will display the main file name, PID, and usage that caused the abnormal result.
 
-![CPUusage](../images/adminguide/CPUusage.png)
+![CPUusage](/assets/images/adminguide/CPUusage.png)
 
 ## 13.3.5 Memory Usage Rate Check
 Checks the percentage of memory usage on the cloud platform management node. When the inspection result is normal, it is displayed as shown in the figure below. When the inspection result is abnormal, the inspection result is a warning, and there is a question mark icon in the upper right corner. Moving the mouse over the question mark icon will display the main file name, PID, and usage that caused the abnormal result.
 
-![memoryusage](../images/adminguide/memoryusage.png)
+![memoryusage](/assets/images/adminguide/memoryusage.png)
 
 ## 13.3.6 Disk Usage Check
 Checks the percentage of disk usage on the cloud platform management node. When the inspection result is normal, it is displayed as shown in the figure below. When the inspection result is abnormal, the inspection result is a warning, and there is a question mark icon in the upper right corner. Moving the mouse over the question mark icon will display the main file name and size that caused the abnormal result.
 
-![diskusage](../images/adminguide/diskusage.png)
+![diskusage](/assets/images/adminguide/diskusage.png)
 
 ## 13.3.7 Management Service Check
 Checks the usage percentage of disk on the cloud platform management node. When the inspection result is normal, it is displayed as shown in the figure below. When the inspection result is abnormal, the inspection result is a warning, and there is a question mark icon in the upper right corner. Moving the mouse over the question mark icon will display the main file name and size that caused the abnormal result.
 
-![diskusage](../images/adminguide/managedservice.png)
+![diskusage](/assets/images/adminguide/managedservice.png)
 
 ## 13.3.8 Physical Machine CPU Average Usage Rate Check
 When the inspection result is normal, the average CPU usage rate of physical machines on the cloud platform should appear as shown in the figure below. When the inspection result is abnormal, the inspection result will be marked with a warning icon in the upper right corner with a question mark. Moving the mouse over the question mark will display the main file name, PID, and usage that caused the abnormal result.
 
-![machineCPU](../images/adminguide/machineCPU.png)
+![machineCPU](/assets/images/adminguide/machineCPU.png)
 
 ## 13.3.9 Check the Average Memory Usage Rate of Physical Machines
 When the inspection result is normal, the average memory usage rate of physical machines on the cloud platform should appear as shown in the figure below. When the inspection result is abnormal, the inspection result will be marked with a warning icon in the upper right corner with a question mark. Moving the mouse over the question mark will display the main file name, PID, and usage that caused the abnormal result.
 
-![machinememory](../images/adminguide/machinememory.png)
+![machinememory](/assets/images/adminguide/machinememory.png)
 
 ## 13.3.10 Check the Used Capacity of Physical Machine System Disk
 When checking the usage and amount of the system disk of physical machines on the cloud platform, the inspection result should appear as shown in the figure below when it is normal. When the inspection result is abnormal, the inspection result will be marked with a warning icon in the upper right corner with a question mark. Moving the mouse over the question mark will display the main file name and size that caused the abnormal result.
 
-![systemdisk](../images/adminguide/systemdisk.png)
+![systemdisk](/assets/images/adminguide/systemdisk.png)
 
 ## 13.4 Download Inspection Report
 Users can download the inspection report and save it to their local device through the browser. After downloading the inspection report, users can view detailed information including location, node, name, inspection items, inspection results, status, score, suggestions, and highest usage rate. When the inspection result is abnormal, the status will display the current device parameters, suggestions will provide targeted recommendations, and the highest usage rate will display the main file name and size that caused the abnormal result, allowing management personnel to understand the status of physical machines in a timely manner.
 
-![downloadinspection](../images/adminguide/downloadinspection.png)
+![downloadinspection](/assets/images/adminguide/downloadinspection.png)
 
 ## 13.5 Delete Inspection Report
 Users can delete inspection reports by using the inspection report list. Only completed inspection reports can be deleted.
 
-![deleteinspection](../images/adminguide/deleteinspection.png)
+![deleteinspection](/assets/images/adminguide/deleteinspection.png)
 
 
 

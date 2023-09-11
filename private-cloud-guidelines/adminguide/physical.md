@@ -18,7 +18,7 @@ Node management refers to the management of all compute nodes within a region, i
 
 Administrators can view the list of all nodes in a region and related information on the Physical Resource Management / Node page, including resource ID, IP address, CPU model, total CPU cores, total memory, serial number, status, architecture, node type, region, and operation options, as shown below:
 
-![computenode](../images/adminguide/computenode.png)
+![computenode](/assets/images/adminguide/computenode.png)
 
 - Resource ID: The unique identifier of the compute node on the platform.
 - Node IP: The IP address of the compute node.
@@ -41,7 +41,7 @@ Administrators can lock, unlock, enter maintenance mode, exit maintenance mode, 
 
 Administrators can enter the node details page through the target node name in the node list to view the basic information and monitoring information of the node, and query the compute instances already running on the compute node, as shown below:
 
-![computenodeinfo](../images/adminguide/computenodeinfo.png)
+![computenodeinfo](/assets/images/adminguide/computenodeinfo.png)
 
 **（1）Overview of Basic Information**
 
@@ -55,15 +55,15 @@ The monitoring information supports chart configuration. By enabling chart confi
 
 nodeinstance
 
-![nodeinstance](../images/adminguide/openconfig.png)
+![nodeinstance](/assets/images/adminguide/openconfig.png)
 
-![nodeinstance](../images/adminguide/tableconfig.png)
+![nodeinstance](/assets/images/adminguide/tableconfig.png)
 
 **（3）Compute Instances**
 
 Administrators can view the list and information of compute instances on a node through the node details page, including name, compute instance ID, resource ID, tenant, node IP, image ID, GPU, CPU, memory, status, creation time, and update time. The page also supports searching for compute instances by name and fuzzy search, as shown below:
 
-![nodeinstance](../images/adminguide/nodeinstance.png)
+![nodeinstance](/assets/images/adminguide/nodeinstance.png)
 
 Compute instances include virtual machine instances, as well as instances of platform gateways and PaaS products, which can be distinguished by instance name and resource ID.
 
@@ -71,7 +71,7 @@ Compute instances include virtual machine instances, as well as instances of pla
 
 Support administrators to view the list and information of USB devices in the node through the node page, including device name, device ID, status, manufacturer, type, serial number, virtual machine, USB version, tenant, and support USB allocation, as shown in the figure below:
 
-![nodeinstance](../images/adminguide/usb.png)
+![nodeinstance](/assets/images/adminguide/usb.png)
 
 **（5）Basic Information**
 
@@ -93,23 +93,23 @@ Support viewing cluster ID, cluster type, CPU usage, memory usage, GPU usage, ph
 
 支持管理员通过宿主机页面，查看宿主机中GPU设备列表及信息，包括设备名、规格信息、设备地址、类型、状态、操作，如下图所示：
 
-![nodeinstance](../images/adminguide/GPU.png)
+![nodeinstance](/assets/images/adminguide/GPU.png)
 
 支持管理员对宿主机中GPU设备进行虚拟化切割，并在vGPU中展示设备信息，包括设备名、规格信息、物理GPU、云主机、状态，如下图所示：
 
-![nodeinstance](../images/adminguide/sliceGPU.png)
+![nodeinstance](/assets/images/adminguide/sliceGPU.png)
 
-![nodeinstance](../images/adminguide/vGPU.png)
+![nodeinstance](/assets/images/adminguide/vGPU.png)
 
 支持管理员对宿主机中已虚拟化切割的GPU设备进行虚拟化还原，如下图所示：
 
-![nodeinstance](../images/adminguide/reGPU.png) -->
+![nodeinstance](/assets/images/adminguide/reGPU.png) -->
 
 ### 5.1.3 Locking Nodes
 
 After a node is locked, new compute instances will not be scheduled to the compute node, which does not affect existing compute instances within the node. It can be used in conjunction with the node entering maintenance mode to perform node maintenance, upgrades, and other operations.
 
-![lock](../images/adminguide/lock.png)
+![lock](/assets/images/adminguide/lock.png)
 
 Only nodes in the Available state can be locked. After the node is locked, the node's status changes to Locked, and new virtual machine instances will not be created on the node in the Locked state. At the same time, the compute node can enter maintenance mode while in the Locked state.
 
@@ -119,7 +119,7 @@ Only nodes in the Available state can be locked. After the node is locked, the n
 
 Administrators can unlock a locked node and provide computing services to the outside world. Compute instances can be scheduled and deployed to the node.
 
-![unlock](../images/adminguide/unlock.png)
+![unlock](/assets/images/adminguide/unlock.png)
 
 Only nodes in the Locked state can be unlocked. After unlocking, the node's status changes to Available and compute instances can be scheduled and created on the node in the Available state.
 
@@ -129,7 +129,7 @@ When it is necessary to maintain a node, such as expanding memory, upgrading, re
 
 Before a node enters maintenance mode, its status must be Locked, meaning that it needs to be locked before entering maintenance mode, as shown in the figure below:
 
-![maintenance](../images/adminguide/maintenance.png)
+![maintenance](/assets/images/adminguide/maintenance.png)
 
 Before locking the node and entering maintenance mode, the administrator needs to perform the following checks:
 
@@ -143,7 +143,7 @@ Make sure that the node can enter maintenance mode, then follow the steps below 
 
 2. Click the "Enter Maintenance Mode" button to enter maintenance mode. The node will automatically transition to the "Entering Maintenance Mode" state, as shown in the figure below:
 
-   ![inmaintain](../images/adminguide/inmaintain.png)
+   ![inmaintain](/assets/images/adminguide/inmaintain.png)
 
 3. The system will automatically execute online migration and randomly migrate the resources on this node to other suitable nodes within the same compute cluster. Compute instances in shutdown state will be automatically scheduled to other nodes upon next start.
 
@@ -157,7 +157,7 @@ Exiting maintenance mode means adding the node back to the scheduling system and
 
 Platform administrators can operate through the "Exit Maintenance Mode" button in the node list item, as shown in the figure below:
 
-![outmaintain](../images/adminguide/outmaintain.png)
+![outmaintain](/assets/images/adminguide/outmaintain.png)
 
 After exiting maintenance mode, the node's status will automatically change to Locked, and it needs to be unlocked before it can provide services normally.
 
@@ -210,11 +210,11 @@ After the administrator adds and submits, a [importing] bare metal information w
 
 For the convenience of operations and maintenance personnel to quickly add bare metal, the platform provides the ability to import bare metal in batches. A CSV format table file can be uploaded according to the platform specifications to import a batch of bare metal, as shown in the figure below:
 
-![importbms](../images/adminguide/importbms.png)
+![importbms](/assets/images/adminguide/importbms.png)
 
 Only files in CSV format that comply with the platform specifications are supported. You can refer to the [Bare Metal List Example] file to create a table. The information in the table includes Name, IPMIIP, IPMIUser, IPMIPassword, RackLocation, Label, DriveType, and CustomMetricsPath, which respectively represent the physical machine name, IPMI IP address, IPMI username, IPMI password, rack location, label, driver type, and monitoring address, as shown in the figure below:
 
-![bmcsr](../images/adminguide/bmcsr.png)
+![bmcsr](/assets/images/adminguide/bmcsr.png)
 
 The batch imported bare metal is consistent with manually added bare metal, and both will undergo initialization preparation work and eventually be set to the [Ready] state. If the bare metal has been preparing for a long time, you need to log in to the IPMI system to check whether the network and related configurations of the bare metal are correct.
 
@@ -222,7 +222,7 @@ The batch imported bare metal is consistent with manually added bare metal, and 
 
 After bare metal is added, administrators can view the relevant information of bare metal through the bare metal list, including name, resource ID, status, SN, IPMI IP, tenant, model, rack location, power supply, KVM status, creation time, and operation items, as shown in the figure below:
 
-![bmslist](../images/adminguide/bmslist.png)
+![bmslist](/assets/images/adminguide/bmslist.png)
 
 * Resource ID/Name: Unique identifier and name assigned to bare metal after it is added to the platform.
 * Tenant: Represents the tenant who requested the bare metal server.
@@ -257,7 +257,7 @@ Custom images can be copied as base images by tenants or imported by administrat
 
 The base image list displays all the platform's base images and their information, including name, resource ID, system type, operating system, feature support, status, creation time, and actions, as shown in the following figure:
 
-![baseimagelist](../images/adminguide/baseimagelist.png)
+![baseimagelist](/assets/images/adminguide/baseimagelist.png)
 
 - Image Name: The identifying name of the image, displayed in the image list when creating virtual machines.
 - Resource ID: The unique identifier of the image file on the platform.
@@ -276,7 +276,7 @@ Administrators can delete images through the base image list, supporting batch d
 
 You can remove the basic images that are not needed by the platform by deleting them. Only available basic images can be deleted, as shown in the figure below:
 
-![rmbaseimage](../images/adminguide/rmbaseimage.png)
+![rmbaseimage](/assets/images/adminguide/rmbaseimage.png)
 
 **If there are virtual machines created through this base image on the platform, the base image cannot be deleted.**
 
@@ -284,7 +284,7 @@ You can remove the basic images that are not needed by the platform by deleting 
 
 Administrators can modify the usage permissions for each base image, choosing between all tenants and specified tenants. Specified tenants support searching, as shown in the following figure:
 
-![rmbaseimagepower](../images/adminguide/rmbaseimagepower.png)
+![rmbaseimagepower](/assets/images/adminguide/rmbaseimagepower.png)
 
 #### 5.3.1.4 Modifying Name and Remarks
 
@@ -304,7 +304,7 @@ To facilitate sharing of platform image template files, administrators can copy 
 
 In the self-made image list, you can view information about all self-made images created by tenants in a region, including image name, resource ID, tenant ownership, system type, operating system, feature support, status, and actions, as shown in the following figure:
 
-![customeimage](../images/adminguide/customeimage.png)
+![customeimage](/assets/images/adminguide/customeimage.png)
 
 - Image name: The identifying name of a self-made image.
 - Resource ID: The unique identifier of a self-made image on the platform.
@@ -330,7 +330,7 @@ It supports importing Linux and Windows distributions as well as custom images, 
 
 After creating a custom image, you can use the “Import Image” function above the resource list in the Image Management Console to enter the Import Image Wizard page:
 
-![upimage](../images/adminguide/upimage.png)
+![upimage](/assets/images/adminguide/upimage.png)
 
 - Tenant email: Selects the tenant to which the self-made image belongs via the primary account holder email.
 - Image name/remark: The name and related remarks of the image.
@@ -371,7 +371,7 @@ To facilitate sharing platform image template files, the platform supports admin
 
 If the platform needs other basic image systems, they can first be uploaded as self-made images and then converted into platform basic images using the "copy as a base image" function. This can be done by clicking the "Copy as Self-made Image" operation on the target self-made image, as shown in the figure below:
 
-![cloneimage](../images/adminguide/cloneimage.png)
+![cloneimage](/assets/images/adminguide/cloneimage.png)
 
 After entering the target base image name, the operation of copying the self-made image as a base image is triggered. During the process of copying the self-made image, information about the base image with the status "in progress" will be generated in the basic image list. When the status changes to "available," it means that the copy was successful, and all tenants on the platform can use this image to create virtual machines and deploy business.
 
@@ -381,11 +381,11 @@ Downloading an image means that the user downloads the platform's self-made imag
 
 If an administrator needs to download an image to their local device, they can enter the image download wizard page through the [Download] option in the self-made image list operation, as shown in the figure below:
 
-![downloadimage](../images/adminguide/downloadimage.png)
+![downloadimage](/assets/images/adminguide/downloadimage.png)
 
 After clicking on "Generate Download URL," the platform will redirect to the download address display wizard page. Users can copy the download address link and download the image using HTTP, FTP, and related download tools.
 
-![downloadimage1](../images/adminguide/downloadimage1.png)
+![downloadimage1](/assets/images/adminguide/downloadimage1.png)
 
 > The download address for images is valid for 24 hours and must be downloaded within 24 hours. If the download address has expired, it cannot be downloaded, and a new image download address needs to be generated on the platform.
 
@@ -393,7 +393,7 @@ After clicking on "Generate Download URL," the platform will redirect to the dow
 
 Administrators can delete self-made images, and deleted self-made images will automatically enter the "**Recycle Bin**" of the corresponding tenant, where they can be restored or destroyed. Administrators can use the "Delete" function in the self-made image management console to delete self-made images, and after deletion, they can view the deleted self-made images in the recycle bin, as shown in the figure below:
 
-![rmimage](../images/adminguide/rmimage.png)
+![rmimage](/assets/images/adminguide/rmimage.png)
 
 Only self-made images with the status "available" or "import failed" can be deleted. If a virtual machine has already been created using a self-made image, the self-made image cannot be deleted, and the virtual machine must be deleted before the self-made image can be deleted.
 
@@ -430,7 +430,7 @@ For the convenience of administrators and operations personnel, the platform pro
 
 Administrators can view the information of the created public network segments through the list on the public network segment console, including network segment ID, name, IP version, network segment, gateway, network card, IP range, VLAN, tag, tenant permissions, status, update time, and operations (support for batch deletion, creating public networks, modifying public network permissions, modifying IP ranges, modifying tags), as shown in the following figure:
 
-![image2.7](../images/adminguide/image2.7.png)
+![image2.7](/assets/images/adminguide/image2.7.png)
 
 If all tenants are specified in the tenant permissions, it will be displayed as [all tenants]. If some tenants are specified, the email addresses of tenants with permissions will be displayed.
 
@@ -438,7 +438,7 @@ If all tenants are specified in the tenant permissions, it will be displayed as 
 
 When a public network segment needs to be exclusively used by some tenants, administrators can modify the tenant permissions of the public network segment, as shown in the following figure:
 
-![upnetauth](../images/adminguide/upnetauth.png)
+![upnetauth](/assets/images/adminguide/upnetauth.png)
 
 After modifying the tenant permissions for the external network, tenants without permission will not be able to view or use the IP addresses of the external network segment. However, this does not affect the use of external IP addresses that have already been applied for. If the tenant releases the external IP address, they will not be able to apply for IP addresses in that network segment again.
 
@@ -446,32 +446,32 @@ After modifying the tenant permissions for the external network, tenants without
 
 The administrator can create a custom external network configuration, and the physical network configuration of the platform needs to be set up in advance. The network segment supports IPv4 and IPv6. The specific settings are shown in the figure below:
 
-![admincreateeip2.7](../images/adminguide/admincreateeip2.7.png)
+![admincreateeip2.7](/assets/images/adminguide/admincreateeip2.7.png)
 
 #### 5.4.1.4 Creating an External Network Route
 
 The administrator can create and modify network routes in the external network details interface, including configuring the destination address and next hop, supporting batch addition, and also supporting modification of external network routes. The figure below shows an example:
 
-![admincreatesubeip](../images/adminguide/admincreatesubeip.png)
+![admincreatesubeip](/assets/images/adminguide/admincreatesubeip.png)
 
 #### 5.4.1.5 Deleting an External Network Route
 
 External network routes support modification and batch deletion.
 
-![admindeletesubeip](../images/adminguide/admindeletesubeip.png)
+![admindeletesubeip](/assets/images/adminguide/admindeletesubeip.png)
 
 #### 5.4.1.6 Deleting an External Network
 
 When the administrator deletes an external network, if there are still resources using the IP resources under that network, the external network cannot be deleted. The deletion interface for external network is shown in the figure below:
 
-![admindeleteeip](../images/adminguide/admindeleteeip.png)
+![admindeleteeip](/assets/images/adminguide/admindeleteeip.png)
 
 ### 5.4.2 Dedicated Connection
 This is used to build a dedicated connection channel between a user's local data center and a private cloud VPC with high speed, low latency, stability, and security.
 #### 5.4.2.1Creating a Dedicated Connection
 The administrator can create a custom dedicated connection, and the physical network configuration of the platform needs to be set up in advance. The specific settings are shown in the figure below:
 
-![DC](../images/adminguide/DC.png)
+![DC](/assets/images/adminguide/DC.png)
 
 - Bandwidth: The bandwidth supported by the dedicated connection, 0 means unlimited speed.
 - Local Gateway IPv4 Address: The IP address of the local gateway, filled in according to the actual physical network of the local end.
@@ -481,19 +481,19 @@ The administrator can create a custom dedicated connection, and the physical net
 #### 5.4.2.2Dedicated Connection List
 The administrator can view the list information of the created dedicated connections through the dedicated connection console, including name, resource ID, status, VLAN, network card, bandwidth, interconnection information, remote subnet segment, tags, tenant permissions, creation time, and operations (supporting batch deletion, creating dedicated connections, modifying permissions, adjusting bandwidth, modifying remote subnet segments, modifying tags), as shown in the figure below:
 
-![DClist](../images/adminguide/DClist.png)
+![DClist](/assets/images/adminguide/DClist.png)
 
 - Interconnection Information: Shows the IPv4 address of the local gateway and the IPv4 address of the peer gateway for this dedicated connection.
 - Remote Subnet Segment: The remote subnet segment connected to the local end.
 #### 2.4.2.3Using Dedicated Connections
 After creating a dedicated connection, it can be used on the Network Interconnect page in the VPC.
 
-![useDC](../images/adminguide/useDC.png)
+![useDC](/assets/images/adminguide/useDC.png)
 
 #### 5.4.2.4Deleting a Dedicated Connection
 When the administrator deletes a dedicated connection, if there are still resources using that dedicated connection, the dedicated connection cannot be deleted. The deletion interface for dedicated connections is shown in the figure below:
 
-![deleteDC](../images/adminguide/deleteDC.png)
+![deleteDC](/assets/images/adminguide/deleteDC.png)
 
 
 

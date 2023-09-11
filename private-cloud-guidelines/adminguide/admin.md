@@ -28,7 +28,7 @@ System administrators can create both system administrators and regional adminis
 
 ## 15.2.1 Creating a System Administrator
 
-![addadmin1](../images/adminguide/addadmin1.png)
+![addadmin1](/assets/images/adminguide/addadmin1.png)
 
 * Account Name: The name identifying the account
 * Account Email: The account's email
@@ -40,7 +40,7 @@ System administrators can create both system administrators and regional adminis
 
 ## 15.2.2 Creating a Regional Administrator
 
-![addadmin2](../images/adminguide/addadmin2.png)
+![addadmin2](/assets/images/adminguide/addadmin2.png)
 
 * Account Name: The name identifying the account
 * Account Email: The account's email
@@ -55,7 +55,7 @@ System administrators can create both system administrators and regional adminis
 
 System administrators can view a list of all administrators on the platform and perform management operations on them.
 
-![listadmin](../images/adminguide/listadmin.png)
+![listadmin](/assets/images/adminguide/listadmin.png)
 
 * Account ID: The ID number of the account
 * Account Email: The account's email address
@@ -69,7 +69,7 @@ System administrators can view a list of all administrators on the platform and 
 
 Freezing an administrator means locking them out of the cloud platform. This action can only be performed on administrators with a status of "in use." System administrators with management permission can enter the freeze administrator wizard page from the administrator list by clicking the freeze button, as shown in the figure below:
 
-![freezeadmin](../images/adminguide/freezeadmin.png)
+![freezeadmin](/assets/images/adminguide/freezeadmin.png)
 
 After an account has been frozen, it must be unfrozen before normal use can resume.
 
@@ -77,7 +77,7 @@ After an account has been frozen, it must be unfrozen before normal use can resu
 
 When an administrator is frozen, their status is set as frozen. System administrators with management permissions can unfreeze the administrator, as shown in the following figure:
 
-![unfreezeadmin](../images/adminguide/unfreezeadmin.png)
+![unfreezeadmin](/assets/images/adminguide/unfreezeadmin.png)
 
 After the administrator is unfrozen, they can log in to the console normally.
 
@@ -85,16 +85,16 @@ After the administrator is unfrozen, they can log in to the console normally.
 
 Through region authorization management, you can manage the authorization of a regional administrator in the region. Only in the authorized region can the regional administrator use the service normally. Enterprises can manage the opening of system administrators in corresponding regions based on the actual operation of the cloud platform.
 
-![regionadmin](../images/adminguide/regionadmin.png)
+![regionadmin](/assets/images/adminguide/regionadmin.png)
 
 ## 15.7 Changing Passwords
 
 System administrators with management permissions can change the password of an administrator account to adapt to the scenario where the administrator forgets their password. System administrators with read-only permissions can only modify their own account passwords.
 
-![keywordadmin](../images/adminguide/keywordadmin.png)
+![keywordadmin](/assets/images/adminguide/keywordadmin.png)
 
 ## 15.8 Deleting Administrators
 
 System administrators with management permissions can delete administrator accounts. After an administrator account is deleted, it cannot log in to the platform again.
 
-![deleteadmin](../images/adminguide/deleteadmin.png)
+![deleteadmin](/assets/images/adminguide/deleteadmin.png)

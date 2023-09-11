@@ -10,7 +10,7 @@ nav_order: 4
 
 A cluster is a logical division of the platform's physical resources used to differentiate service nodes with different configuration specifications and storage types, such as X86 computing clusters, ARM computing clusters, SSD storage clusters, or commercial storage clusters. A data center can support deployment of multiple computing and storage clusters, and a cluster is typically composed of a group of physically identical nodes with the same CPU/memory, disk type, and operating system.
 
-![region-set](../images/adminguide/region-set.png)
+![region-set](/assets/images/adminguide/region-set.png)
 
 The cloud platform supports unified management of heterogeneous computing clusters such as X86, ARM, and GPUs, and can also manage multiple architecture storage clusters such as SSD, STAT, and NVME. Users can deploy virtual resources in different computing clusters and mount block storage devices from different storage clusters for their virtual resources.
 
@@ -38,7 +38,7 @@ Administrators can access the computing cluster management console through the ã
 
 Through the computing cluster console, administrators can view the list of all computing clusters and their associated information for a specific region, including cluster ID, cluster type, cluster type name, CPU usage, physical GPU usage, memory usage, and creation time, as shown in the following figure:
 
-![computesetlist](../images/adminguide/computesetlist.png)
+![computesetlist](/assets/images/adminguide/computesetlist.png)
 
 - Cluster ID: The unique identifier of the cluster in the platform, such as set-01, set-02.
 - Cluster type name: The name that represents the cluster, which is the model on the tenant side. When creating a virtual machine, tenants can choose different clusters to deploy virtual machines.
@@ -66,7 +66,7 @@ The cluster type represents a cluster. By default, the platform sets the cluster
 
 After modifying the cluster type name, the model name that users select when creating virtual resources will be synchronized with the cluster name. Modifying the name does not affect the normal operation of the cluster and its resources, and can be modified at any time. Administrators can click "Modify Cluster Type Name" in the computing cluster list and enter a new name to change the cluster type name, as shown in the following figure:
 
-![renameset](../images/adminguide/renamesetname.png)
+![renameset](/assets/images/adminguide/renamesetname.png)
 
 > The cluster type and cluster name are concepts that are equivalent on the platform, i.e., one cluster type represents one cluster.
 
@@ -76,7 +76,7 @@ By default, the platform's computing cluster is open to all tenants. However, th
 
 In an application scenario, special model physical server clusters and GPU physical server clusters can be opened to only a few tenants with critical business running on designated clusters. For example, assume there are 50 hyper-converged physical servers, and tenant A has exclusive access to 30 of them, while tenants B, C, and D share the remaining 20. To address this issue, the following solution can be implemented:
 
-![setscene](../images/adminguide/setscene.png)
+![setscene](/assets/images/adminguide/setscene.png)
 
 To ensure that tenants can exclusively access some physical machines, physical machines that need exclusive access should be partitioned into an independent computing cluster when deploying physical resources in the platform. At the same time, storage resources of these physical machines should be allocated to an independent storage cluster. The allocated computing and storage clusters must be assigned to the exclusive tenant to ensure that the assigned computing and storage resources come from the same exclusive physical machine.
 
@@ -89,13 +89,13 @@ At this point, when creating virtual machines, disks, snapshots, load balancers,
 
 Platform administrators can click "Modify Cluster Type Permissions" in the computing cluster list to assign tenant permissions as "All Tenants" or "Specified Tenants" to designate a cluster to specific tenants, as shown below:
 
-![setscene1](../images/adminguide/setscene1.png)
+![setscene1](/assets/images/adminguide/setscene1.png)
 
 The default permission is "All Tenants," which means all platform tenants can deploy virtual resources to all clusters by default. When the administrator sets tenant permissions for a cluster to "Specified Tenants," only the specified tenants can view and deploy virtual resources to the cluster.
 
 ### 4.1.4 CPU Oversubscription
 Oversubscription refers to allocating the same type of resources in excess of standard physical resource allocation to different application loads (virtual machines) during the same time period for sharing purposes. The CPU oversubscription can be calculated by dividing the total number of virtual CPUs of all running virtual machines on a single physical server by the total number of physical CPU cores on that server. The result is generally expressed as n:1. Platform administrators can adjust the CPU oversubscription ratio at the computing cluster level to fully utilize cluster resources. Please adjust the CPU oversubscription ratio while considering the actual CPU usage of the platform and do not oversubscribe excessively, as it may affect system performance. The adjustment of CPU oversubscription takes some time to take effect, and the number of cores available for allocation through oversubscription is based on the oversubscription result. The expected data provided is for reference only.
-![cpuoverscore](../images/adminguide/cpuoverscore.png)
+![cpuoverscore](/assets/images/adminguide/cpuoverscore.png)
 
 ### 4.1.5 Compute Instance Management
 
@@ -105,7 +105,7 @@ Compute instance management refers to the platform administrator's management of
 
 Administrators can enter the details page through the "Computing Cluster" list and switch to the "Compute Instance" tab to view and manage the compute instance list and related information under the computing cluster, including the compute instance name, instance ID, resource ID, tenant, private IP, host IP, image ID, GPU, CPU, memory, state, creation time, and update time, as shown below:
 
-![cilist](../images/adminguide/cilist.png)
+![cilist](/assets/images/adminguide/cilist.png)
 
 - Name: the name of the corresponding resource of the compute instance. When the compute instance is a virtual machine, the virtual machine name is displayed. When the compute instance is an instance of a PaaS product, the name of the PaaS product resource is displayed, such as lb001.
 - Compute Instance ID: the identifier of the compute instance in the corresponding underlying computing instance.
@@ -141,7 +141,7 @@ Administrators can choose the appropriate migration mode based on specific needs
 
 Administrators can perform online migration operations by selecting the "Migration" option in the "Compute Instance" list of operations, specifying the migration mode and target node to migrate the instance, as shown in the following figure:
 
-![instancemigrte](../images/adminguide/instancemigrate.png)
+![instancemigrte](/assets/images/adminguide/instancemigrate.png)
 
 Online migration only supports migrating within the same compute cluster. The instance's state changes to "migrating" during the migration process and switches to the "running" state after successful migration. **During online migration, the full and incremental memory data of the source instance are migrated, and the migration process is completed after the memory data synchronization is iterated repeatedly.**
 
@@ -150,7 +150,7 @@ Offline Migrationï¼šOffline migration refers to pausing the virtual machine befo
 
 Offline migration supports migration between different compute clusters. Please ensure that sufficient resources are reserved in the corresponding cluster before migration. Offline migration is not supported between different cluster architectures.
 
-![offlinemigration](../images/adminguide/offlinemigration.png)
+![offlinemigration](/assets/images/adminguide/offlinemigration.png)
 #### 4.1.5.4 Crash migration
 
 Crash migration, also known as offline migration or virtual machine high availability, refers to the platform's underlying host failing due to an exception or malfunction, causing the virtual resources it carries to be quickly migrated to a healthy and normally loaded host to maintain business availability as much as possible.
@@ -179,7 +179,7 @@ Different types of storage clusters can be deployed in different regions, such a
 
 Administrators can view a list of all storage clusters and their information in a specific region through the storage cluster console, including cluster ID, cluster type, cluster type name, cluster architecture, storage usage, and update time, as shown in the figure below:
 
-![storagesetlist](../images/adminguide/storagesetlist.png)
+![storagesetlist](/assets/images/adminguide/storagesetlist.png)
 
 - Cluster ID: The globally unique identifier for the storage cluster platform, such as storage-set-01.
 - Cluster type: the type of storage cluster.
@@ -194,7 +194,7 @@ By default, the platform sets the cluster name based on the storage medium or st
 
 After modifying the cluster type name, the disk type selected by users when creating a cloud disk will be synchronized with the cluster type name. Changing the name does not affect the normal operation of the cluster and resources, and can be modified under any circumstances. Administrators can click "Modify Cluster Type Name" in the storage cluster list and enter the new name to change the cluster type name, as shown below:
 
-![renameset](../images/adminguide/renameset.png)
+![renameset](/assets/images/adminguide/renameset.png)
 
 ### 4.2.3 Modify Cluster Permissions
 
@@ -204,7 +204,7 @@ To enable tenants to exclusively use some hosts, when planning physical resource
 
 Platform administrators can click "Modify Cluster Type Permissions" in the storage cluster list to specify tenant permissions as "All Tenants" or "Specified Tenants" to allocate the cluster to the specified tenants, as shown below:
 
-![setscene2](../images/adminguide/setscene2.png)
+![setscene2](/assets/images/adminguide/setscene2.png)
 
 The default permission is "All Tenants," which means that all tenants on the platform can create and use cloud disk resources on all storage clusters by default. When a user sets tenant permissions for a cluster to specified tenants, only the specified tenants can view and use the storage resources of the cluster.
 
@@ -240,7 +240,7 @@ Before using external storage, the platform administrator or storage device admi
 
 After the physical storage device and network are ready, you can dock with the platform and use the external storage services provided by the platform. The entire docking process requires three roles: storage device administrator, platform administrator, and platform tenant. Among them, the operations related to the platform are the operations of the platform administrator and the platform tenant. Taking ISCSI protocol as an example, the process is as follows:
 
-![storageflow](../images/adminguide/storageflow.png)
+![storageflow](/assets/images/adminguide/storageflow.png)
 
 1. **Storage device administrator manages storage volumes**
 
@@ -274,7 +274,7 @@ Before using external storage, the platform user needs the administrator to add 
 
 Administrators can enter the external storage console through the navigation bar to enter the cluster management and switch to the external storage console. Through the [New] operation, they can enter the Add External Storage Wizard page, as shown below:
 
-![addstorage](../images/adminguide/addstorage.png)
+![addstorage](/assets/images/adminguide/addstorage.png)
 
 * Name: The name of the external storage, which must be specified when adding.
 * ISCSI Address: The ISCSI connection address of the external storage, in the format of IP:Port, supports adding multiple ISCSI addresses, such as 172.16.13.201:3260 and 172.16.13.202:3260.
@@ -285,7 +285,7 @@ After adding, a piece of external storage information will be generated in the e
 
 Administrators can view the list information of external storage, including name, resource ID, status, ISCSI address, LUN quantity, and operation items, as shown below:
 
-![storagelist](../images/adminguide/storagelist.png)
+![storagelist](/assets/images/adminguide/storagelist.png)
 
 * Name: The name and identification of the external storage, displayed as the name of the system disk type when creating a virtual machine on the tenant side.
 * Resource ID: The global unique identifier of the external storage on the platform.
@@ -307,7 +307,7 @@ The platform administrator can click the "Scan" button in the "LUN Storage Volum
 
 The administrator can view the scanned storage volume information through the "LUN Storage Volume" list in the external storage details, including name, LUNID, resource ID, capacity, status, mounted resources, belonging tenant, and operation items, as shown below:
 
-![lunlist](../images/adminguide/lunlist.png)
+![lunlist](/assets/images/adminguide/lunlist.png)
 
 * Name: The name of the LUN storage volume.
 * LUNID: The unique identifier of the LUN storage volume in the commercial storage.
@@ -325,7 +325,7 @@ The platform supports platform administrators to assign LUN storage volume infor
 
 Administrators can assign a LUN storage device to a tenant through the "Assign" operation on the LUN storage volume list, as shown below:
 
-![Assignlun](../images/adminguide/Assignlun.png)
+![Assignlun](/assets/images/adminguide/Assignlun.png)
 
 Administrators can also reassign a storage volume to another tenant using the assignment operation, but only LUN devices in an unbound state can be reassigned.
 
@@ -333,7 +333,7 @@ Administrators can also reassign a storage volume to another tenant using the as
 
 The platform supports administrators to delete external storage, and all the LUN devices scanned before deletion must be in an unbound state. The external storage can be deleted through the "Delete" option in the external storage resource list operation, as shown below:
 
-![rmstorage](../images/adminguide/rmstorage.png)
+![rmstorage](/assets/images/adminguide/rmstorage.png)
 
 Deleting external storage only means releasing the device from the platform, and it can be added back to the cloud platform by entering the ISCSI address.
 

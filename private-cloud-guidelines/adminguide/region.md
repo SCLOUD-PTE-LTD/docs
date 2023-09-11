@@ -18,7 +18,7 @@ Regions are also known as data centers in the platform, and data centers are usu
 
 You can enter the region list page by clicking on "Region Management" in the left sidebar of the administrator console. You can view the current list of regions, including region ID, region name, city, detailed address, CPU core usage, memory usage, storage usage, physical machine GPU core number, GPU usage, status, EndPoints, creation time. You can also customize the information required for the custom list by clicking the "Custom List" button, as shown in the following figure:
 
-![regionmanage](../images/adminguide/regionmanage.png)
+![regionmanage](/assets/images/adminguide/regionmanage.png)
 
 - Region ID: The unique identifier of the region in the platform, such as cn, is usually used as the request parameter value for the API interface.
 - Region Name: The name of the region, which can be distinguished by independent naming for different regions, such as Beijing Data Center No. 1 computer room.
@@ -37,7 +37,7 @@ You can enter the region list page by clicking on "Region Management" in the lef
 
 You can click on the region name in the region list or click the "Manage" button on the right side of the target region list to enter the overview page of the current region and view its basic information and monitoring information, as shown in the following figure:
 
-![regiondetails](../images/adminguide/regiondetails.png)
+![regiondetails](/assets/images/adminguide/regiondetails.png)
 
 The overview page displays basic information and monitoring charts of the region's core resource usage trends.
 
@@ -48,5 +48,5 @@ The overview page displays basic information and monitoring charts of the region
 
 Administrators can modify the name, city, detailed address, and remarks of a region. The name is displayed in the region filtering of the tenant console, and the city, detailed address, and remarks can be used to supplement more information about this data center. In the management platform region management list, click the "Modify" button on the right side of the corresponding region to perform the operation, as shown in the following figure:
 
-![editregion](../images/adminguide/editregion.png)
+![editregion](/assets/images/adminguide/editregion.png)
 

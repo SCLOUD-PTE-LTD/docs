@@ -68,7 +68,7 @@ The platform supports administrators opening approval processes for tenants when
 
 When a new tenant is created by an administrator, it is possible to enable/disable the approval process for the tenant and set up automatic approval. This can be seen in the following image:
 
-![approval](../images/adminguide/approval.png)
+![approval](/assets/images/adminguide/approval.png)
 
 - Resource Approval: Whether or not to enable resource approval for a tenant. If enabled, users under the tenant must submit requests for creating or modifying cloud resources such as virtual machines, disks, VPCs, and public IPs. The approval process is handled by platform administrators by default.
 - Automated Approval: Whether or not to enable automated approval for a tenant. When enabled, requests made by the main/sub accounts of the tenant will be automatically approved without requiring manual intervention.
@@ -77,7 +77,7 @@ When a new tenant is created by an administrator, it is possible to enable/disab
 
 Administrators can enable or disable approval processes for existing tenants, as well as enabling or disabling automated approval. Through the Tenant Management page, administrators can modify existing tenant's approval processes, and view the current status of their approval process toggles, as shown below:
 
-![editapprove](../images/adminguide/editapprove.png)
+![editapprove](/assets/images/adminguide/editapprove.png)
 
 ## 8.3 Approval Management
 
@@ -93,9 +93,9 @@ Platform administrators can view all pending and completed approval records thro
 
 Administrators can access the Approval Management dashboard through the navigation bar and view all approval records information in the pending and completed lists, which are shown below:
 
-![approvewait](../images/adminguide/approvewait.png)
+![approvewait](/assets/images/adminguide/approvewait.png)
 
-![approvedone](../images/adminguide/approvedone.png)
+![approvedone](/assets/images/adminguide/approvedone.png)
 
 Through the pending and completed lists, administrators can view lists of pending and completed approval records, including the request name, resource type, operation, account email, account ID, creation time, approval results, and operation items.
 
@@ -111,7 +111,7 @@ The operations menu in the Pending list allows administrators to approve or reje
 
 Administrators can access details pages for individual approval records by clicking on the Details button. This page displays information about the request, including basic information, resource information, related resources, and processing records. See the following image:
 
-![approveinfo](../images/adminguide/approveinfo.png)
+![approveinfo](/assets/images/adminguide/approveinfo.png)
 
 （1）Request Information: Detailed information about the request, such as the request name, resource type, change operation, request status and time.
 
@@ -130,11 +130,11 @@ Administrators can access details pages for individual approval records by click
 
 After a tenant submits a modification request, administrators can approve it through the pending tasks list. When a request is approved, the platform will automatically execute the requested resource operation.
 
-![approvepass](../images/adminguide/approvepass.png)
+![approvepass](/assets/images/adminguide/approvepass.png)
 
 ### 8.3.3 Rejecting an Application
 
 After a tenant initiates a resource change request, an approval record will be generated in the administrator's to-do list for approval management. Administrators can reject the tenant's application, i.e., deny the tenant's resource change request. After the approval is rejected, the application process will be terminated and the resource operation will not be executed.
 
-![approverefuse](../images/adminguide/approverefuse.png)
+![approverefuse](/assets/images/adminguide/approverefuse.png)
 

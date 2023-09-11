@@ -21,7 +21,7 @@ The platform provides users with complete authorization management capabilities,
 
 The administrator can click [**Information Collection**] to collect the information of the platform, and click to provide the operation platform for use. After the operation platform is confirmed to be used, and then the user's needs are determined, the successful platform can be used by clicking the [**Update Authorization**] button. As shown below:
 
-![order](../images/adminguide/license.png)
+![order](/assets/images/adminguide/license.png)
 
 ### 11.2.1 View Basic Extended Licenses
 
@@ -29,7 +29,7 @@ Basic license: Supports licenses for cloud computing infrastructure management s
 
 Extended license: Supports licenses for cloud suite function extension, advanced network extension, bare metal services, USB pass-through services, GPU services, elastic scaling services, commercial storage services, file storage services, object storage services, MySQL 5.7 services, Redis 4.0 services, and heterogeneous platform migration software services, as shown in the figure below:
 
-![order](../images/adminguide/license.png)
+![order](/assets/images/adminguide/license.png)
 
 - Authorization name: The name of the authorized product.
 - Authorization ID: The unique identifier for authorization.
@@ -43,13 +43,13 @@ Extended license: Supports licenses for cloud suite function extension, advanced
 
 Service license: Supports licenses for cloud computing infrastructure management system + value-added service 5 * 8 maintenance services, cloud computing infrastructure management system + value-added service 7 * 24 maintenance services, and gold VIP maintenance services, as shown in the figure below:
 
-![order](../images/adminguide/service.png)
+![order](/assets/images/adminguide/service.png)
 
 ### 11.2.3 View Authorization Details
 
 Authorization management supports viewing product authorization details, as shown in the figure below:
 
-![order](../images/adminguide/licensedetail.png)
+![order](/assets/images/adminguide/licensedetail.png)
 
 - Name: The name of the authorized product.
 - Content: Specific authorization information.
@@ -59,7 +59,7 @@ Authorization management supports viewing product authorization details, as show
 
 Users can view node IP addresses, serial numbers, roles, authorization status, CPU models, total CPU, memory, and architecture through the node management page, as shown in the figure below:
 
-![order](../images/adminguide/nodeset.png)
+![order](/assets/images/adminguide/nodeset.png)
 
 - Name: Named after the IP address corresponding to the platform node.
 - Serial number: Node's serial number information.
@@ -73,7 +73,7 @@ Users can view node IP addresses, serial numbers, roles, authorization status, C
 
 Node management supports accessing node basic information, CPU information, and Memory information through node names, as shown in the figure below:
 
-![order](../images/adminguide/node.png)
+![order](/assets/images/adminguide/node.png)
 
 
 

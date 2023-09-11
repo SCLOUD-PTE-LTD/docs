@@ -3,10 +3,10 @@ layout: default
 title: Organization and Account Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/account/
+permalink: /private-cloud/user-guides/organization-account-management/
 nav_order: 2
 ---
-# 2 Organization and Account Management
+# 2. Organization and Account Management
 
 Organization and account management mainly provide organization structure management for enterprise users, supporting multi-tenant mode where each tenant represents an organization. The resource access control and resource creation process management can be based on tenants. The platform organization and account management are divided into two dimensions: tenant side and administrator side. This chapter mainly introduces the administrator account, please refer to the user manual organization and account management section for tenant-side account and organization management.
 
@@ -42,15 +42,15 @@ The platform provides free TOTP (Time-Based One-Time Password Algorithm) login t
 
 1. Log in to the console and enter the account console. You can perform operations through the "Account and Organization Management" - "My Account" - "Account Security" - "Login Protection" entrance, as shown in the figure below:
 
-   ![loginprotect](../images/adminguide/login.png)
+   ![loginprotect](/assets/images/adminguide/login.png)
 
    Click next, the operation of the national encryption hardware version is as follows, enter the hardware SN, which cannot be empty:
 
-   ![loginprotect](../images/adminguide/login01.png)
+   ![loginprotect](/assets/images/adminguide/login01.png)
 
    The operation of the ordinary software version is as follows:
 
-   ![loginprotect](../images/adminguide/loginprotect.png)
+   ![loginprotect](/assets/images/adminguide/loginprotect.png)
 
 2. Check whether FortiToken is installed on the mobile device:
 
@@ -63,7 +63,7 @@ The platform provides free TOTP (Time-Based One-Time Password Algorithm) login t
 
 After enabling two-factor authentication, the administrator account needs to pass secondary authentication every time it logs in to the console. When logging in, after entering the account password, you need to additionally enter the authorization code to successfully log in to the account, as shown in the figure below:
 
-![fortitoken](../images/adminguide/fortitokenlogin.png)
+![fortitoken](/assets/images/adminguide/fortitokenlogin.png)
 
 You can close the two-factor authentication function by logging in to the console through the "Account and Organization Management" - "My Account" - "Account Security" - "Login Protection" entrance, and entering a 6-digit authorization code.
 
@@ -79,11 +79,11 @@ To ensure the security of account login and meet the needs of specific security 
 
 Administrators can modify the login policy configuration through the "Account and Organization Management" - "My Account" - "Account Security" - "Access Restrictions" entrance, as shown in the figure below. The default is empty, meaning there are no restrictions on the entire network.
 
-![LoginWhitelist](../images/adminguide/LoginWhitelist.png)
+![LoginWhitelist](/assets/images/adminguide/LoginWhitelist.png)
 
 You can enter the IP address or IP address range that can log in to the platform within the login access range, and click confirm to take effect. After successful configuration, the administrator account cannot log in to the console normally in an unspecified IP network, as shown in the figure below:
 
-![LoginWhitelist1](../images/adminguide/LoginWhitelist1.png)
+![LoginWhitelist1](/assets/images/adminguide/LoginWhitelist1.png)
 
 The platform can only restrict the IP address that accesses the console directly, that is, the client IP address that requests the console URL address. If a user uses an administrator account to access the platform from a client address within NAT routing, when configuring the login policy, the platform needs to allow the IP address after NAT, that is, the exit address after NAT needs to be configured in the whitelist of the login access policy to ensure that clients within the NAT router can access the console normally.
 
@@ -91,7 +91,7 @@ The platform can only restrict the IP address that accesses the console directly
 
 The platform supports administrators to modify their account email address by clicking on the "Modify Login Email" option under the administrator account avatar in the upper right corner of the administrator console. This is used to change the administrator account to a real and usable email address that actually receives alert emails. The specific modification operation is shown in the following figure:
 
-![updateadminemail](../images/adminguide/updateadminemail.png)
+![updateadminemail](/assets/images/adminguide/updateadminemail.png)
 
 After modifying the administrator's login email address, the original password can be used to log in to the console. You can reset the administrator's email password by modifying the login password.
 
@@ -99,7 +99,7 @@ After modifying the administrator's login email address, the original password c
 
 Developers can obtain the administrator account's API key through the "Account and Organization Management" - "My Account" - "Account Security" - "API Key" or the "View API Key" option under the administrator account avatar in the upper right corner of the administrator console. This is used to use the platform-managed API interface to obtain information about platform-wide resources. The specific operation is shown in the following figure:
 
-![adminapisec](../images/adminguide/adminapisec.png)
+![adminapisec](/assets/images/adminguide/adminapisec.png)
 
 Clicking the copy button can copy the information of the public and private keys for convenient calling of API commands.
 

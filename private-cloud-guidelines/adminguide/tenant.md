@@ -13,7 +13,7 @@ Tenants mainly provide organization structure management, resource access contro
 
 **Organization Structure**
 
-![organazation](../images/adminguide/organazation.png)
+![organazation](/assets/images/adminguide/organazation.png)
 
 **Concept Explanation**
 
@@ -42,7 +42,7 @@ Tenants mainly provide organization structure management, resource access contro
 
 Administrators can create tenants, and when creating a tenant, they need to add a main account as the initial manager of the tenant. Login security policies for accounts can be set synchronously, with forced password modification on first login. Management settings for tenants can also be configured, including whether to enable resource approvals, automatic approvals, and designated regions for tenant usage.
 
-![addacc](../images/adminguide/addacc.png)
+![addacc](/assets/images/adminguide/addacc.png)
 
 - Account Name: The name identifier for the tenant and main account.
 - Email Address: The email address for the main account.
@@ -57,7 +57,7 @@ Administrators can create tenants, and when creating a tenant, they need to add 
 
 Administrators can view the list of all tenants on the platform and perform relevant management operations on tenants.
 
-![acclist](../images/adminguide/acclist.png)
+![acclist](/assets/images/adminguide/acclist.png)
 
 - enant ID: The ID of the tenant.
 - Status: The status information of the tenant, including inactive, in use, frozen, etc.
@@ -74,7 +74,7 @@ Administrators can view the list of all tenants on the platform and perform rele
 
 Administrators can manage and operate each tenant through the tenant list, including freezing, unfreezing, login restrictions, editing approval processes, region authorization management, deletion, etc. They can also enter the details of a tenant through the detail button to perform global management of the tenant's accounts and configurations. Additionally, they can modify the name of the tenant's main account, as shown below:
 
-![upaccname](../images/adminguide/upaccname.png)
+![upaccname](/assets/images/adminguide/upaccname.png)
 
 The tenant overview page mainly displays the basic information of the tenant, including tenant ID, main account name, main account email, external recharge balance, platform recharge balance, and creation time.
 
@@ -82,7 +82,7 @@ The tenant overview page mainly displays the basic information of the tenant, in
 
 Freezing an account means locking a tenant. A successfully frozen tenant will render main and sub-accounts unable to log in to the cloud platform but it does not affect the normal operation of resources and business already created within the tenant. Only tenants with a status of "in use" can be frozen. Administrators can enter the freeze wizard page of a tenant through the freeze button on the tenant list, as shown below:
 
-![lockacc](../images/adminguide/lockacc.png)
+![lockacc](/assets/images/adminguide/lockacc.png)
 
 After a tenant is frozen, all main and sub-accounts within the tenant will also be frozen and unable to use the platform. The tenant needs to be unfrozen first before accounts within the tenant can be used.
 
@@ -90,7 +90,7 @@ After a tenant is frozen, all main and sub-accounts within the tenant will also 
 
 When a tenant is frozen, its status will be "frozen". Administrators can unfreeze a tenant through tenant management, as shown below:
 
-![unlockacc](../images/adminguide/unlockacc.png)
+![unlockacc](/assets/images/adminguide/unlockacc.png)
 
 After a tenant is unfrozen, all accounts within the tenant will be automatically unfrozen and able to log in to the console. If any sub-accounts were in the frozen state prior to the freezing of the tenant, they will remain frozen after the tenant has been unfrozen and will need to be individually unfrozen in the tenant, for the scenario where sub-accounts have been frozen.
 
@@ -102,19 +102,19 @@ An example of an administrator setting a login restriction for a tenant is when 
 
 Administrators can configure a tenant's login strategy through the "Login Access Restrictions" function in the tenant list operation items, as shown below. By default, it is empty, which means there are no restrictions.
 
-![LoginWhitelist](../images/adminguide/LoginWhitelist.png)
+![LoginWhitelist](/assets/images/adminguide/LoginWhitelist.png)
 
 ## 7.7 Editing Approval Process
 
 Administrators can manage the approval process settings under a tenant by editing the approval process. This includes enabling or disabling the approval process for all account changes related to resources under a tenant, including enabling/disabling resource approvals and enabling/disabling automatic approvals.
 
-![editapprove](../images/adminguide/editapprove.png)
+![editapprove](/assets/images/adminguide/editapprove.png)
 
 ## 7.8 Region Authorization Management
 
 Region authorization management allows administrators to manage a tenant's authorization status in a region. Only when authorized in a specific region can accounts under the tenant use services in that region normally. Enterprises can manage the opening of tenants in corresponding regions based on the actual operation of the cloud platform.
 
-![enaregion](../images/adminguide/enaregion.png)
+![enaregion](/assets/images/adminguide/enaregion.png)
 
 ## 7.9 Tenant Member Management
 
@@ -124,7 +124,7 @@ Tenant member management supports viewing and managing existing main and sub-acc
 
 The member list mainly displays information about the main and sub-accounts under the tenant, including account ID, status, type, account name, email, and operation items. It also supports searching for main/sub-accounts. Administrators can enter the overview page of a tenant's details by using the tenant's ID in the tenant list to view the member list information, as shown below:
 
-![acclist1](../images/adminguide/acclist1.png)
+![acclist1](/assets/images/adminguide/acclist1.png)
 
 - Account ID: The unique identifier of the main/sub-account on the platform.
 - Status: The status of the account, including frozen or in use.
@@ -141,7 +141,7 @@ Administrators can modify the passwords of all main and sub-accounts within a te
 
 Administrators can independently freeze a main or sub-account within a tenant. A successfully frozen main account will not be allowed to log in to the console, but it will not affect other sub-accounts. A successfully frozen sub-account will not be allowed to log in to the console, but it will not affect other sub-accounts and the main account.
 
-![lockmasteracc](../images/adminguide/lockmasteracc.png)
+![lockmasteracc](/assets/images/adminguide/lockmasteracc.png)
 
 * If an account is frozen when the administrator freezes the tenant to which the account belongs, the account will be in a frozen state.
 * When the administrator unfreezes a tenant, accounts that were previously frozen will not be affected. In other words, when a tenant is unfrozen, the account will still be in a frozen state.
@@ -151,19 +151,19 @@ Administrators can independently freeze a main or sub-account within a tenant. A
 
 Administrators can independently unfreeze a main or sub-account within a tenant. Successfully unfrozen accounts will be allowed to log in to the console. For example, if an account is frozen due to multiple incorrect password attempts, it can be individually unfrozen on the tenant member management page.
 
-![unlockmasteracc](../images/adminguide/unlockmasteracc.png)
+![unlockmasteracc](/assets/images/adminguide/unlockmasteracc.png)
 
 ## 7.10 Tenant Order Management
 
 Through tenant order management, administrators can view order records under a tenant. They can also view orders generated by the tenant within a certain time period by customizing the region and query time. Administrators can also download order management information as a local Excel file, as shown below:
 
-![accorder](../images/adminguide/accorder.png)
+![accorder](/assets/images/adminguide/accorder.png)
 
 ## 7.11 Tenant Transaction Management
 
 Through tenant management, administrators can view transaction information of the corresponding tenant. They can also view transaction records generated by the tenant within a certain time period by customizing the query time. Administrators can also download transaction management information as a local Excel file, as shown below:
 
-![acctran](../images/adminguide/acctran.png)
+![acctran](/assets/images/adminguide/acctran.png)
 
 ## 7.12 Tenant Fund Management
 
@@ -176,7 +176,7 @@ Administrators can enter the tenant fund management tab page through the tenant 
 * External channel recharge sources include bank transfer, Alipay, WeChat Pay, and Sina Pay.
 * Internal recharge is the balance gifted to the tenant by the platform.
 
-![recharge](../images/adminguide/recharge.png)
+![recharge](/assets/images/adminguide/recharge.png)
 
 The minimum amount for a single recharge is 100 and the maximum is 500,000.
 
@@ -184,19 +184,19 @@ The minimum amount for a single recharge is 100 and the maximum is 500,000.
 
 Through recharge management, administrators can view recharge records within a certain time period, including recharge order number, recharge channel, recharge amount, and creation time, and download recharge record information as a local Excel file.
 
-![rechargelist](../images/adminguide/rechargelist.png)
+![rechargelist](/assets/images/adminguide/rechargelist.png)
 
 ### 7.12.3 Withdrawal Management
 
 Administrators can use the tenant withdrawal management tab page on the tenant details page to handle withdrawals for tenants. Withdrawal accounts are divided into platform accounts and external accounts, and administrators can perform withdrawals for tenants according to their needs.
 
-![recharge](../images/adminguide/withdraw.png)
+![recharge](/assets/images/adminguide/withdraw.png)
 
 ### 7.12.4 Querying Withdrawal Information
 
 Through withdrawal management, administrators can customize table headers to view withdrawal records within a certain time period, including withdrawal order number, source account type, withdrawal amount, and creation time, and download withdrawal record information as a local Excel file.
 
-![recharge](../images/adminguide/withdraw1.png)
+![recharge](/assets/images/adminguide/withdraw1.png)
 
 ## 7.13 Managing Tenant Quotas
 
@@ -204,7 +204,7 @@ Through withdrawal management, administrators can customize table headers to vie
 
 Through tenant management, by selecting the desired region to view, administrators can query the current platform resource quota settings for the tenant. Administrators can also modify the quota information for each product under the tenant, including product type, resource type, quota factor, quota, and operation.
 
-![accquota](../images/adminguide/accquota.png)
+![accquota](/assets/images/adminguide/accquota.png)
 
 Through the operation item, administrators can modify the quota value for each product in this region.
 
@@ -212,7 +212,7 @@ Through the operation item, administrators can modify the quota value for each p
 
 The platform supports configuring tenant quotas for products such as virtual machines, images, VPCs, VIPs, disks, network cards, public IPs, load balancers, security groups, NAT gateways, and VPN gateways. The quotas can be configured for each region and all regions for each product.
 
-![upaccquota](../images/adminguide/upaccquota.png)
+![upaccquota](/assets/images/adminguide/upaccquota.png)
 
 Tenant quotas inherit the platform's global quota settings by default. Administrators can customize the product quotas for each tenant.
 
@@ -222,7 +222,7 @@ Tenant quotas inherit the platform's global quota settings by default. Administr
 
 Through tenant management, administrators can query the pricing information for billable resources of the tenant on the platform, including billing factors, regions, properties, billing types, billing rules, prices, discounts, discounted prices, update times, and operation items.
 
-![setaccprice](../images/adminguide/setaccprice.png)
+![setaccprice](/assets/images/adminguide/setaccprice.png)
 
 Through the operation item, administrators can modify the prices for each product in different regions and clusters. The billing factors include CPU, memory, disk, public IP, GPU, and the cost of creating virtual resources for the tenant is deducted according to the total cost of the billing factors and charged according to the payment method.
 
@@ -236,7 +236,7 @@ The prices listed on the table are the global prices set in the platform's [pric
 
 The pricing for tenants' resources on the platform inherits the platform's global price configuration by default. Administrators can customize the product prices and discounts for each tenant, setting prices for individual resources in different clusters. The following example shows how to modify the monthly payment discount for CPUs in cluster `ComputeSetPre01`.
 
-![UpdateDiscount](../images/adminguide/UpdateDiscount.png)
+![UpdateDiscount](/assets/images/adminguide/UpdateDiscount.png)
 
 The discount is expressed as a percentage, such as 90 for a 10% discount off the benchmark price of the CPU rented on a monthly basis. The modification will take effect immediately, and existing resources created by the tenant will not be affected. New CPU resources will be charged according to the new pricing.
 
@@ -246,7 +246,7 @@ Modifying a tenant's product discounts only affects that tenant and does not aff
 
 Through tenant management, administrators can view the resource overview information for the corresponding tenant, including resource utilization and resource quota usage, as shown below:
 
-![accoverview](../images/adminguide/accoverview.png)
+![accoverview](/assets/images/adminguide/accoverview.png)
 
 * Resource Utilization: Refers to the average utilization of all resources owned by the tenant in the platform, including average CPU utilization, average memory utilization, average disk utilization, and average bandwidth utilization.
 * Resource Quota Usage: Refers to the quota usage status of all resources owned by the tenant in the platform, including the total quota and used quota of virtual machines, images, disks, elastic network cards, VPCs, elastic IPs, security groups, load balancers, NAT gateways, VPN gateways, and tunnels.

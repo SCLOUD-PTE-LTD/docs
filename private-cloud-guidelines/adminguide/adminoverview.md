@@ -15,5 +15,5 @@ It supports viewing the usage of resources in a single region or all regions, an
 
 ## 16.2 Interface
 
-![updateadminemail](../images/adminguide/overviewput.png)
+![updateadminemail](/assets/images/adminguide/overviewput.png)
 
