@@ -89,22 +89,6 @@ Support viewing drivers, disk partitions, mount points, architecture (HDD, SSD),
 
 Support viewing cluster ID, cluster type, CPU usage, memory usage, GPU usage, physical GPU usage, vGPU usage, and region.
 
-<!-- **（5）GPU管理**
-
-支持管理员通过宿主机页面，查看宿主机中GPU设备列表及信息，包括设备名、规格信息、设备地址、类型、状态、操作，如下图所示：
-
-![nodeinstance](/assets/images/adminguide/GPU.png)
-
-支持管理员对宿主机中GPU设备进行虚拟化切割，并在vGPU中展示设备信息，包括设备名、规格信息、物理GPU、云主机、状态，如下图所示：
-
-![nodeinstance](/assets/images/adminguide/sliceGPU.png)
-
-![nodeinstance](/assets/images/adminguide/vGPU.png)
-
-支持管理员对宿主机中已虚拟化切割的GPU设备进行虚拟化还原，如下图所示：
-
-![nodeinstance](/assets/images/adminguide/reGPU.png) -->
-
 ### 5.1.3 Locking Nodes
 
 After a node is locked, new compute instances will not be scheduled to the compute node, which does not affect existing compute instances within the node. It can be used in conjunction with the node entering maintenance mode to perform node maintenance, upgrades, and other operations.
@@ -193,7 +177,7 @@ The platform administrator can perform full life cycle management of bare metal,
 
 When the platform provides bare metal services, the administrator can add bare metal for tenants on the platform, as shown in the figure below:
 
-![createbms](../images/userguide/applybms.png)
+![createbms](/assets/images/adminguide/applybms.png)
 
 * Tenant email: Bare metal can only be added by a tenant administrator and specified for the required user.
 * Name: The name of the bare metal server on the platform, which must be specified when adding it.
