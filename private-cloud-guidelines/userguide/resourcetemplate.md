@@ -74,14 +74,14 @@ Cloud platform users can create virtual machine templates with specified models,
   * Buy Now: After clicking Buy Now, a virtual machine template list page will be returned without actual deduction of fees. Fees will be deducted when creating a virtual machine from the virtual machine template.
 
 
-  ### 27.2.1.1 iew virtual machine template details information
+### 27.2.1.1 View virtual machine template details information
 
    Click on the template name on the resource template list to enter the template details page, the virtual machine template includes basic information, virtual machine configuration, network configuration, storage configuration, and advanced settings.
 
   ![vmtpinfo.png](/assets/images/userguide/vmtpinfo.png)
 
   
-  ### 27.2.1.2 Create resources
+### 27.2.1.2 Create resources
   Click "Create Resource" in the resource template list, set the resource name and administrator password, and you can create a virtual machine with the corresponding configuration.
 
 
