@@ -18,13 +18,13 @@ Private cloud is positioned as a lightweight delivery, with 3 nodes to build a p
 
 ## 1.2 Core Advantages
 
-* Self-control & Autonomy——Based on public cloud architecture, core virtualization components are reused and independently developed, with high controllability and reliability verified by tens of thousands of enterprises.
+* Self-control & Autonomy<br/>— Based on public cloud architecture, core virtualization components are reused and independently developed, with high controllability and reliability verified by tens of thousands of enterprises.
 
-* Stable and reliable--High availability of platform services, intelligent scheduling of virtual resources, multiple copies of data storage, self-healing distributed network, to escort the business.
+* Stable and reliable<br/>— High availability of platform services, intelligent scheduling of virtual resources, multiple copies of data storage, self-healing distributed network, to escort the business.
 
-* Simple and easy to use--3 node builds a production environment, the scale is lightweight and can be horizontally expanded, supports business smooth migration, and helps enterprises easily go to the cloud.
+* Simple and easy to use<br/>— 3 node builds a production environment, the scale is lightweight and can be horizontally expanded, supports business smooth migration, and helps enterprises easily go to the cloud.
 
-* Open compatibility - not bound to hardware brands, compatible with X86 and ARM architectures and ecological adaptation, heterogeneous devices for unified management.
+* Open compatibility<br/>— Not bound to hardware brands, compatible with X86 and ARM architectures and ecological adaptation, heterogeneous devices for unified management.
 
 ## 1.3 Product Architecture
 
