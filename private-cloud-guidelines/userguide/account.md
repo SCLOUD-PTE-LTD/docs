@@ -302,7 +302,7 @@ Freezing an account refers to locking an account, and after freezing, it will no
 
 Unfreezing an account refers to unfreezing an already frozen account, and users who have been successfully unfrozen can log in to the management console. Only accounts with a status of "**Frozen**" can be unfrozen, and users can click "Unfreeze" in the sub-account list operation item to unfreeze the sub-account.
 
-###22.3.4 Delete Account
+### 22.3.4 Delete Account
 
 You can delete the account, and after deletion, the user will not be able to log in to the platform with this account and password. After deletion, you can register on the platform with the account email or create a new account.
 

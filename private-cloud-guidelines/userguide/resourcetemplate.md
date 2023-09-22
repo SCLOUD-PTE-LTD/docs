@@ -80,6 +80,7 @@ Cloud platform users can create virtual machine templates with specified models,
 
   ![vmtpinfo.png](/assets/images/userguide/vmtpinfo.png)
 
+  
   ### 27.2.1.2 Create resources
   Click "Create Resource" in the resource template list, set the resource name and administrator password, and you can create a virtual machine with the corresponding configuration.
 
