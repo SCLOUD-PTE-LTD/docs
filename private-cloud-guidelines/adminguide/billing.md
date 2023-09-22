@@ -139,11 +139,11 @@ The administrator can update the price of billing resources on the global price 
 
 ![upcpuprice](/assets/images/adminguide/upcpuprice.png)
 
-The administrator can modify the base price for each billing resource item. In the above figure, taking virtual machine CPU as an example, the hourly price of a single-core vCPU can be set at 0.2431 yuan, indicating that the hourly unit price of a single-core vCPU is 0.2431 yuan. At the same time, the platform supports tiered pricing based on the external IP address range, as shown in the figure below:
+The administrator can modify the base price for each billing resource item. In the above figure, taking virtual machine CPU as an example, the hourly price of a single-core vCPU can be set at 0.2431 credit, indicating that the hourly unit price of a single-core vCPU is 0.2431 credit. At the same time, the platform supports tiered pricing based on the external IP address range, as shown in the figure below:
 
 ![bgpprice](/assets/images/adminguide/bgpprice.png)
 
-The administrator can set tiered pricing for external network segment (such as the Bgp segment in the above figure) IP bandwidth, where the global benchmark price for 0M~5M is 1 yuan, and that for 5M~99999999M is 10 yuan, thus improving the maintainability of the platform billing.
+The administrator can set tiered pricing for external network segment (such as the Bgp segment in the above figure) IP bandwidth, where the global benchmark price for 0M~5M is 1 credit, and that for 5M~99999999M is 10 credit, thus improving the maintainability of the platform billing.
 
 ## 9.6 Bill Management
 

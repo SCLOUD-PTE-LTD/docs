@@ -22,7 +22,7 @@ Virtual machines are the basic environment for cloud platform users to deploy an
 
 As shown in the figure, instance specifications, images, and VPC networks are the basic resources that must be specified to run a virtual machine, that is, to specify the CPU memory, operating system, virtual network card, and IP information of the virtual machine. On the basis of the virtual machine, cloud disks, elastic IPs, and security groups can be bound to provide data disks, public IPs, and network firewalls for the virtual machine to ensure the data storage and network security of the virtual machine application.
 
-In terms of virtualization computing capabilities, the platform provides GPU device pass-through capabilities, supporting users to create and run GPU virtual machines on the platform, so that the virtual machine has high-performance computing and graphics processing capabilities. **Supported pass-through devices include NVIDIA's K80, P40, V100, 2080, 2080Ti, T4 and Huawei Atlas300**, etc.
+In terms of virtualization computing capabilities, the platform provides GPU device pass-through capabilities, supporting users to create and run GPU virtual machines on the platform, so that the virtual machine has high-performance computing and graphics processing capabilities. Supported pass-through devices include NVIDIA's K80, P40, V100, 2080, 2080Ti, T4 and Huawei Atlas300, etc.
 
 
 ## 3.2 Create virtual machines
