@@ -26,7 +26,7 @@ Clicking the "Details" button in the API operation column will take you to the A
 ![openapiinfo](/assets/images/userguide/openapiinfo.png)
 
 
-## 35.4 发送请求
+## 35.4 Send request
 
 After adding request parameters, click the "Send Request" button to send the request and return the request information, including the current request status, request content, and response information, as shown in the figure below:
 
