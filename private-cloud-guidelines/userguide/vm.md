@@ -231,7 +231,11 @@ The renewal duration of the cloud disk matches the billing method of the resourc
 
 #### 3.3.2.4 Virtual Machine Network
 
-**The web page displays the basic network information and advanced settings of the current virtual machine, and can also manage the external IP and elastic network card resources of the virtual machine.** The basic network information includes the VPC to which the current virtual machine belongs, the subnet it belongs to, the internal IP, the external security group, and the internal security group information, and the virtual machine's external security group and internal security group can be updated through the button on the right side of the security group. Advanced settings include DNS and network card mac. Click the modify button to modify the DNS and network card mac address. The network card mac address needs to be modified after shutdown, as shown in the following figure:
+The web page displays the basic network information and advanced settings of the current virtual machine, and can also manage the external IP and elastic network card resources of the virtual machine. 
+
+The basic network information includes the VPC to which the current virtual machine belongs, the subnet it belongs to, the internal IP, the external security group, and the internal security group information, and the virtual machine's external security group and internal security group can be updated through the button on the right side of the security group. 
+
+Advanced settings include DNS and network card mac. Click the modify button to modify the DNS and network card mac address. The network card mac address needs to be modified after shutdown, as shown in the following figure:
 
 ![vmnetinfo](/assets/images/userguide/vmnetinfo2.png)
 
@@ -269,7 +273,7 @@ After binding is successful, the IP address that has been bound can be viewed in
 
 When the virtual machine image is not installed with qemu-ga, only external IPs of NAT type are supported.
 
-##### 3.3.2.5.2 解绑外网 IP
+##### 3.3.2.5.2 Unbind external IP
 
 Support unbind external IP address of virtual machine, if the default external IP is unbinded, then automatically select the next external IP with default route as the default network exit of the virtual machine.
 
