@@ -14,8 +14,6 @@ It is simpler and easier to use than ordinary cloud servers. It sells cloud reso
 
 Users can build applications with one click without complex configuration process, making cloud access easier.
 
-![1](/assets/images/public-cloud-user-guides/guide-23.png)
-
 ![1](/assets/images/public-cloud-user-guides/guide-22.png)
 
 ## Product Description
@@ -64,7 +62,7 @@ The life cycle of the system disk completely follows that of the lightweight app
 ## Product package
 The lightweight application cloud host provides different combinations of computing, storage and network resources, and users can choose matching product packages based on business needs.
 
-Supported region: Taipei, HongKong, Los Angeles, Singapore, Tokyo, Bangkok and Ho Chi Minh City.
+Supported 14 regions: Manila, Los Angeles, Singapore, Seoul, Tokyo, Ho Chi Minh City, Jakarta, Mumbai, London, Dubai, Sao Paulo, Bangkok, Taipei, HongKong.
 
 Currently SCloud lightweight application cloud host provides the following packages to choose from:
 
