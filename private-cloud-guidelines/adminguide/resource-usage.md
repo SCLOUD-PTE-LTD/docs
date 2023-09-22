@@ -3,7 +3,7 @@ layout: default
 title: Resource Usage
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/resource-usage/
+permalink: /private-cloud/admin-guides/resource-usage/
 nav_order: 14
 ---
 # 14. Resource Usage

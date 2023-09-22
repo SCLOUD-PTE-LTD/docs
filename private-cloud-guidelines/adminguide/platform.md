@@ -3,7 +3,7 @@ layout: default
 title: System Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/system-management/
+permalink: /private-cloud/admin-guides/system-management/
 nav_order: 10
 ---
 # 10. System Management

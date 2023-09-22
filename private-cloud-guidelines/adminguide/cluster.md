@@ -3,7 +3,7 @@ layout: default
 title: Cluster Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/cluster/
+permalink: /private-cloud/admin-guides/cluster/
 nav_order: 4
 ---
 # 4. Cluster Management

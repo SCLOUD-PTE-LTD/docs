@@ -3,7 +3,7 @@ layout: default
 title: Monitoring Dashboard
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/monitoring-dashboard/
+permalink: /private-cloud/admin-guides/monitoring-dashboard/
 nav_order: 12
 ---
 # 12. Monitoring Dashboard

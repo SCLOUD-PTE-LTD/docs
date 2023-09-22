@@ -3,7 +3,7 @@ layout: default
 title: Virtual Resource Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/virtual-resources/
+permalink: /private-cloud/admin-guides/virtual-resources/
 nav_order: 6
 ---
 # 6. Virtual Resource Management

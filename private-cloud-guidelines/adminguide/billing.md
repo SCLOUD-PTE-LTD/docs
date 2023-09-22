@@ -3,7 +3,7 @@ layout: default
 title: Financial Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/financial-management/
+permalink: /private-cloud/admin-guides/financial-management/
 nav_order: 9
 ---
 # 9. Financial Management

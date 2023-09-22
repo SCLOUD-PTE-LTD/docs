@@ -3,7 +3,7 @@ layout: default
 title: Administrator
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/administrator/
+permalink: /private-cloud/admin-guides/administrator/
 nav_order: 15
 ---
 # 15. Administrator

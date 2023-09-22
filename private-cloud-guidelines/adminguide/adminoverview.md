@@ -3,7 +3,7 @@ layout: default
 title: Resource Overview
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/resource-overview/
+permalink: /private-cloud/admin-guides/resource-overview/
 nav_order: 16
 ---
 # 16. Resource Overview

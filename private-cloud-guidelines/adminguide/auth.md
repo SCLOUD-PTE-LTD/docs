@@ -3,7 +3,7 @@ layout: default
 title: Authorization Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/auth-management/
+permalink: /private-cloud/admin-guides/auth-management/
 nav_order: 11
 ---
 # 11. Authorization Management

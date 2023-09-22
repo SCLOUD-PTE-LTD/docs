@@ -3,7 +3,7 @@ layout: default
 title: Tenant Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/tenant/
+permalink: /private-cloud/admin-guides/tenant/
 nav_order: 7
 ---
 # 7. Tenant Management

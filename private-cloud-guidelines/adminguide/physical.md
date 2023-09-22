@@ -3,7 +3,7 @@ layout: default
 title: Physical Resource Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/physical-resources/
+permalink: /private-cloud/admin-guides/physical-resources/
 nav_order: 5
 ---
 # 5. Physical Resource Management

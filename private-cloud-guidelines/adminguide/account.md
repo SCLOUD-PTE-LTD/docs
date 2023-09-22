@@ -3,7 +3,7 @@ layout: default
 title: Organization and Account Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/organization-account-management/
+permalink: /private-cloud/admin-guides/organization-account-management/
 nav_order: 2
 ---
 # 2. Organization and Account Management

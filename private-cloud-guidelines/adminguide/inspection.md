@@ -3,7 +3,7 @@ layout: default
 title: One-click Inspection
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/inspection/
+permalink: /private-cloud/admin-guides/inspection/
 nav_order: 13
 ---
 # 13. One-click Inspection

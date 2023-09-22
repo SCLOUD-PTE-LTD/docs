@@ -3,7 +3,7 @@ layout: default
 title: Approval Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/approve-management/
+permalink: /private-cloud/admin-guides/approve-management/
 nav_order: 8
 ---
 # 8. Approval Management

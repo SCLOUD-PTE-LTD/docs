@@ -3,7 +3,7 @@ layout: default
 title: Platform Overview
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/introduction/
+permalink: /private-cloud/admin-guides/introduction/
 nav_order: 1
 ---
 # 1. Platform Overview

@@ -3,7 +3,7 @@ layout: default
 title: Region Management
 parent: Admin Guide
 grand_parent: Private Cloud User Guides
-permalink: /private-cloud/user-guides/region-management/
+permalink: /private-cloud/admin-guides/region-management/
 nav_order: 3
 ---
 # 3. Region Management
