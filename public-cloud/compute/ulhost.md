@@ -62,7 +62,7 @@ The life cycle of the system disk completely follows that of the lightweight app
 ## Product package
 The lightweight application cloud host provides different combinations of computing, storage and network resources, and users can choose matching product packages based on business needs.
 
-Supported 4 regions: Singapore, London, Taipei, HongKong.
+Supported 14 regions: Manila, Los Angeles, Seoul, Tokyo, Ho Chi Minh City, Jakarta, Mumbai, London, Dubai, Sao Paulo, Bangkok, Taipei, Hongkong.
 
 Currently SCloud lightweight application cloud host provides the following packages to choose from:
 
