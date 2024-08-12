@@ -62,18 +62,21 @@ The life cycle of the system disk completely follows that of the lightweight app
 ## Product package
 The lightweight application cloud host provides different combinations of computing, storage and network resources, and users can choose matching product packages based on business needs.
 
-Supported 14 regions: Manila, Los Angeles, Seoul, Tokyo, Ho Chi Minh City, Jakarta, Mumbai, London, Dubai, Sao Paulo, Bangkok, Taipei, Hongkong.
+Supported 15 regions: Manila, Los Angeles, Singapore, Seoul, Tokyo, Ho Chi Minh City, Jakarta, Mumbai, Washington, London, Dubai, Sao Paulo, Bangkok, Taipei, Hongkong.
 
 Currently SCloud lightweight application cloud host provides the following packages to choose from:
 
 | Package | CPU | Memory | System Disk - RSSD | Peak bandwidth | Traffic packets | Price |
 | --- | --- | --- | --- | --- | --- | --- |
-| Package 1 | 1 Core | 1 GB | 40 GB | 30 Mbps | 200 GB | 4,76$ per month |
-| Package 2 | 1 Core | 2 GB | 40 GB | 30 Mbps | 400 GB | 6,44$ per month |
-| Package 3 | 2 Core | 2 GB | 60 GB | 30 Mbps | 600 GB | 8,12$ per month|
-| Package 4 | 2 Core | 4 GB | 80 GB | 30 Mbps | 800 GB | 9,66$ per month|
-| Package 5 | 2 Core | 2 GB | 60 GB | 30 Mbps | 2048 GB | 10,08$ per month|
-| Package 6 | 2 Core | 4 GB | 80 GB | 30 Mbps | 3072 GB | 14,84$ per month|
+| Package 1 | 1 Core | 1 GB | 40 GB | 30 Mbps | 200 GB | 4,76$ per month|
+| Package 2 | 1 Core | 1 GB | 40 GB | 30 Mbps | 1024 GB | 6,41$ per month|
+| Package 3 | 1 Core | 2 GB | 40 GB | 30 Mbps | 400 GB | 6,44$ per month|
+| Package 4 | 1 Core | 2 GB | 40 GB | 30 Mbps | 1024 GB | 8,08$ per month|
+| Package 5 | 2 Core | 2 GB | 60 GB | 30 Mbps | 600 GB | 8,12$ per month|
+| Package 6 | 2 Core | 4 GB | 80 GB | 30 Mbps | 800 GB | 9,66$ per month|
+| Package 7 | 2 Core | 2 GB | 60 GB | 30 Mbps | 2048 GB | 10,08$ per month|
+| Package 8 | 2 Core | 4 GB | 80 GB | 30 Mbps | 3072 GB | 14,84$ per month|
+| Package 9 | 4 Core | 4 GB | 100 GB | 30 Mbps | 3072 GB | 30,64$ per month|
 
 ```
 - The network traffic package corresponding to the package is the upper limit of the maximum traffic package. After the traffic package of the lightweight application cloud host reaches the upper limit, the traffic will be billed according to the regular network bandwidth traffic billing method.
