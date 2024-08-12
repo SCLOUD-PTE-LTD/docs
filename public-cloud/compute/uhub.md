@@ -23,7 +23,7 @@ Click the Delete Image Database button in the upper-right corner of the Image Re
 Log in via docker login on a machine with docker (version 1.10 or later) installed.
 Log in to the image repository and access the service by domain name:
 ```
-docker login uhub.service.scloud.sg -u user@scloud.sg
+docker login uhub-service.scloud.sg -u user@scloud.sg
 ```
 The login user name is the email address registered on the SCloud platform, and the password is the console login password.
 
