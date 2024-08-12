@@ -64,11 +64,16 @@ The newly created NIC is not bound to an external elastic IP, so it needs to be 
 > After a custom NIC is bound to a cloud host, you need to configure the NIC information and policy routing on the cloud host (no configuration is required for the default NIC).
 
 - List page operation!
-  ![1](/assets/images/nic05.png)
+
+![1](/assets/images/nic05.png)
+
 - Detail page operation!
-  ![1](/assets/images/nic04.png)
+
+![1](/assets/images/nic04.png)
+
 - Binding a NIC to a cloud host!
-  ![1](/assets/images/nic03.png)
+  
+![1](/assets/images/nic03.png)
 
 Explanation:
 
@@ -536,8 +541,6 @@ If the above configurations are checked and still do not work, you can provide:
 - The binding relationship between the NIC and the host.
 - The subnet information of the resource.
 - The routing configuration of the NIC.
-
-Submit these to [After-sales Consultation](https://spt.scloud.sg/) for further assistance.
 
 ### 2. The cloud host did not enable the NIC function at creation, but I want to enable a second NIC. How can I do this?
 
