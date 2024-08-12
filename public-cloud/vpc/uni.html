@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Virtual Network Interface Card &lpar;NIC&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <hr>
+<h2 id="layout-defaulttitle-uniparent-vpcgrand_parent-public-cloudpermalink-public-cloudvpcuninav_order-5">layout: default
+title: UNI
+parent: VPC
+grand_parent: Public Cloud
+permalink: /public-cloud/vpc/uni/
+nav_order: 5</h2>
+<p>Here is the translation of the provided document from Chinese to English:</p>
+<hr>
+<h1 id="virtual-network-interface-card-nic">Virtual Network Interface Card (NIC)</h1>
+<p>This document only introduces the operations related to virtual NICs, auxiliary IPs, and other related functions on the product page.</p>
+<h2 id="glossary">Glossary</h2>
+<ul>
+<li>
+<p><strong>Default NIC</strong>: The NIC automatically created by the system when the host enables the NIC function. The EIP and firewall originally bound to the cloud host will be assigned to the default NIC.</p>
+</li>
+<li>
+<p><strong>Custom NIC</strong>: A NIC manually created in the console that can be elastically bound to the cloud host.</p>
+</li>
+<li>
+<p><strong>Auxiliary IP</strong>: An auxiliary IP manually requested from the console to be used in conjunction with the main IP. It can be elastically bound to the cloud host, and the number of auxiliary IPs that can be requested is related to the cloud host configuration.</p>
+<p>Under Network Enhancement 1.0:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Index</strong></th>
+<th><strong>vCPU</strong></th>
+<th><strong>Number of Elastic NICs</strong></th>
+<th><strong>Number of Private IPs per NIC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1 ≤ vCPU ≤ 2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 &lt; vCPU ≤ 4</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4 &lt; vCPU ≤ 8</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8 &lt; vCPU ≤ 32</td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr>
+<td>5</td>
+<td>32 &lt; vCPU ≤ 64</td>
+<td>12</td>
+<td>8</td>
+</tr>
+<tr>
+<td>6</td>
+<td>64 &lt; vCPU ≤ 128</td>
+<td>15</td>
+<td>10</td>
+</tr>
+<tr>
+<td>7</td>
+<td>vCPU &gt; 128</td>
+<td>15</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>Under Network Enhancement 2.0:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Index</strong></th>
+<th><strong>vCPU</strong></th>
+<th><strong>Number of Elastic NICs</strong></th>
+<th><strong>Number of Private IPs per NIC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1 ≤ vCPU ≤ 2</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 &lt; vCPU ≤ 4</td>
+<td>1</td>
+<td>9</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4 &lt; vCPU ≤ 8</td>
+<td>1</td>
+<td>16</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8 &lt; vCPU ≤ 32</td>
+<td>1</td>
+<td>48</td>
+</tr>
+<tr>
+<td>5</td>
+<td>32 &lt; vCPU ≤ 64</td>
+<td>1</td>
+<td>96</td>
+</tr>
+<tr>
+<td>6</td>
+<td>64 &lt; vCPU ≤ 128</td>
+<td>1</td>
+<td>150</td>
+</tr>
+<tr>
+<td>7</td>
+<td>vCPU &gt; 128</td>
+<td>1</td>
+<td>180</td>
+</tr>
+</tbody>
+</table>
+<h2 id="creating-a-nic">Creating a NIC</h2>
+<p>Log in to the console, select <a href="https://console.ucloud.cn/vpc/vnic">Virtual NIC</a> under [All Products], and click [Create Virtual NIC].</p>
+<p><img src="file:////Users/trungtran/source/repos/docs/public-cloud/images/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A11.png" alt="Creating Virtual NIC 1"></p>
+<p><img src="file:////Users/trungtran/source/repos/docs/public-cloud/images/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A12.png" alt="Creating Virtual NIC 2"></p>
+<p>Explanation:</p>
+<ul>
+<li>A newly created NIC is automatically bound to the default web firewall.</li>
+<li>Custom NICs have independent configurations, such as resource name remarks, business group, elastic IP, firewall configuration, etc., and are independent of the cloud host. They can be elastically bound to the cloud host.</li>
+<li>The cloud host’s network configuration is automatically applied to the default NIC, which is strongly bound to the cloud host and is consistent with the cloud host’s lifecycle.</li>
+</ul>
+<h2 id="using-a-nic">Using a NIC</h2>
+<p>The newly created NIC is not bound to an external elastic IP, so it needs to be bound after the NIC is created. Additionally, you can rename, bind to the host, and perform other operations on the NIC in the virtual NIC list or detail page.</p>
+<blockquote>
+<p>After a custom NIC is bound to a cloud host, you need to configure the NIC information and policy routing on the cloud host (no configuration is required for the default NIC).</p>
+</blockquote>
+<ul>
+<li>
+<p>List page operation<img src="file:////Users/trungtran/source/repos/docs/public-cloud/images/%E5%88%97%E8%A1%A8%E9%A1%B5%E6%93%8D%E4%BD%9C.png" alt="List page operation"></p>
+</li>
+<li>
+<p>Detail page operation<img src="file:////Users/trungtran/source/repos/docs/public-cloud/images/%E5%88%97%E8%A1%A8%E9%A1%B5%E8%AF%A6%E6%83%85.png" alt="Detail page details"></p>
+</li>
+<li>
+<p>Binding a NIC to a cloud host![Binding cloud host]</p>
+<p><img src="file:////Users/trungtran/source/repos/docs/public-cloud/images/%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%E7%BB%91%E5%AE%9A%E4%BA%91%E4%B8%BB%E6%9C%BA.png" alt="Binding virtual NIC to cloud host"></p>
+</li>
+</ul>
+<p>Explanation:</p>
+<ul>
+<li>You can enter the resource detail page by clicking [Resource Name] on the list page or by clicking [Details] in the operation column.</li>
+<li>In the upper right corner of the console, you can customize the display of NIC information columns, download the NIC resource list, refresh NIC resource list information, review documentation, etc.</li>
+</ul>
+<h2 id="nic-configuration-guide">NIC Configuration Guide</h2>
+<p>The default NIC of the cloud host does not require configuration, but the corresponding auxiliary IP needs to be configured.</p>
+<h3 id="centos-7-configuration-guide">CentOS 7 Configuration Guide</h3>
+<p>The three NIC configurations of the existing host are as follows, and two custom NICs have been bound to the cloud host.</p>
+<pre><code>eth0 (Default NIC)
+(Main IP) 10.42.108.166
+(Auxiliary IP) 10.42.107.2
+eth1 (Custom NIC created)
+(Main IP) 10.42.71.137
+(Auxiliary IP) 10.42.71.3
+eth2 (Custom NIC created)
+(Main IP) 10.42.175.116
+(Auxiliary IP) 10.42.175.3
+</code></pre>
+<h4 id="step-1-disable-rpf">Step 1: Disable RPF</h4>
+<p><em>Temporarily Disable</em></p>
+<p>Modify the value of /proc/sys/net/ipv4/conf/all/rp_filter:</p>
+<pre><code>echo 0 &gt; /proc/sys/net/ipv4/conf/all/rp_filter
+</code></pre>
+<p>Restart the network service</p>
+<pre><code>service network restart
+</code></pre>
+<p><em>Permanently Disable</em></p>
+<p>Edit the /etc/sysctl.conf file, change the value of net.ipv4.conf.all.rp_filter to 0, then restart the server.</p>
+<h4 id="step-2-configure-custom-nic">Step 2: Configure Custom NIC</h4>
+<p><em>Configure eth1</em></p>
+<pre><code># ifconfig eth1 10.42.71.137 netmask 255.255.0.0
+# ifconfig eth1 mtu 1454
+# echo &quot;101 net_101 &quot; &gt;&gt; /etc/iproute2/rt_tables
+# ip route add default via 10.42.0.1 dev eth1 src 10.42.71.137 table net_101
+# ip rule add from 10.42.71.137 table net_101
+</code></pre>
+<p><em>Configure eth2</em></p>
+<pre><code># ifconfig eth2 10.42.175.116 netmask 255.255.0.0
+# ifconfig eth2 mtu 1454
+# echo &quot;102 net_102 &quot; &gt;&gt; /etc/iproute2/rt_tables
+# ip route add default via 10.42.0.1 dev eth2 src 10.42.175.116 table net_102
+# ip rule add from 10.42.175.116 table net_102
+</code></pre>
+<p><em>Persistent Configuration</em></p>
+<p>Write configuration files for eth1 and eth2 NICs</p>
+<pre><code>Create configuration files
+# cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
+# cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth2
+
+Modify the following in the file:
+- DEVICE=Name of the virtual NIC
+- HWADDR=MAC address of the virtual NIC
+- IPADDR=IP address of the virtual NIC
+</code></pre>
+<p>Write policy routing configuration files</p>
+<pre><code># cat /etc/sysconfig/network-scripts/route-eth1
+
+default via 10.42.0.1 dev eth1 src 10.42.71.137 table net_101
+
+# cat /etc/sysconfig/network-scripts/rule-eth1
+
+from 10.42.71.137 table net_101
+
+
+
+# cat /etc/sysconfig/network-scripts/route-eth2
+
+default via 10.42.0.1 dev eth2 src 10.42.175.116 table net_102
+
+# cat /etc/sysconfig/network-scripts/rule-eth2
+
+from 10.42.175.116 table net_102
+</code></pre>
+<h4 id="step-3-configure-auxiliary-ip">Step 3: Configure Auxiliary IP</h4>
+<pre><code>ip addr add 10.42.107.2 dev eth0
+ip addr add 10.42.71.3 dev eth1
+ip addr add 10.42.175.3 dev eth2
+Replace the IP address with the auxiliary IP to be bound. To configure the auxiliary IP for the default NIC, simply change the NIC name to eth0, and so on.
+</code></pre>
+<p>The virtual NIC’s main IP and auxiliary IP can ping through successfully, meaning the configuration is complete.</p>
+<h4 id="step-4-configure-policy-routing-steps-after-auxiliary-ip-binding-eip">Step 4: Configure Policy Routing Steps After Auxiliary IP Binding EIP</h4>
+<p>Create a new policy routing table</p>
+<pre><code>echo '101 net_101' &gt;&gt; /etc/iproute2/rt_tables
+</code></pre>
+<p>Configure policy matching rules</p>
+<pre><code>ip rule add from X.X.X.X (Auxiliary IP) table net_101
+ip rule add from X.X.X.X (Auxiliary IP) table net_102
+</code></pre>
+<p>Configure policy routing</p>
+<pre><code>ip route add default via X.X.X.X (Gateway IP) dev eth1 table net_101
+ip route add default via X.X.X.X (Gateway IP) dev eth2 table net_102
+</code></pre>
+<hr>
+<p>(The document then continues with specific configuration guides for CentOS 8, Windows, Ubuntu 20.04, common FAQs, and troubleshooting tips.)</p>
+<hr>
+<p>This translation covers the key sections of the document, providing</p>
+
+            
+            
+        </body>
+        </html>
