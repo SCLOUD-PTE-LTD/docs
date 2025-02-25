@@ -22,6 +22,11 @@ UModelVerse offers comprehensive model development management features including
 During use, there is no need for long-term purchase of computing power or concern over resource maintenance issues. It allows for elastic purchasing and release of computing power based on tasks and service dimensions, reducing wastage of computational costs due to idle resources.
 
 ### Billing Description
+
+| Function Module | Billing Method | Billing Details |
+| --- | --- | --- |
+| API Call | Pay-as-you-go | Charged based on call tokens. The DeepSeek series models are free for a limited time. |
+
 ## User Guide
 ### Model Center
 The “Model Center” of the ModelVerse large model service platform comes preloaded with several well-known open-source large models in the industry, catering to the needs of different business scenarios. You can browse, search, and experience models in the “Model Center,” supporting functions such as API call.
@@ -48,6 +53,12 @@ Supports online experience of models in the Model Center, enabling quick convers
 
 #### API Document
 Supports API calls for certain models in the Model Center. Click “API document” for detailed instructions on API usage.
+
+Overview of Supported Models and Operations in Model Center
+
+| Model Category | Model | Operations |
+| --- | --- | --- |
+| DeepSeek Series | DeepSeek R1	 | Experience, API Call (Limited Time Free). |
 
 ### Experience Center
 The Experience Center of the ModelVerse large model service platform allows you to configure model parameters and quickly start conversations with models.
