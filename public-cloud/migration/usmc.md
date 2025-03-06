@@ -1,7 +1,7 @@
 ---
 layout: default
 title: USMC
-parent: SCloud Server Migration Center
+parent: Multi-Cloud and Migration
 grand_parent: Public Cloud
 permalink: /public-cloud/multi-cloud-migration/usmc/
 nav_order: 2
