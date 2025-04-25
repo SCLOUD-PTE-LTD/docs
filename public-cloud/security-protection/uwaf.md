@@ -1,7 +1,7 @@
 ---
 layout: default
 title: WAF
-parent: Security Protection
+parent: Security & Compliance
 grand_parent: Public Cloud
 permalink: /public-cloud/security-protection/web-application-firewall/
 nav_order: 1

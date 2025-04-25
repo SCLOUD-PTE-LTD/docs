@@ -1,6 +1,6 @@
 ---
 layout: default
-title: UES
+title: Elasticsearch
 parent: Big Data
 grand_parent: Public Cloud
 permalink: /public-cloud/big-data/ues/

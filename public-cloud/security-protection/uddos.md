@@ -1,7 +1,7 @@
 ---
 layout: default
 title: UDDoS
-parent: Security Protection
+parent: Security & Compliance
 grand_parent: Public Cloud
 permalink: /public-cloud/security-protection/uddos/
 nav_order: 2

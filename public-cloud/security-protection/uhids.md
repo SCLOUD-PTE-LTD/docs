@@ -1,7 +1,7 @@
 ---
 layout: default
 title: UHIDS
-parent: Security Protection
+parent: Security & Compliance
 grand_parent: Public Cloud
 permalink: /public-cloud/security-protection/uhids/
 nav_order: 3
