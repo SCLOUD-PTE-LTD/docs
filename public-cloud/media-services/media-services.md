@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Media Services
-has_children: true
-parent: Public Cloud
+has_children: false
+parent: N/A
 nav_order: 6
 ---
 
