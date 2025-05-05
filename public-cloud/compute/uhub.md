@@ -4,7 +4,7 @@ title: UHub
 parent: Compute
 grand_parent: Public Cloud
 permalink: /public-cloud/compute/uhub/
-nav_order: 4
+nav_order: 5
 ---
 # The public image library UHub
 
