@@ -237,15 +237,15 @@ The IO performance of a VM instance is proportional to its CPU configuration, an
 - If the performance of an RSSD disk exceeds the IO storage capacity of the instance, the actual storage performance is subject to the storage performance of the instance
 - If the number of cores of the instance is not in the table below, the instance performance is the maximum performance that does not exceed the number of cores, for example, if the number of CPU cores is 50, its storage IO performance is the same as that of 48 cores
 
-| vCPU (core) | Storage IOPS (million) | Storage throughput (MBps) |
+| vCPU (core) | Storage IOPS | Storage throughput (MBps) |
 | --- | --- | --- |
-| 1 | 1.8 | 75 |
-| 2 | 3.8 | 150 |
-| 4 | 7.5 | 300 |
-| 8 | 15 | 600 |
-| 12 | 22.5 | 900 |
-| 16 | 30 | 1200 |
-| 24 | 45 | 1800 |
-| 32 | 60 | 2400 |
-| 48 | 90 | 3600 |
-| 64 | 120 | 4800 |
+| 1 | 18.000 | 75 |
+| 2 | 38.000 | 150 |
+| 4 | 75.000 | 300 |
+| 8 | 150.000 | 600 |
+| 12 | 225.000 | 900 |
+| 16 | 300.000 | 1200 |
+| 24 | 450.000 | 1800 |
+| 32 | 600.000 | 2400 |
+| 48 | 900.000 | 3600 |
+| 64 | 1.200.000 | 4800 |
