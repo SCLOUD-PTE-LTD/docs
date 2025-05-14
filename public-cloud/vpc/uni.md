@@ -1,6 +1,6 @@
 ---
 layout: default
-title: UNI
+title: Network Interface Card
 parent: VPC
 grand_parent: Public Cloud
 permalink: /public-cloud/vpc/uni/
