@@ -3,8 +3,8 @@ layout: default
 title: UModelVerse
 parent: Artificial Intelligence
 grand_parent: Public Cloud
-permalink: /public-cloud/ai//
-nav_order: 1
+permalink: /public-cloud/ai/UModelVerse/
+nav_order: 2
 ---
 # UModelVerse
 ## Product Introduction

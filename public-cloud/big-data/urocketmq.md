@@ -1,6 +1,6 @@
 ---
 layout: default
-title: URocketMQ
+title: RocketMQ
 parent: Big Data
 grand_parent: Public Cloud
 permalink: /public-cloud/big-data/urocketmq/

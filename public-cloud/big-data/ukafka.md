@@ -1,6 +1,6 @@
 ---
 layout: default
-title: UKafka
+title: Kafka
 parent: Big Data
 grand_parent: Public Cloud
 permalink: /public-cloud/big-data/ukafka/
