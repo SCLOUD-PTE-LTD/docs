@@ -1,10 +1,10 @@
 ---
 layout: default
-title: UDisk
+title: UDisk (Block Storage)
 parent: Storage
 grand_parent: Public Cloud
 permalink: /public-cloud/storage/udisk/
-nav_order: 4
+nav_order: 3
 ---
 # Block storage (UDisk)
 ## Product Overview

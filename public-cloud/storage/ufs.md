@@ -1,6 +1,6 @@
 ---
 layout: default
-title: UFS
+title: UFS (File Storage)
 parent: Storage
 grand_parent: Public Cloud
 permalink: /public-cloud/storage/ufs/

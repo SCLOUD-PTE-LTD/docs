@@ -1,6 +1,6 @@
 ---
 layout: default
-title: US3
+title: US3 (Object Storage)
 parent: Storage
 grand_parent: Public Cloud
 permalink: /public-cloud/storage/us3/
