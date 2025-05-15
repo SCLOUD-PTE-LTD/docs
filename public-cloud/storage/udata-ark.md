@@ -70,14 +70,12 @@ Host Details Panel → Disk & Recovery → Disable Data Ark, which will stop the
 
 ### How is the Reconciliation Fee Calculated?
 
-Total reconciliation cost per host = (Expiration Date – Current Date) × Disk Size × Data Ark Unit Price
+> Total reconciliation cost per host = (Expiration Date – Current Date) × Disk Size × Data Ark Unit Price
 
-> Example:
-
-If your monthly plan expires on March 10, and you choose to reconcile on March 9, with a 20 GB system disk and 20 GB data disk, the total cost would be:
+Example: if your monthly plan expires on March 10, and you choose to reconcile on March 9, with a 20 GB system disk and 20 GB data disk, the total cost would be:
 
 ```
-40 × (0.4 / 31) = ¥0.52
+40 × (0.4 / 31) = RMB 0.52
 ```
 
 ## Product Pricing
