@@ -1,6 +1,6 @@
 ---
 layout: default
-title: NAT
+title: NAT Gateway
 parent: VPC
 grand_parent: Public Cloud
 permalink: /public-cloud/vpc/nat/
