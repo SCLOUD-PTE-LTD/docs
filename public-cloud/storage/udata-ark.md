@@ -81,3 +81,12 @@ If your monthly plan expires on March 10, and you choose to reconcile on March 9
 ```
 40 × (0.4 / 31) = ¥0.52
 ```
+
+## Product Pricing
+
+| Region                      | Price          |
+|-----------------------------|----------------|
+| Hong Kong Zone B            | RMB 0.4 per GB/month |
+| Ho Chi Minh City Zone A     | RMB 0.4 per GB/month |
+
+> Note: For pricing in other regions, please contact your account manager.
