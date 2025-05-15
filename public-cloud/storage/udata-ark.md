@@ -19,8 +19,6 @@ The RPO of Data Ark reaches the second level, and by default, it supports restor
 ### Recovery Time Objective (RTO)
 The RTO of the data ark can be restored in as little as 5 minutes, and the amount of 1TB data can be restored within 1 hour.
 
-Here is the English translated markdown of your content:
-
 ## Product Advantages
 
 ### Online Backup Without Interrupting Business
