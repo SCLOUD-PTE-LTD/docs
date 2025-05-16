@@ -77,10 +77,10 @@ Gain full visibility and control over your cloud infrastructure.
 
 # Why Choose SCloud?
 
-✅ Neutral Cloud, No Vendor Lock-in
-✅ Global Infrastructure Footprint
-✅ Security-First Architecture
-✅ AI-Driven Innovation & Insights
-✅ Enterprise-Ready Governance & Compliance
+- Neutral Cloud, No Vendor Lock-in
+- Global Infrastructure Footprint
+- Security-First Architecture
+- AI-Driven Innovation & Insights
+- Enterprise-Ready Governance & Compliance
 
-Whether you’re a startup seeking agility, an SME scaling operations, or a global enterprise transforming digitally—SCloud is your trusted cloud partner.
+Whether you’re a startup seeking agility, an SME scaling operations, or a global enterprise transforming digitally, SCloud is your trusted cloud partner.
