@@ -47,9 +47,9 @@ Provides a wealth of monitoring and security tools, DDOS protection, intrusion d
 
 You can create snapshots and back up data through manual and automated snapshot backup policies without worrying about the risk of data loss such as operational errors.
 ### Data Center
-You can launch cloud host products in more than 18 regions around the world to cover all five continents, and provide high-quality cloud computing services with consistent experience for your global business
+You can launch cloud host products in more than 16 regions around the world to cover all five continents, and provide high-quality cloud computing services with consistent experience for your global business
 
-![1](/assets/images/uhost1.png)
+![1](/assets/images/uhost-1.png)
 
 ### Seconds Ark backup capability
 UDataArk provides continuous data protection (CDP) services for SCloud local disks/EVS disks, and is an automatic data backup system that is completely heterogeneous with local disks/EVS disk storage, which can prevent data deletion or loss caused by mis-operation and hacker attacks to the greatest extent. 

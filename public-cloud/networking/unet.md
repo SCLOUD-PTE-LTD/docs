@@ -1,6 +1,6 @@
 ---
 layout: default
-title: UNet
+title: Elastic IP
 parent: Networking
 grand_parent: Public Cloud
 permalink: /public-cloud/networking/unet/
