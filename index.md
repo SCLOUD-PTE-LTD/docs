@@ -4,9 +4,9 @@ layout: home
 nav_order: 1
 permalink: /
 ---
-# Welcome to SCloud Computing
+# Welcome to SCloud
 
-Neutral, Global, and Scalable Cloud Solutions Since 2016
+Neutral, Global, Secure and Scalable Cloud Solutions Since 2016
 
 SCloud is a next-generation cloud computing provider that has empowered many of the world’s fastest-growing organizations since 2016. Headquartered in Singapore, SCloud is strategically positioned to serve businesses across Asia, Europe, and North America, offering sovereign and vendor-neutral cloud infrastructure to support innovation and scale without lock-in.
 
