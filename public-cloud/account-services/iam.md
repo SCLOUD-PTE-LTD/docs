@@ -1,10 +1,10 @@
 ---
 layout: default
 title: IAM
-parent: Account Services
+parent: Account - Monitor - Operation
 grand_parent: Public Cloud
 permalink: /public-cloud/account-services/iam/
-nav_order: 3
+nav_order: 1
 ---
 # IAM - Access Control
 ## User

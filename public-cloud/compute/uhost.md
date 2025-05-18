@@ -4,7 +4,7 @@ title: UHost
 parent: Compute
 grand_parent: Public Cloud
 permalink: /public-cloud/compute/uhost/
-nav_order: 1
+nav_order: 2
 ---
 # UHost - Cloud Host
 ## Introduction

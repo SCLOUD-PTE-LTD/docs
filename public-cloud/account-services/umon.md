@@ -1,10 +1,10 @@
 ---
 layout: default
 title: UMon
-parent: Monitor and Operation
+parent: Account - Monitor - Operation
 grand_parent: Public Cloud
 permalink: /public-cloud/monitor-operation/umon/
-nav_order: 1
+nav_order: 3
 ---
 # UMon - Resource Monitoring
 ## Product Introduction

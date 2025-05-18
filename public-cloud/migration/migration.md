@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multi-Cloud and Migration
+title: Multi-Cloud & Migration
 has_children: true
 parent: Public Cloud
 nav_order: 14

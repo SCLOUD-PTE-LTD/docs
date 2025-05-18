@@ -4,7 +4,7 @@ title: UPHost
 parent: Compute
 grand_parent: Public Cloud
 permalink: /public-cloud/compute/uphost/
-nav_order: 2
+nav_order: 3
 ---
 
 # UPHost（SCloud Physical Host）

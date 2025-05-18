@@ -1,10 +1,10 @@
 ---
 layout: default
 title: ULog
-parent: Account Services
+parent: Account - Monitor - Operation
 grand_parent: Public Cloud
 permalink: /public-cloud/account-services/ulog/
-nav_order: 5
+nav_order: 2
 ---
 # ULog - Operation Log
 

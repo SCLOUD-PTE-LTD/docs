@@ -4,7 +4,7 @@ title: ULightHost
 parent: Compute
 grand_parent: Public Cloud
 permalink: /public-cloud/compute/ulhost/
-nav_order: 3
+nav_order: 1
 ---
 # ULightHost - Cloud Host
 ## Introduction
