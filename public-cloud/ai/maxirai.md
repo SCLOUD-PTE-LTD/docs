@@ -9,6 +9,7 @@ nav_order: 1
 # MarxiAI
 ## Product Introduction
 MAXIR AI is an AI SaaS service designed for enterprise datasets, aiming to fully unlock the value of data. MAXIR AI allows users to interact with datasets directly using natural language, ranging from simple Q&A to in-depth Business Intelligence (BI) analysis, greatly enhancing data processing efficiency.
+![1](/assets/images/maxirAI.webp)
 
 Its core strengths include:
 - Accurate understanding of user intent

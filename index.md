@@ -15,7 +15,7 @@ With over 25 Tier-3 certified data centers spanning 16 global regions, SCloud de
 
 ## Compute Services
 
-Our compute offerings are optimized for flexibility, performance, and efficiency—built to meet the demands of all modern workloads.
+Our compute offerings are optimized for flexibility, performance, and efficiency built to meet the demands of all modern workloads.
 - Cloud Server: Virtual machines with elastic scaling, ideal for general-purpose applications and microservices.
 - Physical Server: Bare-metal compute with dedicated resources for high-performance needs like databases or gaming servers.
 - Lightweight Cloud Server: Cost-effective, fast-deploying virtual servers for light workloads, CI/CD jobs, or development environments.
