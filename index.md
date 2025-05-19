@@ -8,7 +8,7 @@ permalink: /
 
 Neutral, Global, Secure and Scalable Cloud Solutions Since 2016
 
-SCloud is a next-generation cloud computing provider that has empowered many of the world’s fastest-growing organizations since 2016. Headquartered in Singapore, SCloud is strategically positioned to serve businesses across Asia, Europe, and North America, offering sovereign and vendor-neutral cloud infrastructure to support innovation and scale without lock-in.
+SCloud is a next generation cloud computing provider that has empowered many of the world’s fastest growing organizations since 2016. Headquartered in Singapore, SCloud is strategically positioned to serve businesses across Asia, Europe, and North America, offering sovereign and vendor neutral cloud infrastructure to support innovation and scale without lock-in.
 
 With over 25 Tier-3 certified data centers spanning 16 global regions, SCloud delivers high-performance, secure, and low-latency services that are trusted by startups, large enterprises, and government organizations alike.
 ![1](/assets/images/scloud-region-map.webp)
@@ -20,6 +20,7 @@ Our compute offerings are optimized for flexibility, performance, and efficiency
 - Physical Server: Bare-metal compute with dedicated resources for high-performance needs like databases or gaming servers.
 - Lightweight Cloud Server: Cost-effective, fast-deploying virtual servers for light workloads, CI/CD jobs, or development environments.
 - Managed Kubernetes Cluster: Fully managed Kubernetes for running containerized applications at scale, with simplified lifecycle management.
+- Server Migration Service: Seamless migration of on-premise or third-party cloud workloads to SCloud infrastructure.
 
 ## Security Protection
 
@@ -31,11 +32,19 @@ Our advanced security services ensure your infrastructure, applications, and dat
 ## Storage & Data Services
 
 Whether you need scalable object storage or high-speed transmission, our data services are designed to handle enterprise-grade workloads.
-- Server Migration Service: Seamless migration of on-premise or third-party cloud workloads to SCloud infrastructure.
 - Data Transmission Service: High-speed, secure, and reliable file transfer between regions or services.
 - File Storage: Distributed file systems for collaborative applications and shared workloads.
 - Object Storage: Highly durable, S3-compatible object storage for backups, media, and big data.
 - Block Storage: High IOPS, low-latency storage volumes for databases and mission-critical applications.
+
+## Database Services
+
+- UDB SQL: A fully managed relational database engine supporting general SQL queries with high availability and strong consistency. Ideal for business applications that require structured data and relational integrity.
+- UDB MongoDB: A scalable NoSQL document database service compatible with MongoDB API, designed for high-throughput, flexible-schema workloads such as mobile, IoT, and content management applications.
+- UDB MySQL: A reliable, open-source relational database service optimized for OLTP workloads. SCloud’s MySQL service ensures performance tuning, data backups, and automatic failover for production-grade deployments.
+- UDB PostgreSQL: A robust, open-source database offering advanced SQL capabilities, full ACID compliance, and powerful extension support. Ideal for complex enterprise applications and analytical processing.
+- UMem Redis: An in-memory key-value store service based on Redis, ideal for caching, session management, and real-time analytics. It delivers sub-millisecond response times with auto-scaling and persistence options.
+- UMem Memcached: A distributed memory caching system designed for simplicity and speed. UMem Memcached enhances application performance by reducing database load and ensuring faster access to frequently used data.
 
 ## Content Delivery Services
 
@@ -72,15 +81,15 @@ Gain full visibility and control over your cloud infrastructure.
 - Global Network: Unified backbone for interconnecting cloud and on-premise environments.
 - Accounts and Authorization: Role-based access control (RBAC) and IAM policies for secure user and service management.
 - API Management: Publish, secure, and monitor APIs across environments.
-- Cloud Monitoring: Real-time monitoring and alerting for infrastructure, application, and network health.
+- Cloud Monitoring: Realtime monitoring and alerting for infrastructure, application, and network health.
 - Log Management: Collect, store, and analyze logs for troubleshooting and audit readiness.
 
 # Why Choose SCloud?
 
 - Neutral Cloud, No Vendor Lock-in
 - Global Infrastructure Footprint
-- Security-First Architecture
-- AI-Driven Innovation & Insights
-- Enterprise-Ready Governance & Compliance
+- Security First Architecture
+- AI Driven Innovation & Insights
+- Enterprise Ready Governance & Compliance
 
 Whether you’re a startup seeking agility, an SME scaling operations, or a global enterprise transforming digitally, SCloud is your trusted cloud partner.
