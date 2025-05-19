@@ -10,6 +10,8 @@ nav_order: 2
 ## Introduction to ULB
 ULB (SCloud Load Balancer) is a load balancing service provided by SCloud, which can provide traffic distribution functions based on network packets or proxy for multiple hosts or other service instances. 
 
+![1](/assets/images/ulb-cloud-load-balancing.webp)
+
 In a high-concurrency service environment, ULB is used to build a service cluster composed of multiple service nodes. Service clusters can scale the processing and fault tolerance of services, and automatically eliminate the impact of a single service node failure on the overall service, improving service availability.
 
 ULB supports HTTP, HTTPS protocols (Nginx-like or HAproxy-like) for Layer 7; Layer 4 protocols support TCP protocol and UDP protocol (LVS-like).
