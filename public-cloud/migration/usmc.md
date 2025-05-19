@@ -1,7 +1,7 @@
 ---
 layout: default
 title: USMC
-parent: Multi-Cloud and Migration
+parent: Multi-Cloud & Migration
 grand_parent: Public Cloud
 permalink: /public-cloud/multi-cloud-migration/usmc/
 nav_order: 2
