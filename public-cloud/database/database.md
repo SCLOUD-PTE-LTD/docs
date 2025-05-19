@@ -3,7 +3,7 @@ layout: default
 title: Database
 has_children: true
 parent: Public Cloud
-nav_order: 7
+nav_order: 8
 ---
 
 # Database
