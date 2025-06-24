@@ -36,24 +36,32 @@ The implementation and logic of the operating system kernel, virtualized computi
 Host the server operating system and kernel module running on the cloud platform, and reuse the deeply optimized Linux kernel of the public cloud; at the same time, it is compatible with server operating systems such as ARM ecological UOS and Galaxy Kylin system and kernel;
 #### Virtualized computing
 Realize computing virtualization through KVM (Kernel-based Virtual Machine), QEMU (Quick Emulator) & Libvirt (The Management Layer), support standard virtualization architecture, provide full life cycle management of virtual machines, compatible with X86 and ARM architecture systems, support hot upgrade, reinstallation Features such as system installation, CPU over-scaling, GPU transparent transmission, online migration, downtime migration, anti- affinity deployment, etc., and support for importing and exporting virtual machine images to meet the needs of business migration to the cloud;
+
 **KVM (Kernel-based Virtual Machine) – The Hypervisor**
+
 What it is: A Linux kernel module that turns the Linux OS into a Type-1 hypervisor.
 What it does: Allows you to run virtual machines (VMs) using hardware-assisted virtualization (Intel VT-x or AMD-V).
 Key role: Provides the low-level infrastructure (CPU/memory virtualization) so that each VM behaves like a real physical machine.
 _Think of KVM as the engine that makes virtualization possible on a Linux host._
+
 **QEMU (Quick Emulator) – The Emulator & VM Launcher**
+
 What it is: A powerful hardware emulator and virtualizer.
 Two modes:
 •	Emulation mode: Can emulate CPUs and devices completely in software (slow but flexible).
 •	Virtualization mode: With KVM, it uses hardware acceleration to run VMs much faster.
+
 Key role: It starts and manages VMs, emulates I/O devices (like disk, network cards, USB), and loads operating systems.
 _QEMU is the tool that interacts with KVM, sets up virtual hardware, and boots the VM._
+
 **Libvirt – The Management Layer**
+
 What it is: A high-level API and service to manage virtualization platforms like KVM/QEMU, Xen, LXC, etc.
 Provides:
 •	CLI (virsh)
 •	GUI tools (e.g., Virt-Manager)
 •	Programmatic APIs (C, Python, etc.)
+
 Key role: Makes it easier to create, start, stop, snapshot, migrate, and configure VMs.
 _Libvirt is like the control panel that sits on top of KVM + QEMU and makes them easier to manage._
 
