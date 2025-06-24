@@ -42,6 +42,7 @@ Realize computing virtualization through KVM (Kernel-based Virtual Machine), QEM
 What it is: A Linux kernel module that turns the Linux OS into a Type-1 hypervisor.
 What it does: Allows you to run virtual machines (VMs) using hardware-assisted virtualization (Intel VT-x or AMD-V).
 Key role: Provides the low-level infrastructure (CPU/memory virtualization) so that each VM behaves like a real physical machine.
+
 _Think of KVM as the engine that makes virtualization possible on a Linux host._
 
 **QEMU (Quick Emulator) – The Emulator & VM Launcher**
@@ -52,6 +53,7 @@ Two modes:
 •	Virtualization mode: With KVM, it uses hardware acceleration to run VMs much faster.
 
 Key role: It starts and manages VMs, emulates I/O devices (like disk, network cards, USB), and loads operating systems.
+
 _QEMU is the tool that interacts with KVM, sets up virtual hardware, and boots the VM._
 
 **Libvirt – The Management Layer**
@@ -63,6 +65,7 @@ Provides:
 •	Programmatic APIs (C, Python, etc.)
 
 Key role: Makes it easier to create, start, stop, snapshot, migrate, and configure VMs.
+
 _Libvirt is like the control panel that sits on top of KVM + QEMU and makes them easier to manage._
 
 | Component | Role                            | Analogy                   |
