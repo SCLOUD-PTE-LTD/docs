@@ -32,10 +32,41 @@ Servers, switches, and storage devices used to host the SCloudStack platform.
 ### Virtual Core Engine
 The implementation and logic of the operating system kernel, virtualized computing, storage, and network that carry the core of the platform.
 
-- Kernel module: host the server operating system and kernel module running on the cloud platform, and reuse the deeply optimized Linux kernel of the public cloud; at the same time, it is compatible with server operating systems such as ARM ecological UOS and Galaxy Kylin system and kernel;
-- Virtualized computing: Realize computing virtualization through `KVM, Libvirt` and `Qemu`, support standard virtualization architecture, provide full life cycle management of virtual machines, compatible with X86 and ARM architecture systems, support hot upgrade, reinstallation Features such as system installation, CPU over-scaling, GPU transparent transmission, online migration, downtime migration, anti- affinity deployment, etc., and support for importing and exporting virtual machine images to meet the needs of business migration to the cloud;
-- Distributed network SDN: Realize virtual network through `OVS` + `VXLAN`, pure software -defined distributed network, improve network forwarding performance and virtualize traditional data center physical network at the same time, for the cloud Platform resources provide network functions such as VPC isolated network environment, elastic network card, external network IP, NAT gateway, load balancing, firewall, VPN connection, hybrid cloud access and network topology, and support IPv4&IPv6 dual stack;
-- Distributed storage SDS: Realize distributed high-performance storage based on Ceph, provide block storage services for the platform, support cloud disk online expansion, cloning, snapshot and rollback functions; at the same time, multiple copies of the underlying data are stored It also supports data re-balancing and fault reconstruction capabilities to ensure performance and data security.
+#### Kernel module
+Host the server operating system and kernel module running on the cloud platform, and reuse the deeply optimized Linux kernel of the public cloud; at the same time, it is compatible with server operating systems such as ARM ecological UOS and Galaxy Kylin system and kernel;
+#### Virtualized computing
+Realize computing virtualization through KVM (Kernel-based Virtual Machine), QEMU (Quick Emulator) & Libvirt (The Management Layer), support standard virtualization architecture, provide full life cycle management of virtual machines, compatible with X86 and ARM architecture systems, support hot upgrade, reinstallation Features such as system installation, CPU over-scaling, GPU transparent transmission, online migration, downtime migration, anti- affinity deployment, etc., and support for importing and exporting virtual machine images to meet the needs of business migration to the cloud;
+**KVM (Kernel-based Virtual Machine) – The Hypervisor**
+What it is: A Linux kernel module that turns the Linux OS into a Type-1 hypervisor.
+What it does: Allows you to run virtual machines (VMs) using hardware-assisted virtualization (Intel VT-x or AMD-V).
+Key role: Provides the low-level infrastructure (CPU/memory virtualization) so that each VM behaves like a real physical machine.
+_Think of KVM as the engine that makes virtualization possible on a Linux host._
+**QEMU (Quick Emulator) – The Emulator & VM Launcher**
+What it is: A powerful hardware emulator and virtualizer.
+Two modes:
+•	Emulation mode: Can emulate CPUs and devices completely in software (slow but flexible).
+•	Virtualization mode: With KVM, it uses hardware acceleration to run VMs much faster.
+Key role: It starts and manages VMs, emulates I/O devices (like disk, network cards, USB), and loads operating systems.
+_QEMU is the tool that interacts with KVM, sets up virtual hardware, and boots the VM._
+**Libvirt – The Management Layer**
+What it is: A high-level API and service to manage virtualization platforms like KVM/QEMU, Xen, LXC, etc.
+Provides:
+•	CLI (virsh)
+•	GUI tools (e.g., Virt-Manager)
+•	Programmatic APIs (C, Python, etc.)
+Key role: Makes it easier to create, start, stop, snapshot, migrate, and configure VMs.
+_Libvirt is like the control panel that sits on top of KVM + QEMU and makes them easier to manage._
+
+| Component | Role                            | Analogy                   |
+|-----------|---------------------------------|---------------------------|
+| KVM       | Hypervisor for VM execution     | The engine                 |
+| QEMU      | Emulator and VM launcher        | The dashboard and controls |
+| Libvirt   | Management API and toolset      | The remote control or GUI  |
+
+#### Distributed network SDN
+Realize virtual network through OVS (Open vSwitch) + VXLAN (Virtual Extensible LAN), pure software-defined distributed network, improve network forwarding performance and virtualize traditional data center physical network at the same time, for the cloud Platform resources provide network functions such as VPC isolated network environment, elastic network card, external network IP, NAT gateway, load balancing, firewall, VPN connection, hybrid cloud access and network topology, and support IPv4&IPv6 dual stack;
+#### Distributed storage SDS
+Realize distributed high-performance storage based on Ceph, provide block storage services for the platform, support cloud disk online expansion, cloning, snapshot and rollback functions; at the same time, multiple copies of the underlying data are stored It also supports data re-balancing and fault reconstruction capabilities to ensure performance and data security.
 
 ### Intelligent Dispatch System
 - Supports anti- affinity scheduling deployment strategies to ensure high availability and reliability of services;
@@ -58,7 +89,7 @@ The implementation and logic of the operating system kernel, virtualized computi
 - Image: the operating system required for the virtual machine to run, providing common basic operating system images such as CentOS, Windows, Ubuntu, etc.; supporting the export of the virtual machine as an image, and rebuilding the virtual machine through self-made images machine; at the same time, it supports the import and export of images, which is convenient for users to customize images;
 - Cloud Disk: A block device that provides persistent storage space for virtual machines based on a distributed storage system. With an independent life cycle, it supports binding a separately created cloud hard disk to a virtual machine, or unbinding a bound cloud hard disk, and then binding it to other virtual machines; based on network distribution access, and supports features such as capacity expansion, cloning, and snapshots, providing virtual resources with high-security, high-reliability, high-performance, and scalable disks;
 - Snapshot: Provides disk snapshot and snapshot rollback capabilities, which can be applied to business scenarios such as disaster recovery backup and version rollback, reducing the risk of data loss caused by mis-operation and version upgrade;
-- VPC network: software- defined virtual private network, used for data isolation between tenants, providing custom VPC network, subnet planning and network topology;
+- VPC network: software-defined virtual private network, used for data isolation between tenants, providing custom VPC network, subnet planning and network topology;
 - External network IP: used for external network IP access of resources such as virtual machines, load balancing, NAT gateways, and VPN gateways, used to connect to the external network of the platform, such as virtual machines accessing the Internet or accessing The physical machine network of the IDC data center; supports simultaneous binding of multiple external network IPs to virtual resources, and provides IPv6 network connection services;
 - Security group: virtual firewall, which provides inbound and outbound traffic access control rules, defines which networks or protocols can access resources, and is used to limit network access traffic to virtual resources, supports TCP, UDP, ICMP and multiple An application protocol to provide the necessary security guarantee for the cloud platform;
 - Elastic network card: An elastic network interface that can be attached to a virtual machine at any time, supports binding and unbinding, and can be flexibly migrated among multiple virtual machines, providing high-availability cluster building capabilities for virtual machines. It can realize refined network management and cheap failover scheme at any time;
@@ -121,7 +152,8 @@ SCloudStack ensures the idempotence of platform resource APIs through technical 
 
 ### Distributed
 
-(1) Distributed underlying system: SCloudStack core module provides distributed underlying support such as computing, storage, and scheduling for intelligent scheduling, resource management, security management, cluster deployment, and cluster monitoring, etc. function module.
+#### (1) Distributed underlying system
+SCloudStack core module provides distributed underlying support such as computing, storage, and scheduling for intelligent scheduling, resource management, security management, cluster deployment, and cluster monitoring, etc. function module.
 
 - Intelligent scheduling: Provide tenants with intelligent scheduling modules based on distributed service calls and remote service calls. The intelligent scheduling module monitors the status and load of the cluster and all service nodes in real time. When a cluster expands, a server fails, a network fails, or configuration changes occur, the intelligent scheduling module will automatically Migrate the virtual resources of the changed cluster to healthy server nodes to ensure the high reliability and availability of the cloud platform;
 - Resource management: Through the distributed resource management module, it is responsible for the allocation and management of resources such as cluster computing, storage, and network, and provides resource quotas, resource applications, and resource management for cloud platform tenants. Scheduling, resource occupation and access control to improve the resource utilization of the entire cluster;
@@ -129,7 +161,8 @@ SCloudStack ensures the idempotence of platform resource APIs through technical 
 - Cluster deployment: The distributed underlying system provides modules for automatic deployment of cluster nodes for the cloud platform, and provides cluster deployment, configuration management, cluster management, cluster expansion, online migration and service nodes for operation and maintenance personnel. Click offline and other functions to provide automatic deployment channels for platform managers;
 - Cluster monitoring: The monitoring module is mainly responsible for information collection, monitoring and alarming of platform physical resources and virtual resources. The monitoring module deploys Agents on physical machines and virtual resources, obtains the running status information of resources, and displays the information indicators to users; at the same time, the monitoring module provides monitoring alarm rules, through By configuring the alarm rules, monitor and alarm the status events of the cluster, and effectively store the monitoring and alarm history records;
   
-(2) Distributed storage system: SCloudStack adopts a highly reliable, highly secure, highly scalable, and high-performance distributed storage system to provide block storage services to ensure the security and reliability of local data.
+#### (2) Distributed storage system
+SCloudStack adopts a highly reliable, highly secure, highly scalable, and high-performance distributed storage system to provide block storage services to ensure the security and reliability of local data.
 
 - Software -defined distributed storage aggregates the disk storage resources of a large number of general-purpose machines, adopts common storage system standards, and manages all storage in the data center in a unified manner;
 - The distributed storage system adopts a multi-copy data backup mechanism. When writing data, it first writes data to the master copy, and the master copy is responsible for synchronizing data to other copies, and copies each copy of data Servers, across cabinets, and across data centers are stored on different disks, ensuring data security in multiple dimensions;
@@ -141,20 +174,20 @@ SCloudStack ensures the idempotence of platform resource APIs through technical 
 
 In terms of deployment, the SSD disk built into the computing node is built as a high-performance storage pool, and the ``SATA`/SAS` disk built into the computing node is built into a common performance storage pool. The distributed storage system builds block devices as elastic block storage, which can be directly mounted and used by virtual machines. When data is written, it uses three copies, a write confirmation mechanism, and copy distribution strategies. Maximize data security and availability. The snapshot technology can be used locally to back up the local data regularly. When the data is lost or damaged, the snapshot can be used to quickly restore the local business data.
 
-(3) Distributed network architecture: Distributed Overlay network is adopted to provide network functions such as VPC, NAT gateway, load balancing, security group, and external network IP.
+#### (3) Distributed network architecture
+Distributed Overlay network is adopted to provide network functions such as VPC, NAT gateway, load balancing, security group, and external network IP.
 
 - The Overlay network of the SCloudStack cloud platform is distributed and runs on all computing nodes;
- -The management service is only used as a management role, and does not undertake the deployment of network components and production network transmission;
- -The virtual network flow table distribution service is a high-availability architecture, only for flow table distribution and not transparently transmitted to the production network;
- -All production networks are only transmitted on computing nodes, without forwarding through management services or flow table distribution services;
- -the management service and the flow table distribution service will not affect the operation and communication of the deployed virtual resources.
+  - The management service is only used as a management role, and does not undertake the deployment of network components and production network transmission;
+  - The virtual network flow table distribution service is a high-availability architecture, only for flow table distribution and not transparently transmitted to the production network;
+  - All production networks are only transmitted on computing nodes, without forwarding through management services or flow table distribution services; the management service and the flow table distribution service will not affect the operation and communication of the deployed virtual resources.
 - Hyper-converged computing nodes or independent storage nodes are divided into different clusters ( Set ) according to disks and services;
- -Each cluster has a maximum of 45 nodes to control the cluster size;
- -The business data network is only transmitted in a single cluster, that is, in a single group of switches.
+  - Each cluster has a maximum of 45 nodes to control the cluster size;
+  - The business data network is only transmitted in a single cluster, that is, in a single group of switches.
 - Distributed storage is mounted directly through the physical network, without the need for mounting and transmission through the overlay network;
- -Integrate distributed storage rbd and qemu through libvirt, qemu operates distributed storage through librbd;
- -The virtualization process and the distributed storage process communicate through the local & cross-physical machine intranet;
- -The intranet of the cloud platform uses at least 10 Gigabit switches and port aggregation, which can meet the performance requirements of virtual machines and distributed storage;
+  - Integrate distributed storage rbd and qemu through libvirt, qemu operates distributed storage through librbd;
+  - The virtualization process and the distributed storage process communicate through the local & cross-physical machine intranet;
+  - The intranet of the cloud platform uses at least 10 Gigabit switches and port aggregation, which can meet the performance requirements of virtual machines and distributed storage;
 
 The distributed network architecture disperses business data transmission to each computing node. Except for northbound traffic such as business logic that requires management services, all southbound traffic such as business implementation of virtualized resources is distributed on computing nodes or On storage nodes, that is, platform business expansion is not limited by the number of management nodes.
 
