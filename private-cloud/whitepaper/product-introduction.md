@@ -25,7 +25,7 @@ The overall product architecture of the SCloudStack platform consists of basic h
 Servers, switches, and storage devices used to host the SCloudStack platform.
 
 - The platform supports and is compatible with general-purpose `X86, ARM` and `MIPS` architecture hardware servers, with no restrictions on server and hardware brands;
-- Support `SSD, `SATA`, SAS` and other disk storage, and support computing and storage hyper-converged nodes and docking disk array devices, without vendor lock-in;
+- Support `SSD, SATA, SAS` and other disk storage, and support computing and storage hyper-converged nodes and docking disk array devices, without vendor lock-in;
 - Support Huawei, Cisco, H3C and other general switches, router network equipment access, all network functions are defined by SDN software, only physical switches are required to support `Vlan, Trunk, IPv6`, port aggregation, stacking, etc. characteristics;
 - Support hybrid cloud access and adapt to customers' existing hardware resources, and seamlessly connect existing resource services while making full use of resources.
 
@@ -35,7 +35,7 @@ The implementation and logic of the operating system kernel, virtualized computi
 #### Kernel module
 Host the server operating system and kernel module running on the cloud platform, and reuse the deeply optimized Linux kernel of the public cloud; at the same time, it is compatible with server operating systems such as ARM ecological UOS and Galaxy Kylin system and kernel;
 #### Virtualized computing
-Realize computing virtualization through KVM (Kernel-based Virtual Machine), QEMU (Quick Emulator) & Libvirt (The Management Layer), support standard virtualization architecture, provide full life cycle management of virtual machines, compatible with X86 and ARM architecture systems, support hot upgrade, reinstallation Features such as system installation, CPU over-scaling, GPU transparent transmission, online migration, downtime migration, anti- affinity deployment, etc., and support for importing and exporting virtual machine images to meet the needs of business migration to the cloud;
+Realize computing virtualization through `KVM` (Kernel-based Virtual Machine), `QEMU` (Quick Emulator) & `Libvirt` (The Management Layer), support standard virtualization architecture, provide full life cycle management of virtual machines, compatible with X86 and ARM architecture systems, support hot upgrade, reinstallation Features such as system installation, CPU over-scaling, GPU transparent transmission, online migration, downtime migration, anti- affinity deployment, etc., and support for importing and exporting virtual machine images to meet the needs of business migration to the cloud;
 
 **KVM (Kernel-based Virtual Machine) – The Hypervisor**
 
@@ -49,8 +49,8 @@ _Think of KVM as the engine that makes virtualization possible on a Linux host._
 
 What it is: A powerful hardware emulator and virtualizer.
 Two modes:
-•	Emulation mode: Can emulate CPUs and devices completely in software (slow but flexible).
-•	Virtualization mode: With KVM, it uses hardware acceleration to run VMs much faster.
+- Emulation mode: Can emulate CPUs and devices completely in software (slow but flexible).
+- Virtualization mode: With KVM, it uses hardware acceleration to run VMs much faster.
 
 Key role: It starts and manages VMs, emulates I/O devices (like disk, network cards, USB), and loads operating systems.
 
@@ -60,9 +60,9 @@ _QEMU is the tool that interacts with KVM, sets up virtual hardware, and boots t
 
 What it is: A high-level API and service to manage virtualization platforms like KVM/QEMU, Xen, LXC, etc.
 Provides:
-•	CLI (virsh)
-•	GUI tools (e.g., Virt-Manager)
-•	Programmatic APIs (C, Python, etc.)
+- CLI (virsh)
+- GUI tools (e.g., Virt-Manager)
+- Programmatic APIs (C, Python, etc.)
 
 Key role: Makes it easier to create, start, stop, snapshot, migrate, and configure VMs.
 
